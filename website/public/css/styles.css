@@ -6,10 +6,16 @@
 	font-family: "Roboto", sans-serif;
 }
 
+footer {
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	color: #fff;
+}
 #category-bar {
 	font-size: 30px;
 }
-
 .nav-btn {
 	background-color: #212529;
 	border: none;
@@ -41,13 +47,21 @@ Extra extra large	xxl	≥1400px
 */
 
 @media (min-width: 768px) {
+	main{
+		max-width:1200px;
+		margin:0 auto;
+	}
+	}
 	nav {
 		border: none;
 	}
 	.navbar-secondary {
 		height: 30px;
+		font-size: 14px;
 		border: none;
+		margin-bottom: 5px;
 	}
+
 	.nav-btn {
 		width: 80px;
 		display: inline-block;
@@ -64,10 +78,24 @@ Extra extra large	xxl	≥1400px
 	}
 	#carousel-main {
 		align-content: center;
-		width: 75%;
+		width: 40%;
 		margin: 0 auto;
 	}
 	#productSearchList {
 		text-overflow: ellipsis;
+	}
+	#category-bar {
+		margin: 0 auto;
+		width: 90%;
+		font-size: 48px;
+		background-color: #ffffff;
+	}
+	.searchBar {
+		background-color: #ffffff;
+	}
+	.search-advanced-filters {
+		justify-content: space-evenly;
+		align-items: flex-end;
+		font-size: 12px;
 	}
 }

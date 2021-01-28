@@ -32,11 +32,11 @@
                 <div class="container-fluid">
                     <div class="d-flex w-75">
                         <a class="navbar-brand" href="#">RealCars</a>
-                        <form action="" method="" class="d-flex w-75">
+                        <form action="/search" method="GET" class="d-flex w-75">
                             <div class="input-group">
                                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search"
                                     aria-describedby="button-addon2">
-                                <button class="btn btn-outline-none text-danger bg-white" type="button"
+                                <button class="btn btn-outline-none text-danger bg-white" type="submit"
                                     id="button-addon2"><i class="fas fa-search"></i></button>
                             </div>
                         </form>
@@ -51,7 +51,8 @@
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item pe-1 my-2 my-md-0">
                                 <button type="button"
-                                    class="nav-item btn btn-secondary btn-sm me-1 nav-btn btn-register">Register</button>
+                                    class="nav-item btn btn-secondary btn-sm me-1 nav-btn btn-register">
+                                    Register</button>
                             </li>
                             <li class="nav-item pe-1 my-2 my-md-0">
                                 <button type="button"
@@ -87,7 +88,7 @@
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Categorias
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">Autos</a></li>
                                     <li><a class="dropdown-item" href="#">Camionetas</a></li>
                                     <li>
@@ -105,7 +106,7 @@
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Favoritos
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">Autos</a></li>
                                     <li><a class="dropdown-item" href="#">Camionetas</a></li>
                                     <li>
@@ -126,10 +127,8 @@
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </nav>
-
             <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                 <div class="container-fluid">
                     <div class="d-flex w-75">
@@ -235,7 +234,7 @@
                         <img src="https://www.hdcarwallpapers.com/download/italdesign_gt_zero_electric_geneva_auto_show_2016-1920x1080.jpg"
                             class="d-flex w-100" alt="...">
                     </div>
-                    <div class="carousel-item" data-bs-interval="2000">
+                    <div class="carousel-item" data-bs-interval="10000">
                         <img src="https://i2.wp.com/www.stugon.com/wp-content/uploads/2013/12/Exotic-Car-Wallpapers-HD-Edition-stugon.com-4.jpg"
                             class="d-block w-100" alt="...">
                     </div>
@@ -275,10 +274,7 @@
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <!-- tipo | Marca | modelo | Version | Km desde |Km hasta -->
                         <!-- Año desde | año hasta | Precio desde | Precios Hasta -->
-
-
-                        <form action="" method="get" class="bg-dark text-light">
-                            <h4>OPCION 1</h4>
+                        <form action="" method="get" class="">
                             <div class="row">
                                 <label for="productSearchList" class="form-label">Buscador</label>
                                 <div class="input-group mb-3">
@@ -304,7 +300,7 @@
                                         aria-describedby="button-addon2" type="button" id="button-addon2"><i
                                             class="fas fa-search text-danger"></i></button>
                                 </div>
-                                <div class="row">
+                                <div class="row search-advanced-filters d-flex">
                                     <div class="form-group col-2">
                                         <label for="inputKMFrom">KM Desde</label>
                                         <select id="inputKMFrom" class="form-control">
@@ -315,7 +311,7 @@
                                             <option>250mil+</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-2">
+                                    <div class="form-group col-2 search-advanced-filters">
                                         <label for="inputKMHasta">KM Desde</label>
                                         <select id="inputKMHasta" class="form-control">
                                             <option selected>...</option>
@@ -325,7 +321,7 @@
                                             <option>250mil+</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-2">
+                                    <div class="form-group col-2 search-advanced-filters">
                                         <label for="inputYearFrom">Año Desde</label>
                                         <select id="inputYearFrom" class="form-control">
                                             <option selected>...</option>
@@ -335,7 +331,7 @@
                                             <option>2020</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-2">
+                                    <div class="form-group col-2 search-advanced-filters">
                                         <label for="inputYearTo">Año Hasta</label>
                                         <select id="inputYearTo" class="form-control">
                                             <option selected>...</option>
@@ -345,7 +341,7 @@
                                             <option>2020</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-2">
+                                    <div class="form-group col-2 search-advanced-filters">
                                         <label for="inputPriceFrom">Precio Desde</label>
                                         <select id="inputPriceFrom" class="form-control">
                                             <option selected>...</option>
@@ -355,7 +351,7 @@
                                             <option>$0.000.000</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-2">
+                                    <div class="form-group col-2 search-advanced-filters">
                                         <label for="inputPriceTo">Precio Desde</label>
                                         <select id="inputPriceTo" class="form-control">
                                             <option selected>...</option>
@@ -368,117 +364,12 @@
                                 </div>
                         </form>
                     </div>
-                    <form class="searchFields">
-                        <h4>OPCION 2</h4>
-                        <div class="row">
-                            <div class="form-group col-2">
-                                <label for="inputType">Tipo</label>
-                                <select id="inputTipo" class="form-control">
-                                    <option selected>Tipo</option>
-                                    <option>Auto</option>
-                                    <option>Camioneta</option>
-                                    <option>Moto</option>
-                                    <option>Camion</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="inputMake">Marca</label>
-                                <select id="inputMarca" class="form-control">
-                                    <option selected>Marca</option>
-                                    <option>Audi</option>
-                                    <option>BMW</option>
-                                    <option>VW</option>
-                                    <option>Test</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="inputModel">Modelo</label>
-                                <select id="inputModel" class="form-control">
-                                    <option selected>Modelo</option>
-                                    <option>A1</option>
-                                    <option>Q2</option>
-                                    <option>A3</option>
-                                    <option>Q3</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="inputTrim">Version</label>
-                                <select id="inputTrim" class="form-control">
-                                    <option selected>Version</option>
-                                    <option>1.2</option>
-                                    <option>1.4</option>
-                                    <option>TDI</option>
-                                    <option>TFSI</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="inputKMFrom">KM Desde</label>
-                                <select id="inputKMFrom" class="form-control">
-                                    <option selected>...</option>
-                                    <option>10-50mil</option>
-                                    <option>50-100mil</option>
-                                    <option>100-250mil</option>
-                                    <option>250mil+</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="inputKMHasta">KM Desde</label>
-                                <select id="inputKMHasta" class="form-control">
-                                    <option selected>...</option>
-                                    <option>10-50mil</option>
-                                    <option>50-100mil</option>
-                                    <option>100-250mil</option>
-                                    <option>250mil+</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="inputYearFrom">Año Desde</label>
-                                <select id="inputYearFrom" class="form-control">
-                                    <option selected>...</option>
-                                    <option>1900</option>
-                                    <option>1950</option>
-                                    <option>2000</option>
-                                    <option>2020</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="inputYearTo">Año Hasta</label>
-                                <select id="inputYearTo" class="form-control">
-                                    <option selected>...</option>
-                                    <option>1900</option>
-                                    <option>1950</option>
-                                    <option>2000</option>
-                                    <option>2020</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="inputPriceFrom">Precio Desde</label>
-                                <select id="inputPriceFrom" class="form-control">
-                                    <option selected>...</option>
-                                    <option>$0.0000</option>
-                                    <option>$00.0000</option>
-                                    <option>$000.000</option>
-                                    <option>$0.000.000</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="inputPriceTo">Precio Desde</label>
-                                <select id="inputPriceTo" class="form-control">
-                                    <option selected>...</option>
-                                    <option>$0.0000</option>
-                                    <option>$00.0000</option>
-                                    <option>$000.000</option>
-                                    <option>$0.000.000</option>
-                                </select>
-                            </div>
-                        </div>
-                    </form>
+
 
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                 </div>
 
-                </div>
                 <!-- tipo | Marca | modelo | Version | Km desde |Km hasta -->
                 <!-- Año desde | año hasta | Precio desde | Precios Hasta -->
             </section>
