@@ -56,6 +56,14 @@ h2 {
   font-size: 10px;
 }
 
+.title {
+  padding-top: 10px;
+}
+
+.location {
+  font-weight: bold;
+}
+
 .price {
   font-size: x-large;
 }
@@ -63,6 +71,11 @@ h2 {
 .product-state {
   font-weight: bold;
   font-size: 1.2em;
+}
+
+.product-shipping {
+  font-weight: bold;
+  font-size: 1.1em;
 }
 
 #rating {
@@ -78,11 +91,10 @@ h2 {
 }
 
 .buttons-container {
-  padding-top: 5px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 5px;
 }
 
 .buttons-container .btn {
@@ -94,7 +106,8 @@ h2 {
 }
 
 .payment-methods-link {
-  margin-top: 10px;
+  margin-top: 15px;
+  padding-bottom: 5px;
   text-align: center;
 }
 
@@ -126,17 +139,20 @@ h2 {
 #dataSheet {
   display: flex;
   flex-direction: column;
-}
-
-#dataSheet a {
-  text-decoration: none;
-  color: black;
-  display: flex;
-  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #dataSheet i {
   margin-left: 5px;
+}
+
+.datasheet-header {
+  margin-top: 5px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
 }
 
 #question-form {
@@ -173,6 +189,11 @@ h2 {
 @media (min-width: 769px) {
   #top {
     display: flex;
+  }
+
+  .table-datasheet {
+    max-width: 70%;
+    margin: auto;
   }
 
   .form-floating {

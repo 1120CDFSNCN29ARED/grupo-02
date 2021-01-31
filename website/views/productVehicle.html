@@ -52,6 +52,7 @@
             <p class="date">Publicado el 16/1/2021</p>
             <h2 class="title">Kia Sorento 2.2 Ex</h2>
             <p class="product-state">Usado</p>
+            <p class="location">Ubicación: Belgrano, CABA</p>
             <div class="rating-container">
                 <p id="rating">Rating</p>
                 <i class="fas fa-star"></i>
@@ -69,7 +70,7 @@
         <section>
             <div id="characteristics">
                 <h2>Características principales</h2>
-                <table id="attributesTable">
+                <table class="table table-striped table-hover" id="attributesTable">
                     <tr>
                         <td>
                             Marca
@@ -113,58 +114,220 @@
             </div>
             <div id="dataSheet">
               <h2>Ficha técnica</h2>
-              <a data-bs-toggle="collapse" data-bs-target="#motorCollapse" role="button" aria-expanded="false" aria-controls="motorCollapse">Motor<i class="fas fa-chevron-down"></i></a>
+              <a class="datasheet-header" data-bs-toggle="collapse" data-bs-target="#motorCollapse" role="button" aria-expanded="false" aria-controls="motorCollapse">Motor<i class="fas fa-chevron-down"></i></a>
               <div class="collapse" id="motorCollapse">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <table class="table table-striped table-hover table-datasheet">
+                    <tr>
+                      <td>Motor</td>
+                      <td>4 en línea</td>
+                    </tr>
+                    <tr>
+                      <td>Código del motor</td>
+                      <td>Hyundai Smartstream G 1.6</td>
+                    </tr>
+                    <tr>
+                      <td>Combustible</td>
+                      <td>Híbrido / Nafta</td>
+                    </tr>
+                    <tr>
+                      <td>Alimentación</td>
+                      <td>Inyección directa</td>
+                    </tr>
+                    <tr>
+                      <td>Cilindrada</td>
+                      <td>1598 cm3</td>
+                    </tr>
+                    <tr>
+                      <td>Caja de cambios</td>
+                      <td>Automática</td>
+                    </tr>
+                    <tr>
+                      <td>Número de marchas</td>
+                      <td>6</td>
+                    </tr>
+                </table>
                 </div>
               </div>
-              <a data-bs-toggle="collapse" data-bs-target="#consumptionCollapse" role="button" aria-expanded="false" aria-controls="consumptionCollapse">Consumo<i class="fas fa-chevron-down"></i></a>
+              <a class="datasheet-header" data-bs-toggle="collapse" data-bs-target="#consumptionCollapse" role="button" aria-expanded="false" aria-controls="consumptionCollapse">Consumo<i class="fas fa-chevron-down"></i></a>
               <div class="collapse" id="consumptionCollapse">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <table class="table table-striped table-hover table-datasheet">
+                    <tr>
+                      <td>Consumo en ciudad</td>
+                      <td>12.6 lt/100km</td>
+                    </tr>
+                    <tr>
+                      <td>Consumo en ruta</td>
+                      <td>8.0 lt/100km</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
-              <a data-bs-toggle="collapse" data-bs-target="#capabilityCollapse" role="button" aria-expanded="false" aria-controls="capabilityCollapse">Prestaciones<i class="fas fa-chevron-down"></i></a>
+              <a class="datasheet-header" data-bs-toggle="collapse" data-bs-target="#capabilityCollapse" role="button" aria-expanded="false" aria-controls="capabilityCollapse">Prestaciones<i class="fas fa-chevron-down"></i></a>
               <div class="collapse" id="capabilityCollapse">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <table class="table table-striped table-hover table-datasheet">
+                    <tr>
+                      <td>Velocidad máxima</td>
+                      <td>193 km/h</td>
+                    </tr>
+                    <tr>
+                      <td>Aceleración 0-100 km/h</td>
+                      <td>8.6s</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
-              <a data-bs-toggle="collapse" data-bs-target="#dimensionCollapse" role="button" aria-expanded="false" aria-controls="dimensionCollapse">Dimensiones<i class="fas fa-chevron-down"></i></a>
+              <a class="datasheet-header" data-bs-toggle="collapse" data-bs-target="#dimensionCollapse" role="button" aria-expanded="false" aria-controls="dimensionCollapse">Dimensiones<i class="fas fa-chevron-down"></i></a>
               <div class="collapse" id="dimensionCollapse">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <table class="table table-striped table-hover table-datasheet">
+                    <tr>
+                      <td>Longitud</td>
+                      <td>481cm</td>
+                    </tr>
+                    <tr>
+                      <td>Anchura</td>
+                      <td>190cm</td>
+                    </tr>
+                    <tr>
+                      <td>Altura</td>
+                      <td>170cm</td>
+                    </tr>
+                    <tr>
+                      <td>Distancia del suelo</td>
+                      <td>17.4cm</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
-              <a data-bs-toggle="collapse" data-bs-target="#exteriorCollapse" role="button" aria-expanded="false" aria-controls="exteriorCollapse">Exterior<i class="fas fa-chevron-down"></i></a>
+              <a class="datasheet-header" data-bs-toggle="collapse" data-bs-target="#exteriorCollapse" role="button" aria-expanded="false" aria-controls="exteriorCollapse">Exterior<i class="fas fa-chevron-down"></i></a>
               <div class="collapse" id="exteriorCollapse">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <table class="table table-striped table-hover table-datasheet">
+                    <tr>
+                      <td>Manijas cromadas</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Luces delanteras</td>
+                      <td>Halógenas</td>
+                    </tr>
+                    <tr>
+                      <td>Lucas traseras</td>
+                      <td>LED</td>
+                    </tr>
+                    <tr>
+                      <td>Marco de ventanas cromadas</td>
+                      <td>Sí</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
-              <a data-bs-toggle="collapse" data-bs-target="#interiorCollapse" role="button" aria-expanded="false" aria-controls="interiorCollapse">Interior<i class="fas fa-chevron-down"></i></a>
+              <a class="datasheet-header" data-bs-toggle="collapse" data-bs-target="#interiorCollapse" role="button" aria-expanded="false" aria-controls="interiorCollapse">Interior<i class="fas fa-chevron-down"></i></a>
               <div class="collapse" id="interiorCollapse">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <table class="table table-striped table-hover table-datasheet">
+                    <tr>
+                      <td>Tipo de asientos</td>
+                      <td>Cuero</td>
+                    </tr>
+                    <tr>
+                      <td>Apertura y cierre centralizado de puertas con comando a distancia</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Apoyabrazos delantero frontal con guarda objetos</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Asientos delanteros calefaccionados</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Climatizador automático con salida de aire para plazas traseras</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Control de velocidad crucero</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Techo solar</td>
+                      <td>Sí</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
-              <a data-bs-toggle="collapse" data-bs-target="#comfortCollapse" role="button" aria-expanded="false" aria-controls="comfortCollapse">Confort<i class="fas fa-chevron-down"></i></a>
-              <div class="collapse" id="comfortCollapse">
-                <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                </div>
-              </div>
-              <a data-bs-toggle="collapse" data-bs-target="#securityCollapse" role="button" aria-expanded="false" aria-controls="securityCollapse">Seguridad<i class="fas fa-chevron-down"></i></a>
+              <a class="datasheet-header" data-bs-toggle="collapse" data-bs-target="#securityCollapse" role="button" aria-expanded="false" aria-controls="securityCollapse">Seguridad<i class="fas fa-chevron-down"></i></a>
               <div class="collapse" id="securityCollapse">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <table class="table table-striped table-hover table-datasheet">
+                    <tr>
+                      <td>Airbag de rodilla para conductor</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Airbags delanteros para conductor y acompañante</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Airbags laterales tipo cortina</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Cinturones de seguridad delanteros ajustables en altura, incerciales de 3 puntos con pretensores</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Control Electrónico de Estabilidad (ESP)</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Dirección Asistida Electrónica (EPAS)</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Freno a disco en las 4 ruedas</td>
+                      <td>Sí</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
-              <a data-bs-toggle="collapse" data-bs-target="#technologyCollapse" role="button" aria-expanded="false" aria-controls="technologyCollapse">Tecnología<i class="fas fa-chevron-down"></i></a>
+              <a class="datasheet-header" data-bs-toggle="collapse" data-bs-target="#technologyCollapse" role="button" aria-expanded="false" aria-controls="technologyCollapse">Tecnología<i class="fas fa-chevron-down"></i></a>
               <div class="collapse" id="technologyCollapse">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <table class="table table-striped table-hover table-datasheet">
+                    <tr>
+                      <td>Asistente de pre-colisión con frenado automático de emergencia y detección de peatones</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Cámara de estacionamiento trasera</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Sistema de apertura de puertas sin llave</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Sistema de audio con controles al volante, puertos USB y 6 parlantes</td>
+                      <td>Sí</td>
+                    </tr>
+                    <tr>
+                      <td>Cilindrada</td>
+                      <td>1598 cm3</td>
+                    </tr>
+                    <tr>
+                      <td>Caja de cambios</td>
+                      <td>Automática</td>
+                    </tr>
+                    <tr>
+                      <td>Número de marchas</td>
+                      <td>6</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
             </div>
