@@ -2,15 +2,15 @@ const { static } = require("express");
 const express = require("express");
 const path = require("path");
 const app = express();
-const PORT = 3000;
+const MYPORT = 3000;
 
 //Middleware
 const staticFolder = path.resolve(__dirname, "./public");
 app.use(express.static(staticFolder));
 
 //Router
-app.listen(PORT, () => {
-	console.log(`The server is running on ${PORT}`);
+app.listen(process.env.PORT || MYPORT, () => {
+	console.log(`The server is running on ${MYPORT}`);
 });
 
 app.get("/", (req, res) => {
