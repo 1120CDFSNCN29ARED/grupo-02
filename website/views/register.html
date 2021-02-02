@@ -1,11 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Styling -->
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- FontAwesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+		/>
+		<!-- Normalize -->
+		<link rel="stylesheet" href="/css/normalize.css" />
+		<!-- My style -->
+		<link rel="stylesheet" href="/css/styles-header.css" />
+		<link rel="stylesheet" href="/css/styles-register.css" />
+		<link rel="stylesheet" href="/css/styles-footer.css" />
+		<link
+			rel="stylesheet"
+			href="/css/styles-mediaquery-medium-large.css"
+			media="(min-width: 768px)"
+		/>
+		<link rel="stylesheet" href="/css/styles.css" />
+		<title>Real Cars</title>
+	</head>
+<body>    
+    <nav class="navbar navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-text" id="nav-btn-main-page" href='/'>
+					< Volver
+                </a>								
+			</div>
+        </nav>
+        <div class="container-fluid registration">            
+                <div class="container-fluid text-center logo"><h2>Real CARS</h2></div>
+                <div class="container-fluid text-center byline"><h6>Registrarte para ver todos los autos y repuestos que tenemos para vos</h6></div>
+            <div class="container-fluid container-registration-form text-center">
+                <form action="" class="form-registration">
+                    <div class="form-floating mb-1">
+								<input
+									type="text"
+									class="form-control registration-field"
+									id="userEmail"
+									placeholder="email@host.com"
+									required
+								/>
+								<label for="userEmail"
+									>Email</label
+								>
+                            </div>
+                            <div class="form-floating mb-1">
+								<input
+									type="text"
+									class="form-control registration-field"
+									id="userFirstName"
+									placeholder="Tu Nombre"
+									required
+								/>
+								<label for="userFirstName"
+									>Primer Nombre</label
+								>
+                            </div>
+                            <div class="form-floating mb-1">
+								<input
+									type="text"
+									class="form-control registration-field"
+									id="userSurname"
+									placeholder="Tu Nombre"
+									required
+								/>
+								<label for="userSurname"
+									>Apellido</label
+								>
+                            </div>
+                            <div class="form-floating mb-1">
+								<input
+									type="text"
+									class="form-control registration-field"
+									id="userTelephone"
+									placeholder="+5491133048054"
+									required
+								/>
+								<label for="userTelephone"
+									>Telefono</label
+								>
+                            </div>
+                             <div class="form-floating mb-1">
+                                    <input
+                                        type="text"
+                                        class="form-control registration-field"
+                                        id="userID"
+                                        placeholder="Usuario"
+                                        required
+                                    />
+                                    <label for="userID">Usuario</label>
+                                </div>
+                            <div class="form-floating mb-1">
+                                    <input
+                                        type="password"
+                                        class="form-control registration-field"
+                                        id="userPassword"
+                                        placeholder="Password"
+                                        required
+                                    />
+                                    <label for="userPassword">Contraseña</label>
+                                </div>
+                                <div class="container-fluid d-flex container-registration-cta">
+                                    <div class="registration-cta"><a href="/login" class="registration-link">login</a></div>
+                                    <div class="registration-cta"><button class="btn-registration-confirm btn-lg" type="submit">Confirmar</button></div>
+                                </div>
+                </form>   
+            </div>
+        </div>
 </body>
 </html>

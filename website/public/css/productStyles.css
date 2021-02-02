@@ -1,0 +1,222 @@
+/*product part styles*/
+* {
+  box-sizing: border-box;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  font-family: roboto, sans-serif;
+}
+.placeholder {
+  height: 50px;
+  background-color: darkslategray;
+  color: white;
+}
+
+.price {
+  color: #cf2a2a;
+  font-weight: bold;
+  display: inline;
+}
+
+body {
+  background-color: #e5e5e5;
+}
+
+#productPhotoCarousel {
+  width: 100%;
+  height: 300px;
+}
+
+.carousel-inner {
+  max-height: 300px;
+  object-fit: scale-down;
+}
+
+img {
+  object-fit: contain;
+  max-height: fit-content;
+}
+
+#mainDetails {
+  background-color: white;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.date {
+  float: right;
+  display: inline;
+  padding-top: 5px;
+  padding-right: 5px;
+  font-size: 10px;
+}
+
+.title {
+  padding-top: 10px;
+}
+
+.location {
+  font-weight: bold;
+}
+
+.price {
+  font-size: x-large;
+}
+
+.product-state {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.product-shipping {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+#rating {
+  display: inline;
+  font-weight: bold;
+  font-size: 1.4em;
+  margin-right: 10px;
+}
+
+.rating-container i {
+  display: inline;
+  color: #cf2a2a;
+}
+
+.buttons-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons-container .btn {
+  margin-right: 10px;
+}
+
+.fa-heart {
+  font-size: 1.3em;
+}
+
+.payment-methods-link {
+  margin-top: 15px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.payment-methods-link a,
+.payment-methods-link i {
+  font-size: 16px;
+}
+
+#characteristics,
+#description,
+#questions,
+#dataSheet {
+  background-color: white;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+#characteristics h2,
+#description h2 {
+  font-weight: bold;
+}
+
+#attributesTable {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+#dataSheet {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#dataSheet i {
+  margin-left: 5px;
+}
+
+.datasheet-header {
+  margin-top: 5px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+#question-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-floating {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.question {
+  font-size: 13px;
+  position: relative;
+}
+
+.question-arrow {
+  font-size: 10px;
+  position: absolute;
+  bottom: 0;
+  padding-left: 5px;
+  color: #8a8a8a;
+}
+
+.answer {
+  font-size: 11px;
+  color: #8a8a8a;
+  padding-left: 15px;
+}
+
+@media (min-width: 769px) {
+  #top {
+    display: flex;
+  }
+
+  .table-datasheet {
+    max-width: 70%;
+    margin: auto;
+  }
+
+  .form-floating {
+    width: 80%;
+    margin-right: 10px;
+  }
+
+  #askQuestion {
+    height: 90%;
+  }
+
+  #mainDetails {
+    margin-top: 0;
+    padding-top: 10px;
+    width: 50%;
+  }
+
+  #productPhotoCarousel {
+    max-width: 50%;
+  }
+
+  body {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
