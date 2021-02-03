@@ -1,7 +1,7 @@
 # Retrospectiva para el Grupo 2
-## Santi, Lucas y Simon
+### Santi, Lucas y Simon
 
-### Sprint 1
+## Sprint 1
 #### [Retro](https://drive.google.com/file/d/1sQz_QFPDwsgH0QhJVXRa9l9P64Nel3dj/view?usp=sharing) : El tablero de nuestro retro esta subido a google drive y lo hicimos utilizando Miro.
 #### Reflexiones Iniciales
      Como grupo estábamos de acuerdo que habíamos sido proactivo y encontramos un buen ritmo como equipo.
@@ -15,30 +15,30 @@
      Y por último vinculado con el punto de STOP sobre las fechas intermedias hablamos de establecer fechas intermedias nuestras como hard deadlines, para cunmplir internamente y generar espacio para testear y resolver conflictos en las versiones y ramas de desarrollo.
 
 
-### Sprint 2
+## Sprint 2
 #### [Retro]() :
 #### Reflexiones Iniciales
 
-### Sprint 3
+## Sprint 3
 #### [Retro]() :
 #### Reflexiones Iniciales
 
-### Sprint 4
+## Sprint 4
 #### [Retro]() :
 #### Reflexiones Iniciales
 
-### Sprint 5
+## Sprint 5
 #### [Retro]() :
 #### Reflexiones Iniciales
 
-### Sprint 6
+## Sprint 6
 #### [Retro]() :
 #### Reflexiones Iniciales
 
-### Sprint 7
+## Sprint 7
 #### [Retro]() :
 #### Reflexiones Iniciales
 
-### Sprint 8 - FINAL
+## Sprint 8 - FINAL
 #### [Retro]() :
 #### Reflexiones Iniciales
