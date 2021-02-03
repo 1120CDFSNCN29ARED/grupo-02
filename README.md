@@ -22,8 +22,6 @@ Para el desarrollo de este nuevo e-commerce, se cuenta con un equipo de tres mar
 - Simon Huxter - CPN de la UNT, formación en finanzas y actualmente como co-fundador de un start-up que se dedica a desarrollar soluciones para la industria autmotriz.
 - Lucas Spisso - Estudiante de economia en UDA - Manager de emprendimiento gastronomico en Valle de Uco Mendoza.
 
-### Tipografía
-
 ## Sitios de inspiración
 
 - [Mercado Libre](https://www.mercadolibre.com.ar) - Mayor e-commerce de América Latina, cuenta con una gran variedad de categorías de todo tipo incluyendo vehículos y repuestos. Ponen mucho enfasis en UX y es un beun fuente para ver los cambio sentre mobile y full screen.
@@ -35,4 +33,5 @@ Para el desarrollo de este nuevo e-commerce, se cuenta con un equipo de tres mar
 - [Autocity](https://autocity.com.ar/) - Tienen una ficha de producto comodo que es responsive.
 
 ## Tablero de Trabajo
+
 - [Trello](https://trello.com/b/TW976JYc/proyecto-integrador)
