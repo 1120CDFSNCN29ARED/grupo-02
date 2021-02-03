@@ -33,3 +33,6 @@ Para el desarrollo de este nuevo e-commerce, se cuenta con un equipo de tres mar
 - [Car Sales](https://www.carsales.com.au) - Car Sales pertenece a uno de los mayores grupos a nivel mundial en cuanto a marketplace de autos/vehiculos y tambien es para tener otros ideas.
 - [Kavak](https://www.kavak.com/ar) - Para ver el flujo de compra/venta/cotización online y como realiza la integración con mercadolibre/Mercado Pago.
 - [Autocity](https://autocity.com.ar/) - Tienen una ficha de producto comodo que es responsive.
+
+## Tablero de Trabajo
+- [Trello](https://trello.com/b/TW976JYc/proyecto-integrador)
