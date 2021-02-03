@@ -1,0 +1,24 @@
+#searchNavbar ul {
+  background-color: #fff;
+}
+
+.search-result-quantity {
+  font-style: italic;
+  color: #666;
+  padding: 5px 5px;
+  width: 30%;
+}
+
+.filter-container {
+  position: relative;
+}
+
+#filterToggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.featured {
+  display: none;
+}

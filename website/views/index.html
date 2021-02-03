@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Styling -->
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- FontAwesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+		/>		
+		<!-- My style -->
+		<link rel="stylesheet" href="/css/styles-header.css" />
+		<link rel="stylesheet" href="/css/styles-index.css" />
+		<link rel="stylesheet" href="/css/styles-footer.css" />
+		<link
+			rel="stylesheet"
+			href="/css/styles-mediaquery-medium-large.css"
+			media="(min-width: 768px)"
+		/>
+		<link rel="stylesheet" href="/css/cardStyles.css" />
+		<link rel="stylesheet" href="/css/styles.css" />
+		<title>Real Cars</title>
+	</head>
+
+	<body>
+		<header>			
+			<nav class="navbar navbar-expand-md navbar-dark">
+				<div class="container-fluid">
+					<div class="logo">
+						<img src="/img/logo.png" alt="logo" srcset="">
+					</div>
+					<div class="d-flex w-75">
+						<a class="navbar-brand" href="/">Real Cars</a>
+						<form action="/search" method="GET" class="d-flex w-75">
+							<div class="input-group">
+								<input
+									type="search"
+									class="form-control"
+									placeholder="Search..."
+									aria-label="Search"
+									aria-describedby="button-addon2"
+								/>
+								<button
+									class="btn btn-outline-none text-danger bg-white"
+									type="submit"
+									id="button-addon2"
+								>
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</form>
+					</div>
+					<div class="d-flex align-items-center">
+						<button
+							class="navbar-toggler"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#navbar"
+							aria-controls="navbar"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item pe-1 my-2 my-md-0">
+								<button
+									type="button"
+									class="nav-item btn btn-secondary btn-sm me-1 nav-btn btn-register"
+								>
+									<a href="/register">Registrarse</a>
+								</button>
+							</li>
+							<li class="nav-item pe-1 my-2 my-md-0">
+								<button
+									type="button"
+									class="nav-item btn btn-danger btn-sm me-2 nav-btn btn-login">
+									<a href="/login">
+									Login</a>
+								</button>
+								<!-- Button trigger modal -->
+							</li>
+						</ul>
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item pe-md-3 my-2 my-md-0">
+								<a class="nav-item" href="#"
+									><i
+										class="fas fa-user d-none d-md-inline"
+									></i
+									><span
+										class="d-md-none ps-2 nav-icon-description"
+										>Perfil</span
+									></a
+								>
+							</li>
+							<li class="nav-item pe-md-3 my-2 my-md-0">
+								<a class="nav-item" href="#"
+									><i
+										class="fas fa-bell d-none d-md-inline"
+									></i
+									><span
+										class="d-md-none ps-2 nav-icon-description"
+										>Notificaciones</span
+									></a
+								>
+							</li>
+						</ul>
+					</div>
+					<div class="nav-item my-2 my-md-0 nav-icon-cart">
+						<a class="" href="/cart"
+							><i
+								class="fas fa-shopping-cart nav-item ps-2 ps-md-0 pe-md-3 my-2 my-md-0"
+							></i
+						></a>
+					</div>
+				</div>
+			</nav>
+			<nav
+				class="navbar navbar-expand-md navbar-dark navbar-secondary"
+			>
+				<div class="container-fluid">
+					<div>
+						<hr class="bg-danger d-md-none" />
+					</div>
+					<div class="collapse navbar-collapse" id="navbar">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0k">
+							<li class="nav-item dropdown active">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="navbarDropdownCategories"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Categorias
+								</a>
+								<ul
+									class="dropdown-menu"
+									aria-labelledby="navbarDropdown"
+								>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Autos</a
+										>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Camionetas</a
+										>
+									</li>
+									<li></li>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Motos</a
+										>
+									</li>
+									<li></li>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Camiones</a
+										>
+									</li>
+									<li>
+										<hr
+											class="dropdown-divider bg-danger"
+										/>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Repuestos</a
+										>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item dropdown active">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="navbarDropdownFavourites"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Favoritos
+								</a>
+								<ul
+									class="dropdown-menu"
+									aria-labelledby="navbarDropdown"
+								>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Favorito 1</a
+										>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Favorito 2</a
+										>
+									</li>
+									<li></li>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Favorito 3</a
+										>
+									</li>
+									<li></li>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Favorito 4</a
+										>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Favorito 5</a
+										>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href="#"
+									aria-disabled="false"
+									>Historial</a
+								>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href="#"
+									aria-disabled="false"
+									>Ayuda</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <div class="d-flex w-75">
+                        <a class="navbar-brand" href="#">RealCars</a>
+                        <form class="d-flex w-75">
+                            <div class="input-group">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search"
+                                    aria-describedby="button-addon2">
+                                <button class="btn btn-outline-none text-danger bg-white" type="button"
+                                    id="button-addon2"><i class="fas fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="d-flex">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown active">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Categorias
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Autos</a></li>
+                                        <li><a class="dropdown-item" href="#">Camionetas</a></li>
+                                        <li>
+                                        <li><a class="dropdown-item" href="#">Motos</a></li>
+                                        <li>
+                                        <li><a class="dropdown-item" href="#">Camiones</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider bg-danger">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Repuestos</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown active">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFavourites"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Favoritos
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Autos</a></li>
+                                        <li><a class="dropdown-item" href="#">Camionetas</a></li>
+                                        <li>
+                                        <li><a class="dropdown-item" href="#">Motos</a></li>
+                                        <li>
+                                        <li><a class="dropdown-item" href="#">Camiones</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider bg-danger">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Repuestos</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" aria-disabled="true">Historial</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" aria-disabled="true">Ayuda</a>
+                                </li>
+                            </ul>
+                            <div>
+                                <hr class="bg-danger d-md-none">
+                            </div>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item pe-1 my-3 my-md-0">
+                                    <button type="button"
+                                        class="nav-item btn btn-secondary btn-sm me-1 ">Register</button>
+                                </li>
+                                <li class="nav-item pe-1 my-3 my-md-0">
+                                    <button type="button" class="nav-item btn btn-danger btn-sm me-2">Login</button>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item pe-md-3 my-2 my-md-0">
+                                    <a class="nav-item" href="#"><i class=" fas fa-user"></i><span
+                                            class="d-md-none ps-2">Perfil</span></a>
+                                </li>
+                                <li class="nav-item pe-md-3 my-2 my-md-0">
+                                    <a class="nav-item" href="#"><i class="fas fa-bell"></i><span
+                                            class="d-md-none ps-2">Notificaciones</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex ms-md-0">
+                        <a class=" ms-md-0" href="#"><i
+                                class="fas fa-shopping-cart nav-item ps-md-3 pe-md-3 my-md-0"></i></a>
+                    </div>
+                </div>
+            </nav> -->
+		</header>
+		
+  
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login-label" aria-hidden="true">
+	<div
+			class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+			id="modal-login"
+		>
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="modal-login-label">Welcome Back</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		  <button type="button" class="btn btn-primary">Save changes</button>
+		</div>
+	  </div>
+	</div>
+  </div> -->
+	
+		<main>
+			<!-- Carousel -->
+			<div
+				id="carousel-main"
+				class="carousel slide container-fluid"
+				data-bs-ride="carousel"
+			>
+			<ol class="carousel-indicators">
+				<li data-bs-target="#productPhotoCarousel" data-bs-slide-to="0" class="active"></li>
+				<li data-bs-target="#productPhotoCarousel" data-bs-slide-to="1"></li>
+			</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active" data-bs-interval="10000">
+						<img
+							src="https://www.hdcarwallpapers.com/download/italdesign_gt_zero_electric_geneva_auto_show_2016-1920x1080.jpg"
+							class="d-flex w-100"
+							alt="..."
+						/>
+					</div>
+					<div class="carousel-item" data-bs-interval="10000">
+						<img
+							src="https://i2.wp.com/www.stugon.com/wp-content/uploads/2013/12/Exotic-Car-Wallpapers-HD-Edition-stugon.com-4.jpg"
+							class="d-block w-100"
+							alt="..."
+						/>
+					</div>
+				</div>
+				<a
+					class="carousel-control-prev"
+					href="#carousel-main"
+					role="button"
+					data-bs-slide="prev"
+				>
+					<span
+						class="carousel-control-prev-icon"
+						aria-hidden="true"
+					></span>
+					<span class="visually-hidden">Previous</span>
+				</a>
+				<a
+					class="carousel-control-next"
+					href="#carousel-main"
+					role="button"
+					data-bs-slide="next"
+				>
+					<span
+						class="carousel-control-next-icon"
+						aria-hidden="true"
+					></span>
+					<span class="visually-hidden">Next</span>
+				</a>
+			</div>
+			<!-- Categorias con Iconos de cada categoria -->
+			<div
+				class="d-flex justify-content-center text-weight-bold my-2"
+				id="category-bar"
+			>
+				<a class="px-3 px-xs-4 px-md-5" href="/search">
+					<i class="fas fa-car text-danger"></i
+				></a>
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
+					><i class="fas fa-truck-pickup text-danger"></i
+				></a>
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
+					><i class="fas fa-motorcycle text-danger"></i
+				></a>
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
+					><i class="fas fa-truck text-danger"></i
+				></a>
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
+					><i class="fas fa-wrench text-danger"></i
+				></a>
+			</div>
+			<!-- Buscador -->
+			<section
+				class="container-fluid w-75 mb-3 d-none d-md-block searchBar p-2 border border-secondary rounded"
+			>
+				<!--Tabs: Vehiculos | Repuestos  -->
+				<nav>
+					<div class="nav nav-tabs" id="search-tabs" role="tablist">
+						<a
+							class="nav-link active"
+							id="search-vehicles-tab"
+							data-bs-toggle="tab"
+							href="#search-vehicles"
+							role="tab"
+							aria-controls="search-vehicles"
+							aria-selected="true"
+							>Vehiculos</a
+						>
+						<a
+							class="nav-link"
+							id="search-parts-tab"
+							data-bs-toggle="tab"
+							href="#search-parts"
+							role="tab"
+							aria-controls="search-parts"
+							aria-selected="false"
+							>Repuestos</a
+						>
+					</div>
+				</nav>
+				<div class="tab-content" id="nav-tabContent mb-3 pb-3">
+					<div
+						class="tab-pane fade show active"
+						id="search-vehicles"
+						role="tabpanel"
+						aria-labelledby="search-vehicles-tab"
+					>
+						<form action="/search" method="get" class="search-products">
+							<div class="container">
+								<label
+									for="productSearchList"
+									class="form-label"
+									>Buscador</label
+								>
+								<div class="input-group mb-3">
+									<button
+										class="btn btn-outline-secondary dropdown-toggle"
+										type="button"
+										data-bs-toggle="dropdown"
+										aria-expanded="false"
+									>
+										Tipo
+									</button>
+									<ul class="dropdown-menu">
+										<li>
+											<a class="dropdown-item" href="#"
+												>Autos</a
+											>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#"
+												>Camionetas</a
+											>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#"
+												>Motos</a
+											>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#"
+												>Camionetas</a
+											>
+										</li>
+									</ul>
+									<input
+										class="form-control"
+										list="datalistOptions"
+										id="productSearchList"
+										aria-label="Text input with dropdown button"
+										placeholder="Marca, Modelo, caracteristicas y más"
+									/>
+									<datalist id="datalistOptions">
+										<option
+											value="Volkswagen Amarok"
+										></option>
+										<option value="Volkswagen Gol"></option>
+										<option value="Ford Fiesta"></option>
+										<option value="Dodge Ram"></option>
+										<option
+											value="Fiat 500"
+										></option></datalist
+									><button
+										class="btn btn-outline-secondary"
+										aria-describedby="button-addon2"
+										type="submit"
+										id="button-addon2"
+									>
+										<i
+											class="fas fa-search text-danger"
+										></i>
+									</button>
+								</div>
+							</div>
+							<div class="container">
+								<div
+									class="row search-advanced-filters d-flex gx-0"
+								>
+									<div
+										class="form-group col-2 text-align-center advanced-filter"
+									>
+										<label for="inputKMFrom" class=""
+											>KM Desde</label
+										>
+										<select
+											id="inputKMFrom"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>10-50mil</option>
+											<option>50-100mil</option>
+											<option>100-250mil</option>
+											<option>250mil+</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputKMHasta"
+											>KM Desde</label
+										>
+										<select
+											id="inputKMHasta"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>10-50mil</option>
+											<option>50-100mil</option>
+											<option>100-250mil</option>
+											<option>250mil+</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputYearFrom"
+											>Año Desde</label
+										>
+										<select
+											id="inputYearFrom"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>1900</option>
+											<option>1950</option>
+											<option>2000</option>
+											<option>2020</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputYearTo"
+											>Año Hasta</label
+										>
+										<select
+											id="inputYearTo"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>1900</option>
+											<option>1950</option>
+											<option>2000</option>
+											<option>2020</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputPriceFrom"
+											>Precio Desde</label
+										>
+										<select
+											id="inputPriceFrom"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>$0.0000</option>
+											<option>$00.0000</option>
+											<option>$000.000</option>
+											<option>$0.000.000</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputPriceTo"
+											>Precio Hasta</label
+										>
+										<select
+											id="inputPriceTo"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>$0.0000</option>
+											<option>$00.0000</option>
+											<option>$000.000</option>
+											<option>$0.000.000</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div
+						class="tab-pane fade"
+						id="search-parts"
+						role="tabpanel"
+						aria-labelledby="search-parts-tab"
+					>
+						<form action="/search" method="get" class="search-products">
+							<div class="container-fluid">
+								<label
+									for="productSearchList"
+									class="form-label"
+									>Buscador</label
+								>
+								<div class="input-group mb-3">
+									<button
+										class="btn btn-outline-secondary dropdown-toggle"
+										type="button"
+										data-bs-toggle="dropdown"
+										aria-expanded="false"
+									>
+										Tipo
+									</button>
+									<ul class="dropdown-menu">
+										<li>
+											<a class="dropdown-item" href="#"
+												>Autos</a
+											>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#"
+												>Camionetas</a
+											>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#"
+												>Motos</a
+											>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#"
+												>Camionetas</a
+											>
+										</li>
+									</ul>
+
+									<input
+										class="form-control"
+										list="datalistOptions"
+										id="productSearchList"
+										aria-label="Text input with dropdown button"
+										placeholder="¿Que Repuesto estas buscando?"
+									/>
+									<datalist id="datalistOptions">
+										<option value="Repuesto lorem"></option>
+										<option value="Repuesto Ipsum"></option>
+										<option value="Repuesto lorem"></option>
+										<option value="Repuesto Ipsum"></option>
+										<option
+											value="Repuesto lorem"
+										></option></datalist
+									><button
+										class="btn btn-outline-secondary"
+										aria-describedby="button-addon2"
+										type="submit"
+										id="button-addon2"
+									>
+										<i
+											class="fas fa-search text-danger"
+										></i>
+									</button>
+								</div>
+							</div>
+							<div class="container">
+								<div
+									class="row search-parts-advanced-filters d-flex gx-0"
+								>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsMake" class=""
+											>Marca</label
+										>
+										<select
+											id="partsMake"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>Alfa Romeo</option>
+											<option>Audi</option>
+											<option>Ford</option>
+											<option>Volkswagen</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsModel">Modelo</label>
+										<select
+											id="partsModel"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>Model 1</option>
+											<option>Model 2</option>
+											<option>Model 3</option>
+											<option>Model 4</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsInputYearFrom"
+											>Año Desde</label
+										>
+										<select
+											id="partsInputYearFrom"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>1900</option>
+											<option>1950</option>
+											<option>2000</option>
+											<option>2020</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsInputYearTo"
+											>Año Hasta</label
+										>
+										<select
+											id="partsInputYearTo"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>1900</option>
+											<option>1950</option>
+											<option>2000</option>
+											<option>2020</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsVersion"
+											>Version</label
+										>
+										<select
+											id="partsversion"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>V1</option>
+											<option>V2</option>
+											<option>V3</option>
+											<option>V4</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- tipo | Marca | modelo | Version | Km desde |Km hasta -->
+				<!-- Año desde | año hasta | Precio desde | Precios Hasta -->
+			</section>
+			<!-- Card Reel for destacados double layer -->
+			<div class="container-fluid">
+				<h2>Basado en tu última visita</h2>
+				<div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+					<article class="col mb-4">
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="col mb-4">
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="col mb-4">
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="col mb-4">
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
+							</div>
+						</a>
+					</article>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<h2>Destacados</h2>
+				<div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+				<article class="col mb-4">
+					<a class="card-link" href="/vehicle/item">
+						<div class="card h-100">
+							<img
+								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+								class="card-img-top"
+								alt="..."
+							/>
+							<div class="card-body">
+								<h5 class="card-title">$ 0.000.000</h5>
+								<div class="card-details">
+									<div class="row">
+										<div class="col">
+											<p class="card-text bold">Marca</p>
+										</div>
+										<div class="col">
+											<p class="card-text bold">Modelo</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Versión</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Año</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Ubicación</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Vendedor</p>
+										</div>										
+									</div>
+								</div>									
+								<p class="card-text bold">100.000 kms</p>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="col mb-4">
+					<a class="card-link" href="/vehicle/item">
+						<div class="card h-100">
+							<img
+								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+								class="card-img-top"
+								alt="..."
+							/>
+							<div class="card-body">
+								<h5 class="card-title">$ 0.000.000</h5>
+								<div class="card-details">
+									<div class="row">
+										<div class="col">
+											<p class="card-text bold">Marca</p>
+										</div>
+										<div class="col">
+											<p class="card-text bold">Modelo</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Versión</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Año</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Ubicación</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Vendedor</p>
+										</div>										
+									</div>
+								</div>									
+								<p class="card-text bold">100.000 kms</p>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="col mb-4">
+					<a class="card-link" href="/vehicle/item">
+						<div class="card h-100">
+							<img
+								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+								class="card-img-top"
+								alt="..."
+							/>
+							<div class="card-body">
+								<h5 class="card-title">$ 0.000.000</h5>
+								<div class="card-details">
+									<div class="row">
+										<div class="col">
+											<p class="card-text bold">Marca</p>
+										</div>
+										<div class="col">
+											<p class="card-text bold">Modelo</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Versión</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Año</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Ubicación</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Vendedor</p>
+										</div>										
+									</div>
+								</div>									
+								<p class="card-text bold">100.000 kms</p>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="col mb-4">
+					<a class="card-link" href="/vehicle/item">
+						<div class="card h-100">
+							<img
+								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+								class="card-img-top"
+								alt="..."
+							/>
+							<div class="card-body">
+								<h5 class="card-title">$ 0.000.000</h5>
+								<div class="card-details">
+									<div class="row">
+										<div class="col">
+											<p class="card-text bold">Marca</p>
+										</div>
+										<div class="col">
+											<p class="card-text bold">Modelo</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Versión</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Año</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Ubicación</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Vendedor</p>
+										</div>										
+									</div>
+								</div>									
+								<p class="card-text bold">100.000 kms</p>
+							</div>
+						</div>
+					</a>
+				</article>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<h2>Ofertas</h2>
+				<div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+					<article class="col mb-4">
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="col mb-4">
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="col mb-4">
+						<a class="card-link" href="/product/item">
+							<div class="card h-100">
+								<img
+									src="https://http2.mlstatic.com/D_NQ_NP_898458-MLA43987588875_112020-O.webp"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000</h5>
+									<div class="card-details">
+										<p class="card-text bold">Título</p>
+										<p class="card-text card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet magni itaque at labore atque, et pariatur corrupti nobis aliquid nam a rem reprehenderit! Minus in aliquid corporis repellendus nulla!</p>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Estado</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>
+										</div>
+										<div class="row">
+											<p class="card-text">Ubicación</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="col mb-4">
+						<a class="card-link" href="/product/item">
+							<div class="card h-100">
+								<img
+									src="https://http2.mlstatic.com/D_NQ_NP_898458-MLA43987588875_112020-O.webp"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000</h5>
+									<div class="card-details">
+										<p class="card-text bold">Título</p>
+										<p class="card-text card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet magni itaque at labore atque, et pariatur corrupti nobis aliquid nam a rem reprehenderit! Minus in aliquid corporis repellendus nulla!</p>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Estado</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>
+										</div>
+										<div class="row">
+											<p class="card-text">Ubicación</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</article>
+				</div>
+			</div>
+		</main>
+		<footer class="container-fluid text-light text-center sticky-bottom">
+			<p><i class="far fa-copyright"></i> REAL CARS 2021</p>
+		</footer>
+		<!-- Bootstrap JS Bundle -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
