@@ -1,39 +1,42 @@
 /* Resources::after<!-- https://uxdesign.cc/ux-best-practices-registration-500e55284f82 --> */
-.registration{
-        max-width:500px;
-    }
+.registration {
+  max-width: 500px;
+}
 /* Header and Main logo */
 #nav-btn-main-page {
-    padding-left: 20px;
-    text-decoration:none;
+  padding-left: 20px;
+  text-decoration: none;
 }
 #nav-btn-register {
-    padding-right: 20px;
-    text-decoration:none;
+  padding-right: 20px;
+  text-decoration: none;
 }
 .logo {
-	color: #cf2a2a;
-	margin-top: 10px;
-	margin-bottom: 10px;
+  color: #cf2a2a;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.container-registration-form{
-    margin-top: 10px;
+.byline h6 {
+  margin-top: 20px;
+  font-size: 16px;
 }
-.container-registration-cta{
-    margin-top:10px;
-    justify-content:space-between;
-    align-items:center;
+.container-registration-form {
+  margin-top: 10px;
 }
-.btn-registration-confirm{
-    background-color:#166FD9;
-    border-color:#166FD9;
-    border-radius:5px;
-    width:120px;
+.container-registration-cta {
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
-.registration-link{
-    text-decoration:none;
-    color:#166FD9;
+.btn-registration-confirm {
+  background-color: #166fd9;
+  border-color: #166fd9;
+  border-radius: 5px;
+  width: 120px;
 }
-@media (min-width:768px){
-    
+.registration-link {
+  text-decoration: none;
+  color: #166fd9;
+}
+@media (min-width: 768px) {
 }
