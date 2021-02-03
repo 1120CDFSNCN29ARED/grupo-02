@@ -1,16 +1,16 @@
 /* Header and Main logo */
 #nav-btn-main-page {
-    padding-left: 20px;
-    text-decoration:none;
+  padding-left: 20px;
+  text-decoration: none;
 }
 #nav-btn-register {
-    padding-right: 20px;
-    text-decoration:none;
+  padding-right: 20px;
+  text-decoration: none;
 }
 .logo {
-	color: #cf2a2a;
-	margin-top: 10px;
-	margin-bottom: 10px;
+  color: #cf2a2a;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Genral styles */
@@ -18,23 +18,31 @@
 #btn-login-facebook,
 #btn-login-twitter,
 #btn-login {
-	padding-top: 0px;
+  padding-top: 0px;
+}
+.title {
+  color: #cf2a2a;
+  font-weight: bold;
+  align-self: center;
 }
 /* User Login Section */
+.login-block {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 .login-right-user {
-	order: -1; /* This is to allow it to show up first in mobile view! */
-	padding: 20px 0px;
-	border-bottom: solid 2px #cf2a2a;
+  order: -1; /* This is to allow it to show up first in mobile view! */
+  padding: 20px 0px;
+  border-bottom: solid 2px #cf2a2a;
 }
 #container-keepLogged {
-	padding-top: 10px;
+  padding-top: 10px;
 }
 /* Alternative Login options */
 .login-left-social {
-	padding: 20px 0px;
+  padding: 20px 0px;
 }
 
-#forgottenPassword{
-    color:#166FD9;
+#forgottenPassword {
+  color: #166fd9;
 }
-

@@ -31,6 +31,7 @@
 			href="/css/styles-mediaquery-medium-large.css"
 			media="(min-width: 768px)"
 		/>
+		<link rel="stylesheet" href="/css/cardStyles.css" />
 		<link rel="stylesheet" href="/css/styles.css" />
 		<title>Real Cars</title>
 	</head>
@@ -39,8 +40,11 @@
 		<header>			
 			<nav class="navbar navbar-expand-md navbar-dark">
 				<div class="container-fluid">
+					<div class="logo">
+						<img src="/img/logo.png" alt="logo" srcset="">
+					</div>
 					<div class="d-flex w-75">
-						<a class="navbar-brand" href="/index">RealCars</a>
+						<a class="navbar-brand" href="/">Real Cars</a>
 						<form action="/search" method="GET" class="d-flex w-75">
 							<div class="input-group">
 								<input
@@ -80,7 +84,7 @@
 									type="button"
 									class="nav-item btn btn-secondary btn-sm me-1 nav-btn btn-register"
 								>
-									<a href="/register">Register</a>
+									<a href="/register">Registrarse</a>
 								</button>
 							</li>
 							<li class="nav-item pe-1 my-2 my-md-0">
@@ -202,34 +206,29 @@
 								>
 									<li>
 										<a class="dropdown-item" href="#"
-											>Autos</a
+											>Favorito 1</a
 										>
 									</li>
 									<li>
 										<a class="dropdown-item" href="#"
-											>Camionetas</a
-										>
-									</li>
-									<li></li>
-									<li>
-										<a class="dropdown-item" href="#"
-											>Motos</a
+											>Favorito 2</a
 										>
 									</li>
 									<li></li>
 									<li>
 										<a class="dropdown-item" href="#"
-											>Camiones</a
+											>Favorito 3</a
+										>
+									</li>
+									<li></li>
+									<li>
+										<a class="dropdown-item" href="#"
+											>Favorito 4</a
 										>
 									</li>
 									<li>
-										<hr
-											class="dropdown-divider bg-danger"
-										/>
-									</li>
-									<li>
 										<a class="dropdown-item" href="#"
-											>Repuestos</a
+											>Favorito 5</a
 										>
 									</li>
 								</ul>
@@ -382,6 +381,10 @@
 				class="carousel slide container-fluid"
 				data-bs-ride="carousel"
 			>
+			<ol class="carousel-indicators">
+				<li data-bs-target="#productPhotoCarousel" data-bs-slide-to="0" class="active"></li>
+				<li data-bs-target="#productPhotoCarousel" data-bs-slide-to="1"></li>
+			</ol>
 				<div class="carousel-inner">
 					<div class="carousel-item active" data-bs-interval="10000">
 						<img
@@ -428,19 +431,19 @@
 				class="d-flex justify-content-center text-weight-bold my-2"
 				id="category-bar"
 			>
-				<a class="px-3 px-xs-4 px-md-5" href="">
+				<a class="px-3 px-xs-4 px-md-5" href="/search">
 					<i class="fas fa-car text-danger"></i
 				></a>
-				<a class="px-3 px-xs-4 px-md-5" href=""
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
 					><i class="fas fa-truck-pickup text-danger"></i
 				></a>
-				<a class="px-3 px-xs-4 px-md-5" href=""
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
 					><i class="fas fa-motorcycle text-danger"></i
 				></a>
-				<a class="px-3 px-xs-4 px-md-5" href=""
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
 					><i class="fas fa-truck text-danger"></i
 				></a>
-				<a class="px-3 px-xs-4 px-md-5" href=""
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
 					><i class="fas fa-wrench text-danger"></i
 				></a>
 			</div>
@@ -480,7 +483,7 @@
 						role="tabpanel"
 						aria-labelledby="search-vehicles-tab"
 					>
-						<form action="" method="get" class="search-products">
+						<form action="/search" method="get" class="search-products">
 							<div class="container">
 								<label
 									for="productSearchList"
@@ -538,7 +541,7 @@
 									><button
 										class="btn btn-outline-secondary"
 										aria-describedby="button-addon2"
-										type="button"
+										type="submit"
 										id="button-addon2"
 									>
 										<i
@@ -663,7 +666,7 @@
 						role="tabpanel"
 						aria-labelledby="search-parts-tab"
 					>
-						<form action="" method="get" class="search-products">
+						<form action="/search" method="get" class="search-products">
 							<div class="container-fluid">
 								<label
 									for="productSearchList"
@@ -720,7 +723,7 @@
 									><button
 										class="btn btn-outline-secondary"
 										aria-describedby="button-addon2"
-										type="button"
+										type="submit"
 										id="button-addon2"
 									>
 										<i
@@ -827,58 +830,183 @@
 			</section>
 			<!-- Card Reel for destacados double layer -->
 			<div class="container-fluid">
+				<h2>Basado en tu última visita</h2>
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
 					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
 							</div>
-						</div>
+						</a>
 					</article>
 					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
 							</div>
-						</div>
+						</a>
 					</article>
 					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
 							</div>
-						</div>
+						</a>
 					</article>
 					<article class="col mb-4">
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
+							</div>
+						</a>
+					</article>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<h2>Destacados</h2>
+				<div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+				<article class="col mb-4">
+					<a class="card-link" href="/vehicle/item">
 						<div class="card h-100">
 							<img
 								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
@@ -887,276 +1015,312 @@
 							/>
 							<div class="card-body">
 								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
+								<div class="card-details">
+									<div class="row">
+										<div class="col">
+											<p class="card-text bold">Marca</p>
+										</div>
+										<div class="col">
+											<p class="card-text bold">Modelo</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Versión</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Año</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Ubicación</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Vendedor</p>
+										</div>										
+									</div>
+								</div>									
+								<p class="card-text bold">100.000 kms</p>
 							</div>
 						</div>
+					</a>
+				</article>
+				<article class="col mb-4">
+					<a class="card-link" href="/vehicle/item">
+						<div class="card h-100">
+							<img
+								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+								class="card-img-top"
+								alt="..."
+							/>
+							<div class="card-body">
+								<h5 class="card-title">$ 0.000.000</h5>
+								<div class="card-details">
+									<div class="row">
+										<div class="col">
+											<p class="card-text bold">Marca</p>
+										</div>
+										<div class="col">
+											<p class="card-text bold">Modelo</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Versión</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Año</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Ubicación</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Vendedor</p>
+										</div>										
+									</div>
+								</div>									
+								<p class="card-text bold">100.000 kms</p>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="col mb-4">
+					<a class="card-link" href="/vehicle/item">
+						<div class="card h-100">
+							<img
+								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+								class="card-img-top"
+								alt="..."
+							/>
+							<div class="card-body">
+								<h5 class="card-title">$ 0.000.000</h5>
+								<div class="card-details">
+									<div class="row">
+										<div class="col">
+											<p class="card-text bold">Marca</p>
+										</div>
+										<div class="col">
+											<p class="card-text bold">Modelo</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Versión</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Año</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Ubicación</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Vendedor</p>
+										</div>										
+									</div>
+								</div>									
+								<p class="card-text bold">100.000 kms</p>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="col mb-4">
+					<a class="card-link" href="/vehicle/item">
+						<div class="card h-100">
+							<img
+								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+								class="card-img-top"
+								alt="..."
+							/>
+							<div class="card-body">
+								<h5 class="card-title">$ 0.000.000</h5>
+								<div class="card-details">
+									<div class="row">
+										<div class="col">
+											<p class="card-text bold">Marca</p>
+										</div>
+										<div class="col">
+											<p class="card-text bold">Modelo</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Versión</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Año</p>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="card-text">Ubicación</p>
+										</div>
+										<div class="col">
+											<p class="card-text">Vendedor</p>
+										</div>										
+									</div>
+								</div>									
+								<p class="card-text bold">100.000 kms</p>
+							</div>
+						</div>
+					</a>
+				</article>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<h2>Ofertas</h2>
+				<div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+					<article class="col mb-4">
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
+							</div>
+						</a>
 					</article>
 					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
+						<a class="card-link" href="/vehicle/item">
+							<div class="card h-100">
+								<img
+									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000.000</h5>
+									<div class="card-details">
+										<div class="row">
+											<div class="col">
+												<p class="card-text bold">Marca</p>
+											</div>
+											<div class="col">
+												<p class="card-text bold">Modelo</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Versión</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Año</p>
+											</div>										
+										</div>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Ubicación</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>										
+										</div>
+									</div>									
+									<p class="card-text bold">100.000 kms</p>
+								</div>
 							</div>
-						</div>
+						</a>
 					</article>
 					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
+						<a class="card-link" href="/product/item">
+							<div class="card h-100">
+								<img
+									src="https://http2.mlstatic.com/D_NQ_NP_898458-MLA43987588875_112020-O.webp"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000</h5>
+									<div class="card-details">
+										<p class="card-text bold">Título</p>
+										<p class="card-text card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet magni itaque at labore atque, et pariatur corrupti nobis aliquid nam a rem reprehenderit! Minus in aliquid corporis repellendus nulla!</p>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Estado</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>
+										</div>
+										<div class="row">
+											<p class="card-text">Ubicación</p>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
+						</a>
 					</article>
 					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
+						<a class="card-link" href="/product/item">
+							<div class="card h-100">
+								<img
+									src="https://http2.mlstatic.com/D_NQ_NP_898458-MLA43987588875_112020-O.webp"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title">$ 0.000</h5>
+									<div class="card-details">
+										<p class="card-text bold">Título</p>
+										<p class="card-text card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet magni itaque at labore atque, et pariatur corrupti nobis aliquid nam a rem reprehenderit! Minus in aliquid corporis repellendus nulla!</p>
+										<div class="row">
+											<div class="col">
+												<p class="card-text">Estado</p>
+											</div>
+											<div class="col">
+												<p class="card-text">Vendedor</p>
+											</div>
+										</div>
+										<div class="row">
+											<p class="card-text">Ubicación</p>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
-					</article>
-					<article class="col mb-4">
-						<div class="card h-100">
-							<img
-								src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title">$ 0.000.000</h5>
-								<p class="card-text">
-									Marca Modelo Version Año
-								</p>
-								<p class="card-text">100.000 kms</p>
-							</div>
-						</div>
+						</a>
 					</article>
 				</div>
 			</div>
 		</main>
-		<footer
-			class="container-fluid text-light text-center sticky-bottom"
-		>
-			<p>TESTING THE FOOTER FOR REAL CARS</p>
+		<footer class="container-fluid text-light text-center sticky-bottom">
+			<p><i class="far fa-copyright"></i> REAL CARS 2021</p>
 		</footer>
 		<!-- Bootstrap JS Bundle -->
 		<script

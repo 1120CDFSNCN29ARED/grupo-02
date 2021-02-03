@@ -1,0 +1,19 @@
+@media (min-width: 768px) {
+  .cart-item button {
+    margin-left: 0%;
+    max-height: 40px;
+    align-self: center;
+  }
+
+  .cart-item-quantity-container {
+    width: 20%;
+  }
+
+  .cart-container {
+    max-width: 80%;
+    margin: auto;
+  }
+  .cart-item-seller {
+    font-size: 16px;
+  }
+}

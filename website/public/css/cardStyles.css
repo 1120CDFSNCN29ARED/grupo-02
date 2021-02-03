@@ -1,0 +1,33 @@
+.card {
+  color: black;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+.card-title {
+  color: #cf2a2a;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.card-details {
+  padding-bottom: 10px;
+}
+
+.card-text {
+  margin: 5px 0;
+}
+
+.card-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+  font-size: 12px;
+  padding: 0;
+  margin: 5px 0;
+}
