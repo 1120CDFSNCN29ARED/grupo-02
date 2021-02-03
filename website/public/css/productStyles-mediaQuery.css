@@ -1,0 +1,29 @@
+@media (min-width: 768px) {
+  #top {
+    display: flex;
+  }
+
+  .table-datasheet {
+    max-width: 70%;
+    margin: auto;
+  }
+
+  .form-floating {
+    width: 80%;
+    margin-right: 10px;
+  }
+
+  #askQuestion {
+    height: 90%;
+  }
+
+  #mainDetails {
+    margin-top: 0;
+    padding-top: 10px;
+    width: 50%;
+  }
+
+  #productPhotoCarousel {
+    max-width: 50%;
+  }
+}
