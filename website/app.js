@@ -8,6 +8,11 @@ const MYPORT = 3000;
 const staticFolder = path.resolve(__dirname, "./public");
 app.use(express.static(staticFolder));
 
+
+//View Engine
+
+app.set("view engine", "ejs");
+
 //Router
 app.listen(process.env.PORT || MYPORT, () => {
 	console.log(`The server is running on ${MYPORT}`);
