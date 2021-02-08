@@ -1,6 +1,9 @@
 const { static } = require("express");
 const express = require("express");
 const path = require("path");
+
+const mainRoutes = require("./routes/mainRoutes");
+
 const app = express();
 const MYPORT = 3000;
 
@@ -21,12 +24,17 @@ app.listen(process.env.PORT || MYPORT, () => {
 app.get("/", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "./views/index.html"));
 });
+/*
 app.get("/vehicle/item", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "./views/productVehicle.html"));
 });
 app.get("/product/item", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "./views/productPart.html"));
 });
+*/
+
+app.use("/", mainRoutes);
+
 app.get("/vehicle/add", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "./views/addVehicle.html"));
 });
