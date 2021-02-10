@@ -1,17 +1,17 @@
 {
-  "name": "clase-11",
+  "name": "real-cars",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon app.js",
-    "start":"node app.js"
-    
+    "start": "node app.js"
   },
-  "author": "Lucas",
+  "author": "grupo-02",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1"
   },
   "devDependencies": {
