@@ -32,7 +32,6 @@ const productsController = {
         const productID = parseInt(req.params.productID, 10);
         if(req.params.productType === "vehicle"){
             product = vehicles.find(vehicle => vehicle.adID === productID);
-            conso.log(product)
         }
         else if(req.params.productType === "part"){
             product = parts.find(part => part.adID === productID);
