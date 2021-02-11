@@ -11,10 +11,10 @@
   padding-right: 20px;
   text-decoration: none;
 }
-.logo {
-  color: #cf2a2a;
-  margin-top: 10px;
-  margin-bottom: 10px;
+
+#logo-image{
+  padding-top:20px;
+  width:100%;
 }
 .byline h6 {
   margin-top: 20px;

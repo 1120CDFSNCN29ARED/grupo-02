@@ -1,0 +1,111 @@
+		<!-- My style -->
+		<% let styles = ['<link rel="stylesheet" href="/css/styles-header.css" />,','<link rel="stylesheet" href="/css/styles-register.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" media="(min-width: 768px)"/>'] %>			
+		<%- include("./partials/head", {"styles": styles}) %>
+	
+	<body>
+		<nav class="navbar navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-text" id="nav-btn-main-page" href='/'>
+					<i class="fas fa-chevron-left"></i> Volver
+                </a>								
+			</div>
+        </nav>
+	</header>	
+        <div class="container-fluid registration">            
+                <div class="container-fluid text-center">				
+						<img id="logo-image"src="/img/logo.png" alt="logo" srcset="">				
+				</div>
+                <div class="container-fluid text-center byline"><h6>Regístrate para ver todos los autos y repuestos que tenemos para vos</h6></div>
+            <div class="container-fluid container-registration-form text-center">
+                <form action="" class="form-registration">
+                    <div class="form-floating mb-1">
+								<input
+									type="text"
+									class="form-control registration-field"
+									id="userEmail"
+									placeholder="email@host.com"
+									required
+								/>
+								<label for="userEmail"
+									>Email</label
+								>
+                            </div>
+                            <div class="form-floating mb-1">
+								<input
+									type="text"
+									class="form-control registration-field"
+									id="userFirstName"
+									placeholder="Tu Nombre"
+									required
+								/>
+								<label for="userFirstName"
+									>Nombre</label
+								>
+                            </div>
+                            <div class="form-floating mb-1">
+								<input
+									type="text"
+									class="form-control registration-field"
+									id="userSurname"
+									placeholder="Tu Nombre"
+									required
+								/>
+								<label for="userSurname"
+									>Apellido</label
+								>
+                            </div>
+                            <div class="form-floating mb-1">
+								<input
+									type="text"
+									class="form-control registration-field"
+									id="userTelephone"
+									placeholder="+5491133048054"
+									required
+								/>
+								<label for="userTelephone"
+									>Teléfono</label
+								>
+                            </div>
+                             <div class="form-floating mb-1">
+								<input
+									type="text"
+									class="form-control registration-field"
+									id="userID"
+									placeholder="Usuario"
+									required
+								/>
+								<label for="userID">Usuario</label>
+							</div>
+                            <div class="form-floating mb-1">
+								<input
+									type="password"
+									class="form-control registration-field"
+									id="userPassword"
+									placeholder="Password"
+									required
+								/>
+								<label for="userPassword">Contraseña</label>
+							</div>
+							<div class="form-floating mb-1">
+								<input
+									type="password"
+									class="form-control registration-field"
+									id="userConfirmPassword"
+									placeholder="Confirmar contraseña"
+									required
+								/>
+								<label for="userConfirmPassword"> Confirmar Contraseña</label>
+							</div>
+                                <div class="container-fluid d-flex container-registration-cta">
+                                    <div class="registration-cta">
+										<button type="button" class="nav-item btn btn-danger btn-sm me-2 nav-btn btn-login">
+											<a href="/login">Login</a>
+										</button>
+									</div>
+                                    <div class="registration-cta"><button class="btn-registration-confirm btn-lg" type="submit">Confirmar</button></div>
+                                </div>
+                </form>   
+            </div>
+        </div>
+	</body>
+</html>
