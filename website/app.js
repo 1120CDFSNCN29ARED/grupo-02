@@ -20,7 +20,7 @@ app.set("view engine", "ejs");
 app.listen(process.env.PORT || MYPORT, () => {
 	console.log(`The server is running on ${MYPORT}`);
 });
-
+/*
 app.get("/", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "./views/index.html"));
 });
@@ -34,7 +34,7 @@ app.get("/product/item", (req, res) => {
 */
 
 app.use("/", mainRoutes);
-
+/*
 app.get("/vehicle/add", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "./views/addVehicle.html"));
 });
@@ -53,3 +53,4 @@ app.get("/register", (req, res) => {
 app.get("/search", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "./views/search.html"));
 });
+*/
