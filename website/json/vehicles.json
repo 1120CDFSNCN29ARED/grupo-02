@@ -1,1 +1,197 @@
-[{"adID":"1","type":"camioneta","published":true,"featured":true,"onSale":{"status":false,"discount":"0"},"brand":"Kia","model":"Sorento","version":"2.2 Ex","year":"2018","state":"usado","rating":"4","kilometers":"50000","color":"Plateado","location":{"province":"CABA","city":"CABA","neighbourhood":"Belgrano","postalCode":"1426"},"publishedDate":"16/1/2021","imageURLs":["https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_745810-MLA44471216636_012021-F.webp","https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_937708-MLA44471216637_012021-F.webp","https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_787735-MLA44471226106_012021-F.webp"],"price":"4490000","description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit.Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.","seller":{"userName":"carone","name":"Car One","phone": "123456789","email": "carone@gmail.com"}},{"adID":"2","type":"camioneta","published":true,"featured":true,"onSale":{"status":true,"discount":"10%"},"brand":"Kia","model":"Sorento","version":"2.2 Ex","year":"2018","state":"usado","rating":"4","kilometers":"50000","color":"Plateado","location":{"province":"CABA","city":"CABA","neighbourhood":"Belgrano","postalCode":"1426"},"publishedDate":"16/1/2021","imageURLs":["https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_745810-MLA44471216636_012021-F.webp","https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_937708-MLA44471216637_012021-F.webp","https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_787735-MLA44471226106_012021-F.webp"],"price":"4490000","description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit.Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.","seller":{"userName":"carone","name":"Car One","phone": "123456789","email": "carone@gmail.com"}}]
+[
+    {
+        "adID": 1,
+        "productType": "vehicle",
+        "type": "camioneta",
+        "published": true,
+        "featured": true,
+        "onSale": {
+            "status": false,
+            "discount": 0
+        },
+        "brand": "Kia",
+        "model": "Sorento",
+        "version": "2.2 Ex",
+        "year": 2018,
+        "state": "usado",
+        "rating": 4,
+        "kilometers": 50000,
+        "color": "Plateado",
+        "location": {
+            "province": "CABA",
+            "city": "CABA",
+            "neighbourhood": "Belgrano",
+            "postalCode": "1426"
+        },
+        "publishedDate": "16/1/2021",
+        "imageURLs": [
+            "https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_745810-MLA44471216636_012021-F.webp",
+            "https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_937708-MLA44471216637_012021-F.webp",
+            "https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_787735-MLA44471226106_012021-F.webp"
+        ],
+        "price": 4490000,
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "seller": {
+            "userName": "carone",
+            "name": "Car One",
+            "phone": 123456789,
+            "email": "carone@gmail.com"
+        }
+    },
+    {    
+        "adID": 2,
+        "productType": "vehicle",
+        "type": "auto",
+        "published": true,
+        "featured": true,
+        "onSale": {
+            "status": false,
+            "discount": 0
+        },
+        "brand": "Ford",
+        "model": "Mondeo",
+        "version": "Titanium",
+        "year": 2021,
+        "state": "nuevo",
+        "rating": 5,
+        "kilometers": 0,
+        "color": "Gris",
+        "location": {
+            "province": "CABA",
+            "city": "CABA",
+            "neighbourhood": "Recoleta",
+            "postalCode": "1128"
+        },
+        "publishedDate": "16/12/2020",
+        "imageURLs": [
+            "https://http2.mlstatic.com/D_NQ_NP_865329-MLA44038468134_112020-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_855210-MLA44038419993_112020-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_948172-MLA44038468135_112020-O.webp"
+        ],
+        "price": 5602110,
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "seller": {
+            "userName": "fordarg",
+            "name": "Ford Argentina",
+            "phone": 123456789,
+            "email": "ford@gmail.com"
+        }
+    },
+    {    
+        "adID": 3,
+        "productType": "vehicle",
+        "type": "camioneta",
+        "published": true,
+        "featured": false,
+        "onSale": {
+            "status": true,
+            "discount": 20
+        },
+        "brand": "Ford",
+        "model": "Ranger",
+        "version": "Ranger XLT Cabina Doble 4x2 Nafta",
+        "year": 2021,
+        "state": "nuevo",
+        "rating": 4,
+        "kilometers": 0,
+        "color": "Blanco",
+        "location": {
+            "province": "CABA",
+            "city": "CABA",
+            "neighbourhood": "Recoleta",
+            "postalCode": "1128"
+        },
+        "publishedDate": "6/12/2020",
+        "imageURLs": [
+            "https://http2.mlstatic.com/D_NQ_NP_880115-MLA32161913737_092019-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_656897-MLA32161923614_092019-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_601386-MLA32161895867_092019-O.webp"
+        ],
+        "price": 2722000,
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "seller": {
+            "userName": "fordarg",
+            "name": "Ford Argentina",
+            "phone": 123456789,
+            "email": "ford@gmail.com"
+        }
+    },
+    {    
+        "adID": 4,
+        "productType": "vehicle",
+        "type": "moto",
+        "published": true,
+        "featured": false,
+        "onSale": {
+            "status": false,
+            "discount": 0
+        },
+        "brand": "Benelli",
+        "model": "TRK",
+        "version": "TRK",
+        "year": 2018,
+        "state": "usado",
+        "rating": 4,
+        "kilometers": 16800,
+        "color": "Gris",
+        "location": {
+            "province": "Buenos Aires",
+            "city": "Hurlingham",
+            "neighbourhood": "Hurlingham",
+            "postalCode": "1686"
+        },
+        "publishedDate": "6/2/2021",
+        "imageURLs": [
+            "https://http2.mlstatic.com/D_NQ_NP_742285-MLA44826650174_022021-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_709964-MLA44826650175_022021-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_656371-MLA44826643519_022021-O.webp"
+        ],
+        "price": 1100000,
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "seller": {
+            "userName": "santi",
+            "name": "Santiago Maldini",
+            "phone": 123456789,
+            "email": "santimaldini@gmail.com"
+        }
+    },
+    {    
+        "adID": 5,
+        "productType": "vehicle",
+        "type": "moto",
+        "published": true,
+        "featured": false,
+        "onSale": {
+            "status": false,
+            "discount": 0
+        },
+        "brand": "Bajaj",
+        "model": "NS200",
+        "version": "NS200",
+        "year": 2015,
+        "state": "usado",
+        "rating": 3,
+        "kilometers": 45000,
+        "color": "Blanco",
+        "location": {
+            "province": "Buenos Aires",
+            "city": "Hurlingham",
+            "neighbourhood": "Hurlingham",
+            "postalCode": "1686"
+        },
+        "publishedDate": "6/2/2021",
+        "imageURLs": [
+            "https://http2.mlstatic.com/D_NQ_NP_868083-MLA44848929364_022021-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_711772-MLA44848929366_022021-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_739594-MLA44848929371_022021-O.webp"
+        ],
+        "price": 190000,
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "seller": {
+            "userName": "santi",
+            "name": "Santiago Maldini",
+            "phone": 123456789,
+            "email": "santimaldini@gmail.com"
+        }
+    }
+]

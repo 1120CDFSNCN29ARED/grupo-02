@@ -1,0 +1,191 @@
+[
+    {
+        "adID": 1,
+        "productType": "part",
+        "published": true,
+        "featured": true,
+        "onSale": {
+            "status": false,
+            "discount": 0
+        },
+        "publishedDate": "15/1/2021",
+        "Title": "Led Giro De Espejo Kia Sorento 2009/2014",
+        "partBrand": "Mopart",
+        "partModel": "LED",
+        "partID": "0404ABC",
+        "vehicleType": {
+            "car": true
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "imageURLs": [
+            "https://http2.mlstatic.com/D_NQ_NP_898458-MLA43987588875_112020-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_781901-MLA43987646141_112020-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_813705-MLA43987593828_112020-O.webp"
+        ],
+        "price": 23456,
+        "state": "nuevo",
+        "rating": 4,
+        "location": {
+            "province": "CABA",
+            "city": "CABA",
+            "neighbourhood": "Belgrano",
+            "postalCode": "1426"
+        },
+        "seller": {
+            "userName": "carone",
+            "name": "Car One",
+            "phone": 123456789,
+            "email": "carone@realcars.com"
+        }
+    },
+    {
+        "adID": 2,
+        "productType": "part",
+        "published": true,
+        "featured": false,
+        "onSale": {
+            "status": false,
+            "discount": 0
+        },
+        "publishedDate": "15/1/2021",
+        "Title": "Kit Transmision P/ Benelli Tnt 15 Original Reforzada",
+        "partBrand": "Benelli",
+        "partModel": "TNT15",
+        "partID": "123456ABC",
+        "vehicleType": {
+            "motorcyle": true
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "imageURLs": [
+            "https://http2.mlstatic.com/D_NQ_NP_662655-MLA42591022204_072020-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_669289-MLA26240045314_102017-O.webp"
+        ],
+        "price": 12345,
+        "state": "nuevo",
+        "rating": 4,
+        "location": {
+            "province": "CABA",
+            "city": "CABA",
+            "neighbourhood": "Agronomia",
+            "postalCode": "1419"
+        },
+        "seller": {
+            "userName": "agrobikes",
+            "name": "Agrobikes",
+            "phone": 123456789,
+            "email": "agrobikes@realcars.com"
+        }
+    },
+    {
+        "adID": 3,
+        "productType": "part",
+        "published": true,
+        "featured": false,
+        "onSale": {
+            "status": false,
+            "discount": 0
+        },
+        "publishedDate": "10/1/2021",
+        "Title": "Cadena Choho 520x118 Con Oring P/ Benelli Tnt25",
+        "partBrand": "Choho",
+        "partModel": "Oring TNT25",
+        "partID": "hh119",
+        "vehicleType": {
+            "motorcyle": true
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "imageURLs": [
+            "https://http2.mlstatic.com/D_NQ_NP_933342-MLA40075024904_122019-O.webp"
+        ],
+        "price": 3456,
+        "state": "nuevo",
+        "rating": 4,
+        "location": {
+            "province": "CABA",
+            "city": "CABA",
+            "neighbourhood": "Agronomia",
+            "postalCode": "1419"
+        },
+        "seller": {
+            "userName": "agrobikes",
+            "name": "Agrobikes",
+            "phone": 123456789,
+            "email": "agrobikes@realcars.com"
+        }
+    },
+    {
+        "adID": 4,
+        "productType": "part",
+        "published": true,
+        "featured": false,
+        "onSale": {
+            "status": false,
+            "discount": 0
+        },
+        "publishedDate": "11/1/2021",
+        "Title": "Corona Original Transmision Benelli Tnt 25 Solo En Agrobikes",
+        "partBrand": "Benelli",
+        "partModel": "TNT25",
+        "partID": "abc123",
+        "vehicleType": {
+            "motorcyle": true
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "imageURLs": [
+            "https://http2.mlstatic.com/D_NQ_NP_853957-MLA41451642565_042020-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_103225-MLA25408560310_032017-O.webp"
+        ],
+        "price": 1236,
+        "state": "nuevo",
+        "rating": 3,
+        "location": {
+            "province": "CABA",
+            "city": "CABA",
+            "neighbourhood": "Agronomia",
+            "postalCode": "1419"
+        },
+        "seller": {
+            "userName": "agrobikes",
+            "name": "Agrobikes",
+            "phone": 123456789,
+            "email": "agrobikes@realcars.com"
+        }
+    },
+    {
+        "adID": 5,
+        "productType": "part",
+        "published": true,
+        "featured": false,
+        "onSale": {
+            "status": false,
+            "discount": 0
+        },
+        "publishedDate": "11/1/2021",
+        "Title": "Paragolpe Delantero P/ Volkswagen Amarok 2017 2018 2019 2020",
+        "partBrand": "Volkswagen",
+        "partModel": "Paragolpe delantero Amarok",
+        "partID": "abc1223",
+        "vehicleType": {
+            "pickup": true
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
+        "imageURLs": [
+            "https://http2.mlstatic.com/D_NQ_NP_936865-MLA26346153229_112017-O.webp"
+        ],
+        "price": 20236,
+        "state": "usado",
+        "rating": 3,
+        "location": {
+            "province": "CABA",
+            "city": "CABA",
+            "neighbourhood": "Belgrano",
+            "postalCode": "1426"
+        },
+        "seller": {
+            "userName": "volkwagenargentina",
+            "name": "Volkwagen Argentina",
+            "phone": 123456789,
+            "email": "volkwagenargentina@realcars.com"
+        }
+    }
+]
