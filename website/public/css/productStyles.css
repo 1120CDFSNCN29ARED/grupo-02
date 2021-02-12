@@ -15,6 +15,7 @@ section {
 
 #productPhotoCarousel {
   width: 100%;
+  min-height: 320px;
 }
 
 .carousel-item img {

@@ -5,20 +5,20 @@
     <section id="top">
         <div id="productPhotoCarousel" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators">
-              <li data-bs-target="#productPhotoCarousel" data-bs-slide-to="0" class="active"></li>
-              <li data-bs-target="#productPhotoCarousel" data-bs-slide-to="1"></li>
-              <li data-bs-target="#productPhotoCarousel" data-bs-slide-to="2"></li>
+                <% for( let i = 0; i < product.imageURLs.length; i++ ) { %>
+                    <li data-bs-target="#productPhotoCarousel" data-bs-slide-to=" <%= i %> "  <% if(i === 0){ %> <%- 'class="active"' %> <% } %> ></li>
+                <% } %>
+              
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_745810-MLA44471216636_012021-F.webp" class="d-block w-100" alt="...">
+                <img src="<%= (product.imageURLs)[0] %>" class="d-block w-100" alt="...">
               </div>
-              <div class="carousel-item">
-                <img src="https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_937708-MLA44471216637_012021-F.webp" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_787735-MLA44471226106_012021-F.webp" class="d-block w-100" alt="...">
-              </div>
+              <% for( let i = 1; i < product.imageURLs.length; i++ ) { %>
+                <div class="carousel-item">
+                    <img src="<%= (product.imageURLs)[i] %>" class="d-block w-100" alt="...">
+                  </div>
+              <% } %>
             </div>
             <a class="carousel-control-prev" href="#productPhotoCarousel" role="button" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
