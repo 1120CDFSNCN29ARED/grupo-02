@@ -15,6 +15,7 @@ section {
 
 #productPhotoCarousel {
   width: 100%;
+  min-height: 320px;
 }
 
 .carousel-item img {
@@ -95,10 +96,11 @@ h2 {
 
 .fa-heart {
   font-size: 1.3em;
+  color: red;
 }
 
 .payment-methods-link {
-  margin-top: 15px;
+  margin-top: 20px;
   padding-bottom: 5px;
   text-align: center;
 }
