@@ -1,4 +1,4 @@
-#vehicleRating{
+#rating{
     padding-top: 1.625rem;
     padding-bottom: .625rem;
     height: calc(3.5rem + 2px);
@@ -16,7 +16,7 @@
     margin-bottom:0rem;
     text-align: left;
 }
-#vehicleRating>p{
+#rating>p{
     margin-bottom:0rem;
 }
 .container-add-product-cta{

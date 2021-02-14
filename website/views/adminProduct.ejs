@@ -2,10 +2,11 @@
 <% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" />','<link rel="stylesheet" href="/css/styles-admin.css" />'] %>
 <%- include("./partials/head", {"styles": styles}) %>
     <%- include("./partials/header") %>
+
         <body>
             <main>
                 <!-- Create an admin window that has an add or edit product option -->
-                <div class="container-fluid admin text-center">                    
+                <div class="container-fluid admin text-center">
                     <div class="container-fluid text-center byline">
                         <h2>Admin Panel</h2>
                     </div>
@@ -13,10 +14,18 @@
                         <!-- Add in buttons to link to pages for each type of product -->
                         <section class="product-type=selector">
                             <div class="container-fluid dflex mb-2">
-                                <a href="/admin/vehicle"><button type="submit" class="btn-lg btn-outline-danger mb-2">Vehículo</button></a>
-                                <a href="/admin/part"><button type="submit"class="btn-lg btn-outline-danger mb-2">Repuesto</button></a>
+                                <a href="/admin/vehicle"><button type="submit"
+                                        class="btn-lg btn-outline-danger mb-2">Vehículo</button></a>
+                                <a href="/admin/part"><button type="submit"
+                                        class="btn-lg btn-outline-danger mb-2">Repuesto</button></a>
                             </div>
-                        </section>                        
+                        </section>
+                        
+                        <% if (product.type=="vehicle" ) { %>
+                            <%- include("./partials/adminVehicles")%>
+                        <% } else { %>                         
+                            <%- include("./partials/adminParts") %> 
+                        <% } %>
                     </div>
                 </div>
             </main>

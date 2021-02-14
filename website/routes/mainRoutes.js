@@ -1,15 +1,20 @@
 const express = require("express");
 
 const productsRoutes = require("./productsRoutes");
+const adminRoutes = require("./adminRoutes");
+
 const mainController = require("../controllers/mainController");
-const adminController = require("../controllers/adminController");
 const router = express.Router();
+
 router.get("/", mainController.index);
 router.get("/login", mainController.login);
 router.get("/register", mainController.register);
 router.get("/search", mainController.search);
-router.use("/admin", adminController.display);
 
+/* Admin */
+router.use("/admin", adminRoutes);
+
+/* Products */
 router.use("/products", productsRoutes);
 
 
