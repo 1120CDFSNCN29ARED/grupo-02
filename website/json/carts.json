@@ -1,0 +1,17 @@
+[
+    {
+        "cartID": 1,
+        "userName": "pepito",
+        "items": [1, 2, 3, 4]
+    },
+    {
+        "cartID": 2,
+        "userName": "pepito",
+        "items": [2, 1, 3, 4]
+    },
+    {
+        "cartID": 3,
+        "userName": "pepito",
+        "items": [1, 2, 4, 3]
+    }
+]

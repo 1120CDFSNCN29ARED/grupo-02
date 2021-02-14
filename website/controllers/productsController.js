@@ -1,6 +1,3 @@
-let price = "4.490.000";
-
-let description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit."
 let questions = [
     {
         question: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia minus doloribus sint velit non. Optio eius iste quaerat provident quam est obcaecati alias! Sequi laboriosam quaerat incidunt. Ad, deleniti sit!",
@@ -40,7 +37,6 @@ const productsController = {
         {
             productType: req.params.productType,
             productID: parseInt(req.params.productID, 10),
-            description: description,
             product: product,
             questions: questions
         });
