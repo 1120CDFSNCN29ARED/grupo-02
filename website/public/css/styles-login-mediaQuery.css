@@ -1,0 +1,32 @@
+/* Login Window */
+@media (min-width: 768px) {
+	.login-main {
+		padding-top: 50px;
+	}
+	.login-block {
+		margin: auto;
+	}
+	.login-left-social {
+		border-right: solid 3px #cf2a2a;
+		padding: 0px 20px;
+		width: 50%;
+	}
+	.login-right-user {
+		order: 0;
+		padding: 0px 20px;
+		border: none;
+		width: 50%;
+	}
+	#userID,
+	#btn-login-google,
+	#forgottenPassword {
+		margin-top: 10px;
+	}
+}
+
+@media (min-width: 1200px) {
+	/* Login Window */
+	.login-block {
+		width: 60%;
+	}
+}

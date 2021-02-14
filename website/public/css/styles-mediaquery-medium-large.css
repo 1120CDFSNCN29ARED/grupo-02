@@ -6,99 +6,71 @@ Large	lg	≥992px
 Extra large	xl	≥1200px
 Extra extra large	xxl	≥1400px 
 */
-
 @media (min-width: 768px) {
-  main {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  nav {
-    border: none;
-  }
-  .logo {
-    display: initial;
-  }
-  .navbar-secondary {
-    height: 30px;
-    font-size: 14px;
-    border: none;
-    margin-bottom: 5px;
-  }
-  .nav-btn {
-    width: 100px;
-    display: inline-block;
-  }
-  .btn-login {
-    color: #fff;
-    background-color: #ff0000;
-    border-color: #ff0000;
-  }
-  .btn-register {
-    color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
-  }
-  #carousel-main {
-    align-content: center;
-    width: 40%;
-    margin: 0 auto;
-  }
-  #productSearchList {
-    text-overflow: ellipsis;
-  }
-  /* Category Bar */
-  #category-bar {
-    margin: 0 auto;
-    width: 90%;
-  }
-  /* Search-bar */
-  .searchBar {
-    background-color: #ffffff;
-  }
-  /* Vehicle Search */
-  .search-advanced-filters {
-    align-items: flex-end;
-    font-size: 12px;
-    padding-right: 0px;
-  }
-  /* Parts Search bar */
-  .search-parts-advanced-filters {
-    margin: 0 auto;
-    align-items: flex-end;
-    justify-content: center;
-    flex-wrap: nowrap;
-    font-size: 12px;
-    padding-right: 0px;
-  }
-  .advanced-filter {
-    text-align: center;
-    padding-left: 2px;
-  }
-  /* Login Window */
-  .login-block {
-    margin: auto;
-  }
-  .login-left-social {
-    border-right: solid 3px #cf2a2a;
-    padding: 0px 20px;
-    width: 50%;
-  }
-  .login-right-user {
-    order: 0;
-    padding: 0px 20px;
-    border: none;
-    width: 50%;
-  }
-  #userID,
-  #btn-login-google,
-  #forgottenPassword {
-    margin-top: 10px;
-  }
-}
-
-@media (min-width: 1200px) {
-  /* Login Window */
-  .login-block {
-    width: 60%;
-  }
+	main {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	nav {
+		border: none;
+	}
+	.logo {
+		display: initial;
+	}
+	.navbar-secondary {
+		height: 30px;
+		font-size: 14px;
+		border: none;
+		margin-bottom: 5px;
+	}
+	.nav-btn {
+		width: 100px;
+		display: inline-block;
+	}
+	.btn-login {
+		color: #fff;
+		background-color: #ff0000;
+		border-color: #ff0000;
+	}
+	.btn-register {
+		color: #fff;
+		background-color: #6c757d;
+		border-color: #6c757d;
+	}
+	#carousel-main {
+		align-content: center;
+		width: 40%;
+		margin: 0 auto;
+	}
+	#productSearchList {
+		text-overflow: ellipsis;
+	}
+	/* Category Bar */
+	#category-bar {
+		margin: 0 auto;
+		width: 90%;
+	}
+	/* Search-bar */
+	.searchBar {
+		background-color: #ffffff;
+	}
+	/* Vehicle Search */
+	.search-advanced-filters {
+		align-items: flex-end;
+		font-size: 12px;
+		padding-right: 0px;
+	}
+	/* Parts Search bar */
+	.search-parts-advanced-filters {
+		margin: 0 auto;
+		align-items: flex-end;
+		justify-content: center;
+		flex-wrap: nowrap;
+		font-size: 12px;
+		padding-right: 0px;
+	}
+	.advanced-filter {
+		text-align: center;
+		padding-left: 2px;
+	}
 }

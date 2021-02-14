@@ -118,36 +118,13 @@
 									>Buscador</label
 								>
 								<div class="input-group mb-3">
-									<button
-										class="btn btn-outline-secondary dropdown-toggle"
-										type="button"
-										data-bs-toggle="dropdown"
-										aria-expanded="false"
-									>
-										Tipo
-									</button>
-									<ul class="dropdown-menu">
-										<li>
-											<a class="dropdown-item" href="#"
-												>Autos</a
-											>
-										</li>
-										<li>
-											<a class="dropdown-item" href="#"
-												>Camionetas</a
-											>
-										</li>
-										<li>
-											<a class="dropdown-item" href="#"
-												>Motos</a
-											>
-										</li>
-										<li>
-											<a class="dropdown-item" href="#"
-												>Camionetas</a
-											>
-										</li>
-									</ul>
+									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01">
+										<option selected>Tipo</option>
+										<option value="auto">Autos</option>
+										<option value="camionetas">Camionetas</option>
+										<option value="motos">Motos</option>
+										<option value="camiones">Camiones</option>
+									</select>
 									<input
 										class="form-control"
 										list="datalistOptions"
@@ -197,7 +174,7 @@
 										class="form-group col-2 advanced-filter"
 									>
 										<label for="inputKMHasta"
-											>KM Desde</label
+											>KM Hasta</label
 										>
 										<select
 											id="inputKMHasta"
@@ -291,50 +268,26 @@
 						<form action="/search" method="get" class="search-products">
 							<div class="container-fluid">
 								<label
-									for="productSearchList"
+									for="partSearchList"
 									class="form-label"
 									>Buscador</label
 								>
 								<div class="input-group mb-3">
-									<button
-										class="btn btn-outline-secondary dropdown-toggle"
-										type="button"
-										data-bs-toggle="dropdown"
-										aria-expanded="false"
-									>
-										Tipo
-									</button>
-									<ul class="dropdown-menu">
-										<li>
-											<a class="dropdown-item" href="#"
-												>Autos</a
-											>
-										</li>
-										<li>
-											<a class="dropdown-item" href="#"
-												>Camionetas</a
-											>
-										</li>
-										<li>
-											<a class="dropdown-item" href="#"
-												>Motos</a
-											>
-										</li>
-										<li>
-											<a class="dropdown-item" href="#"
-												>Camionetas</a
-											>
-										</li>
-									</ul>
-
+									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01">
+										<option selected>Tipo</option>
+										<option value="auto">Autos</option>
+										<option value="camionetas">Camionetas</option>
+										<option value="motos">Motos</option>
+										<option value="camiones">Camiones</option>
+									</select>									
 									<input
 										class="form-control"
-										list="datalistOptions"
-										id="productSearchList"
+										list="partsDatalistOptions"
+										id="partSearchList"
 										aria-label="Text input with dropdown button"
 										placeholder="¿Que Repuesto estas buscando?"
 									/>
-									<datalist id="datalistOptions">
+									<datalist id="partsDatalistOptions">
 										<option value="Repuesto lorem"></option>
 										<option value="Repuesto Ipsum"></option>
 										<option value="Repuesto lorem"></option>
@@ -454,170 +407,7 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-					<article class="col mb-4">
-						<a class="card-link" href="/vehicle/item">
-							<div class="card h-100">
-								<img
-									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-									class="card-img-top"
-									alt="..."
-								/>
-								<div class="card-body">
-									<h5 class="card-title">$ 0.000.000</h5>
-									<div class="card-details">
-										<div class="row">
-											<div class="col">
-												<p class="card-text bold">Marca</p>
-											</div>
-											<div class="col">
-												<p class="card-text bold">Modelo</p>
-											</div>										
-										</div>
-										<div class="row">
-											<div class="col">
-												<p class="card-text">Versión</p>
-											</div>
-											<div class="col">
-												<p class="card-text">Año</p>
-											</div>										
-										</div>
-										<div class="row">
-											<div class="col">
-												<p class="card-text">Ubicación</p>
-											</div>
-											<div class="col">
-												<p class="card-text">Vendedor</p>
-											</div>										
-										</div>
-									</div>									
-									<p class="card-text bold">100.000 kms</p>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="col mb-4">
-						<a class="card-link" href="/vehicle/item">
-							<div class="card h-100">
-								<img
-									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-									class="card-img-top"
-									alt="..."
-								/>
-								<div class="card-body">
-									<h5 class="card-title">$ 0.000.000</h5>
-									<div class="card-details">
-										<div class="row">
-											<div class="col">
-												<p class="card-text bold">Marca</p>
-											</div>
-											<div class="col">
-												<p class="card-text bold">Modelo</p>
-											</div>										
-										</div>
-										<div class="row">
-											<div class="col">
-												<p class="card-text">Versión</p>
-											</div>
-											<div class="col">
-												<p class="card-text">Año</p>
-											</div>										
-										</div>
-										<div class="row">
-											<div class="col">
-												<p class="card-text">Ubicación</p>
-											</div>
-											<div class="col">
-												<p class="card-text">Vendedor</p>
-											</div>										
-										</div>
-									</div>									
-									<p class="card-text bold">100.000 kms</p>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="col mb-4">
-						<a class="card-link" href="/vehicle/item">
-							<div class="card h-100">
-								<img
-									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-									class="card-img-top"
-									alt="..."
-								/>
-								<div class="card-body">
-									<h5 class="card-title">$ 0.000.000</h5>
-									<div class="card-details">
-										<div class="row">
-											<div class="col">
-												<p class="card-text bold">Marca</p>
-											</div>
-											<div class="col">
-												<p class="card-text bold">Modelo</p>
-											</div>										
-										</div>
-										<div class="row">
-											<div class="col">
-												<p class="card-text">Versión</p>
-											</div>
-											<div class="col">
-												<p class="card-text">Año</p>
-											</div>										
-										</div>
-										<div class="row">
-											<div class="col">
-												<p class="card-text">Ubicación</p>
-											</div>
-											<div class="col">
-												<p class="card-text">Vendedor</p>
-											</div>										
-										</div>
-									</div>									
-									<p class="card-text bold">100.000 kms</p>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="col mb-4">
-						<a class="card-link" href="/vehicle/item">
-							<div class="card h-100">
-								<img
-									src="http://3.bp.blogspot.com/-DeAdLe_GdG4/TbjC5fZSYRI/AAAAAAAAA5k/0xuwxugbkjY/s1600/jaguar+cars+%252894%2529.jpg"
-									class="card-img-top"
-									alt="..."
-								/>
-								<div class="card-body">
-									<h5 class="card-title">$ 0.000.000</h5>
-									<div class="card-details">
-										<div class="row">
-											<div class="col">
-												<p class="card-text bold">Marca</p>
-											</div>
-											<div class="col">
-												<p class="card-text bold">Modelo</p>
-											</div>										
-										</div>
-										<div class="row">
-											<div class="col">
-												<p class="card-text">Versión</p>
-											</div>
-											<div class="col">
-												<p class="card-text">Año</p>
-											</div>										
-										</div>
-										<div class="row">
-											<div class="col">
-												<p class="card-text">Ubicación</p>
-											</div>
-											<div class="col">
-												<p class="card-text">Vendedor</p>
-											</div>										
-										</div>
-									</div>									
-									<p class="card-text bold">100.000 kms</p>
-								</div>
-							</div>
-						</a>
-					</article>
+					<%- include("./partials/lastVisitCard") %> 				
 				</div>
 			</div>
 			<div class="container-fluid">
@@ -625,51 +415,8 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-				<% vehicles.forEach(vehicle => { %>
-					<% if (vehicle.featured==true) { %>
-						<article class="col mb-4">
-							<a class="card-link" href="/vehicle/<%= vehicle.adID%>">
-								<div class="card h-100">
-									<img
-										src=<%= vehicle.imageURLs[0] %> 
-										class="card-img-top"
-										alt="..."
-									/>
-									<div class="card-body">
-										<h5 class="card-title">$ <%= vehicle.price%></h5>
-										<div class="card-details">
-											<div class="row">
-												<div class="col">
-													<p class="card-text bold"> <%= vehicle.brand %>  </p>
-												</div>
-												<div class="col">
-													<p class="card-text bold"> <%= vehicle.model  %> </p>
-												</div>										
-											</div>
-											<div class="row">
-												<div class="col">
-													<p class="card-text"> <%= vehicle.version %>  </p>
-												</div>
-												<div class="col">
-													<p class="card-text"> <%= vehicle.year %> </p>
-												</div>										
-											</div>
-											<div class="row">
-												<div class="col">
-													<p class="card-text"> <%= vehicle.location.neighbourhood %>, <%= vehicle.location.city %>,<%= vehicle.location.province %> </p>
-												</div>
-												<div class="col">
-													<p class="card-text"> <%= vehicle.seller.name %> </p>
-												</div>										
-											</div>
-										</div>									
-										<p class="card-text bold"><%= vehicle.kilometers%> kms</p>
-									</div>
-								</div>
-							</a>
-						</article>		
-					<% } %>
-				<% }) %>
+				<%- include("./partials/vehicleFeaturedCard")%> 
+				<%- include("./partials/partFeaturedCard")%> 					
 				</div>
 				</div>
 				
@@ -678,51 +425,8 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-					<% vehicles.forEach(vehicle => { %>
-					<% if (vehicle.onSale.status==true) { %>
-						<article class="col mb-4">
-							<a class="card-link" href="/vehicle/<%= vehicle.adID%>">
-								<div class="card h-100">
-									<img
-										src=<%= vehicle.imageURLs[0] %> 
-										class="card-img-top"
-										alt="..."
-									/>
-									<div class="card-body">
-										<h5 class="card-title">$ <%= vehicle.price%></h5>
-										<div class="card-details">
-											<div class="row">
-												<div class="col">
-													<p class="card-text bold"> <%= vehicle.brand %>  </p>
-												</div>
-												<div class="col">
-													<p class="card-text bold"> <%= vehicle.model  %> </p>
-												</div>										
-											</div>
-											<div class="row">
-												<div class="col">
-													<p class="card-text"> <%= vehicle.version %>  </p>
-												</div>
-												<div class="col">
-													<p class="card-text"> <%= vehicle.year %> </p>
-												</div>										
-											</div>
-											<div class="row">
-												<div class="col">
-													<p class="card-text"> <%= vehicle.location.neighbourhood %>, <%= vehicle.location.city %>,<%= vehicle.location.province %> </p>
-												</div>
-												<div class="col">
-													<p class="card-text"> <%= vehicle.seller.name %> </p>
-												</div>										
-											</div>
-										</div>									
-										<p class="card-text bold"><%= vehicle.kilometers%> kms</p>
-									</div>
-								</div>
-							</a>
-						</article>		
-					<% } %>
-				<% }) %>					
+				<%- include("./partials/vehicleOfferCard") %> 	
+				<%- include("./partials/partOfferCard")%>				
 				</div>
 			</div>
 		</main>

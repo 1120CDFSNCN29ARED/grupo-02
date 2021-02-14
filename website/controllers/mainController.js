@@ -1,10 +1,10 @@
 const mmav = require("./mmav");
 const brands = require("./brands")
-
 const vehicles = require("../json/vehicles.json");
+const parts = require("../json/parts.json");
 const mainController = {
     index: (req, res) => {                        
-        res.render("index", { 'mmav': mmav ,'brands':brands,'vehicles':vehicles});
+        res.render("index", { 'mmav': mmav ,'brands':brands,'vehicles':vehicles,'parts':parts});
      },
     login: (req, res) => {
 		res.render("login", {});
@@ -13,8 +13,9 @@ const mainController = {
         res.render('register', {});
     },
     search: (req,res) => { 
-        res.render('search', {});
-    },
+        //Not implemented yet but this needs to return only the vehicles/products that match the query
+        res.render('search', { 'vehicles': vehicles });
+    },    
 };
 
 module.exports = mainController;

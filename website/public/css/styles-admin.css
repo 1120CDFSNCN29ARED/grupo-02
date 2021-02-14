@@ -1,0 +1,29 @@
+#vehicleRating{
+    padding-top: 1.625rem;
+    padding-bottom: .625rem;
+    height: calc(3.5rem + 2px);
+    padding: 1rem .75rem;
+    display: block;
+    width: 100%;
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    margin-bottom:0rem;
+    text-align: left;
+}
+#vehicleRating>p{
+    margin-bottom:0rem;
+}
+.container-add-product-cta{
+    justify-content: center;
+    padding:10px 0px;
+
+}
+.add-product-reset, .add-product-save, .add-product-confirm{
+margin: 0px 5px;
+}
