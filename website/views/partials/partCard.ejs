@@ -1,0 +1,54 @@
+<article class="col col-md-4 col-lg-3 mb-4">
+    <a class="card-link" href="/products/<%= part.productType %>/details/<%= part.adID%>">
+        <div class="card h-100">
+            <img src="<%=part.imageURLs[0]%>" class="card-img-top" alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">$ <%= part.price%>
+                </h5>
+                <div class="card-details">
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text bold">
+                                <%= part.partBrand %>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text bold">
+                                <%= part.partmodel %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">
+                                <%= part.rating %>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">
+                                <%= part.state %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">
+                                <%= part.location.neighbourhood %>, 
+                                <% if (part.location.city === part.location.province) { %>
+                                    <%= part.location.city %>
+                                <% } else { %>
+                                    <%= part.location.city %>,<%= part.location.province %>
+                                <% } %>                                
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">
+                                <%= part.seller.name %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</article>

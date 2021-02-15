@@ -30,46 +30,47 @@
             </a>
         </div>
         <div id="mainDetails">
-        <h2 class="price">$ <%= product.price.toLocaleString("es-AR") %> </h2>
-        <p class="date">Publicado el <%= product.publishedDate %> </p>
-        <h2 class="title"><%= product.title %> </h2>
-        <p class="product-state">Usado</p>
-        <p class="location">Ubicación: <%= product.location.neighbourhood %>, <%= product.location.city %> , <%= product.location.province %> </p>
-        <% if (productType === "part") { %>
-            <p class="product-shipping">Costo de envío <span class="product-shipping-price">$250</span></p> <!-- to be replaced with dynamic data once shipping service cost is implemented -->
-        <% } %>
-        <div class="rating-container">
-            <p id="rating">Rating</p>
-            <% for( let i = 0; i < product.rating; i++ ) { %>
-                <i class="fas fa-star"></i>
+            <h2 class="price">$ <%= product.price.toLocaleString("es-AR") %> </h2>
+            <p class="date">Publicado el <%= product.publishedDate %> </p>
+            <h2 class="title"><%= product.title %> </h2>
+            <p class="product-state">Usado</p>
+            <p class="location">Ubicación: <%= product.location.neighbourhood %>, <%= product.location.city %> , <%= product.location.province %> </p>
+            <% if (productType === "part") { %>
+                <p class="product-shipping">Costo de envío <span class="product-shipping-price">$250</span></p> <!-- to be replaced with dynamic data once shipping service cost is implemented -->
             <% } %>
-            <% if (product.rating < 5 ) { %>
-                <% for( let i = 0; i < (5 - product.rating); i++ ) { %>
-                    <i class="far fa-star"></i>
+            <div class="rating-container">
+                <p id="rating">Rating</p>
+                <% for( let i = 0; i < product.rating; i++ ) { %>
+                    <i class="fas fa-star"></i>
                 <% } %>
+                <% if (product.rating < 5 ) { %>
+                    <% for( let i = 0; i < (5 - product.rating); i++ ) { %>
+                        <i class="far fa-star"></i>
+                    <% } %>
+                <% } %>
+            </div>
+            <% if (productType === "vehicle") { %>
+                <div class="buttons-container">
+                    <button type="button" class="btn btn-primary">Preguntar</button>
+                    <button type="button" class="btn btn-secondary">Reservar</button>
+                    <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
+                    <i class="far fa-heart"></i>
+                </div>
+            
+            <% } else if (productType === "part") { %>
+                <div class="buttons-container">
+                    <button type="button" class="btn btn-primary">Comprar</button>
+                    <button type="button" class="btn btn-secondary">Preguntar</button>
+                    <button type="button" class="btn btn-danger"><i class="fas fa-cart-plus"></i></button>
+                    <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
+                    <i class="far fa-heart"></i>
+                </div>
+
+                <div class="payment-methods-link">
+                    <a data-bs-toggle="modal" data-bs-target="#paymentMethodsModal"><i class="fas fa-credit-card"></i> Medios de pago</a>
+                </div>
             <% } %>
         </div>
-        <% if (productType === "vehicle") { %>
-            <div class="buttons-container">
-                <button type="button" class="btn btn-primary">Preguntar</button>
-                <button type="button" class="btn btn-secondary">Reservar</button>
-                <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
-                <i class="far fa-heart"></i>
-            </div>
-        
-        <% } else if (productType === "part") { %>
-            <div class="buttons-container">
-                <button type="button" class="btn btn-primary">Comprar</button>
-                <button type="button" class="btn btn-secondary">Preguntar</button>
-                <button type="button" class="btn btn-danger"><i class="fas fa-cart-plus"></i></button>
-                <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
-                <i class="far fa-heart"></i>
-            </div>
-
-            <div class="payment-methods-link">
-                <a data-bs-toggle="modal" data-bs-target="#paymentMethodsModal"><i class="fas fa-credit-card"></i> Medios de pago</a>
-            </div>
-        <% } %>
     </section>
     <section>
         <% if (productType === "vehicle") { %>
@@ -160,9 +161,7 @@
         </div>
     </div>
 </main>
-<footer class="container-fluid text-light text-center sticky-bottom">
-        <p><i class="far fa-copyright"></i> REAL CARS 2021</p>
-    </footer>
+<%- include("./partials/footer") %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>

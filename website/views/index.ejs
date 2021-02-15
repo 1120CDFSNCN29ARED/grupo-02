@@ -407,7 +407,9 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-					<%- include("./partials/lastVisitCard") %> 				
+					<% for(let i = 0; i < 4; i++) { %>
+						<%- include("./partials/vehicleCard", {vehicle: vehicles[i]}) %> 
+					<% } %>
 				</div>
 			</div>
 			<div class="container-fluid">
@@ -415,8 +417,14 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-				<%- include("./partials/vehicleFeaturedCard")%> 
-				<%- include("./partials/partFeaturedCard")%> 					
+					<% let featuredVehicles = vehicles.filter(vehicle => vehicle.featured === true) %>
+					<% let featuredParts = parts.filter(part => part.featured === true) %>
+					<% featuredVehicles.forEach(vehicle => { %>
+						<%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+					<% }) %>
+					<% featuredParts.forEach(part => { %>
+						<%- include("./partials/partCard", {part: part}) %> 
+					<% }) %>				
 				</div>
 				</div>
 				
@@ -425,8 +433,14 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-				<%- include("./partials/vehicleOfferCard") %> 	
-				<%- include("./partials/partOfferCard")%>				
+					<% let onSaleVehicles = vehicles.filter(vehicle => vehicle.onSale.status === true) %>
+					<% let onSaleParts = parts.filter(part => part.onSale.status === true) %>
+					<% onSaleVehicles.forEach(vehicle => { %>
+						<%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+					<% }) %>
+					<% onSaleParts.forEach(part => { %>
+						<%- include("./partials/partCard", {part: part}) %> 
+					<% }) %>				
 				</div>
 			</div>
 		</main>
