@@ -33,8 +33,14 @@
             <h2 class="price">$ <%= product.price.toLocaleString("es-AR") %> </h2>
             <p class="date">Publicado el <%= product.publishedDate %> </p>
             <h2 class="title"><%= product.title %> </h2>
-            <p class="product-state">Usado</p>
-            <p class="location">Ubicación: <%= product.location.neighbourhood %>, <%= product.location.city %> , <%= product.location.province %> </p>
+            <p class="product-state"><%= product.state %></p>
+            <p class="location">Ubicación: <%= product.location.neighbourhood %>,
+                <% if (product.location.city === product.location.province) { %>
+                    <%= product.location.city %>
+                <% } else { %>
+                    <%= product.location.city %>,<%= product.location.province %>
+                <% } %>
+             </p>
             <% if (productType === "part") { %>
                 <p class="product-shipping">Costo de envío <span class="product-shipping-price">$250</span></p> <!-- to be replaced with dynamic data once shipping service cost is implemented -->
             <% } %>
@@ -138,15 +144,6 @@
             <% }) %>            
         </div>
         
-    </section>
-    <section>
-        <div class="buttons-container">
-            <button type="submit" class="btn btn-primary">Preguntar</button>
-            <button type="submit" class="btn btn-secondary">Reservar</button>
-            <button type="submit" class="btn btn-danger"><i class="fas fa-cart-plus"></i></button>
-            <button type="submit" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
-            <i class="far fa-heart"></i>
-        </div>
     </section>
     <div class="modal" id="paymentMethodsModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
