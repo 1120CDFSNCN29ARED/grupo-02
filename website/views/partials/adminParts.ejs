@@ -1,0 +1,147 @@
+<!-- Add Product -->
+<section class="section-add-product" id="add-product-part">
+    <form action="" class="add-product">
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partTitle" id="partTitle">
+                    <label for="partTitle">Título</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-2">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="partBrand" aria-label="Select brand" name="partBrand">
+                        <% for(let i=0;i<5;i++){%>
+                            <option value='<%=i%>'>
+                                <%= "Brand " +i%>
+                            </option>
+                            <% } %>
+                    </select>
+                    <label for="partBrand">Marca</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="partModel" aria-label="Select model" name="partModel">
+                        <% for(let i=0;i<5;i++){%>
+                            <option value='<%=i%>'>
+                                <%= "Model "+i%>
+                            </option>
+                            <% } %>
+                    </select>
+                    <label for="partModel">Modelo</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partID" id="partID">
+                    <label for="partID">Respuesto ID</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="partVehicleType" aria-label="Select Vehicle Type" name="partVehicleType">
+                        <option value="universal">Universal</option>
+                        <option value="car">Auto</option>
+                        <option value="pickup">Camioneta</option>
+                        <option value="motorbike">Moto</option>
+                        <option value="truck">Camion</option>
+                    </select>
+                    <label for="partVehicleType">Tipo de Vehículo</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partProvince" id="partProvince">
+                    <label for="partProvince">Provincia</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partCity" id="partCity">
+                    <label for="partCity">Ciudad</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partNeighbourhood" id="partNeighbourhood">
+                    <label for="partNeighbourhood">Barrio</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partPostalCode" id="partPostalCode">
+                    <label for="partPostalCode">Código Postal</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="url" name="partIamge1" id="partImage1" class="form-control">
+                    <label for="partImage1">Image URL</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="url" name="partIamge2" id="partImage2" class="form-control">
+                    <label for="partImage2">Image URL</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="url" name="partIamge3" id="partImage3" class="form-control">
+                    <label for="partImage3">Image URL</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="partState" aria-label="Select state" name="partState">
+                        <option value="used">Usado</option>
+                        <option value="new">Nuevo</option>
+                    </select>
+                    <label for="partState">Estado</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <div name="rating" id="rating">
+                        <p>Rating</p>
+                        <p>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-1">
+                    <textarea class="form-control" name="partDescription" id="partDescription"></textarea>
+                    <label for="partescription">Descripción</label>
+                </div>
+            </div>
+        </div>
+        <!-- Buttons Section -->
+        <div class="container-fluid d-flex container-add-product-cta">
+            <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>
+            <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit">Guardar y
+                    Publicar</button></div>
+            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit">Guardar </button></div>
+
+        </div>
+    </form>
+</section>

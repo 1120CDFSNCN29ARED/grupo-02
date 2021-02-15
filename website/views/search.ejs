@@ -1,0 +1,161 @@
+<!-- My style -->
+<% let styles = [ '<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet"	href="/css/styles-mediaquery-medium-large.css" media="(min-width: 768px)"/>','<link rel="stylesheet" href="/css/cardStyles.css" />','<link rel="stylesheet" href="/css/searchStyles.css" />','<link rel="stylesheet" href="/css/searchStyles-mediaQuery.css" media="(min-width: 768px)">' ] %>
+		<%- include("./partials/head", {"styles": styles}) %> 
+		<%- include("./partials/header") %>		        
+    <main>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container-fluid">
+                <p class="search-result-quantity">8 resultados</p>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#searchNavbar" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="searchNavbar">
+                    
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0k">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="filterOrderBy" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ordenar por...
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <input type="checkbox" name="priceOrder" id="lowerPrice"> Menor precio</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="priceOrder" id="greaterPrice"> Mayor precio</input>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="filterType" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tipo
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <input type="checkbox" name="typeCar" id="typeCar"> Auto</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="typePickup" id="typePickup"> Camioneta</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="typeBike" id="typeBike"> Moto</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="typeTruck" id="typeTruck"> Camión</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="typePart" id="typePart"> Repuesto</input>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="filterBrand" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Marca
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <input type="checkbox" name="brandAudi" id="brandAudi"> Audi</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="brandBMW" id="brandBMW"> BMW</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="brandChevrolet" id="brandChevrolet"> Chevrolet</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="brandFord" id="brandFord"> Ford</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="brandKia" id="brandKia"> Kia</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="brandNissan" id="brandNissan"> Nissan</input>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="filterModel" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Modelo
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <input type="checkbox" name="modelSorento" id="modelSorento"> Sorento</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="modelMondeo" id="modelMondeo"> Mondeo</input>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="filterYear" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Año
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <input type="checkbox" name="year2021" id="year2021"> 2021</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="year2020" id="year2020"> 2020</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="year2019" id="year2019"> 2019</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="year2018" id="year2018"> 2018</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="year2017" id="year2017"> 2017</input>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="year2016" id="year2016"> 2016</input>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+            
+        <div class="container-fluid">
+				<h2>Destacados</h2>
+				<div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+				    <% let featuredVehicles = vehicles.filter(vehicle => vehicle.featured === true) %>
+					<% let featuredParts = parts.filter(part => part.featured === true) %>
+					<% featuredVehicles.forEach(vehicle => { %>
+						<%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+					<% }) %>
+					<% featuredParts.forEach(part => { %>
+						<%- include("./partials/partCard", {part: part}) %> 
+					<% }) %> 
+				</div>
+				</div>
+        <section id="search-results">
+            <h2>Resultados</h2>
+            <div class="container-fluid">
+                <div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+                    <% vehicles.forEach(vehicle => { %>
+                        <%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+                    <% });%>
+                </div>
+            </div>
+        </section>   
+    </main>
+    <%- include ("./partials/footer")%>
+    <div class="modal" id="paymentMethodsModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Medios de pago</h5>
+            </div>
+            <div class="modal-body">
+                <p>Estas son los distintos medios de pago</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body> 
+</html>

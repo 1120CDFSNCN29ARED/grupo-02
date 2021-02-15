@@ -20,10 +20,13 @@
 
 ## Sprint 2
 
-#### [Retro]() :
+#### [Retro](https://drive.google.com/file/d/1gPcfIKVtnYRiZZQsoPABR1Mp4ijllJKi/view?usp=sharing) :
 
 #### Reflexiones Iniciales
-
+     Logramos implementar la mayoria de las iniciativas que propusimos durante el retro 1.
+     Todavia estamos aceitando la forma de trabajar en forma coordinada y distribuida pero vamos avanzando bien.
+     Identificamos la necesidad de organizar los tiempos mejor, sobre todo las tareas mas complicadas como el merge previa a la entrega etc.
+     Se decidió implementar peer-reviews de las secciones que va haciendo cada uno para así poder detectar errores o cosas faltantes de manera temprana. Se hará moviendo las tareas a la sección de review en lugar de a done en el tablero de Trello.
 ## Sprint 3
 
 #### [Retro]() :

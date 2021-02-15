@@ -1,0 +1,190 @@
+<!-- Add Product -->
+<section class="section-add-product" id="add-product-vehicle">
+    <form action="" class="add-product">
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="productCategory" aria-label="Select category" name="vehicleType">
+                        <option value="1">Auto</option>
+                        <option value="2">Camioneta</option>
+                        <option value="3">Moto</option>
+                        <option value="4">Camion</option>
+                    </select>
+                    <label for="vehicleType">Tipo de Vehiculo</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-2">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="vehicleBrand" aria-label="Select brand" name="vehicleBrand">
+                        <% for(let i=0;i<brands.length;i++){%>
+                            <option value='<%=i%>'>
+                                <%= brands[i]%>
+                            </option>
+                            <% } %>
+                    </select>
+                    <label for="vehicleBrand">Marca</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="vehicleModel" aria-label="Select model" name="vehicleModel">
+                        <% for(let i=0;i<mmav.length;i++){%>
+                            <option value='<%=i%>'>
+                                <%= mmav[i]%>
+                            </option>
+                            <% } %>
+                    </select>
+                    <label for="vehicleModel">Modelo</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-2">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="vehicleYear" aria-label="Select Year" name="vehicleYear">
+                        <% for(let i=2021;i>=1900;i--){%>
+                            <option value='<%=i%>'>
+                                <%=i%>
+                            </option>
+                            <% } %>
+                    </select>
+                    <label for="vehicleYear">Año</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="vehicleVersion" aria-label="Select version" name="vehicleVersion">
+                        <% for(let i=0;i<mmav.length;i++){%>
+                            <option value='<%=i%>'>
+                                <%= mmav[i]%>
+                            </option>
+                            <% } %>
+                    </select>
+                    <label for="vehicleVersion">Versión</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="vehicleState" aria-label="Select state" name="vehicleState">
+                        <option value="used">Usado</option>
+                        <option value="new">0km</option>
+                    </select>
+                    <label for="vehicleState">Estado</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <div name="rating" id="rating">
+                        <p>Rating</p>
+                        <p>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" placeholder="" id="vehicleKMs"></input>
+                    <label for="vehicelKMs">Kilometros</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" placeholder="" id="vehiclePrecio"></input>
+                    <label for="vehicelPrice">Precio</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="vehicleColor" aria-label="Select Color" name="vehicleColor">
+                        <option value="white">Blanco</option>
+                        <option value="black">Negro</option>
+                    </select>
+                    <label for="VehicleColor">Color</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="vehicleColorInterior" aria-label="Select Color"
+                        name="vehicleColorInterior">
+                        <option value="white">Blanco</option>
+                        <option value="black">Negro</option>
+                    </select>
+                    <label for="VehicleColorInterior">Color</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="vehicleProvince" id="vehicleProvince">
+                    <label for="vehicleProvince">Provincia</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="vehicleCity" id="vehicleCity">
+                    <label for="vehicleCity">Ciudad</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="vehicleNeighbourhood" id="vehicleNeighbourhood">
+                    <label for="vehicleNeighbourhood">Barrio</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="vehiclePostalCode" id="vehiclePostalCode">
+                    <label for="vehiclePostalCode">Código Postal</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="url" name="vehicleIamge1" id="vehicleImage1" class="form-control">
+                    <label for="vehicleImage1">Image URL</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="url" name="vehicleIamge2" id="vehicleImage2" class="form-control">
+                    <label for="vehicleImage2">Image URL</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="url" name="vehicleIamge3" id="vehicleImage3" class="form-control">
+                    <label for="vehicleImage3">Image URL</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-1">
+                    <textarea class="form-control" name="vehicleDescription" id="vehicleDescription"></textarea>
+                    <label for="vehicelDescription">Descripción</label>
+                </div>
+            </div>
+        </div>
+        <!-- Buttons Section -->
+        <div class="container-fluid d-flex container-add-product-cta">
+            <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>
+            <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit">Guardar y
+                    Publicar</button></div>
+            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit">Guardar </button></div>
+
+        </div>
+    </form>
+</section>
