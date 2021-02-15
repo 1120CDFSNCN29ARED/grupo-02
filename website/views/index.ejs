@@ -1,0 +1,455 @@
+		<% let styles = [ '<link rel="stylesheet" href="/css/styles-header.css" />', '<link rel="stylesheet" href="/css/styles-index.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet"	href="/css/styles-mediaquery-medium-large.css" media="(min-width: 768px)"/>','<link rel="stylesheet" href="/css/cardStyles.css" />' ] %>
+		<%- include("./partials/head", {"styles": styles}) %> 
+		<%- include("./partials/header") %>		 
+		<main>
+			<!-- Carousel -->
+			<div
+				id="carousel-main"
+				class="carousel slide container-fluid"
+				data-bs-ride="carousel"
+			>
+			<ol class="carousel-indicators">
+				<li data-bs-target="#productPhotoCarousel" data-bs-slide-to="0" class="active"></li>
+				<li data-bs-target="#productPhotoCarousel" data-bs-slide-to="1"></li>
+			</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active" data-bs-interval="10000">
+						<img
+							src="https://www.hdcarwallpapers.com/download/italdesign_gt_zero_electric_geneva_auto_show_2016-1920x1080.jpg"
+							class="d-flex w-100"
+							alt="..."
+						/>
+					</div>
+					<div class="carousel-item" data-bs-interval="10000">
+						<img
+							src="https://i2.wp.com/www.stugon.com/wp-content/uploads/2013/12/Exotic-Car-Wallpapers-HD-Edition-stugon.com-4.jpg"
+							class="d-block w-100"
+							alt="..."
+						/>
+					</div>
+				</div>
+				<a
+					class="carousel-control-prev" 
+					href="#carousel-main"
+					role="button"
+					data-bs-slide="prev"
+				>
+					<span
+						class="carousel-control-prev-icon"
+						aria-hidden="true"
+					></span>
+					<span class="visually-hidden">Previous</span>
+				</a>
+				<a
+					class="carousel-control-next"
+					href="#carousel-main"
+					role="button"
+					data-bs-slide="next"
+				>
+					<span
+						class="carousel-control-next-icon"
+						aria-hidden="true"
+					></span>
+					<span class="visually-hidden">Next</span>
+				</a>
+			</div>
+			<!-- Categorias con Iconos de cada categoria -->
+			<div
+				class="d-flex justify-content-center text-weight-bold my-2"
+				id="category-bar"
+			>
+				<a class="px-3 px-xs-4 px-md-5" href="/search">
+					<i class="fas fa-car text-danger"></i
+				></a>
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
+					><i class="fas fa-truck-pickup text-danger"></i
+				></a>
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
+					><i class="fas fa-motorcycle text-danger"></i
+				></a>
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
+					><i class="fas fa-truck text-danger"></i
+				></a>
+				<a class="px-3 px-xs-4 px-md-5" href="/search"
+					><i class="fas fa-wrench text-danger"></i
+				></a>
+			</div>
+			<!-- Buscador -->
+			<section
+				class="container-fluid w-75 mb-3 d-none d-md-block searchBar p-2 border border-secondary rounded"
+			>
+				<!--Tabs: Vehiculos | Repuestos  -->
+				<nav>
+					<div class="nav nav-tabs" id="search-tabs" role="tablist">
+						<a
+							class="nav-link active"
+							id="search-vehicles-tab"
+							data-bs-toggle="tab"
+							href="#search-vehicles"
+							role="tab"
+							aria-controls="search-vehicles"
+							aria-selected="true"
+							>Vehiculos</a
+						>
+						<a
+							class="nav-link"
+							id="search-parts-tab"
+							data-bs-toggle="tab"
+							href="#search-parts"
+							role="tab"
+							aria-controls="search-parts"
+							aria-selected="false"
+							>Repuestos</a
+						>
+					</div>
+				</nav>
+				<div class="tab-content" id="nav-tabContent mb-3 pb-3">
+					<div
+						class="tab-pane fade show active"
+						id="search-vehicles"
+						role="tabpanel"
+						aria-labelledby="search-vehicles-tab"
+					>
+						<form action="/search" method="get" class="search-products">
+							<div class="container">
+								<label
+									for="productSearchList"
+									class="form-label"
+									>Buscador</label
+								>
+								<div class="input-group mb-3">
+									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01">
+										<option selected>Tipo</option>
+										<option value="auto">Autos</option>
+										<option value="camionetas">Camionetas</option>
+										<option value="motos">Motos</option>
+										<option value="camiones">Camiones</option>
+									</select>
+									<input
+										class="form-control"
+										list="datalistOptions"
+										id="productSearchList"
+										aria-label="Text input with dropdown button"
+										placeholder="Marca, Modelo, caracteristicas y más"
+									/>
+									<datalist id="datalistOptions">
+										<% for(let i=0;i<mmav.length;i++){%>
+											<option value = '<%= mmav[i]%>'><%= mmav[i]%></option>
+											<% } %>
+									</datalist>
+									<button
+										class="btn btn-outline-secondary"
+										aria-describedby="button-addon2"
+										type="submit"
+										id="button-addon2"
+									>
+										<i
+											class="fas fa-search text-danger"
+										></i>
+									</button>
+								</div>
+							</div>
+							<div class="container">
+								<div
+									class="row search-advanced-filters d-flex gx-0"
+								>
+									<div
+										class="form-group col-2 text-align-center advanced-filter"
+									>
+										<label for="inputKMFrom" class=""
+											>KM Desde</label
+										>
+										<select
+											id="inputKMFrom"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>10-50mil</option>
+											<option>50-100mil</option>
+											<option>100-250mil</option>
+											<option>250mil+</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputKMHasta"
+											>KM Hasta</label
+										>
+										<select
+											id="inputKMHasta"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>10-50mil</option>
+											<option>50-100mil</option>
+											<option>100-250mil</option>
+											<option>250mil+</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputYearFrom"
+											>Año Desde</label
+										>
+										<select
+											id="inputYearFrom"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>1900</option>
+											<option>1950</option>
+											<option>2000</option>
+											<option>2020</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputYearTo"
+											>Año Hasta</label
+										>
+										<select
+											id="inputYearTo"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>1900</option>
+											<option>1950</option>
+											<option>2000</option>
+											<option>2020</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputPriceFrom"
+											>Precio Desde</label
+										>
+										<select
+											id="inputPriceFrom"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>$0.0000</option>
+											<option>$00.0000</option>
+											<option>$000.000</option>
+											<option>$0.000.000</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="inputPriceTo"
+											>Precio Hasta</label
+										>
+										<select
+											id="inputPriceTo"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>$0.0000</option>
+											<option>$00.0000</option>
+											<option>$000.000</option>
+											<option>$0.000.000</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div
+						class="tab-pane fade"
+						id="search-parts"
+						role="tabpanel"
+						aria-labelledby="search-parts-tab"
+					>
+						<form action="/search" method="get" class="search-products">
+							<div class="container-fluid">
+								<label
+									for="partSearchList"
+									class="form-label"
+									>Buscador</label
+								>
+								<div class="input-group mb-3">
+									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01">
+										<option selected>Tipo</option>
+										<option value="auto">Autos</option>
+										<option value="camionetas">Camionetas</option>
+										<option value="motos">Motos</option>
+										<option value="camiones">Camiones</option>
+									</select>									
+									<input
+										class="form-control"
+										list="partsDatalistOptions"
+										id="partSearchList"
+										aria-label="Text input with dropdown button"
+										placeholder="¿Que Repuesto estas buscando?"
+									/>
+									<datalist id="partsDatalistOptions">
+										<option value="Repuesto lorem"></option>
+										<option value="Repuesto Ipsum"></option>
+										<option value="Repuesto lorem"></option>
+										<option value="Repuesto Ipsum"></option>
+										<option
+											value="Repuesto lorem"
+										></option></datalist
+									><button
+										class="btn btn-outline-secondary"
+										aria-describedby="button-addon2"
+										type="submit"
+										id="button-addon2"
+									>
+										<i
+											class="fas fa-search text-danger"
+										></i>
+									</button>
+								</div>
+							</div>
+							<div class="container">
+								<div
+									class="row search-parts-advanced-filters d-flex gx-0"
+								>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsMake" class=""
+											>Marca</label
+										>
+										<select
+											id="partsMake"
+											class="form-control"
+										>
+											<% for(let i=0;i<brands.length;i++){%>
+											<option value = '<%= brands[i]%>'><%= brands[i]%></option>
+											<% } %>
+										
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsModel">Modelo</label>
+										<select
+											id="partsModel"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>Model 1</option>
+											<option>Model 2</option>
+											<option>Model 3</option>
+											<option>Model 4</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsInputYearFrom"
+											>Año Desde</label
+										>
+										<select
+											id="partsInputYearFrom"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>1900</option>
+											<option>1950</option>
+											<option>2000</option>
+											<option>2020</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsInputYearTo"
+											>Año Hasta</label
+										>
+										<select
+											id="partsInputYearTo"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>1900</option>
+											<option>1950</option>
+											<option>2000</option>
+											<option>2020</option>
+										</select>
+									</div>
+									<div
+										class="form-group col-2 advanced-filter"
+									>
+										<label for="partsVersion"
+											>Version</label
+										>
+										<select
+											id="partsversion"
+											class="form-control"
+										>
+											<option selected>...</option>
+											<option>V1</option>
+											<option>V2</option>
+											<option>V3</option>
+											<option>V4</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- tipo | Marca | modelo | Version | Km desde |Km hasta -->
+				<!-- Año desde | año hasta | Precio desde | Precios Hasta -->
+			</section>
+			<!-- Card Reel for destacados double layer -->
+			<div class="container-fluid">
+				<h2>Basado en tu última visita</h2>
+				<div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+					<% for(let i = 0; i < 4; i++) { %>
+						<%- include("./partials/vehicleCard", {vehicle: vehicles[i]}) %> 
+					<% } %>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<h2>Destacados</h2>
+				<div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+					<% let featuredVehicles = vehicles.filter(vehicle => vehicle.featured === true) %>
+					<% let featuredParts = parts.filter(part => part.featured === true) %>
+					<% featuredVehicles.forEach(vehicle => { %>
+						<%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+					<% }) %>
+					<% featuredParts.forEach(part => { %>
+						<%- include("./partials/partCard", {part: part}) %> 
+					<% }) %>				
+				</div>
+				</div>
+				
+			<div class="container-fluid">
+				<h2>Ofertas</h2>
+				<div
+					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
+				>
+					<% let onSaleVehicles = vehicles.filter(vehicle => vehicle.onSale.status === true) %>
+					<% let onSaleParts = parts.filter(part => part.onSale.status === true) %>
+					<% onSaleVehicles.forEach(vehicle => { %>
+						<%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+					<% }) %>
+					<% onSaleParts.forEach(part => { %>
+						<%- include("./partials/partCard", {part: part}) %> 
+					<% }) %>				
+				</div>
+			</div>
+		</main>
+		<%- include("./partials/footer") %>
+		<!-- Bootstrap JS Bundle -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

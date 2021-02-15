@@ -1,0 +1,40 @@
+<% let styles = ['<link rel="stylesheet" href="/css/styles-header.css"/>', '<link rel="stylesheet" href="/css/styles-footer.css"/>', '<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" media="(min-width: 768px"/>', '<link rel="stylesheet" href="/css/cartStyles.css" />','<link rel="stylesheet" href="/css/cartStyles-mediaQuery.css" media="(min-width: 768px)">'] %> 
+<%- include("./partials/head", {"styles": styles}) %> 
+<%- include("./partials/header") %>
+<main>
+    <main>
+        <section class="cart-container">
+            <% items.forEach(item => { %>
+                <article class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="<%= (item.imageURLs)[0] %>" alt="" srcset="">
+                    </div>
+                    <div class="cart-item-details-container">
+                        <h2 class="cart-item-title"><%= item.title %> </h2>
+                        <p class="cart-item-description"><%= item.description %> </p>
+                        <div class="cart-item-shipping-container">
+                            <p class="cart-item-shipping-label">Costo de envío: <span class="cart-item-shipping-price">$200</span></p>
+                        </div>
+                        <p class="cart-item-seller"><%= item.seller.name %> </p>
+                    </div>
+                    <div class="cart-item-quantity-container">
+                        <div class="cart-item-quantity">
+                            <i class="fas fa-minus"></i>
+                            <input type="text" name="quantity-product-1" id="quantity-product-1">
+                            <i class="fas fa-plus"></i>
+                            <p class="cart-item-available-quantity"><%= item.stock %> </p>
+                        </div>
+                        <h2 class="cart-item-price">$ <%= item.price.toLocaleString("es-AR") %> </h2>
+                    </div>
+                    <button class="btn btn-danger">Eliminar</button>
+                </article>
+            <% }) %>
+        </section>
+    </main>
+</main>
+<footer class="container-fluid text-light text-center sticky-bottom">
+        <p><i class="far fa-copyright"></i> REAL CARS 2021</p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
