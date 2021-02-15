@@ -27,3 +27,14 @@
 .add-product-reset, .add-product-save, .add-product-confirm{
 margin: 0px 5px;
 }
+.fa-star {
+    color: #cf2a2a;
+}
+.add-product-confirm:hover,.add-product-save:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+.add-product-reset:hover {
+    background-color: #cf2a2a;
+    color: white;
+}

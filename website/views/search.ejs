@@ -120,7 +120,14 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-				<%- include("./partials/vehicleFeaturedCard") %> 
+				    <% let featuredVehicles = vehicles.filter(vehicle => vehicle.featured === true) %>
+					<% let featuredParts = parts.filter(part => part.featured === true) %>
+					<% featuredVehicles.forEach(vehicle => { %>
+						<%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+					<% }) %>
+					<% featuredParts.forEach(part => { %>
+						<%- include("./partials/partCard", {part: part}) %> 
+					<% }) %> 
 				</div>
 				</div>
         <section id="search-results">
@@ -129,8 +136,10 @@
                 <div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-				<%- include("./partials/lastVisitCard")%>
-				</div>
+                    <% vehicles.forEach(vehicle => { %>
+                        <%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+                    <% });%>
+                </div>
             </div>
         </section>   
     </main>

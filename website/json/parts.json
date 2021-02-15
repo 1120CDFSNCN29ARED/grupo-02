@@ -24,7 +24,7 @@
             "https://http2.mlstatic.com/D_NQ_NP_813705-MLA43987593828_112020-O.webp"
         ],
         "price": 23456,
-        "state": "nuevo",
+        "state": "Nuevo",
         "rating": 4,
         "location": {
             "province": "CABA",
@@ -63,7 +63,7 @@
             "https://http2.mlstatic.com/D_NQ_NP_669289-MLA26240045314_102017-O.webp"
         ],
         "price": 12345,
-        "state": "nuevo",
+        "state": "Nuevo",
         "rating": 4,
         "location": {
             "province": "CABA",
@@ -101,7 +101,7 @@
             "https://http2.mlstatic.com/D_NQ_NP_933342-MLA40075024904_122019-O.webp"
         ],
         "price": 3456,
-        "state": "nuevo",
+        "state": "Nuevo",
         "rating": 4,
         "location": {
             "province": "CABA",
@@ -140,7 +140,7 @@
             "https://http2.mlstatic.com/D_NQ_NP_103225-MLA25408560310_032017-O.webp"
         ],
         "price": 1236,
-        "state": "nuevo",
+        "state": "Nuevo",
         "rating": 3,
         "location": {
             "province": "CABA",
@@ -178,7 +178,7 @@
             "https://http2.mlstatic.com/D_NQ_NP_936865-MLA26346153229_112017-O.webp"
         ],
         "price": 20236,
-        "state": "usado",
+        "state": "Usado",
         "rating": 3,
         "location": {
             "province": "CABA",

@@ -14,7 +14,7 @@ const mainController = {
     },
     search: (req,res) => { 
         //Not implemented yet but this needs to return only the vehicles/products that match the query
-        res.render('search', { 'vehicles': vehicles });
+        res.render('search', { 'vehicles': vehicles, parts: parts });
     },    
 };
 

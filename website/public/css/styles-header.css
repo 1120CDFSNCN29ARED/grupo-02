@@ -5,6 +5,7 @@
 .logo {
   max-width: 100px;
   display: none;
+  margin-right:20px;
 }
 .logo img {
   width: 100%;
@@ -40,4 +41,7 @@ button > a:hover {
 }
 .dropdown-item {
   color: rgba(255, 255, 255, 0.55);
+}
+.nav-icon-cart {
+  margin-right: 10px;
 }
