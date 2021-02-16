@@ -6,6 +6,8 @@ let brands = [
 	"ASIA",
 	"AUDI",
 	"AUTOBIANCHI",
+	"BAJAJ",
+	"BENELLI",
 	"BMW",
 	"BUIK",
 	"CADILLAC",

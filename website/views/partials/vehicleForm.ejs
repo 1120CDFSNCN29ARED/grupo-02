@@ -19,7 +19,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleBrand" aria-label="Select brand" name="vehicleBrand">
                         <% for(let i=0;i<brands.length;i++){%>
-                            <option value='<%=i%>'>
+                            <option value='<%=i%>' <%= (product.brand === brands[i])?"selected":"" %>>
                                 <%= brands[i]%>
                             </option>
                             <% } %>
@@ -31,7 +31,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleModel" aria-label="Select model" name="vehicleModel">
                         <% for(let i=0;i<mmav.length;i++){%>
-                            <option value='<%=i%>'>
+                            <option value='<%=i%>' <%= (product.model === mmav[i])?"selected":"" %>>
                                 <%= mmav[i]%>
                             </option>
                             <% } %>
@@ -43,7 +43,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleYear" aria-label="Select Year" name="vehicleYear">
                         <% for(let i=2021;i>=1900;i--){%>
-                            <option value='<%=i%>'>
+                            <option value='<%=i%>' <%= (product.year === i)?"selected":"" %>>
                                 <%=i%>
                             </option>
                             <% } %>
@@ -55,7 +55,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleVersion" aria-label="Select version" name="vehicleVersion">
                         <% for(let i=0;i<mmav.length;i++){%>
-                            <option value='<%=i%>'>
+                            <option value='<%=i%>' <%= (product.version === mmav[i])?"selected":"" %>>
                                 <%= mmav[i]%>
                             </option>
                             <% } %>
@@ -68,8 +68,8 @@
             <div class="col-md col-lg-6">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleState" aria-label="Select state" name="vehicleState">
-                        <option value="used">Usado</option>
-                        <option value="new">0km</option>
+                        <option value="usado" <%= (product.state === "usado")?"selected":"" %>>Usado</option>
+                        <option value="nuevo" <%= (product.state === "nuevo")?"selected":"" %>>0km</option>
                     </select>
                     <label for="vehicleState">Estado</label>
                 </div>
@@ -79,11 +79,19 @@
                     <div name="rating" id="rating">
                         <p>Rating</p>
                         <p>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
+                            <% for( let i = 0; i < product.rating; i++ ) { %>
+                                <i class="fas fa-star"></i>
+                            <% } %>
+                            <% if (product.rating < 5 ) { %>
+                                <% for( let i = 0; i < (5 - product.rating); i++ ) { %>
+                                    <i class="far fa-star"></i>
+                                <% } %>
+                            <% } %>
+                            <% if (!product.rating) { %>
+                                <% for( let i = 0; i < 5; i++ ) { %>
+                                    <i class="far fa-star"></i>
+                                <% } %>
+                            <% } %>
                         </p>
                     </div>
                 </div>
@@ -92,13 +100,13 @@
         <div class="row">
             <div class="col-md col-lg-6">
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" placeholder="" id="vehicleKMs"></input>
+                    <input type="number" class="form-control" placeholder="" id="vehicleKMs" value="<%= product.kilometers %>"></input>
                     <label for="vehicelKMs">Kilometros</label>
                 </div>
             </div>
             <div class="col-md col-lg-6">
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" placeholder="" id="vehiclePrecio"></input>
+                    <input type="number" class="form-control" placeholder="" id="vehiclePrecio" value="<%= product.price %>"></input>
                     <label for="vehicelPrice">Precio</label>
                 </div>
             </div>
@@ -127,25 +135,25 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="vehicleProvince" id="vehicleProvince">
+                    <input type="text" class="form-control" name="vehicleProvince" id="vehicleProvince" value="<%= (product.location) ? product.location.province : "" %>">
                     <label for="vehicleProvince">Provincia</label>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="vehicleCity" id="vehicleCity">
+                    <input type="text" class="form-control" name="vehicleCity" id="vehicleCity" value="<%= (product.location) ? product.location.city : "" %>">
                     <label for="vehicleCity">Ciudad</label>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="vehicleNeighbourhood" id="vehicleNeighbourhood">
+                    <input type="text" class="form-control" name="vehicleNeighbourhood" id="vehicleNeighbourhood" value="<%= (product.location) ? product.location.neighbourhood : "" %>">
                     <label for="vehicleNeighbourhood">Barrio</label>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="vehiclePostalCode" id="vehiclePostalCode">
+                    <input type="text" class="form-control" name="vehiclePostalCode" id="vehiclePostalCode" value="<%= (product.location) ? product.location.postalCode : "" %>">
                     <label for="vehiclePostalCode">Código Postal</label>
                 </div>
             </div>
@@ -153,19 +161,19 @@
         <div class="row">
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="vehicleIamge1" id="vehicleImage1" class="form-control">
+                    <input type="url" name="vehicleIamge1" id="vehicleImage1" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[0] : "" %>">
                     <label for="vehicleImage1">Image URL</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="vehicleIamge2" id="vehicleImage2" class="form-control">
+                    <input type="url" name="vehicleIamge2" id="vehicleImage2" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
                     <label for="vehicleImage2">Image URL</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="vehicleIamge3" id="vehicleImage3" class="form-control">
+                    <input type="url" name="vehicleIamge3" id="vehicleImage3" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
                     <label for="vehicleImage3">Image URL</label>
                 </div>
             </div>
@@ -173,7 +181,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
-                    <textarea class="form-control" name="vehicleDescription" id="vehicleDescription"></textarea>
+                    <textarea class="form-control" name="vehicleDescription" id="vehicleDescription"><%= product.description %></textarea>
                     <label for="vehicelDescription">Descripción</label>
                 </div>
             </div>
@@ -184,7 +192,6 @@
             <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit">Guardar y
                     Publicar</button></div>
             <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit">Guardar </button></div>
-
         </div>
     </form>
 </section>

@@ -39,6 +39,8 @@ Extra extra large	xxl	≥1400px
 	}
 	.btn-load-product {
 		background-color: #0d6efd;
+		color: #fff;
+		border-color: #0d6efd;
 	}
 	#carousel-main {
 		align-content: center;

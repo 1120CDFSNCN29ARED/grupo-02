@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="partTitle" id="partTitle">
+                    <input type="text" class="form-control" name="partTitle" id="partTitle" value="<%= product.title %>">
                     <label for="partTitle">Título</label>
                 </div>
             </div>
@@ -14,7 +14,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="partBrand" aria-label="Select brand" name="partBrand">
                         <% for(let i=0;i<5;i++){%>
-                            <option value='<%=i%>'>
+                            <option value='<%=i%>' <%= (product.partBrand === brands[i])?"selected":"" %>>
                                 <%= "Brand " +i%>
                             </option>
                             <% } %>
@@ -26,7 +26,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="partModel" aria-label="Select model" name="partModel">
                         <% for(let i=0;i<5;i++){%>
-                            <option value='<%=i%>'>
+                            <option value='<%=i%>' <%= (product.partModel === mmav[i])?"selected":"" %>>
                                 <%= "Model "+i%>
                             </option>
                             <% } %>
@@ -34,49 +34,66 @@
                     <label for="partModel">Modelo</label>
                 </div>
             </div>
-            <div class="col-md col-lg-4">
+            <div class="col-md col-lg-6">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="partID" id="partID">
-                    <label for="partID">Respuesto ID</label>
+                    <input type="text" class="form-control" name="partID" id="partID" value="<%= product.partID %>">
+                    <label for="partID">Número de parte</label>
                 </div>
             </div>
 
         </div>
         <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <div class="form-floating mb-1" id="partVehicleType" aria-label="Select Vehicle Type">
+                    <p>Tipo de vehículo</p>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" name="partVehicleTypeCar" id="partVehicleTypeCar" value="car" <% if(product.vehicleType){if(product.vehicleType.car){ %><%= "checked" %><%}} %>>
+                        <label for="partVehicleTypeCar">Auto</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" name="partVehicleTypePickup" id="partVehicleTypePickup" value="pickup" <% if(product.vehicleType){if(product.vehicleType.pickup){ %><%= "checked" %><%}} %>>
+                        <label for="partVehicleTypePickup">Camioneta</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" name="partVehicleTypeMotorcycle" id="partVehicleTypeMotorcycle" value="motorcycle" <% if(product.vehicleType){if(product.vehicleType.motorcycle){ %><%= "checked" %><%}} %>>
+                        <label for="partVehicleTypeMotorcycle">Moto</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" name="partVehicleTypeTruck" id="partVehicleTypeTruck" value="truck" <% if(product.vehicleType){if(product.vehicleType.truck){ %><%= "checked" %><%}} %>>
+                        <label for="partVehicleTypeTruck">Camión</label>
+                    </div>
+                </div>
+            </div>
+            
             <div class="col-md col-lg-6">
                 <div class="form-floating mb-1">
-                    <select class="form-select" id="partVehicleType" aria-label="Select Vehicle Type" name="partVehicleType">
-                        <option value="car">Auto</option>
-                        <option value="pickup">Camioneta</option>
-                        <option value="motorbike">Moto</option>
-                        <option value="truck">Camion</option>
-                    </select>
-                    <label for="partVehicleType">Tipo de Vehículo</label>
+                    <input type="number" class="form-control" name="partPrice" id="partPrice" value="<%= (product.price) %>">
+                    <label for="partProvince">Precio</label>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="partProvince" id="partProvince">
+                    <input type="text" class="form-control" name="partProvince" id="partProvince" value="<%= (product.location) ? product.location.province : "" %>">
                     <label for="partProvince">Provincia</label>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="partCity" id="partCity">
+                    <input type="text" class="form-control" name="partCity" id="partCity" value="<%= (product.location) ? product.location.city : "" %>">
                     <label for="partCity">Ciudad</label>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="partNeighbourhood" id="partNeighbourhood">
+                    <input type="text" class="form-control" name="partNeighbourhood" id="partNeighbourhood" value="<%= (product.location) ? product.location.neighbourhood : "" %>">
                     <label for="partNeighbourhood">Barrio</label>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="partPostalCode" id="partPostalCode">
+                    <input type="text" class="form-control" name="partPostalCode" id="partPostalCode" value="<%= (product.location) ? product.location.postalCode : "" %>">
                     <label for="partPostalCode">Código Postal</label>
                 </div>
             </div>
@@ -84,31 +101,35 @@
         <div class="row">
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="partIamge1" id="partImage1" class="form-control">
+                    <input type="url" name="partIamge1" id="partImage1" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[0] : "" %>">
                     <label for="partImage1">Image URL</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="partIamge2" id="partImage2" class="form-control">
+                    <input type="url" name="partIamge2" id="partImage2" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
                     <label for="partImage2">Image URL</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="partIamge3" id="partImage3" class="form-control">
+                    <input type="url" name="partIamge3" id="partImage3" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
                     <label for="partImage3">Image URL</label>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md col-lg-6">
-                <div class="form-floating mb-1">
-                    <select class="form-select" id="partState" aria-label="Select state" name="partState">
-                        <option value="used">Usado</option>
-                        <option value="new">Nuevo</option>
-                    </select>
-                    <label for="partState">Estado</label>
+                <div class="form-floating mb-1" id="partState" aria-label="Select Part State">
+                    <p>Estado</p>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="partState" id="partStateNew" value="Nuevo" <%= (product.state === "Nuevo")?"checked":"" %>>
+                        <label for="partVehivleTypeCar">Nuevo</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="partState" id="partStateUsed" value="Usado" <%= (product.state === "Usado")?"checked":"" %>>
+                        <label for="partVehivleTypePickup">Usado</label>
+                    </div>
                 </div>
             </div>
             <div class="col-md col-lg-6">
@@ -116,11 +137,19 @@
                     <div name="rating" id="rating">
                         <p>Rating</p>
                         <p>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
+                            <% for( let i = 0; i < product.rating; i++ ) { %>
+                                <i class="fas fa-star"></i>
+                            <% } %>
+                            <% if (product.rating < 5 ) { %>
+                                <% for( let i = 0; i < (5 - product.rating); i++ ) { %>
+                                    <i class="far fa-star"></i>
+                                <% } %>
+                            <% } %>
+                            <% if (!product.rating) { %>
+                                <% for( let i = 0; i < 5; i++ ) { %>
+                                    <i class="far fa-star"></i>
+                                <% } %>
+                            <% } %>
                         </p>
                     </div>
                 </div>
@@ -129,7 +158,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
-                    <textarea class="form-control" name="partDescription" id="partDescription"></textarea>
+                    <textarea class="form-control" name="partDescription" id="partDescription"><%= product.description %></textarea>
                     <label for="partescription">Descripción</label>
                 </div>
             </div>

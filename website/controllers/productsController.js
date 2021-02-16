@@ -45,14 +45,21 @@ const productsController = {
         });
     },
     create: (req, res) => {        
-        res.render("createProduct", { brands:brands, mmav:mmav, productType: req.params.productType, product: product });
+        res.render("createProduct", { brands:brands, mmav:mmav, productType: req.params.productType, product: {}});
     },
     edit: (req, res) => {
         const productID = parseInt(req.params.productID, 10);
-        product = vehicles.find(vehicle => vehicle.adID === productID);
-        res.render("./editProduct",
+        const productType = req.params.productType
+        if(productType === "vehicle"){
+            product = vehicles.find(vehicle => vehicle.adID === productID);
+        }
+        else if(productType === "part"){
+            product = parts.find(part => part.adID === productID);
+        }
+        
+        res.render("editProduct",
         {
-            productType: req.params.productType,
+            productType: productType,
             product: product,
             brands: brands,
             mmav: mmav
