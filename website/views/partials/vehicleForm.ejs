@@ -5,10 +5,10 @@
             <div class="col-md">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="productCategory" aria-label="Select category" name="vehicleType">
-                        <option value="1">Auto</option>
-                        <option value="2">Camioneta</option>
-                        <option value="3">Moto</option>
-                        <option value="4">Camion</option>
+                        <option value="1" <%= (product.type === "auto")?"selected":"" %> >Auto</option>
+                        <option value="2" <%= (product.type === "camioneta")?"selected":"" %> >Camioneta</option>
+                        <option value="3" <%= (product.type === "moto")?"selected":"" %> >Moto</option>
+                        <option value="4" <%= (product.type === "camion")?"selected":"" %> >Camion</option>
                     </select>
                     <label for="vehicleType">Tipo de Vehiculo</label>
                 </div>

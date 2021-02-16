@@ -23,6 +23,9 @@ let questions = [
 
 const vehicles = require("../json/vehicles.json");
 const parts = require("../json/parts.json");
+const brands = require("./brands");
+const mmav = require("./mmav");
+
 let product = "";
 const productsController = {
     details: (req, res) => {
@@ -36,11 +39,25 @@ const productsController = {
         res.render("productDetails",
         {
             productType: req.params.productType,
-            productID: parseInt(req.params.productID, 10),
+            productID: productID,
             product: product,
             questions: questions
         });
-    }
+    },
+    create: (req, res) => {        
+        res.render("createProduct", { brands:brands, mmav:mmav, productType: req.params.productType, product: product });
+    },
+    edit: (req, res) => {
+        const productID = parseInt(req.params.productID, 10);
+        product = vehicles.find(vehicle => vehicle.adID === productID);
+        res.render("./editProduct",
+        {
+            productType: req.params.productType,
+            product: product,
+            brands: brands,
+            mmav: mmav
+        });
+    },
 
 }
 
