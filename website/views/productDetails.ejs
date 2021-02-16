@@ -76,6 +76,11 @@
                     <a data-bs-toggle="modal" data-bs-target="#paymentMethodsModal"><i class="fas fa-credit-card"></i> Medios de pago</a>
                 </div>
             <% } %>
+            <div class="btn-edit-container">
+                <a href="/products/<%= productType %>/edit/<%= product.adID %>">
+                    <button type="button" class="btn btn-warning btn-edit">Editar</button>
+                </a>
+            </div>
         </div>
     </section>
     <section>

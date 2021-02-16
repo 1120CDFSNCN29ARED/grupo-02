@@ -4,6 +4,7 @@
 }
 .logo {
   max-width: 100px;
+  margin-right: 10px;
   display: none;
 }
 .logo img {
@@ -18,13 +19,21 @@
 }
 a.nav-item {
   text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
 }
-button > a {
+span.nav-item {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+}
+.t-d-none{
+  text-decoration: none;
+}
+a > button{
   text-decoration: none;
   color: rgba(255, 255, 255, 0.8);
   font-weight: bold;
 }
-button > a:hover {
+a > button:hover{
   color: rgba(255, 255, 255, 0.55);
 }
 .nav-icon-description {

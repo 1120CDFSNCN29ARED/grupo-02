@@ -110,6 +110,11 @@ h2 {
   font-size: 16px;
 }
 
+.btn-edit-container {
+  text-align: center;
+  padding: 10px;
+}
+
 #characteristics,
 #description,
 #questions,

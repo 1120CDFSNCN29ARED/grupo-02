@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="card-text bold"><%= vehicle.kilometers%> kms</p>
+                <p class="card-text bold"><%= vehicle.kilometers.toLocaleString("es-AR") %> km<% if (vehicle.kilometers > 0) {%><%= "s" %><%} %></p>
             </div>
         </div>
     </a>

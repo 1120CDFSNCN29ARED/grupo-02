@@ -1,6 +1,19 @@
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark">
 		<div class="container-fluid">
+			<div class="d-flex align-items-center">
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbar"
+					aria-controls="navbar"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
 			<div class="logo">
 				<a href="/"><img src="/img/logo.png" alt="logo" srcset=""/></a>
 			</div>
@@ -24,61 +37,64 @@
 					</div>
 				</form>
 			</div>
-			<div class="d-flex align-items-center">
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbar"
-					aria-controls="navbar"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			</div>
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item pe-1 my-2 my-md-0">
-						<button
-							type="button"
-							class="nav-item btn btn-secondary btn-sm me-1 nav-btn btn-register"
-						>
-							<a href="/register">Registrarse</a>
-						</button>
+					<li class="nav-item pe-1 my-2 my-md-0 d-md-none">
+						<a class="nav-item" href="/">
+							<button
+								type="button"
+								class="nav-item btn btn-secondary btn-sm me-1 nav-btn btn-home"
+							>
+								Inicio
+							</button>
+						</a>
 					</li>
 					<li class="nav-item pe-1 my-2 my-md-0">
-						<button
-							type="button"
-							class="nav-item btn btn-danger btn-sm me-2 nav-btn btn-login"
-						>
-							<a href="/login"> Login</a>
-						</button>
+						<a class="nav-item" href="/register">
+							<button
+								type="button"
+								class="nav-item btn btn-secondary btn-sm me-1 nav-btn btn-register"
+							>
+								Registrarse
+							</button>
+						</a>
+					</li>
+					<li class="nav-item pe-1 my-2 my-md-0">
+						<a class="nav-item" href="/login">
+							<button
+								type="button"
+								class="nav-item btn btn-danger btn-sm me-1 nav-btn btn-login"
+							>
+								Login
+							</button>
+						</a>
 						<!-- Button trigger modal -->
 					</li>
 					<li class="nav-item pe-1 my-2 my-md-0">
-						<button
-							type="button"
-							class="nav-item btn btn-primary btn-sm me-2 nav-btn btn-load-product"
-						>
-							<a href="/admin"> Vender</a>
-						</button>
+						<a class="nav-item" href="/products/create">
+							<button
+								type="button"
+								class="nav-item btn btn-primary btn-sm me-2 nav-btn btn-load-product"
+							>
+								Vender
+							</button>
+						</a>
 						<!-- Button trigger modal -->
 					</li>
 				</ul>
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item pe-md-3 my-2 my-md-0">
-						<a class="nav-item" href="#"
+						<a class="t-d-none" href="#"
 							><i class="fas fa-user d-none d-md-inline"></i
-							><span class="d-md-none ps-2 nav-icon-description"
+							><span class="d-md-none ps-2 nav-icon-description nav-item"
 								>Perfil</span
 							></a
 						>
 					</li>
 					<li class="nav-item pe-md-3 my-2 my-md-0">
-						<a class="nav-item" href="#"
+						<a class="t-d-none" href="#"
 							><i class="fas fa-bell d-none d-md-inline"></i
-							><span class="d-md-none ps-2 nav-icon-description"
+							><span class="d-md-none ps-2 nav-icon-description nav-item"
 								>Notificaciones</span
 							></a
 						>
