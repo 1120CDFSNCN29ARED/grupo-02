@@ -1,7 +1,7 @@
 [
     {
         "cartID": 1,
-        "userName": "pepito",
+        "userID": 1,
         "items": [
             {
                 "adID": 1,
@@ -23,7 +23,7 @@
     },
     {
         "cartID": 1,
-        "userName": "oreo",
+        "userID": 2,
         "items": [
             {
                 "adID": 2,
@@ -45,7 +45,7 @@
     },
     {
         "cartID": 3,
-        "userName": "macuca",
+        "userID": 3,
         "items": [
             {
                 "adID": 4,
