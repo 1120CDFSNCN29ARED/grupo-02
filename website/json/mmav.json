@@ -1,4 +1,4 @@
-let mmav = [
+[
 	"ACURA INTEGRA LS SM",
 	"ACURA INTEGRA RS SM COUPE",
 	"ACURA INTEGRA RS SM",
@@ -1004,6 +1004,4 @@ let mmav = [
 	"BMW Z 4 35I  ROADSTER M",
 	"BMW 640I   GRAN COUPE M PACKAGE",
 	"BMW M 6  GRAND COUPE",
-];
-
-module.exports = mmav;
+]

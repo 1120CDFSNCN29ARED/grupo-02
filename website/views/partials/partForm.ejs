@@ -1,0 +1,175 @@
+<!-- Add Product -->
+<section class="section-add-product" id="add-product-part">
+    <form action="/products/<%= action %>/<%= productType %><%= (action === "edit") ? `/${product.adID}?_method=PUT` : "" %> " method="POST" class="add-product">
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partTitle" id="partTitle" value="<%= product.title %>">
+                    <label for="partTitle">Título</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-2">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="partBrand" aria-label="Select brand" name="partBrand">
+                        <% for(let i=0;i<5;i++){%>
+                            <option value='<%=i%>' <%= (product.partBrand === brands[i])?"selected":"" %>>
+                                <%= "Brand " +i%>
+                            </option>
+                            <% } %>
+                    </select>
+                    <label for="partBrand">Marca</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="partModel" aria-label="Select model" name="partModel">
+                        <% for(let i=0;i<5;i++){%>
+                            <option value='<%=i%>' <%= (product.partModel === mmav[i])?"selected":"" %>>
+                                <%= "Model "+i%>
+                            </option>
+                            <% } %>
+                    </select>
+                    <label for="partModel">Modelo</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partID" id="partID" value="<%= product.partID %>">
+                    <label for="partID">Número de parte</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <div class="form-floating mb-1" id="partVehicleType" aria-label="Select Vehicle Type">
+                    <p>Tipo de vehículo</p>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" name="partVehicleTypeCar" id="partVehicleTypeCar" value="car" <% if(product.vehicleType){if(product.vehicleType.car){ %><%= "checked" %><%}} %>>
+                        <label for="partVehicleTypeCar">Auto</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" name="partVehicleTypePickup" id="partVehicleTypePickup" value="pickup" <% if(product.vehicleType){if(product.vehicleType.pickup){ %><%= "checked" %><%}} %>>
+                        <label for="partVehicleTypePickup">Camioneta</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" name="partVehicleTypeMotorcycle" id="partVehicleTypeMotorcycle" value="motorcycle" <% if(product.vehicleType){if(product.vehicleType.motorcycle){ %><%= "checked" %><%}} %>>
+                        <label for="partVehicleTypeMotorcycle">Moto</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" name="partVehicleTypeTruck" id="partVehicleTypeTruck" value="truck" <% if(product.vehicleType){if(product.vehicleType.truck){ %><%= "checked" %><%}} %>>
+                        <label for="partVehicleTypeTruck">Camión</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" name="partPrice" id="partPrice" value="<%= (product.price) %>">
+                    <label for="partProvince">Precio</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partProvince" id="partProvince" value="<%= (product.location) ? product.location.province : "" %>">
+                    <label for="partProvince">Provincia</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partCity" id="partCity" value="<%= (product.location) ? product.location.city : "" %>">
+                    <label for="partCity">Ciudad</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partNeighbourhood" id="partNeighbourhood" value="<%= (product.location) ? product.location.neighbourhood : "" %>">
+                    <label for="partNeighbourhood">Barrio</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="partPostalCode" id="partPostalCode" value="<%= (product.location) ? product.location.postalCode : "" %>">
+                    <label for="partPostalCode">Código Postal</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="url" name="partIamge1" id="partImage1" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[0] : "" %>">
+                    <label for="partImage1">Image URL</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="url" name="partIamge2" id="partImage2" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
+                    <label for="partImage2">Image URL</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-4">
+                <div class="form-floating mb-1">
+                    <input type="url" name="partIamge3" id="partImage3" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
+                    <label for="partImage3">Image URL</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1" id="partState" aria-label="Select Part State">
+                    <p>Estado</p>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="partState" id="partStateNew" value="Nuevo" <%= (product.state === "Nuevo")?"checked":"" %>>
+                        <label for="partStateNew">Nuevo</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="partState" id="partStateUsed" value="Usado" <%= (product.state === "Usado")?"checked":"" %>>
+                        <label for="partStateUsed">Usado</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <div name="rating" id="rating">
+                        <p>Rating</p>
+                        <p>
+                            <% for( let i = 0; i < product.rating; i++ ) { %>
+                                <i class="fas fa-star"></i>
+                            <% } %>
+                            <% if (product.rating < 5 ) { %>
+                                <% for( let i = 0; i < (5 - product.rating); i++ ) { %>
+                                    <i class="far fa-star"></i>
+                                <% } %>
+                            <% } %>
+                            <% if (!product.rating) { %>
+                                <% for( let i = 0; i < 5; i++ ) { %>
+                                    <i class="far fa-star"></i>
+                                <% } %>
+                            <% } %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-1">
+                    <textarea class="form-control" name="partDescription" id="partDescription"><%= product.description %></textarea>
+                    <label for="partescription">Descripción</label>
+                </div>
+            </div>
+        </div>
+        <!-- Buttons Section -->
+        <div class="container-fluid d-flex container-add-product-cta">
+            <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>
+            <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit">Guardar y
+                    Publicar</button></div>
+            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit">Guardar </button></div>
+
+        </div>
+    </form>
+</section>

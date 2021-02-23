@@ -110,6 +110,11 @@ h2 {
   font-size: 16px;
 }
 
+.btn-edit-container {
+  text-align: center;
+  padding: 10px;
+}
+
 #characteristics,
 #description,
 #questions,
@@ -171,6 +176,11 @@ h2 {
   bottom: 0;
   padding-left: 5px;
   color: #8a8a8a;
+}
+
+.question-user {
+  color: #8a8a8a;
+  font-style: italic;
 }
 
 .answer {

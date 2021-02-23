@@ -76,6 +76,11 @@
                     <a data-bs-toggle="modal" data-bs-target="#paymentMethodsModal"><i class="fas fa-credit-card"></i> Medios de pago</a>
                 </div>
             <% } %>
+            <div class="btn-edit-container">
+                <a href="/products/edit/<%= productType %>/<%= product.adID %>">
+                    <button type="button" class="btn btn-warning btn-edit">Editar</button>
+                </a>
+            </div>
         </div>
     </section>
     <section>
@@ -130,16 +135,16 @@
         <% } %>
         <div id="questions">
             <h2>Preguntale al vendedor</h2>
-            <form id="question-form">
+            <form id="question-form" action="/products/question/<%= productType %>/<%= product.adID %>" method="POST">
                 <div class="form-floating">
-                    <textarea class="form-control" name="question" id="question"></textarea>
+                    <textarea class="form-control" name="question" id="question" form="question-form"></textarea>
                     <label for="question">Escribí tu respuesta</label>
                 </div>
                 <button id="askQuestion" type="submit" class="btn btn-primary">Preguntar</button>
             </form>                
             <h2>Preguntas</h2>
             <% questions.forEach(e => { %>
-                <p class="question"><%= e.question %> <i class="fas fa-level-down-alt question-arrow"></i></p>
+                <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %></span> <i class="fas fa-level-down-alt question-arrow"></i></p>
                 <p class="answer"><%= e.answer %> </p>
             <% }) %>            
         </div>

@@ -1,4 +1,4 @@
-let brands = [
+[
 	"ACURA",
 	"ALEKO",
 	"ALFA ROMEO",
@@ -204,7 +204,5 @@ let brands = [
 	"GUZZI",
 	"CF MOTO",
 	"GHIGGERI",
-	"JAGUAR ATV",
-];
-
-module.exports = brands;
+	"JAGUAR ATV"
+]
