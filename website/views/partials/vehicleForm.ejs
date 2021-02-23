@@ -66,12 +66,16 @@
         </div>
         <div class="row">
             <div class="col-md col-lg-6">
-                <div class="form-floating mb-1">
-                    <select class="form-select" id="vehicleState" aria-label="Select state" name="vehicleState">
-                        <option value="usado" <%= (product.state === "usado")?"selected":"" %>>Usado</option>
-                        <option value="nuevo" <%= (product.state === "nuevo")?"selected":"" %>>0km</option>
-                    </select>
-                    <label for="vehicleState">Estado</label>
+                <div class="form-floating mb-1" id="vehicleState" aria-label="Select Part State">
+                    <p>Estado</p>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="vehicleState" id="vehicleStateNew" value="Nuevo" <%= (product.state === "Nuevo")?"checked":"" %>>
+                        <label for="vehicleStateNew">Nuevo</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="vehicleState" id="vehicleStateUsed" value="Usado" <%= (product.state === "Usado")?"checked":"" %>>
+                        <label for="vehicleStateUsed">Usado</label>
+                    </div>
                 </div>
             </div>
             <div class="col-md col-lg-6">
@@ -189,9 +193,13 @@
         <!-- Buttons Section -->
         <div class="container-fluid d-flex container-add-product-cta">
             <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>
-            <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit">Guardar y
-                    Publicar</button></div>
-            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit">Guardar </button></div>
+            <% if (action === "create") { %>
+                <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit" name="publish">Guardar y Publicar</button></div>
+            <% } %>            
+            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit" name="save">Guardar</button></div>
+            <% if (action === "edit") { %>
+             <div class="add-product-cta"><button class="add-product-delete btn-lg" type="submit" name="delete">Borrar</button></div>
+            <% } %>
         </div>
     </form>
 </section>
