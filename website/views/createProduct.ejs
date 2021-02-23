@@ -22,9 +22,9 @@
                     </section>
                     
                     <% if (productType === "vehicle" ) { %>
-                        <%- include("./partials/vehicleForm")%>
+                        <%- include("./partials/vehicleForm", {action: "create"})%>
                     <% } else if (productType === "part" ) { %>                         
-                        <%- include("./partials/partForm") %> 
+                        <%- include("./partials/partForm", {action: "create"}) %> 
                     <% } %>
                 </div>
             </div>

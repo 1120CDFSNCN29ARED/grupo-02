@@ -1,6 +1,6 @@
 <!-- Add Product -->
 <section class="section-add-product" id="add-product-vehicle">
-    <form action="" class="add-product">
+    <form action="/<%= action %>/<%= productType %><%= (action === "edit") ? `/${product.adID}?_method=PUT` : "" %> " method="POST" class="add-product">
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">

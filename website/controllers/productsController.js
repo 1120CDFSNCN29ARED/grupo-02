@@ -47,6 +47,9 @@ const productsController = {
     create: (req, res) => {        
         res.render("createProduct", { brands:brands, mmav:mmav, productType: req.params.productType, product: {}});
     },
+    store: (req, res) => {
+        res.send("guardado de producto nuevo");
+    },
     edit: (req, res) => {
         const productID = parseInt(req.params.productID, 10);
         const productType = req.params.productType
@@ -65,7 +68,9 @@ const productsController = {
             mmav: mmav
         });
     },
-
+    update: (req, res) => {
+        res.redirect("/");
+    },
 }
 
 module.exports = productsController;
