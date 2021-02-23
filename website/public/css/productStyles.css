@@ -178,6 +178,11 @@ h2 {
   color: #8a8a8a;
 }
 
+.question-user {
+  color: #8a8a8a;
+  font-style: italic;
+}
+
 .answer {
   font-size: 12px;
   color: #8a8a8a;

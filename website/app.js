@@ -12,6 +12,7 @@ const MYPORT = 3000;
 const staticFolder = path.resolve(__dirname, "./public");
 app.use(express.static(staticFolder));
 app.use(methodOverride("_method"));
+app.use(express.urlencoded({ extended: false }));
 //View Engine
 app.set("view engine", "ejs");
 

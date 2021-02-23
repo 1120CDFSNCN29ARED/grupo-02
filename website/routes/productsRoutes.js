@@ -12,4 +12,6 @@ router.get("/details/:productType/:productID", productsController.details);
 router.get("/edit/:productType/:productID", productsController.edit);
 router.put("/edit/:productType/:productID", productsController.update);
 
+router.post("/question/:productType/:productID", productsController.question);
+
 module.exports = router;
