@@ -179,9 +179,11 @@
             <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>
             <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit" name="submit" value="publish">Guardar y Publicar</button></div>           
             <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit" name="submit" value="save">Guardar</button></div>
-            <% if (action === "edit") { %>
-             <div class="add-product-cta"><button class="add-product-delete btn-lg" type="submit" name="delete">Borrar</button></div>
-            <% } %>
         </div>
     </form>
+    <% if (action === "edit") { %>
+        <form action="/products/delete/<%= productType %>/<%= product.adID %>?_method=DELETE" method="POST">
+            <div class="add-product-cta"><button class="add-product-delete btn-lg" type="submit" name="delete">Borrar</button></div>
+        </form>
+    <% } %>
 </section>
