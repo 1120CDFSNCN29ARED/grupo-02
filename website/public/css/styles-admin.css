@@ -45,14 +45,12 @@ margin: 0px 5px;
 #partVehicleType, #partState, #vehicleState {
     background-color: #fff;
     border-radius: 5px;
-    border: #ccc 1px solid;
-    
-    padding-top: 5px;
-    
+    border: #ccc 1px solid;    
+    padding-top: 5px;    
 }
 #partVehicleType > p, #partState > p {
     color: #666;
 }
-#partPrice, #rating {
+#partPrice, #rating, #discount, #stock {
     height: 65px;
 }

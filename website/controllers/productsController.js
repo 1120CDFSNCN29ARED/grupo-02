@@ -93,20 +93,31 @@ const productsController = {
         const parts = JSON.parse(fs.readFileSync(partsFilePath, 'utf-8'));
         const productID = parseInt(req.params.productID, 10);
         const productType = req.params.productType
-        /*if(productType === "vehicle"){
+        if(productType === "vehicle"){
             product = vehicles.find(vehicle => vehicle.adID === productID);
             product.type = req.body.vehicleType;
-            product.published = req.body.;
-            product.onSale.status = req.body.;
-            product.onSale.discount = req.body.;
+            if(req.body.submit === "publish"){
+                product.published = true;
+            }
+            else if(req.body.submit === "save") {
+                product.published = false;
+            }
+            if(req.body.discount >= 0){
+                product.onSale.status = true;
+                product.onSale.discount = Number(req.body.discount);
+            }
+            else {
+                product.onSale.status = false;
+                product.onSale.discount = 0;
+            }
             product.brand = req.body.vehicleBrand;
             product.model = req.body.vehicleModel;
             product.version = req.body.vehicleVersion;
-            product.gearType = req.body.;
+            product.gearType = req.body.vehicleGearType;//
             product.year = req.body.vehicleYear;
             product.state = req.body.vehicleState;
             product.rating = req.body.rating;
-            product.kilometers = req.body.vehicelKMs;
+            product.kilometers = Number(req.body.vehicleKMs);
             product.color = req.body.vehicleColor;
             product.location.province = req.body.vehicleProvince;
             product.location.city = req.body.vehicleCity;
@@ -115,15 +126,55 @@ const productsController = {
             product.imageURLs[0] = req.body.vehicleImage1;
             product.imageURLs[1] = req.body.vehicleImage2;
             product.imageURLs[2] = req.body.vehicleImage3;
-            product.price = req.body.vehicelPrice;
+            product.price = Number(req.body.vehiclePrice);
             product.description = req.body.vehicleDescription;
+            
+            //fs.writeFileSync(vehiclesFilePath, JSON.stringify(vehicles));
+
         }
         else if(productType === "part"){
             product = parts.find(part => part.adID === productID);
-        }*/
+            product.type = "part";
+            if(req.body.submit === "publish"){
+                product.published = true;
+            }
+            else if(req.body.submit === "save") {
+                product.published = false;
+            }
+            if(req.body.discount >= 0){
+                product.onSale.status = true;
+                product.onSale.discount = Number(req.body.discount);
+            }
+            else {
+                product.onSale.status = false;
+                product.onSale.discount = 0;
+            }
+            product.partBrand = req.body.partBrand;
+            product.partModel = req.body.partModel;
+            product.stock = req.body.stock;
+            product.title = req.body.partTitle;
+            product.state = req.body.partState;
+            product.rating = req.body.rating;
+            product.partID = req.body.partID;
+            product.vehicleType.car = req.body.partVehicleTypeCar;
+            product.vehicleType.pickup = req.body.partVehicleTypePickup;
+            product.vehicleType.motorcycle = req.body.partVehicleTypeMotorcycle;
+            product.vehicleType.truck = req.body.partVehicleTypeTruck;
+            product.location.province = req.body.partProvince;
+            product.imageURLs[1] = req.body.partCity;
+            product.location.city = req.body.partNeighbourhood;
+            product.location.neighbourhood = req.body.partPrice;
+            product.location.postalCode = req.body.partPostalCode;
+            product.imageURLs[0] = req.body.partImage1;
+            product.imageURLs[1] = req.body.partImage2;
+            product.imageURLs[2] = req.body.partImage3;
+            product.price = Number(req.body.partPrice);
+            product.description = req.body.partDescription;
+            //fs.writeFileSync(vehiclesFilePath, JSON.stringify(vehicles));
+        }
         
 
-        res.redirect("/products/details/" + req.params.productType + "/" + productID);
+        //res.redirect("/products/details/" + req.params.productType + "/" + productID);
     },
 }
 
