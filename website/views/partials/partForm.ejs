@@ -47,19 +47,19 @@
                 <div class="form-floating mb-1" id="partVehicleType" aria-label="Select Vehicle Type">
                     <p>Tipo de vehículo</p>
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" name="partVehicleTypeCar" id="partVehicleTypeCar" value="car" <% if(product.vehicleType){if(product.vehicleType.car){ %><%= "checked" %><%}} %>>
+                        <input type="checkbox" name="partVehicleTypeCar" id="partVehicleTypeCar" <% if(product.vehicleType){if(product.vehicleType.car){ %><%= "checked" %><%}} %>>
                         <label for="partVehicleTypeCar">Auto</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" name="partVehicleTypePickup" id="partVehicleTypePickup" value="pickup" <% if(product.vehicleType){if(product.vehicleType.pickup){ %><%= "checked" %><%}} %>>
+                        <input type="checkbox" name="partVehicleTypePickup" id="partVehicleTypePickup" <% if(product.vehicleType){if(product.vehicleType.pickup){ %><%= "checked" %><%}} %>>
                         <label for="partVehicleTypePickup">Camioneta</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" name="partVehicleTypeMotorcycle" id="partVehicleTypeMotorcycle" value="motorcycle" <% if(product.vehicleType){if(product.vehicleType.motorcycle){ %><%= "checked" %><%}} %>>
+                        <input type="checkbox" name="partVehicleTypeMotorcycle" id="partVehicleTypeMotorcycle" <% if(product.vehicleType){if(product.vehicleType.motorcycle){ %><%= "checked" %><%}} %>>
                         <label for="partVehicleTypeMotorcycle">Moto</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" name="partVehicleTypeTruck" id="partVehicleTypeTruck" value="truck" <% if(product.vehicleType){if(product.vehicleType.truck){ %><%= "checked" %><%}} %>>
+                        <input type="checkbox" name="partVehicleTypeTruck" id="partVehicleTypeTruck" <% if(product.vehicleType){if(product.vehicleType.truck){ %><%= "checked" %><%}} %>>
                         <label for="partVehicleTypeTruck">Camión</label>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" name="discount" id="discount" class="form-control" value="<%= product.onSale.discount %>">
+                    <input type="number" name="discount" id="discount" class="form-control" value="<%= (product.onSale) ? product.onSale.discount : 0 %>">
                     <label for="discount">Descuento %</label>
                 </div>
             </div>

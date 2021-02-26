@@ -5,10 +5,10 @@
             <div class="col-md">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="productCategory" aria-label="Select category" name="vehicleType">
-                        <option value="1" <%= (product.type === "auto")?"selected":"" %> >Auto</option>
-                        <option value="2" <%= (product.type === "camioneta")?"selected":"" %> >Camioneta</option>
-                        <option value="3" <%= (product.type === "moto")?"selected":"" %> >Moto</option>
-                        <option value="4" <%= (product.type === "camion")?"selected":"" %> >Camion</option>
+                        <option value="auto" <%= (product.type === "auto")?"selected":"" %> >Auto</option>
+                        <option value="camioneta" <%= (product.type === "camioneta")?"selected":"" %> >Camioneta</option>
+                        <option value="moto" <%= (product.type === "moto")?"selected":"" %> >Moto</option>
+                        <option value="camion" <%= (product.type === "camion")?"selected":"" %> >Camion</option>
                     </select>
                     <label for="vehicleType">Tipo de Vehiculo</label>
                 </div>
@@ -18,11 +18,11 @@
             <div class="col-md col-lg-2">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleBrand" aria-label="Select brand" name="vehicleBrand">
-                        <% for(let i=0;i<brands.length;i++){%>
-                            <option value='<%=i%>' <%= (product.brand === brands[i])?"selected":"" %>>
-                                <%= brands[i]%>
+                        <% brands.forEach(brand => { %>
+                            <option value='<%=brand%>' <%= (product.brand === brand)?"selected":"" %>>
+                                <%= brand %>
                             </option>
-                            <% } %>
+                            <% }) %>
                     </select>
                     <label for="vehicleBrand">Marca</label>
                 </div>
@@ -30,11 +30,11 @@
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleModel" aria-label="Select model" name="vehicleModel">
-                        <% for(let i=0;i<mmav.length;i++){%>
-                            <option value='<%=i%>' <%= (product.model === mmav[i])?"selected":"" %>>
-                                <%= mmav[i]%>
+                        <% mmav.forEach(model => {%>
+                            <option value='<%= model %>' <%= (product.model === model) ? "selected" : "" %>>
+                                <%= model %>
                             </option>
-                            <% } %>
+                            <% }) %>
                     </select>
                     <label for="vehicleModel">Modelo</label>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleYear" aria-label="Select Year" name="vehicleYear">
                         <% for(let i=2021;i>=1900;i--){%>
-                            <option value='<%=i%>' <%= (product.year === i)?"selected":"" %>>
+                            <option value='<%=i%>' <%= (product.year === i) ? "selected" : "" %>>
                                 <%=i%>
                             </option>
                             <% } %>
@@ -54,11 +54,11 @@
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleVersion" aria-label="Select version" name="vehicleVersion">
-                        <% for(let i=0;i<mmav.length;i++){%>
-                            <option value='<%=i%>' <%= (product.version === mmav[i])?"selected":"" %>>
-                                <%= mmav[i]%>
+                        <% mmav.forEach(version => {%>
+                            <option value='<%= version %>' <%= (product.version === version) ? "selected" : "" %>>
+                                <%= version %>
                             </option>
-                            <% } %>
+                        <% }) %>
                     </select>
                     <label for="vehicleVersion">Versión</label>
                 </div>
@@ -69,11 +69,11 @@
                 <div class="form-floating mb-1" id="vehicleState" aria-label="Select Part State">
                     <p>Estado</p>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="vehicleState" id="vehicleStateNew" value="Nuevo" <%= (product.state === "Nuevo")?"checked":"" %>>
+                        <input type="radio" name="vehicleState" id="vehicleStateNew" value="Nuevo" <%= (product.state === "Nuevo") ? "checked" : "" %>>
                         <label for="vehicleStateNew">Nuevo</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="vehicleState" id="vehicleStateUsed" value="Usado" <%= (product.state === "Usado")?"checked":"" %>>
+                        <input type="radio" name="vehicleState" id="vehicleStateUsed" value="Usado" <%= (product.state === "Usado") ? "checked" : "" %>>
                         <label for="vehicleStateUsed">Usado</label>
                     </div>
                 </div>
@@ -82,27 +82,43 @@
                 <div class="form-floating mb-1">
                     <div name="rating" id="rating">
                         <p>Rating</p>
-                        <p>
-                            <% for( let i = 0; i < product.rating; i++ ) { %>
-                                <i class="fas fa-star"></i>
-                            <% } %>
-                            <% if (product.rating < 5 ) { %>
-                                <% for( let i = 0; i < (5 - product.rating); i++ ) { %>
-                                    <i class="far fa-star"></i>
-                                <% } %>
-                            <% } %>
-                            <% if (!product.rating) { %>
-                                <% for( let i = 0; i < 5; i++ ) { %>
-                                    <i class="far fa-star"></i>
-                                <% } %>
-                            <% } %>
-                        </p>
+                        <span>
+                            <label for="">
+                                <input type="radio" name="rating" value="1" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                            <label for="">
+                                <input type="radio" name="rating" value="2" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                            <label for="">
+                                <input type="radio" name="rating" value="3" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                            <label for="">
+                                <input type="radio" name="rating" value="4" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                            <label for="">
+                                <input type="radio" name="rating" value="5" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md col-lg-6">
+            <div class="col-md col-lg-3">
+                <div class="form-floating mb-1">
+                    <select class="form-select" id="vehicleGearType" aria-label="Select Year" name="vehicleGearType">
+                        <option value="automática" <%= (product.gearType === "automática") ? "selected" : "" %>>Automática</option>
+                        <option value="manual" <%= (product.gearType === "manual") ? "selected" : "" %>>Manual</option>
+                    </select>
+                    <label for="vehicleYear">Caja de cambios</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
                     <input type="number" class="form-control" placeholder="" id="vehicleKMs" name="vehicleKMs" value="<%= product.kilometers %>"></input>
                     <label for="vehicelKMs">Kilometros</label>
@@ -116,7 +132,7 @@
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" name="discount" id="vehicleDiscount" class="form-control" value="<%= (product.onSale) ? product.onSale.discount : "" %>">
+                    <input type="number" name="discount" id="vehicleDiscount" class="form-control" value="<%= (product.onSale) ? product.onSale.discount : 0 %>">
                     <label for="discount">Descuento %</label>
                 </div>
             </div>

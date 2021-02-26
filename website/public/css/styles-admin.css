@@ -19,6 +19,19 @@
 #rating>p{
     margin-bottom:0rem;
 }
+.hide {
+    display: none;
+}
+input[type="radio"] + .fa-star {
+    cursor: pointer;
+}
+input[type="radio"] + .fa-star:before,
+input[type="radio"] + label > .fa-star:before {
+    content: "\f005";
+}
+input[type="radio"]:checked + .fa-star:before,
+input[type="radio"]:checked + label > .fa-star:before { content: "\f00c"; }
+
 .container-add-product-cta{
     justify-content: center;
     padding:10px 0px;
