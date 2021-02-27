@@ -9,9 +9,9 @@ const mainController = {
     login: (req, res) => {
 		res.render("login", {});
     },
-    register: (req, res) => {
+    /* register: (req, res) => {
         res.render('register', {});
-    },
+    }, */
     search: (req,res) => { 
         //Not implemented yet but this needs to return only the vehicles/products that match the query
         res.render('search', { 'vehicles': vehicles, parts: parts });
