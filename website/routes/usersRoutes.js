@@ -1,18 +1,31 @@
 const express = require("express");
-
-const usersController = require('../controllers/usersController');
+const multer = require('multer');
+const path = require('path');
 
 const router = express.Router();
 
-//I have placed these two routes in the mainRoutes file as they are not accessed via /users/register but rather directly via /register
-//router.get('/register', usersController.create);
-//router.post('/regsiter', usersController.store);
+// ************ Controller Require ************
+const usersController = require('../controllers/usersController');
+
+//************** MULTER ************************
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) { 
+    cb(null, path.join(__dirname, '../public/img/users'));
+    
+  },
+  filename: function (req, file, cb) { 
+    const newFileName = `user-image-${Date.now()}${path.extname(file.originalname)}`;
+    cb(null, newFileName);
+  },
+});
+
+const uploadFile = multer({ storage });
 
 router.get('/', usersController.index);
 router.get('/details/:userId', usersController.detail);
 
 router.get('edit/:userId', usersController.edit);
-router.put('edit/:userId', usersController.update);
+router.put('edit/:userId',uploadFile.single("image"), usersController.update);
 
 router.delete("/:userId", usersController.destroy);
 

@@ -11,7 +11,10 @@ const controller = {
     res.render('users', {users});
   },
   detail: (req, res, next) => {
-		res.send(`Detail USERS Not Implemented Yet.`);
+    let userID = req.params.userID;
+    const users = getUsers();
+    const user = findUser(users, userID);
+    res.render('userDetails', { user });
 	},
 	create: (req, res, next) => {
     res.render('register', {});
@@ -19,12 +22,12 @@ const controller = {
 	store: (req, res, next) => {
     //Need to implement validation with express-validator
     let users = getUsers();
-    let newId = users.length > 0 ? users[users.length - 1].id + 1 : 1;
+    let newId = users.length > 0 ? users[users.length - 1].userID + 1 : 1;
     let newUser = {
-      id:newId,
+      userID:newId,
       ...req.body,
       category: 'user',
-      image: `user_${newId}.jpg`
+      image: req.file ? req.file.filename : ''
     };
     users.push(newUser);
     saveUsers(users);
@@ -54,7 +57,7 @@ const controller = {
 //Helper Function
 function findUser(users, userId) {
 	return users.find((user) => {
-		return user.id == userId;
+		return user.userID == userId;
 	});
 }
 

@@ -187,7 +187,7 @@ const productsController = {
             
 
             parts.push(product);
-            console.log(product)
+            //console.log(product)
             fs.writeFileSync(partsFilePath, JSON.stringify(parts, null, 4));
             res.redirect("/products/details/" + req.params.productType + "/" + newID);
             
