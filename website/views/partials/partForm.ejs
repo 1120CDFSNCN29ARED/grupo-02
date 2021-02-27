@@ -13,11 +13,11 @@
             <div class="col-md col-lg-2">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="partBrand" aria-label="Select brand" name="partBrand">
-                        <% for(let i=0;i<5;i++){%>
-                            <option value='<%=i%>' <%= (product.partBrand === brands[i])?"selected":"" %>>
-                                <%= "Brand " +i%>
+                        <% mmav.forEach(brand => { %>
+                            <option value='<%= brand %>' <%= (product.partBrand === brand) ? "selected" : "" %>>
+                                <%= brand %>
                             </option>
-                            <% } %>
+                        <% }) %>
                     </select>
                     <label for="partBrand">Marca</label>
                 </div>
@@ -25,11 +25,11 @@
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="partModel" aria-label="Select model" name="partModel">
-                        <% for(let i=0;i<5;i++){%>
-                            <option value='<%=i%>' <%= (product.partModel === mmav[i])?"selected":"" %>>
-                                <%= "Model "+i%>
+                        <% mmav.forEach(model => { %>
+                            <option value="<%= model %>" <%= (product.partModel === model) ? "selected" : "" %>>
+                                <%= model %>
                             </option>
-                            <% } %>
+                        <% }) %>
                     </select>
                     <label for="partModel">Modelo</label>
                 </div>
@@ -47,28 +47,33 @@
                 <div class="form-floating mb-1" id="partVehicleType" aria-label="Select Vehicle Type">
                     <p>Tipo de vehículo</p>
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" name="partVehicleTypeCar" id="partVehicleTypeCar" value="car" <% if(product.vehicleType){if(product.vehicleType.car){ %><%= "checked" %><%}} %>>
+                        <input type="checkbox" name="partVehicleTypeCar" id="partVehicleTypeCar" <% if(product.vehicleType){if(product.vehicleType.car){ %><%= "checked" %><%}} %>>
                         <label for="partVehicleTypeCar">Auto</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" name="partVehicleTypePickup" id="partVehicleTypePickup" value="pickup" <% if(product.vehicleType){if(product.vehicleType.pickup){ %><%= "checked" %><%}} %>>
+                        <input type="checkbox" name="partVehicleTypePickup" id="partVehicleTypePickup" <% if(product.vehicleType){if(product.vehicleType.pickup){ %><%= "checked" %><%}} %>>
                         <label for="partVehicleTypePickup">Camioneta</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" name="partVehicleTypeMotorcycle" id="partVehicleTypeMotorcycle" value="motorcycle" <% if(product.vehicleType){if(product.vehicleType.motorcycle){ %><%= "checked" %><%}} %>>
+                        <input type="checkbox" name="partVehicleTypeMotorcycle" id="partVehicleTypeMotorcycle" <% if(product.vehicleType){if(product.vehicleType.motorcycle){ %><%= "checked" %><%}} %>>
                         <label for="partVehicleTypeMotorcycle">Moto</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" name="partVehicleTypeTruck" id="partVehicleTypeTruck" value="truck" <% if(product.vehicleType){if(product.vehicleType.truck){ %><%= "checked" %><%}} %>>
+                        <input type="checkbox" name="partVehicleTypeTruck" id="partVehicleTypeTruck" <% if(product.vehicleType){if(product.vehicleType.truck){ %><%= "checked" %><%}} %>>
                         <label for="partVehicleTypeTruck">Camión</label>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-md col-lg-6">
+            <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
                     <input type="number" class="form-control" name="partPrice" id="partPrice" value="<%= (product.price) %>">
                     <label for="partProvince">Precio</label>
+                </div>
+            </div>
+            <div class="col-md col-lg-3">
+                <div class="form-floating mb-1">
+                    <input type="number" name="discount" id="discount" class="form-control" value="<%= (product.onSale) ? product.onSale.discount : 0 %>">
+                    <label for="discount">Descuento %</label>
                 </div>
             </div>
         </div>
@@ -101,25 +106,25 @@
         <div class="row">
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="partIamge1" id="partImage1" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[0] : "" %>">
+                    <input type="url" name="partImage1" id="partImage1" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[0] : "" %>">
                     <label for="partImage1">Image URL</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="partIamge2" id="partImage2" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
+                    <input type="url" name="partImage2" id="partImage2" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
                     <label for="partImage2">Image URL</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="partIamge3" id="partImage3" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
+                    <input type="url" name="partImage3" id="partImage3" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
                     <label for="partImage3">Image URL</label>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md col-lg-6">
+            <div class="col-md col-lg-3">
                 <div class="form-floating mb-1" id="partState" aria-label="Select Part State">
                     <p>Estado</p>
                     <div class="form-check form-check-inline">
@@ -130,6 +135,12 @@
                         <input type="radio" name="partState" id="partStateUsed" value="Usado" <%= (product.state === "Usado")?"checked":"" %>>
                         <label for="partStateUsed">Usado</label>
                     </div>
+                </div>
+            </div>
+            <div class="col-md col-lg-3">
+                <div class="form-floating mb-1">
+                    <input type="number" name="stock" id="stock" class="form-control" value="<%= product.stock %>">
+                    <label for="stock">Stock</label>
                 </div>
             </div>
             <div class="col-md col-lg-6">
@@ -159,17 +170,20 @@
             <div class="col-md">
                 <div class="form-floating mb-1">
                     <textarea class="form-control" name="partDescription" id="partDescription"><%= product.description %></textarea>
-                    <label for="partescription">Descripción</label>
+                    <label for="partDescription">Descripción</label>
                 </div>
             </div>
         </div>
         <!-- Buttons Section -->
         <div class="container-fluid d-flex container-add-product-cta">
             <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>
-            <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit">Guardar y
-                    Publicar</button></div>
-            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit">Guardar </button></div>
-
+            <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit" name="submit" value="publish">Guardar y Publicar</button></div>           
+            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit" name="submit" value="save">Guardar</button></div>
         </div>
     </form>
+    <% if (action === "edit") { %>
+        <form action="/products/delete/<%= productType %>/<%= product.adID %>?_method=DELETE" method="POST">
+            <div class="add-product-cta"><button class="add-product-delete btn-lg" type="submit" name="delete">Borrar</button></div>
+        </form>
+    <% } %>
 </section>
