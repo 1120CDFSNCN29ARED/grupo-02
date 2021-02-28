@@ -13,9 +13,9 @@
             <div class="col-md col-lg-2">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="partBrand" aria-label="Select brand" name="partBrand">
-                        <% mmav.forEach(brand => { %>
-                            <option value='<%= brand %>' <%= (product.partBrand === brand) ? "selected" : "" %>>
-                                <%= brand %>
+                        <% brands.forEach(brand => { %>
+                            <option value='<%= brand.BrandName %>' <%= (product.partBrand === brand.brandName) ? "selected" : "" %>>
+                                <%= brand.brandName %>
                             </option>
                         <% }) %>
                     </select>
@@ -25,9 +25,9 @@
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="partModel" aria-label="Select model" name="partModel">
-                        <% mmav.forEach(model => { %>
-                            <option value="<%= model %>" <%= (product.partModel === model) ? "selected" : "" %>>
-                                <%= model %>
+                        <% models.forEach(model => { %>
+                            <option value="<%= model.modelName %>" <%= (product.partModel === model.modelName) ? "selected" : "" %>>
+                                <%= model.modelName %>
                             </option>
                         <% }) %>
                     </select>

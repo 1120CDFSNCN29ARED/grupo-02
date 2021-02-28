@@ -5,24 +5,23 @@ const path = require("path");
 const vehiclesFilePath = path.join(__dirname, '../json/vehicles.json');
 const partsFilePath = path.join(__dirname, '../json/parts.json');
 const questionsFilePath = path.join(__dirname, '../json/questions.json');
+const mmav = require('./mmav.js');
 const brandsFilePath = path.join(__dirname, '../json/brands.json');
-const mmavFilePath = path.join(__dirname, '../json/mmav.json');
-
+const modelsFilePath = path.join(__dirname, '../json/models.json');
+const versionsFilePath = path.join(__dirname, '../json/versions.json');
 
 const jsonReader = filePath => JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
 
-//const brands = fs.readFileSync(brandsFilePath, 'utf-8');
-//const mmav = fs.readFileSync(mmavFilePath, 'utf-8');
+const brands = jsonReader(brandsFilePath);
+const models = jsonReader(modelsFilePath);
+const versions = jsonReader(versionsFilePath);
 
 /*
 const questions = require("../json/questions.json");
 const vehicles = require("../json/vehicles.json");
 const parts = require("../json/parts.json");
 */
-const brands = require("./brands");
-const mmav = require("./mmav");
-
 
 const mainController = {
     index: (req, res) => {   
@@ -31,7 +30,7 @@ const mainController = {
         const parts = jsonReader(partsFilePath);
         publishedParts = parts.filter(part => part.published === true);
         console.log(publishedParts)
-        res.render("index", { mmav, brands, vehicles: publishedVehicles, parts: publishedParts});
+        res.render("index", { mmav, brands, models, versions, vehicles: publishedVehicles, parts: publishedParts});
      },
     login: (req, res) => {
 		res.render("login", {});

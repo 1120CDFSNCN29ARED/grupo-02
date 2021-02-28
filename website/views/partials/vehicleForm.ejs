@@ -19,8 +19,8 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleBrand" aria-label="Select brand" name="vehicleBrand">
                         <% brands.forEach(brand => { %>
-                            <option value='<%=brand%>' <%= (product.brand === brand)?"selected":"" %>>
-                                <%= brand %>
+                            <option value='<%=brand.brandName%>' <%= (product.brand === brand.brandName)?"selected":"" %>>
+                                <%= brand.brandName %>
                             </option>
                             <% }) %>
                     </select>
@@ -30,9 +30,9 @@
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleModel" aria-label="Select model" name="vehicleModel">
-                        <% mmav.forEach(model => {%>
-                            <option value='<%= model %>' <%= (product.model === model) ? "selected" : "" %>>
-                                <%= model %>
+                        <% models.forEach(model => {%>
+                            <option value='<%= model.modelName %>' <%= (product.model === model.modelName) ? "selected" : "" %>>
+                                <%= model.modelName %>
                             </option>
                             <% }) %>
                     </select>
@@ -54,9 +54,9 @@
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleVersion" aria-label="Select version" name="vehicleVersion">
-                        <% mmav.forEach(version => {%>
-                            <option value='<%= version %>' <%= (product.version === version) ? "selected" : "" %>>
-                                <%= version %>
+                        <% versions.forEach(version => {%>
+                            <option value='<%= version.versionName %>' <%= (product.version === version.versionName) ? "selected" : "" %>>
+                                <%= version.versionName %>
                             </option>
                         <% }) %>
                     </select>

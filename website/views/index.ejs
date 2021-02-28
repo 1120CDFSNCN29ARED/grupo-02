@@ -134,7 +134,7 @@
 									/>
 									<datalist id="datalistOptions">
 										<% for(let i=0;i<mmav.length;i++){%>
-											<option value = '<%= mmav[i]%>'><%= mmav[i]%></option>
+											<option><%= mmav[i]%></option>
 											<% } %>
 									</datalist>
 									<button
@@ -317,14 +317,13 @@
 										<label for="partsMake" class=""
 											>Marca</label
 										>
-										<select
-											id="partsMake"
-											class="form-control"
-										>
-											<% for(let i=0;i<brands.length;i++){%>
-											<option value = '<%= brands[i]%>'><%= brands[i]%></option>
-											<% } %>
-										
+										<select	id="partsMake" class="form-control">										
+											<option selected>...</option>
+											<% brands.forEach(brand => { %>
+											<option value='<%= brand.brandName%>'>
+												<%= brand.brandName%>
+											</option>
+											<% }) %>										
 										</select>
 									</div>
 									<div
@@ -336,10 +335,11 @@
 											class="form-control"
 										>
 											<option selected>...</option>
-											<option>Model 1</option>
-											<option>Model 2</option>
-											<option>Model 3</option>
-											<option>Model 4</option>
+											<% models.forEach(model => { %>
+											<option value='<%= model.modelName%>'>
+												<%= model.modelName%>
+											</option>
+											<% }) %>
 										</select>
 									</div>
 									<div
@@ -387,10 +387,9 @@
 											class="form-control"
 										>
 											<option selected>...</option>
-											<option>V1</option>
-											<option>V2</option>
-											<option>V3</option>
-											<option>V4</option>
+											<% versions.forEach(version => { %>
+												<option value="<%=version.versionID%>"><%=version.versionName%></option>
+											<% }) %>
 										</select>
 									</div>
 								</div>

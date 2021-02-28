@@ -4,8 +4,9 @@ const path = require("path");
 const vehiclesFilePath = path.join(__dirname, '../json/vehicles.json');
 const partsFilePath = path.join(__dirname, '../json/parts.json');
 const questionsFilePath = path.join(__dirname, '../json/questions.json');
-const brandsFilePath = path.join(__dirname, '../json/brands.json');
-const mmavFilePath = path.join(__dirname, '../json/mmav.json');
+const brandsFilePath = path.join(__dirname, "../json/brands.json");
+const modelsFilePath = path.join(__dirname, "../json/models.json");
+const versionsFilePath = path.join(__dirname, "../json/versions.json");
 
 
 const jsonReader = filePath => JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -19,8 +20,11 @@ const questions = require("../json/questions.json");
 const vehicles = require("../json/vehicles.json");
 const parts = require("../json/parts.json");
 */
-const brands = require("./brands");
-const mmav = require("./mmav");
+/* const brands = require("./brands");
+const mmav = require("./mmav"); */
+const brands = jsonReader(brandsFilePath);
+const models = jsonReader(modelsFilePath);
+const versions = jsonReader(versionsFilePath);
 
 
 let product = "";
@@ -63,7 +67,14 @@ const productsController = {
 		res.redirect("/products/details/" + req.params.productType + "/" + productID);
     },
     create: (req, res) => {        
-        res.render("createProduct", { brands:brands, mmav:mmav, productType: req.params.productType, product: {}});
+    /* res.render("createProduct", { brands:brands, mmav:mmav, productType: req.params.productType, product: {}}); */
+        res.render("createProduct", {
+					brands: brands,
+                    models: models,
+                    versions:versions,
+					productType: req.params.productType,
+					product: {},
+				});
     },
     store: (req, res) => {
         const vehicles = jsonReader(vehiclesFilePath);
@@ -210,7 +221,8 @@ const productsController = {
             productType: productType,
             product: product,
             brands: brands,
-            mmav: mmav
+            models: models,
+            versions: versions
         });
     },
     update: (req, res) => {

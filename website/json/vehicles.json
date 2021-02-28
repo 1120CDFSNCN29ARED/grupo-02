@@ -1,45 +1,5 @@
 [
     {
-        "adID": 1,
-        "productType": "vehicle",
-        "type": "camioneta",
-        "published": true,
-        "featured": true,
-        "onSale": {
-            "status": false,
-            "discount": 0
-        },
-        "brand": "Kia",
-        "model": "Sorento",
-        "version": "2.2 Ex",
-        "gearType": "Manual",
-        "year": 2018,
-        "state": "Usado",
-        "rating": 4,
-        "kilometers": 50000,
-        "color": "Plateado",
-        "location": {
-            "province": "CABA",
-            "city": "CABA",
-            "neighbourhood": "Belgrano",
-            "postalCode": "1426"
-        },
-        "publishedDate": "16/1/2021",
-        "imageURLs": [
-            "https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_745810-MLA44471216636_012021-F.webp",
-            "https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_937708-MLA44471216637_012021-F.webp",
-            "https://http2.mlstatic.com/kia-sorento-crdi-22-ex-lucas-semini-D_NQ_NP_787735-MLA44471226106_012021-F.webp"
-        ],
-        "price": 4490000,
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
-        "seller": {
-            "userName": "carone",
-            "name": "Car One",
-            "phone": 123456789,
-            "email": "carone@gmail.com"
-        }
-    },
-    {    
         "adID": 2,
         "productType": "vehicle",
         "type": "auto",
@@ -79,7 +39,7 @@
             "email": "ford@gmail.com"
         }
     },
-    {    
+    {
         "adID": 3,
         "productType": "vehicle",
         "type": "camioneta",
@@ -119,7 +79,7 @@
             "email": "ford@gmail.com"
         }
     },
-    {    
+    {
         "adID": 4,
         "productType": "vehicle",
         "type": "moto",
@@ -159,7 +119,7 @@
             "email": "santimaldini@gmail.com"
         }
     },
-    {    
+    {
         "adID": 5,
         "productType": "vehicle",
         "type": "moto",
