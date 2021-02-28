@@ -61,9 +61,7 @@ const productsController = {
 			answer: ""
 		}
 		questions.push(newQuestion);
-		
 		fs.writeFileSync(questionsFilePath, JSON.stringify(questions, null, 4));
-
 		res.redirect("/products/details/" + req.params.productType + "/" + productID);
     },
     create: (req, res) => {        
