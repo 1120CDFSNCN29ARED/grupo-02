@@ -29,15 +29,9 @@ const mainController = {
         publishedVehicles = vehicles.filter(vehicle => vehicle.published === true);
         const parts = jsonReader(partsFilePath);
         publishedParts = parts.filter(part => part.published === true);
-        console.log(publishedParts)
+        //console.log(publishedParts)
         res.render("index", { mmav, brands, models, versions, vehicles: publishedVehicles, parts: publishedParts});
      },
-    login: (req, res) => {
-		res.render("login", {});
-    },
-    /* register: (req, res) => {
-        res.render('register', {});
-    }, */
     search: (req,res) => { 
         //Not implemented yet but this needs to return only the vehicles/products that match the query
         const vehicles = jsonReader(vehiclesFilePath);
