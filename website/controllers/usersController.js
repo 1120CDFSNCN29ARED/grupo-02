@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-//require validator to check the input of the registration form
+const { validationResult } = require('express-validator');
 
 //FILEPATH CONNECTORS
 const usersFilePath = path.join(__dirname, '../json/users.json');
@@ -23,18 +23,22 @@ const controller = {
 		res.render("register", {});
 	},
 	store: (req, res, next) => {
-		//Need to implement validation with express-validator
-		let users = getUsers();
-		let newId = users.length > 0 ? users[users.length - 1].userID + 1 : 1;
-		let newUser = {
-			userID: newId,
-			...req.body,
-			category: "user",
-			image: req.file ? req.file.filename : "",
-		};
-		users.push(newUser);
-		saveUsers(users);
-		res.redirect("/");
+		const regValidation = validationResult(req);
+		if (regValidation.errors.length > 0) {
+			return res.render('register', { errors: regValidation.mapped(), old:req.body });
+		} else {
+			let users = getUsers();
+			let newId = users.length > 0 ? users[users.length - 1].userID + 1 : 1;
+			let newUser = {
+				userID: newId,
+				...req.body,
+				category: "user",
+				image: req.file ? req.file.filename : "",
+			};
+			users.push(newUser);
+			saveUsers(users);
+			res.redirect("/");
+		}		
 	},
 	edit: (req, res, next) => {
 		//no tengo esta pantalla levantada

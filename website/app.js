@@ -13,13 +13,14 @@ const staticFolder = path.resolve(__dirname, "./public");
 app.use(express.static(staticFolder));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
+
 //View Engine
 app.set("view engine", "ejs");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//Router
+//Routers
 app.listen(process.env.PORT || MYPORT, () => {
 	console.log(`The server is running on ${MYPORT}`);
 });
