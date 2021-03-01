@@ -46,18 +46,17 @@
         "published": true,
         "featured": true,
         "onSale": {
-            "status": false,
+            "status": true,
             "discount": 0
         },
         "brandID": 53,
         "modelID": 501,
         "versionID": 3569,
-        "gearType": "Automática",
-        "year": 2021,
-        "state": "nuevo",
+        "gearType": "automática",
+        "year": "2021",
         "rating": 5,
         "kilometers": 0,
-        "color": "Gris",
+        "color": "Blanco",
         "location": {
             "province": "CABA",
             "city": "CABA",

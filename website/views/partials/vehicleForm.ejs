@@ -1,6 +1,6 @@
 <!-- Add Product -->
 <section class="section-add-product" id="add-product-vehicle">
-    <form action="/products/<%= action %>/<%= productType %><%= (action === "edit") ? `/${product.adID}?_method=PUT` : "" %> " method="POST" class="add-product">
+    <form action="/products/<%= action %>/<%= productType %><%= (action === "edit") ? `/${product.adID}?_method=PUT` : "" %> " method="POST" class="add-product" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
@@ -188,20 +188,20 @@
         <div class="row">
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="vehicleImage1" id="vehicleImage1" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[0] : "" %>">
-                    <label for="vehicleImage1">Image URL</label>
+                    <input type="file" name="vehicleImage1" id="vehicleImage1" class="form-control input-file" value="<%= //(product.imageURLs) ? product.imageURLs[0] : "" %>">
+                    <label for="vehicleImage1">Imagen 1</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="vehicleImage2" id="vehicleImage2" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
-                    <label for="vehicleImage2">Image URL</label>
+                    <input type="file" name="vehicleImage2" id="vehicleImage2" class="form-control input-file" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
+                    <label for="vehicleImage2">Imagen 2</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="vehicleImage3" id="vehicleImage3" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
-                    <label for="vehicleImage3">Image URL</label>
+                    <input type="file" name="vehicleImage3" id="vehicleImage3" class="form-control input-file" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
+                    <label for="vehicleImage3">Imagen 3</label>
                 </div>
             </div>
         </div>

@@ -29,6 +29,9 @@ const productsController = {
         const productQuestions = questions.filter(question => question.adID === productID);
         if(req.params.productType === "vehicle"){
             product = vehicles.find(vehicle => vehicle.adID === productID);
+            if(!product){
+                res.redirect("/")
+            }
             brands = jsonReader(vehicleBrandsFilePath);
             models = jsonReader(vehicleModelsFilePath);
             versions = jsonReader(vehicleVersionsFilePath);
@@ -36,8 +39,11 @@ const productsController = {
         }
         else if(req.params.productType === "part"){
             product = parts.find(part => part.adID === productID);
-            brands = jsonReader(vehicleBrandsFilePath);
-            models = jsonReader(vehicleModelsFilePath);
+            if(!product){
+                res.redirect("/")
+            }
+            brands = jsonReader(partBrandsFilePath);
+            models = jsonReader(partModelsFilePath);
         }
         const brand = brands.find(e => e.brandID === product.brandID);
         const model = models.find(e => e.modelID === product.modelID);
@@ -74,9 +80,20 @@ const productsController = {
 		res.redirect("/products/details/" + req.params.productType + "/" + productID);
     },
     create: (req, res) => {        
-        const brands = jsonReader(brandsFilePath);
-        const models = jsonReader(modelsFilePath);
-        const versions = jsonReader(versionsFilePath);
+        let brands = "";
+        let models = "";
+        let versions = "";
+        const productType = req.params.productType
+        if(productType === "vehicle"){
+            brands = jsonReader(vehicleBrandsFilePath);
+            models = jsonReader(vehicleModelsFilePath);
+            versions = jsonReader(vehicleVersionsFilePath);
+        }
+        else if(productType === "part"){
+            brands = jsonReader(partBrandsFilePath);
+            models = jsonReader(partModelsFilePath);
+        }
+
         res.render("createProduct", {
             brands,
             models,
@@ -112,7 +129,13 @@ const productsController = {
                 onSaleStatus = false;
                 onSaleDiscount = 0;
             }
-
+            let imageURLs = [];
+            console.log(req.files.vehicleImage1)
+            if(req.files.vehicleImage1){
+                imageURLs.push(req.files.vehicleImage1[0].filename);
+                imageURLs.push(req.files.vehicleImage2[0].filename);
+                imageURLs.push(req.files.vehicleImage3[0].filename);
+            }
             let product = {
                 adID: newID,
                 type: req.body.vehicleType,
@@ -138,12 +161,14 @@ const productsController = {
                     neighbourhood: req.body.vehicleNeighbourhood,
                     postalCode: req.body.vehiclePostalCode,
                 },
-                imageURLs: [req.body.vehicleImage1, req.body.vehicleImage2, req.body.vehicleImage3],
+                imageURLs: imageURLs,
                 price: Number(req.body.vehiclePrice),
                 description: req.body.vehicleDescription,
             };
 
             vehicles.push(product);
+
+            //console.log(product)
 
             fs.writeFileSync(vehiclesFilePath, JSON.stringify(vehicles, null, 4));
             res.redirect("/products/details/" + req.params.productType + "/" + newID);
@@ -171,6 +196,12 @@ const productsController = {
             else {
                 onSaleStatus = false;
                 onSaleDiscount = 0;
+            }
+            let imageURLs = [];
+            if(req.files.vehicleImage1){
+                imageURLs.push(req.files.vehicleImage1[0].filename);
+                imageURLs.push(req.files.vehicleImage2[0].filename);
+                imageURLs.push(req.files.vehicleImage3[0].filename);
             }
             let product = {
                 adID: newID,
@@ -200,7 +231,7 @@ const productsController = {
                     neighbourhood: req.body.partNeighbourhood,
                     postalCode: req.body.partPostalCode,
                 },
-                imageURLs: [req.body.partImage1, req.body.partImage2, req.body.partImage3],
+                imageURLs: imageURLs,
                 price: Number(req.body.partPrice),
                 description: req.body.partDescription,
             }
@@ -225,12 +256,18 @@ const productsController = {
 
         if(productType === "vehicle"){
             product = vehicles.find(vehicle => vehicle.adID === productID);
+            if(!product){
+                res.redirect("/")
+            }
             brands = jsonReader(vehicleBrandsFilePath);
             models = jsonReader(vehicleModelsFilePath);
             versions = jsonReader(vehicleVersionsFilePath);
         }
         else if(productType === "part"){
             product = parts.find(part => part.adID === productID);
+            if(!product){
+                res.redirect("/")
+            }
             brands = jsonReader(partBrandsFilePath);
             models = jsonReader(partModelsFilePath);
         }
