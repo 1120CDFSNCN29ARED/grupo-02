@@ -1,6 +1,6 @@
 <!-- Add Product -->
 <section class="section-add-product" id="add-product-part">
-    <form action="/products/<%= action %>/<%= productType %><%= (action === "edit") ? `/${product.adID}?_method=PUT` : "" %> " method="POST" class="add-product">
+    <form action="/products/<%= action %>/<%= productType %><%= (action === "edit") ? `/${product.adID}?_method=PUT` : "" %> " method="POST" class="add-product" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
@@ -14,7 +14,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="partBrand" aria-label="Select brand" name="partBrand">
                         <% brands.forEach(brand => { %>
-                            <option value='<%= brand.BrandName %>' <%= (product.partBrand === brand.brandName) ? "selected" : "" %>>
+                            <option value='<%= brand.brandID %>' <%= (product.brandID === brand.brandID) ? "selected" : "" %>>
                                 <%= brand.brandName %>
                             </option>
                         <% }) %>
@@ -26,7 +26,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="partModel" aria-label="Select model" name="partModel">
                         <% models.forEach(model => { %>
-                            <option value="<%= model.modelName %>" <%= (product.partModel === model.modelName) ? "selected" : "" %>>
+                            <option value="<%= model.modelID %>" <%= (product.modelID === model.modelID) ? "selected" : "" %>>
                                 <%= model.modelName %>
                             </option>
                         <% }) %>
@@ -106,19 +106,19 @@
         <div class="row">
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="partImage1" id="partImage1" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[0] : "" %>">
+                    <input type="file" name="partImage1" id="partImage1" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[0] : "" %>">
                     <label for="partImage1">Image URL</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="partImage2" id="partImage2" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
+                    <input type="file" name="partImage2" id="partImage2" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
                     <label for="partImage2">Image URL</label>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <input type="url" name="partImage3" id="partImage3" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
+                    <input type="file" name="partImage3" id="partImage3" class="form-control" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
                     <label for="partImage3">Image URL</label>
                 </div>
             </div>

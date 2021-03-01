@@ -1,0 +1,37 @@
+[
+    {
+        "brandID": 1,
+        "brandName": "ALFA ROMEO",
+        "vehicleType": ["car"]
+    },
+    {
+		"brandID": 2,
+		"brandName": "AUDI",
+		"vehicleType": ["car"]
+	},
+    {
+		"brandID": 3,
+		"brandName": "BMW",
+		"vehicleType": ["car", "motorbike"]
+	},
+    {
+		"brandID": 4,
+		"brandName": "BENELLI",
+		"vehicleType": ["motorbike"]
+	},
+    {
+		"brandID": 5,
+		"brandName": "KIA",
+		"vehicleType": ["car", "bus"]
+	},
+    {
+		"brandID": 6,
+		"brandName": "CHOHO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 7,
+		"brandName": "VOLKSWAGEN",
+		"vehicleType": ["car", "truck", "bus"]
+	}
+]

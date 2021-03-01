@@ -4,75 +4,103 @@ const path = require("path");
 const vehiclesFilePath = path.join(__dirname, '../json/vehicles.json');
 const partsFilePath = path.join(__dirname, '../json/parts.json');
 const questionsFilePath = path.join(__dirname, '../json/questions.json');
-const brandsFilePath = path.join(__dirname, "../json/brands.json");
-const modelsFilePath = path.join(__dirname, "../json/models.json");
-const versionsFilePath = path.join(__dirname, "../json/versions.json");
+const vehicleBrandsFilePath = path.join(__dirname, "../json/vehicleBrands.json");
+const vehicleModelsFilePath = path.join(__dirname, "../json/vehicleModels.json");
+const vehicleVersionsFilePath = path.join(__dirname, "../json/vehicleVersions.json");
+
+const partBrandsFilePath = path.join(__dirname, "../json/partBrands.json");
+const partModelsFilePath = path.join(__dirname, "../json/partModels.json");
 
 
 const jsonReader = filePath => JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
 
-//const brands = fs.readFileSync(brandsFilePath, 'utf-8');
-//const mmav = fs.readFileSync(mmavFilePath, 'utf-8');
-
-/*
-const questions = require("../json/questions.json");
-const vehicles = require("../json/vehicles.json");
-const parts = require("../json/parts.json");
-*/
-/* const brands = require("./brands");
-const mmav = require("./mmav"); */
-const brands = jsonReader(brandsFilePath);
-const models = jsonReader(modelsFilePath);
-const versions = jsonReader(versionsFilePath);
-
-
-let product = "";
+let product = {};
 const productsController = {
     details: (req, res) => {
         const vehicles = jsonReader(vehiclesFilePath);
         const parts = jsonReader(partsFilePath);
+        let brands = "";
+        let models = "";
+        let versions = "";
+        let version = "";
         const questions = jsonReader(questionsFilePath);
         const productID = parseInt(req.params.productID, 10);
         const productQuestions = questions.filter(question => question.adID === productID);
         if(req.params.productType === "vehicle"){
             product = vehicles.find(vehicle => vehicle.adID === productID);
+            if(!product){
+                res.redirect("/")
+            }
+            brands = jsonReader(vehicleBrandsFilePath);
+            models = jsonReader(vehicleModelsFilePath);
+            versions = jsonReader(vehicleVersionsFilePath);
+            version = versions.find(e => e.versionID === product.versionID);
         }
         else if(req.params.productType === "part"){
             product = parts.find(part => part.adID === productID);
+            if(!product){
+                res.redirect("/")
+            }
+            brands = jsonReader(partBrandsFilePath);
+            models = jsonReader(partModelsFilePath);
         }
+        const brand = brands.find(e => e.brandID === product.brandID);
+        const model = models.find(e => e.modelID === product.modelID);
         res.render("productDetails",
         {
             productType: req.params.productType,
             productID: productID,
-            product: product,
-            questions: productQuestions
+            product,
+            questions: productQuestions,
+            brand,
+            model,
+            version,
         });
     },
     question: (req, res) => {
         const questions = jsonReader(questionsFilePath);
         const productID = parseInt(req.params.productID, 10);
+        
         const newID = questions.length > 0 ? questions[questions.length - 1].questionID + 1 : 1;
+        const date = new Date();
+        const questionDate = date.getDate() + "/" + date.getMonth() + "/" +  date.getFullYear();
+
 		const newQuestion = {
 			questionID: newID,
 			adID: productID,
             userName: "santi",//change to logged in user
 			question: req.body.question,
-			answer: ""
+            questionDate: questionDate,
+			answer: "",
+            answerDate: ""
 		}
 		questions.push(newQuestion);
 		fs.writeFileSync(questionsFilePath, JSON.stringify(questions, null, 4));
 		res.redirect("/products/details/" + req.params.productType + "/" + productID);
     },
     create: (req, res) => {        
-    /* res.render("createProduct", { brands:brands, mmav:mmav, productType: req.params.productType, product: {}}); */
+        let brands = "";
+        let models = "";
+        let versions = "";
+        const productType = req.params.productType
+        if(productType === "vehicle"){
+            brands = jsonReader(vehicleBrandsFilePath);
+            models = jsonReader(vehicleModelsFilePath);
+            versions = jsonReader(vehicleVersionsFilePath);
+        }
+        else if(productType === "part"){
+            brands = jsonReader(partBrandsFilePath);
+            models = jsonReader(partModelsFilePath);
+        }
+
         res.render("createProduct", {
-					brands: brands,
-                    models: models,
-                    versions:versions,
-					productType: req.params.productType,
-					product: {},
-				});
+            brands,
+            models,
+            versions,
+            productType: req.params.productType,
+            product: {},
+        });
     },
     store: (req, res) => {
         const vehicles = jsonReader(vehiclesFilePath);
@@ -101,7 +129,13 @@ const productsController = {
                 onSaleStatus = false;
                 onSaleDiscount = 0;
             }
-
+            let imageURLs = [];
+            console.log(req.files.vehicleImage1)
+            if(req.files.vehicleImage1){
+                imageURLs.push(req.files.vehicleImage1[0].filename);
+                imageURLs.push(req.files.vehicleImage2[0].filename);
+                imageURLs.push(req.files.vehicleImage3[0].filename);
+            }
             let product = {
                 adID: newID,
                 type: req.body.vehicleType,
@@ -112,11 +146,11 @@ const productsController = {
                     status: onSaleStatus,
                     discount: onSaleDiscount
                 },
-                brand: req.body.vehicleBrand,
-                model: req.body.vehicleModel,
-                version: req.body.vehicleVersion,
+                brandID: Number(req.body.vehicleBrand),
+                modelID: Number(req.body.vehicleModel),
+                versionID: Number(req.body.vehicleVersion),
                 gearType: req.body.vehicleGearType,
-                year: req.body.vehicleYear,
+                year: Number(req.body.vehicleYear),
                 state: req.body.vehicleState,
                 rating: req.body.rating,
                 kilometers: Number(req.body.vehicleKMs),
@@ -127,12 +161,14 @@ const productsController = {
                     neighbourhood: req.body.vehicleNeighbourhood,
                     postalCode: req.body.vehiclePostalCode,
                 },
-                imageURLs: [req.body.vehicleImage1, req.body.vehicleImage2, req.body.vehicleImage3],
+                imageURLs: imageURLs,
                 price: Number(req.body.vehiclePrice),
                 description: req.body.vehicleDescription,
             };
 
             vehicles.push(product);
+
+            //console.log(product)
 
             fs.writeFileSync(vehiclesFilePath, JSON.stringify(vehicles, null, 4));
             res.redirect("/products/details/" + req.params.productType + "/" + newID);
@@ -161,6 +197,12 @@ const productsController = {
                 onSaleStatus = false;
                 onSaleDiscount = 0;
             }
+            let imageURLs = [];
+            if(req.files.vehicleImage1){
+                imageURLs.push(req.files.vehicleImage1[0].filename);
+                imageURLs.push(req.files.vehicleImage2[0].filename);
+                imageURLs.push(req.files.vehicleImage3[0].filename);
+            }
             let product = {
                 adID: newID,
                 type: "part",
@@ -170,9 +212,9 @@ const productsController = {
                     status: onSaleStatus,
                     discount: onSaleDiscount
                 },
-                partBrand: req.body.partBrand,
-                partModel: req.body.partModel,
-                stock: req.body.stock,
+                brandID: Number(req.body.brand),
+                modelID: Number(req.body.model),
+                stock: Number(req.body.stock),
                 title: req.body.partTitle,
                 state: req.body.partState,
                 rating: req.body.rating,
@@ -189,7 +231,7 @@ const productsController = {
                     neighbourhood: req.body.partNeighbourhood,
                     postalCode: req.body.partPostalCode,
                 },
-                imageURLs: [req.body.partImage1, req.body.partImage2, req.body.partImage3],
+                imageURLs: imageURLs,
                 price: Number(req.body.partPrice),
                 description: req.body.partDescription,
             }
@@ -207,11 +249,27 @@ const productsController = {
         const parts = jsonReader(partsFilePath);
         const productID = parseInt(req.params.productID, 10);
         const productType = req.params.productType
+
+        let brands = "";
+        let models = "";
+        let versions = "";
+
         if(productType === "vehicle"){
             product = vehicles.find(vehicle => vehicle.adID === productID);
+            if(!product){
+                res.redirect("/")
+            }
+            brands = jsonReader(vehicleBrandsFilePath);
+            models = jsonReader(vehicleModelsFilePath);
+            versions = jsonReader(vehicleVersionsFilePath);
         }
         else if(productType === "part"){
             product = parts.find(part => part.adID === productID);
+            if(!product){
+                res.redirect("/")
+            }
+            brands = jsonReader(partBrandsFilePath);
+            models = jsonReader(partModelsFilePath);
         }
         
         res.render("editProduct",
@@ -248,9 +306,9 @@ const productsController = {
                 product.onSale.status = false;
                 product.onSale.discount = 0;
             }
-            product.brand = req.body.vehicleBrand;
-            product.model = req.body.vehicleModel;
-            product.version = req.body.vehicleVersion;
+            product.brandID = Number(req.body.vehicleBrand);
+            product.modelID = Number(req.body.vehicleModel);
+            product.versionID = Number(req.body.vehicleVersion);
             product.gearType = req.body.vehicleGearType;//
             product.year = req.body.vehicleYear;
             product.state = req.body.vehicleState;
@@ -289,9 +347,9 @@ const productsController = {
                 product.onSale.status = false;
                 product.onSale.discount = 0;
             }
-            product.partBrand = req.body.partBrand;
-            product.partModel = req.body.partModel;
-            product.stock = req.body.stock;
+            product.brandID = Number(req.body.brand);
+            product.modelID = Number(req.body.model);
+            product.stock = Number(req.body.stock);
             product.title = req.body.partTitle;
             product.state = req.body.partState;
             product.rating = req.body.rating;
@@ -301,9 +359,8 @@ const productsController = {
             product.vehicleType.motorcycle = req.body.partVehicleTypeMotorcycle;
             product.vehicleType.truck = req.body.partVehicleTypeTruck;
             product.location.province = req.body.partProvince;
-            product.imageURLs[1] = req.body.partCity;
-            product.location.city = req.body.partNeighbourhood;
-            product.location.neighbourhood = req.body.partPrice;
+            product.location.city = req.body.partCity;
+            product.location.neighbourhood = req.body.partNeighbourhood;
             product.location.postalCode = req.body.partPostalCode;
             product.imageURLs[0] = req.body.partImage1;
             product.imageURLs[1] = req.body.partImage2;
