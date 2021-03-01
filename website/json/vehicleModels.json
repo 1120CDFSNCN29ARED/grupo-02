@@ -9664,5 +9664,17 @@
 		"modelID": 1464,
 		"modelName": "ATV",
 		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 1523,
+		"modelName": "TRK",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 14,
+		"modelID": 1524,
+		"modelName": "NS200",
+		"vehicleType": ["motorbike"]
 	}
 ]

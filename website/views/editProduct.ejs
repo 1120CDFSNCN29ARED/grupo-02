@@ -11,9 +11,9 @@
                 </div>
                 <div class="container-fluid container-admin text-center">
                     <% if (productType === "vehicle" ) { %>
-                        <%- include("./partials/vehicleForm", {product: product, action: "edit"})%>
+                        <%- include("./partials/vehicleForm", {product, brands, models, versions, action: "edit"})%>
                     <% } else if (productType === "part" ) { %>                         
-                        <%- include("./partials/partForm", {product: product, action: "edit"}) %> 
+                        <%- include("./partials/partForm", {product, brands, models, action: "edit"}) %> 
                     <% } %>
                 </div>
             </div>

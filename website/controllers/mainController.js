@@ -4,18 +4,16 @@ const path = require("path");
 
 const vehiclesFilePath = path.join(__dirname, '../json/vehicles.json');
 const partsFilePath = path.join(__dirname, '../json/parts.json');
-const questionsFilePath = path.join(__dirname, '../json/questions.json');
 const mmav = require('./mmav.js');
-const brandsFilePath = path.join(__dirname, '../json/brands.json');
-const modelsFilePath = path.join(__dirname, '../json/models.json');
-const versionsFilePath = path.join(__dirname, '../json/versions.json');
+const vehicleBandsFilePath = path.join(__dirname, "../json/vehicleBrands.json");
+const vehicleModelsFilePath = path.join(__dirname, "../json/vehicleModels.json");
+const vehicleVersionsFilePath = path.join(__dirname, "../json/vehicleVersions.json");
+
+const partBrandsFilePath = path.join(__dirname, "../json/partBrands.json");
+const partModelsFilePath = path.join(__dirname, "../json/partModels.json");
 
 const jsonReader = filePath => JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
-
-const brands = jsonReader(brandsFilePath);
-const models = jsonReader(modelsFilePath);
-const versions = jsonReader(versionsFilePath);
 
 /*
 const questions = require("../json/questions.json");
@@ -26,19 +24,36 @@ const parts = require("../json/parts.json");
 const mainController = {
     index: (req, res) => {   
         const vehicles = jsonReader(vehiclesFilePath);
-        publishedVehicles = vehicles.filter(vehicle => vehicle.published === true);
+        const publishedVehicles = vehicles.filter(vehicle => vehicle.published === true);
         const parts = jsonReader(partsFilePath);
-        publishedParts = parts.filter(part => part.published === true);
-        //console.log(publishedParts)
-        res.render("index", { mmav, brands, models, versions, vehicles: publishedVehicles, parts: publishedParts});
+        const publishedParts = parts.filter(part => part.published === true);
+        
+        const vehicleBrands = jsonReader(vehicleBandsFilePath);
+        const vehicleModels = jsonReader(vehicleModelsFilePath);
+        const vehicleVersions = jsonReader(vehicleVersionsFilePath);
+
+        const partBrands = jsonReader(partBrandsFilePath);
+        const partModels = jsonReader(partModelsFilePath);
+
+
+
+        res.render("index", { mmav, vehicleBrands, vehicleModels, vehicleVersions, partBrands, partModels, vehicles: publishedVehicles, parts: publishedParts});
      },
     search: (req,res) => { 
         //Not implemented yet but this needs to return only the vehicles/products that match the query
         const vehicles = jsonReader(vehiclesFilePath);
-        publishedVehicles = vehicles.filter(vehicle => vehicle.published === true);
+        const publishedVehicles = vehicles.filter(vehicle => vehicle.published === true);
         const parts = jsonReader(partsFilePath);
-        publishedParts = parts.filter(part => part.published === true);
-        res.render('search', { vehicles: publishedVehicles, parts: publishedParts });
+        const publishedParts = parts.filter(part => part.published === true);
+
+        const vehicleBrands = jsonReader(vehicleBandsFilePath);
+        const vehicleModels = jsonReader(vehicleModelsFilePath);
+        const vehicleVersions = jsonReader(vehicleVersionsFilePath);
+
+        const partBrands = jsonReader(partBrandsFilePath);
+        const partModels = jsonReader(partModelsFilePath);
+
+        res.render('search', { vehicleBrands, vehicleModels, vehicleVersions, partBrands, partModels, vehicles: publishedVehicles, parts: publishedParts });
     },    
 };
 

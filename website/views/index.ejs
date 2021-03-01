@@ -118,7 +118,7 @@
 									>Buscador</label
 								>
 								<div class="input-group mb-3">
-									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01">
+									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01" name="vehicleType">
 										<option selected>Tipo</option>
 										<option value="auto">Autos</option>
 										<option value="camionetas">Camionetas</option>
@@ -273,7 +273,7 @@
 									>Buscador</label
 								>
 								<div class="input-group mb-3">
-									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01">
+									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01" name="vehicleType">
 										<option selected>Tipo</option>
 										<option value="auto">Autos</option>
 										<option value="camionetas">Camionetas</option>
@@ -284,6 +284,7 @@
 										class="form-control"
 										list="partsDatalistOptions"
 										id="partSearchList"
+										name="partSearchList"
 										aria-label="Text input with dropdown button"
 										placeholder="¿Que Repuesto estas buscando?"
 									/>
@@ -317,11 +318,11 @@
 										<label for="partsMake" class=""
 											>Marca</label
 										>
-										<select	id="partsMake" class="form-control">										
+										<select	id="partsMake" class="form-control" name="partsMake">										
 											<option selected>...</option>
-											<% brands.forEach(brand => { %>
-											<option value='<%= brand.brandName%>'>
-												<%= brand.brandName%>
+											<% partBrands.forEach(brand => { %>
+											<option value='<%= brand.brandName %>'>
+												<%= brand.brandName %>
 											</option>
 											<% }) %>										
 										</select>
@@ -333,11 +334,12 @@
 										<select
 											id="partsModel"
 											class="form-control"
+											name="partsModel"
 										>
 											<option selected>...</option>
-											<% models.forEach(model => { %>
-											<option value='<%= model.modelName%>'>
-												<%= model.modelName%>
+											<% partModels.forEach(model => { %>
+											<option value='<%= model.modelName %>'>
+												<%= model.modelName %>
 											</option>
 											<% }) %>
 										</select>
@@ -351,6 +353,7 @@
 										<select
 											id="partsInputYearFrom"
 											class="form-control"
+											name="partsInputYearFrom"
 										>
 											<option selected>...</option>
 											<option>1900</option>
@@ -368,6 +371,7 @@
 										<select
 											id="partsInputYearTo"
 											class="form-control"
+											name="partsInputYearTo"
 										>
 											<option selected>...</option>
 											<option>1900</option>
@@ -379,17 +383,17 @@
 									<div
 										class="form-group col-2 advanced-filter"
 									>
-										<label for="partsVersion"
+										<label for="partsState"
 											>Version</label
 										>
 										<select
-											id="partsversion"
+											id="partsState"
 											class="form-control"
+											name="partsState"
 										>
 											<option selected>...</option>
-											<% versions.forEach(version => { %>
-												<option value="<%=version.versionID%>"><%=version.versionName%></option>
-											<% }) %>
+											<option value="nuevo">Nuevo</option>
+											<option value="usado">Usado</option>
 										</select>
 									</div>
 								</div>
@@ -406,9 +410,14 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-					<% for(let i = 0; i < 4; i++) { %>
-						<%- include("./partials/vehicleCard", {vehicle: vehicles[i]}) %> 
-					<% } %>
+				<% for(let i = 0; i < 4; i++) { %>
+					<% console.log("find: " + (vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicles[i].brandID)).brandName) %> 
+					<% let brand = vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicles[i].brandID) %>
+					<% console.log("brand: " + brand.brandName) %> 
+					<% let model = vehicleModels.find(vehicleModel => vehicleModel.modelID === vehicles[i].modelID) %>
+					<% let version = vehicleVersions.find(vehicleVersion => vehicleVersion.versionID === vehicles[i].versionID) %>
+					<%- include("./partials/vehicleCard", {vehicle: vehicles[i], brand, model, version}) %> 
+				<% } %>
 				</div>
 			</div>
 			<div class="container-fluid">
@@ -419,7 +428,10 @@
 					<% let featuredVehicles = vehicles.filter(vehicle => vehicle.featured === true) %>
 					<% let featuredParts = parts.filter(part => part.featured === true) %>
 					<% featuredVehicles.forEach(vehicle => { %>
-						<%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+						<% let brand = vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicle.brandID) %>
+						<% let model = vehicleModels.find(vehicleModel => vehicleModel.modelID === vehicle.modelID) %>
+						<% let version = vehicleVersions.find(vehicleVersion => vehicleVersion.versionID === vehicle.versionID) %> 
+						<%- include("./partials/vehicleCard", {vehicle: vehicle, brand, model, version}) %> 
 					<% }) %>
 					<% featuredParts.forEach(part => { %>
 						<%- include("./partials/partCard", {part: part}) %> 
@@ -435,7 +447,10 @@
 					<% let onSaleVehicles = vehicles.filter(vehicle => vehicle.onSale.status === true) %>
 					<% let onSaleParts = parts.filter(part => part.onSale.status === true) %>
 					<% onSaleVehicles.forEach(vehicle => { %>
-						<%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+						<% let brand = vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicle.brandID) %>
+						<% let model = vehicleModels.find(vehicleModel => vehicleModel.modelID === vehicle.modelID) %>
+						<% let version = vehicleVersions.find(vehicleVersion => vehicleVersion.versionID === vehicle.versionID) %> 
+						<%- include("./partials/vehicleCard", {vehicle: vehicle, brand, model, version}) %> 
 					<% }) %>
 					<% onSaleParts.forEach(part => { %>
 						<%- include("./partials/partCard", {part: part}) %> 

@@ -90,15 +90,15 @@
                 <table class="table table-striped table-hover" id="attributesTable">
                     <tr>
                         <td>
-                            <strong>Marca: </strong><%= product.brand %> 
+                            <strong>Marca: </strong><%= brand.brandName %> 
                         </td>
                         <td>
-                            <strong>Modelo: </strong><%= product.model %> 
+                            <strong>Modelo: </strong><%= model.modelName %> 
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <strong>Versión: </strong> <%= product.version %> 
+                            <strong>Versión: </strong> <%= version.versionName %> 
                         </td>
                         <td>
                             <strong>Año: </strong> <%= product.year %> 
@@ -144,9 +144,13 @@
             </form>                
             <h2>Preguntas</h2>
             <% questions.forEach(e => { %>
-                <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %></span> <i class="fas fa-level-down-alt question-arrow"></i></p>
-                <p class="answer"><%= e.answer %> </p>
-            <% }) %>            
+                <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %> - <%= e.questionDate %></span> <%- e.answer !== "" ? '<i class="fas fa-level-down-alt question-arrow"></i>' : "" %> </p>
+                <%- e.answer !== "" ? `<p class="answer"> ${e.answer} - ${e.answerDate} </p>` : "" %> 
+                
+            <% }) %>  
+            <% if (questions.length === 0) { %>
+                <p>No hay preguntas! Sos el primero!</p>
+            <% } %>          
         </div>
         
     </section>

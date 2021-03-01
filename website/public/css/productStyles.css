@@ -188,3 +188,8 @@ h2 {
   color: #8a8a8a;
   padding-left: 15px;
 }
+
+#questions {
+  min-height: 200px;
+  padding-bottom: 5px;
+}

@@ -19,7 +19,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleBrand" aria-label="Select brand" name="vehicleBrand">
                         <% brands.forEach(brand => { %>
-                            <option value='<%=brand.brandName%>' <%= (product.brand === brand.brandName)?"selected":"" %>>
+                            <option value='<%=brand.brandID%>' <%= (product.brandID === brand.brandID)?"selected":"" %>>
                                 <%= brand.brandName %>
                             </option>
                             <% }) %>
@@ -31,7 +31,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleModel" aria-label="Select model" name="vehicleModel">
                         <% models.forEach(model => {%>
-                            <option value='<%= model.modelName %>' <%= (product.model === model.modelName) ? "selected" : "" %>>
+                            <option value='<%= model.modelID %>' <%= (product.modelID === model.modelID) ? "selected" : "" %>>
                                 <%= model.modelName %>
                             </option>
                             <% }) %>
@@ -55,7 +55,7 @@
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleVersion" aria-label="Select version" name="vehicleVersion">
                         <% versions.forEach(version => {%>
-                            <option value='<%= version.versionName %>' <%= (product.version === version.versionName) ? "selected" : "" %>>
+                            <option value='<%= version.versionID %>' <%= (product.versionID === version.versionID) ? "selected" : "" %>>
                                 <%= version.versionName %>
                             </option>
                         <% }) %>

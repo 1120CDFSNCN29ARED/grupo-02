@@ -92377,5 +92377,19 @@
 		"versionID": 13197,
 		"versionName": "ATV  90",
 		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 1523,
+		"versionID": 13198,
+		"versionName": "TRK",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 1523,
+		"versionID": 13199,
+		"versionName": "NS200",
+		"vehicleType": ["motorbike"]
 	}
 ]

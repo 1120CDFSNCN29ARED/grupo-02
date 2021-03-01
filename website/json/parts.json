@@ -11,8 +11,8 @@
         "stock": 5,
         "publishedDate": "15/1/2021",
         "title": "Led Giro De Espejo Kia Sorento 2009/2014",
-        "partBrand": "Mopart",
-        "partModel": "LED",
+        "brandID": 5,
+        "modelID": 1,
         "partID": "0404ABC",
         "vehicleType": {
             "car": true
@@ -51,8 +51,8 @@
         "stock": 2,
         "publishedDate": "15/1/2021",
         "title": "Kit Transmision P/ Benelli Tnt 15 Original Reforzada",
-        "partBrand": "Benelli",
-        "partModel": "TNT15",
+        "brandID": 4,
+        "modelID": 2,
         "partID": "123456ABC",
         "vehicleType": {
             "motorcycle": true
@@ -90,8 +90,8 @@
         "stock": 4,
         "publishedDate": "10/1/2021",
         "title": "Cadena Choho 520x118 Con Oring P/ Benelli Tnt25",
-        "partBrand": "Choho",
-        "partModel": "Oring TNT25",
+        "brandID": 6,
+        "modelID": 3,
         "partID": "hh119",
         "vehicleType": {
             "motorcycle": true
@@ -128,8 +128,8 @@
         "stock": 10,
         "publishedDate": "11/1/2021",
         "title": "Corona Original Transmision Benelli Tnt 25 Solo En Agrobikes",
-        "partBrand": "Benelli",
-        "partModel": "TNT25",
+        "brandID": 4,
+        "modelID": 4,
         "partID": "abc123",
         "vehicleType": {
             "motorcycle": true
@@ -167,8 +167,8 @@
         "stock": 1,
         "publishedDate": "11/1/2021",
         "title": "Paragolpe Delantero P/ Volkswagen Amarok 2017 2018 2019 2020",
-        "partBrand": "Volkswagen",
-        "partModel": "Paragolpe delantero Amarok",
+        "brandID": 7,
+        "modelID": 5,
         "partID": "abc1223",
         "vehicleType": {
             "pickup": true
