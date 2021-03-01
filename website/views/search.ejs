@@ -123,10 +123,13 @@
 				    <% let featuredVehicles = vehicles.filter(vehicle => vehicle.featured === true) %>
 					<% let featuredParts = parts.filter(part => part.featured === true) %>
 					<% featuredVehicles.forEach(vehicle => { %>
-						<%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+                        <% let brand = vehicleBrands.find(e => e.brandID === vehicle.brandID) %> 
+                        <% let model = vehicleModels.find(e => e.modelID === vehicle.modelID) %>
+                        <% let version = vehicleVersions.find(e => e.versionID === vehicle.versionID) %>
+						<%- include("./partials/vehicleCard", {vehicle, brand, model, version}) %> 
 					<% }) %>
 					<% featuredParts.forEach(part => { %>
-						<%- include("./partials/partCard", {part: part}) %> 
+						<%- include("./partials/partCard", {part}) %> 
 					<% }) %> 
 				</div>
 				</div>
@@ -137,7 +140,10 @@
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
                     <% vehicles.forEach(vehicle => { %>
-                        <%- include("./partials/vehicleCard", {vehicle: vehicle}) %> 
+                        <% let brand = vehicleBrands.find(e => e.brandID === vehicle.brandID) %> 
+                        <% let model = vehicleModels.find(e => e.modelID === vehicle.modelID) %>
+                        <% let version = vehicleVersions.find(e => e.versionID === vehicle.versionID) %>
+                        <%- include("./partials/vehicleCard", {vehicle, brand, model, version}) %> 
                     <% });%>
                 </div>
             </div>

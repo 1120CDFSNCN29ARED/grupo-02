@@ -46,7 +46,7 @@
         "published": true,
         "featured": true,
         "onSale": {
-            "status": true,
+            "status": false,
             "discount": 0
         },
         "brandID": 53,

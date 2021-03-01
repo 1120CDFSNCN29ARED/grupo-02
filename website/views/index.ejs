@@ -431,10 +431,12 @@
 						<% let brand = vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicle.brandID) %>
 						<% let model = vehicleModels.find(vehicleModel => vehicleModel.modelID === vehicle.modelID) %>
 						<% let version = vehicleVersions.find(vehicleVersion => vehicleVersion.versionID === vehicle.versionID) %> 
-						<%- include("./partials/vehicleCard", {vehicle: vehicle, brand, model, version}) %> 
+						<%- include("./partials/vehicleCard", {vehicle, brand, model, version}) %> 
 					<% }) %>
 					<% featuredParts.forEach(part => { %>
-						<%- include("./partials/partCard", {part: part}) %> 
+						<% let brand = partBrands.find(partBrand => partBrand.brandID === part.brandID) %>
+						<% let model = partModels.find(partModel => partModel.modelID === part.modelID) %>
+						<%- include("./partials/partCard", {part, brand, model}) %> 
 					<% }) %>				
 				</div>
 				</div>
@@ -450,10 +452,12 @@
 						<% let brand = vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicle.brandID) %>
 						<% let model = vehicleModels.find(vehicleModel => vehicleModel.modelID === vehicle.modelID) %>
 						<% let version = vehicleVersions.find(vehicleVersion => vehicleVersion.versionID === vehicle.versionID) %> 
-						<%- include("./partials/vehicleCard", {vehicle: vehicle, brand, model, version}) %> 
+						<%- include("./partials/vehicleCard", {vehicle, brand, model, version}) %> 
 					<% }) %>
 					<% onSaleParts.forEach(part => { %>
-						<%- include("./partials/partCard", {part: part}) %> 
+						<% let brand = partBrands.find(partBrand => partBrand.brandID === part.brandID) %>
+						<% let model = partModels.find(partModel => partModel.modelID === part.modelID) %>
+						<%- include("./partials/partCard", {part, brand, model}) %> 
 					<% }) %>				
 				</div>
 			</div>

@@ -5,7 +5,7 @@ const path = require("path");
 const vehiclesFilePath = path.join(__dirname, '../json/vehicles.json');
 const partsFilePath = path.join(__dirname, '../json/parts.json');
 const mmav = require('./mmav.js');
-const vehicleBandsFilePath = path.join(__dirname, "../json/vehicleBrands.json");
+const vehicleBrandsFilePath = path.join(__dirname, "../json/vehicleBrands.json");
 const vehicleModelsFilePath = path.join(__dirname, "../json/vehicleModels.json");
 const vehicleVersionsFilePath = path.join(__dirname, "../json/vehicleVersions.json");
 
@@ -28,7 +28,7 @@ const mainController = {
         const parts = jsonReader(partsFilePath);
         const publishedParts = parts.filter(part => part.published === true);
         
-        const vehicleBrands = jsonReader(vehicleBandsFilePath);
+        const vehicleBrands = jsonReader(vehicleBrandsFilePath);
         const vehicleModels = jsonReader(vehicleModelsFilePath);
         const vehicleVersions = jsonReader(vehicleVersionsFilePath);
 
@@ -41,12 +41,14 @@ const mainController = {
      },
     search: (req,res) => { 
         //Not implemented yet but this needs to return only the vehicles/products that match the query
+        let testBrand = "Ford"
+        let testModel = "Ranger"
         const vehicles = jsonReader(vehiclesFilePath);
         const publishedVehicles = vehicles.filter(vehicle => vehicle.published === true);
         const parts = jsonReader(partsFilePath);
         const publishedParts = parts.filter(part => part.published === true);
 
-        const vehicleBrands = jsonReader(vehicleBandsFilePath);
+        const vehicleBrands = jsonReader(vehicleBrandsFilePath);
         const vehicleModels = jsonReader(vehicleModelsFilePath);
         const vehicleVersions = jsonReader(vehicleVersionsFilePath);
 
