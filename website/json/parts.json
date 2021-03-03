@@ -191,32 +191,5 @@
             "phone": 123456789,
             "email": "volkwagenargentina@realcars.com"
         }
-    },
-    {
-        "adID": 6,
-        "type": "part",
-        "published": false,
-        "publishedDate": "2021-03-03T06:35:43.593Z",
-        "onSale": {
-            "status": true,
-            "discount": 0
-        },
-        "brandID": null,
-        "modelID": null,
-        "stock": 0,
-        "title": "",
-        "partID": "",
-        "vehicleType": {},
-        "location": {
-            "province": "",
-            "city": "",
-            "neighbourhood": "",
-            "postalCode": ""
-        },
-        "imageURLs": [
-            "no-image-found.jpeg"
-        ],
-        "price": 0,
-        "description": ""
     }
 ]

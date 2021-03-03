@@ -297,19 +297,20 @@ const productsController = {
         let published = "";
         let publishedDate = "";
 
-        
-
         if(productType === "vehicle"){
             product = vehicles.find(vehicle => vehicle.adID === productID);
             let imageURLs = product.imageURLs;
-            let length = imageURLs.length;
+            const imageIndex = product.imageURLs.findIndex(image => image === "no-image-found.jpeg")
+            if(imageIndex > -1){
+                product.imageURLs.splice(imageIndex, 1);
+            }
             if(req.files.productImages){
-                if(length === 0 && req.files.productImages.length < 5){
+                if(product.imageURLs.length === 0 && req.files.productImages.length < 5){
                     for(let i = 0; i < req.files.productImages.length; i++){
                         imageURLs.push(req.files.productImages[i].filename);    
                     }
                 }
-                else if(length > 0){
+                else if(product.imageURLs.length > 0){
                     if(req.files.productImages.length === 1){
                         imageURLs.push(req.files.productImages[0].filename);
                     }
@@ -319,17 +320,17 @@ const productsController = {
                         }
                     }
                 }
-                else if(length === 0 && req.files.productImages.length > 5){
+                else if(product.imageURLs.length === 0 && req.files.productImages.length > 5){
                     for(let i = 0; i < 5; i++){
                         imageURLs.push(req.files.productImages[i].filename);    
                     }
                 }
             }
-            else if(length === 0) {
+            else if(product.imageURLs.length === 0) {
                 imageURLs.push("no-image-found.jpeg");
             }
 
-            if((req.files.productImages.length - length) > 0){
+            if(req.files.productImages && ((req.files.productImages.length - product.imageURLs.length) > 0)){
                 req.files.productImages.forEach(image => {
                     if(!imageURLs.includes(image.filename)){
                         fs.unlinkSync(path.join(__dirname, `../public/img/products/${image.filename}` ));
@@ -377,14 +378,17 @@ const productsController = {
         else if(productType === "part"){
             product = parts.find(part => part.adID === productID);
             let imageURLs = product.imageURLs;
-            let length = imageURLs.length;
+            const imageIndex = product.imageURLs.findIndex(image => image === "no-image-found.jpeg")
+            if(imageIndex > -1){
+                product.imageURLs.splice(imageIndex, 1);
+            }
             if(req.files.productImages){
-                if(length === 0 && req.files.productImages.length < 5){
+                if(product.imageURLs.length === 0 && req.files.productImages.length < 5){
                     for(let i = 0; i < req.files.productImages.length; i++){
                         imageURLs.push(req.files.productImages[i].filename);    
                     }
                 }
-                else if(length > 0){
+                else if(product.imageURLs.length > 0){
                     if(req.files.productImages.length === 1){
                         imageURLs.push(req.files.productImages[0].filename);
                     }
@@ -394,17 +398,17 @@ const productsController = {
                         }
                     }
                 }
-                else if(length === 0 && req.files.productImages.length > 5){
+                else if(product.imageURLs.length === 0 && req.files.productImages.length > 5){
                     for(let i = 0; i < 5; i++){
                         imageURLs.push(req.files.productImages[i].filename);    
                     }
                 }
             }
-            else if(length === 0) {
+            else if(product.imageURLs.length === 0) {
                 imageURLs.push("no-image-found.jpeg");
             }
 
-            if(req.files.productImages && ((req.files.productImages.length - length) > 0)){
+            if(req.files.productImages && ((req.files.productImages.length - product.imageURLs.length) > 0)){
                 req.files.productImages.forEach(image => {
                     if(!imageURLs.includes(image.filename)){
                         fs.unlinkSync(path.join(__dirname, `../public/img/products/${image.filename}` ));

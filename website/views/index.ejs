@@ -411,9 +411,7 @@
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
 				<% for(let i = 0; i < 4; i++) { %>
-					<% console.log("find: " + (vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicles[i].brandID)).brandName) %> 
 					<% let brand = vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicles[i].brandID) %>
-					<% console.log("brand: " + brand.brandName) %> 
 					<% let model = vehicleModels.find(vehicleModel => vehicleModel.modelID === vehicles[i].modelID) %>
 					<% let version = vehicleVersions.find(vehicleVersion => vehicleVersion.versionID === vehicles[i].versionID) %>
 					<%- include("./partials/vehicleCard", {vehicle: vehicles[i], brand, model, version}) %> 
