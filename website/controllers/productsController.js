@@ -1,3 +1,4 @@
+const { EDESTADDRREQ } = require('constants');
 const fs = require('fs');
 const path = require("path");
 
@@ -106,6 +107,21 @@ const productsController = {
         const vehicles = jsonReader(vehiclesFilePath);
         const parts = jsonReader(partsFilePath);
         const productType = req.params.productType
+        let imageURLs = [];
+        if(req.files.productImages){
+            if(req.files.productImages.length < 5){
+                for(let i = 0; i < req.files.productImages.length; i++){
+                    imageURLs.push(req.files.productImages[i].filename);    
+                }
+            }else{
+                for(let i = 0; i < 5; i++){
+                    imageURLs.push(req.files.productImages[i].filename);    
+                }
+            }            
+        }
+        else {
+            imageURLs.push("no-image-found.jpeg");
+        }
         if(productType === "vehicle"){
             const newID = vehicles.length > 0 ? vehicles[vehicles.length - 1].adID + 1 : 1;
             let published = "";
@@ -114,11 +130,11 @@ const productsController = {
             let onSaleDiscount = "";
             if(req.body.submit === "publish"){
                 published = true;
-                let date = new Date()
-                publishedDate = date.getDate() + "/" + date.getMonth() + "/" +  date.getFullYear();
+                publishedDate = new Date();
             }
             else if(req.body.submit === "save") {
                 published = false;
+                publishedDate = "";
             }
             
             if(Number(req.body.discount) > 0){
@@ -128,13 +144,6 @@ const productsController = {
             else {
                 onSaleStatus = false;
                 onSaleDiscount = 0;
-            }
-            let imageURLs = [];
-            console.log(req.files.vehicleImage1)
-            if(req.files.vehicleImage1){
-                imageURLs.push(req.files.vehicleImage1[0].filename);
-                imageURLs.push(req.files.vehicleImage2[0].filename);
-                imageURLs.push(req.files.vehicleImage3[0].filename);
             }
             let product = {
                 adID: newID,
@@ -165,11 +174,16 @@ const productsController = {
                 price: Number(req.body.vehiclePrice),
                 description: req.body.vehicleDescription,
             };
-
+            if(req.files.productImages && ((req.files.productImages.length - imageURLs.length) > 0)){
+                req.files.productImages.forEach(image => {
+                    if(!imageURLs.includes(image.filename)){
+                        fs.unlinkSync(path.join(__dirname, `../public/img/products/${image.filename}` ));
+                    }
+                });
+            }
             vehicles.push(product);
 
             //console.log(product)
-
             fs.writeFileSync(vehiclesFilePath, JSON.stringify(vehicles, null, 4));
             res.redirect("/products/details/" + req.params.productType + "/" + newID);
 
@@ -182,8 +196,7 @@ const productsController = {
             let onSaleDiscount = "";
             if(req.body.submit === "publish"){
                 published = true;
-                let date = new Date()
-                publishedDate = date.getDate() + "/" + date.getMonth() + "/" +  date.getFullYear();
+                publishedDate = new Date();
             }
             else if(req.body.submit === "save") {
                 published = false;
@@ -196,12 +209,6 @@ const productsController = {
             else {
                 onSaleStatus = false;
                 onSaleDiscount = 0;
-            }
-            let imageURLs = [];
-            if(req.files.vehicleImage1){
-                imageURLs.push(req.files.vehicleImage1[0].filename);
-                imageURLs.push(req.files.vehicleImage2[0].filename);
-                imageURLs.push(req.files.vehicleImage3[0].filename);
             }
             let product = {
                 adID: newID,
@@ -274,25 +281,66 @@ const productsController = {
         
         res.render("editProduct",
         {
-            productType: productType,
-            product: product,
-            brands: brands,
-            models: models,
-            versions: versions
+            productType,
+            productID,
+            product,
+            brands,
+            models,
+            versions
         });
     },
     update: (req, res) => {
         const vehicles = jsonReader(vehiclesFilePath);
         const parts = jsonReader(partsFilePath);
         const productID = parseInt(req.params.productID, 10);
-        const productType = req.params.productType
+        const productType = req.params.productType;
+        let published = "";
+        let publishedDate = "";
+
+        
+
         if(productType === "vehicle"){
             product = vehicles.find(vehicle => vehicle.adID === productID);
+            let imageURLs = product.imageURLs;
+            let length = imageURLs.length;
+            if(req.files.productImages){
+                if(length === 0 && req.files.productImages.length < 5){
+                    for(let i = 0; i < req.files.productImages.length; i++){
+                        imageURLs.push(req.files.productImages[i].filename);    
+                    }
+                }
+                else if(length > 0){
+                    if(req.files.productImages.length === 1){
+                        imageURLs.push(req.files.productImages[0].filename);
+                    }
+                    else{
+                        for(let i = 0; i <= 5 - imageURLs.length; i++){
+                            imageURLs.push(req.files.productImages[i].filename);
+                        }
+                    }
+                }
+                else if(length === 0 && req.files.productImages.length > 5){
+                    for(let i = 0; i < 5; i++){
+                        imageURLs.push(req.files.productImages[i].filename);    
+                    }
+                }
+            }
+            else if(length === 0) {
+                imageURLs.push("no-image-found.jpeg");
+            }
+
+            if((req.files.productImages.length - length) > 0){
+                req.files.productImages.forEach(image => {
+                    if(!imageURLs.includes(image.filename)){
+                        fs.unlinkSync(path.join(__dirname, `../public/img/products/${image.filename}` ));
+                    }
+                });
+            }
+
             product.type = req.body.vehicleType;
             if(req.body.submit === "publish"){
                 published = true;
-                let date = new Date();
-                publishedDate = date.getDate() + "/" + date.getMonth() + "/" +  date.getFullYear();
+                publishedDate = new Date();
             }
             else if(req.body.submit === "save") {
                 published = false;
@@ -312,6 +360,7 @@ const productsController = {
             product.gearType = req.body.vehicleGearType;//
             product.year = req.body.vehicleYear;
             product.state = req.body.vehicleState;
+            product.publishedDate = publishedDate;
             //product.rating = req.body.rating;
             product.kilometers = Number(req.body.vehicleKMs);
             product.color = req.body.vehicleColor;
@@ -319,9 +368,7 @@ const productsController = {
             product.location.city = req.body.vehicleCity;
             product.location.neighbourhood = req.body.vehicleNeighbourhood;
             product.location.postalCode = req.body.vehiclePostalCode;
-            product.imageURLs[0] = req.body.vehicleImage1;
-            product.imageURLs[1] = req.body.vehicleImage2;
-            product.imageURLs[2] = req.body.vehicleImage3;
+            product.imageURLs = imageURLs;
             product.price = Number(req.body.vehiclePrice);
             product.description = req.body.vehicleDescription;
             
@@ -329,14 +376,49 @@ const productsController = {
         }
         else if(productType === "part"){
             product = parts.find(part => part.adID === productID);
+            let imageURLs = product.imageURLs;
+            let length = imageURLs.length;
+            if(req.files.productImages){
+                if(length === 0 && req.files.productImages.length < 5){
+                    for(let i = 0; i < req.files.productImages.length; i++){
+                        imageURLs.push(req.files.productImages[i].filename);    
+                    }
+                }
+                else if(length > 0){
+                    if(req.files.productImages.length === 1){
+                        imageURLs.push(req.files.productImages[0].filename);
+                    }
+                    else{
+                        for(let i = 0; i <= 5 - imageURLs.length; i++){
+                            imageURLs.push(req.files.productImages[i].filename);
+                        }
+                    }
+                }
+                else if(length === 0 && req.files.productImages.length > 5){
+                    for(let i = 0; i < 5; i++){
+                        imageURLs.push(req.files.productImages[i].filename);    
+                    }
+                }
+            }
+            else if(length === 0) {
+                imageURLs.push("no-image-found.jpeg");
+            }
+
+            if(req.files.productImages && ((req.files.productImages.length - length) > 0)){
+                req.files.productImages.forEach(image => {
+                    if(!imageURLs.includes(image.filename)){
+                        fs.unlinkSync(path.join(__dirname, `../public/img/products/${image.filename}` ));
+                    }
+                });
+            }
+
             product.type = "part";
             if(req.body.submit === "publish"){
                 published = true;
-                let date = new Date();
-                publishedDate = date.getDate() + "/" + date.getMonth() + "/" +  date.getFullYear();
+                publishedDate = new Date();
             }
             else if(req.body.submit === "save") {
-                published = product.published;
+                published = false;
                 publishedDate = product.publishedDate;
             }
             if(req.body.discount >= 0){
@@ -347,6 +429,8 @@ const productsController = {
                 product.onSale.status = false;
                 product.onSale.discount = 0;
             }
+            product.published = published;
+            product.publishedDate = publishedDate;
             product.brandID = Number(req.body.brand);
             product.modelID = Number(req.body.model);
             product.stock = Number(req.body.stock);
@@ -362,16 +446,49 @@ const productsController = {
             product.location.city = req.body.partCity;
             product.location.neighbourhood = req.body.partNeighbourhood;
             product.location.postalCode = req.body.partPostalCode;
-            product.imageURLs[0] = req.body.partImage1;
-            product.imageURLs[1] = req.body.partImage2;
-            product.imageURLs[2] = req.body.partImage3;
+            product.imageURLs = imageURLs;
             product.price = Number(req.body.partPrice);
             product.description = req.body.partDescription;
 
             fs.writeFileSync(partsFilePath, JSON.stringify(parts, null, 4));
         }
-        
+
+        //console.log(product);
+
         res.redirect("/products/details/" + productType + "/" + productID);
+    },
+    deleteImage: (req, res) => {
+        const productID = parseInt(req.params.productID, 10);
+        const productType = req.params.productType;
+        let products = [];
+        if(productType === "vehicle"){
+            products = jsonReader(vehiclesFilePath);
+        }
+        else if(productType === "part"){
+            products = jsonReader(partsFilePath);
+        }
+
+        const product = products.find(e => e.adID === productID);
+        
+        product.imageURLs.forEach(image => console.log(image))
+        const imageIndex = product.imageURLs.findIndex(image => image === req.query.image)
+        product.imageURLs.splice(imageIndex, 1);
+
+        console.log(product);
+
+        if(productType === "vehicle"){
+            fs.writeFileSync(vehiclesFilePath, JSON.stringify(products, null, 4));
+        }
+        else if(productType === "part"){
+            fs.writeFileSync(partsFilePath, JSON.stringify(products, null, 4));
+        }
+
+        if(req.query.image !== "no-image-found.jpeg" && !req.query.image.includes("http")){
+            fs.unlinkSync(path.join(__dirname, `../public/img/products/${req.query.image}` ))
+        }
+		res.redirect(`/products/edit/${productType}/${productID}`);
+        
+
     },
     delete: (req, res) => {
         const productType = req.params.productType
@@ -385,7 +502,12 @@ const productsController = {
         }        
 
 		const productIndex = products.findIndex(product => product.adID === parseInt(req.params.productID, 10))
-
+        const product = products.find(e => e.adID === parseInt(req.params.productID, 10));
+        product.imageURLs.forEach(image => {
+            if(image !== "no-image-found.jpeg" && !image.includes("http")){
+                fs.unlinkSync(path.join(__dirname, `../public/img/products/${image}` ));
+            }
+        });
 		products.splice(productIndex, 1);
         if(productType === "vehicle"){
             fs.writeFileSync(vehiclesFilePath, JSON.stringify(products, null, 4));

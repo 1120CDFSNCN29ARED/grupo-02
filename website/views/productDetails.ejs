@@ -31,7 +31,7 @@
         </div>
         <div id="mainDetails">
             <h2 class="price">$ <%= product.price.toLocaleString("es-AR") %> </h2>
-            <p class="date">Publicado el <%= product.publishedDate %> </p>
+            <%- product.published ? `<p class="date">Publicado el ${product.publishedDate.toLocaleString("es-AR")}</p>` : '<p class="date"> El producto no ha sido publicado todavía </p>' %> 
             <h2 class="title"><%= product.title %> </h2>
             <p class="product-state"><%= product.state %></p>
             <p class="location">Ubicación: <%= product.location.neighbourhood %>,
@@ -144,8 +144,8 @@
             </form>                
             <h2>Preguntas</h2>
             <% questions.forEach(e => { %>
-                <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %> - <%= e.questionDate %></span> <%- e.answer !== "" ? '<i class="fas fa-level-down-alt question-arrow"></i>' : "" %> </p>
-                <%- e.answer !== "" ? `<p class="answer"> ${e.answer} - ${e.answerDate} </p>` : "" %> 
+                <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %> - <%= e.questionDate.toLocaleString() %></span> <%- e.answer !== "" ? '<i class="fas fa-level-down-alt question-arrow"></i>' : "" %> </p>
+                <%- e.answer !== "" ? `<p class="answer"> ${e.answer} - ${e.answerDate.toLocaleString()} </p>` : "" %> 
                 
             <% }) %>  
             <% if (questions.length === 0) { %>
@@ -161,7 +161,7 @@
                 <h5 class="modal-title">Medios de pago</h5>
             </div>
             <div class="modal-body">
-                <p>Estas son los distintos medios de pago</p>
+                <p>Estos son los distintos medios de pago</p>
             </div>
         </div>
         </div>
