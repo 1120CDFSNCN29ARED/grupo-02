@@ -475,11 +475,10 @@ const productsController = {
 
         const product = products.find(e => e.adID === productID);
         
-        product.imageURLs.forEach(image => console.log(image))
         const imageIndex = product.imageURLs.findIndex(image => image === req.query.image)
         product.imageURLs.splice(imageIndex, 1);
 
-        console.log(product);
+        //console.log(product);
 
         if(productType === "vehicle"){
             fs.writeFileSync(vehiclesFilePath, JSON.stringify(products, null, 4));
@@ -498,7 +497,7 @@ const productsController = {
     delete: (req, res) => {
         const productType = req.params.productType
         let products = ""
-        console.log(productType)
+        //console.log(productType)
         if(productType === "vehicle"){
             products = jsonReader(vehiclesFilePath);
         }
@@ -532,7 +531,7 @@ const productsController = {
         let foundVehicles = [];
         let foundParts = [];
         const queryParameters = Object.getOwnPropertyNames(req.query);
-        const excludedParameters = ["productType", "vehicleType"];
+        const excludedParameters = ["productType", "vehicleType", "vehicleSearchList"];
         if(req.query.productType){
             if(req.query.productType === "vehicle"){
                 if(req.query.vehicleType){
@@ -549,12 +548,12 @@ const productsController = {
             }
             if(req.query.productType === "part"){
                 foundParts = publishedParts;
-            }
-            queryParameters.forEach(parameter => {
-                if(!excludedParameters.includes(parameter)){
-                    foundParts = foundParts.filter(part => part[parameter] == req.query[parameter])
-                }                    
-            });
+                queryParameters.forEach(parameter => {
+                    if(!excludedParameters.includes(parameter)){
+                        foundParts = foundParts.filter(part => part[parameter] == req.query[parameter])
+                    }                    
+                });
+            }            
         }
         else{
             foundVehicles = publishedVehicles;
@@ -567,7 +566,7 @@ const productsController = {
         //console.log(req.query.productType)
 
         //console.log(foundVehicles)
-        console.log(foundProducts)
+        //console.log(foundProducts)
         
         const vehicleBrands = jsonReader(vehicleBrandsFilePath);
         const vehicleModels = jsonReader(vehicleModelsFilePath);

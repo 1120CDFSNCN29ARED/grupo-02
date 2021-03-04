@@ -110,7 +110,7 @@
 						role="tabpanel"
 						aria-labelledby="search-vehicles-tab"
 					>
-						<form action="/products/search?productType=vehicle" method="get" class="search-products">
+						<form action="/products/search" method="get" class="search-products">
 							<div class="container">
 								<label
 									for="productSearchList"
@@ -128,7 +128,8 @@
 									<input
 										class="form-control"
 										list="datalistOptions"
-										id="productSearchList"
+										id="vehicleSearchList"
+										name="vehicleSearchList"
 										aria-label="Text input with dropdown button"
 										placeholder="Marca, Modelo, caracteristicas y más"
 									/>
@@ -141,6 +142,8 @@
 										class="btn btn-outline-secondary"
 										aria-describedby="button-addon2"
 										type="submit"
+										name="productType"
+										value="vehicle"
 										id="button-addon2"
 									>
 										<i
