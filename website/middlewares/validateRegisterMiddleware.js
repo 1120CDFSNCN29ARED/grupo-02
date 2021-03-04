@@ -40,7 +40,7 @@ function validateRegMiddleware(req, res, next) {
 			return true;
 		}),
 	];
-	if (validations.length > 0) {
+	if (validations) {
 		return validations;
 	}
 	next();

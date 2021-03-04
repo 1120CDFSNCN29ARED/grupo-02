@@ -2,9 +2,9 @@ const express = require("express");
 const multer = require('multer');
 const { body, validationResult } = require('express-validator');
 const path = require('path');
-const guestMiddleware = require('../middlwares/guestMiddleware');
-const authMiddleware = require('../middlwares/authMiddleware');
-const validateRegMiddleware = require('../middlwares/validateRegisterMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
+const validateRegMiddleware = require('../middlewares/validateRegisterMiddleware');
 const router = express.Router();
 
 // ************ Controller Require ************
@@ -23,7 +23,7 @@ let validations = [
 		.withMessage("Por favor ingrese su DNI")
 		.bail()
 		.isInt()
-		.withMessage("POr favor ingrese un DNI válido."),
+		.withMessage("Por favor ingrese un DNI válido."),
 	body("email")
 		.notEmpty()
 		.withMessage("Por favor ingrese un email")
