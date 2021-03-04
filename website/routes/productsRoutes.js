@@ -33,4 +33,6 @@ router.post("/question/:productType/:productID", productsController.question);
 router.get("/deleteImage/:productType/:productID", productsController.deleteImage);
 router.delete("/delete/:productType/:productID", productsController.delete);
 
+router.get("/search", productsController.search);
+
 module.exports = router;

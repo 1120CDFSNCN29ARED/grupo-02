@@ -13,8 +13,6 @@ const mainController = require("../controllers/mainController");
 
 router.get("/", mainController.index);
 
-router.get("/search", mainController.search);
-
 /* Admin */
 router.use("/admin", adminRoutes);
 

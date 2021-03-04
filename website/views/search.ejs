@@ -5,7 +5,7 @@
     <main>
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container-fluid">
-                <p class="search-result-quantity">8 resultados</p>
+                <p class="search-result-quantity"><%= products.length %> resultado<%= products.length === 0 || products.length > 1 ? "s" : "" %></p>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#searchNavbar" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -114,54 +114,54 @@
                 </div>
             </div>
         </nav>
-            
-        <div class="container-fluid">
-				<h2>Destacados</h2>
-				<div
-					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
-				>
-				    <% let featuredVehicles = vehicles.filter(vehicle => vehicle.featured === true) %>
-					<% let featuredParts = parts.filter(part => part.featured === true) %>
-					<% featuredVehicles.forEach(vehicle => { %>
-                        <% let brand = vehicleBrands.find(e => e.brandID === vehicle.brandID) %> 
-                        <% let model = vehicleModels.find(e => e.modelID === vehicle.modelID) %>
-                        <% let version = vehicleVersions.find(e => e.versionID === vehicle.versionID) %>
-						<%- include("./partials/vehicleCard", {vehicle, brand, model, version}) %> 
-					<% }) %>
-					<% featuredParts.forEach(part => { %>
-						<%- include("./partials/partCard", {part}) %> 
-					<% }) %> 
-				</div>
-				</div>
+        <% let featuredProducts = products.filter(product => product.featured === true) %>
+        <% if (featuredProducts.length > 0) { %>
+            <div class="container-fluid">
+                <h2>Destacados</h2>
+                <div class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10">
+                    <% featuredProducts.forEach(product => { %>
+                        <% if (product.productType === "vehicle") { %>
+                            <% let brand = vehicleBrands.find(e => e.brandID === product.brandID) %> 
+                            <% let model = vehicleModels.find(e => e.modelID === product.modelID) %>
+                            <% let version = vehicleVersions.find(e => e.versionID === product.versionID) %>
+                            <%- include("./partials/vehicleCard", {vehicle: product, brand, model, version}) %>  
+                        <% } else if (product.productType === "part") { %>
+                            <% let brand = partBrands.find(e => e.brandID === product.brandID) %> 
+                            <% let model = partModels.find(e => e.modelID === product.modelID) %>
+                            <%- include("./partials/partCard", {part: product, brand, model}) %> 
+                        <% } %>
+                        
+                    <% }) %>
+                </div>
+            </div> 
+        <% } %>
         <section id="search-results">
             <h2>Resultados</h2>
-            <div class="container-fluid">
-                <div
-					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
-				>
-                    <% vehicles.forEach(vehicle => { %>
-                        <% let brand = vehicleBrands.find(e => e.brandID === vehicle.brandID) %> 
-                        <% let model = vehicleModels.find(e => e.modelID === vehicle.modelID) %>
-                        <% let version = vehicleVersions.find(e => e.versionID === vehicle.versionID) %>
-                        <%- include("./partials/vehicleCard", {vehicle, brand, model, version}) %> 
-                    <% });%>
-                </div>
-            </div>
+            <% if (products.length > 0) { %>
+                <div class="container-fluid">
+                    <div class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10">
+                    <% products.forEach(product => { %>
+                        <% if (product.productType === "vehicle") { %>
+                            <% let brand = vehicleBrands.find(e => e.brandID === product.brandID) %> 
+                            <% let model = vehicleModels.find(e => e.modelID === product.modelID) %>
+                            <% let version = vehicleVersions.find(e => e.versionID === product.versionID) %>
+                            <%- include("./partials/vehicleCard", {vehicle: product, brand, model, version}) %>  
+                        <% } else if (product.productType === "part") { %>
+                            <% let brand = partBrands.find(e => e.brandID === product.brandID) %> 
+                            <% let model = partModels.find(e => e.modelID === product.modelID) %>
+                            <%- include("./partials/partCard", {part: product, brand, model}) %> 
+                        <% } %>
+                        
+                    <% }) %>
+                    </div>
+                </div> 
+            <% } else { %>
+                <h2>No se encontraron productos!</h2>
+            <% } %>
+            
         </section>   
     </main>
     <%- include ("./partials/footer")%>
-    <div class="modal" id="paymentMethodsModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Medios de pago</h5>
-            </div>
-            <div class="modal-body">
-                <p>Estas son los distintos medios de pago</p>
-            </div>
-        </div>
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body> 
 </html>

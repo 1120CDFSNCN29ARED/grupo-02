@@ -38,25 +38,7 @@ const mainController = {
 
 
         res.render("index", { mmav, vehicleBrands, vehicleModels, vehicleVersions, partBrands, partModels, vehicles: publishedVehicles, parts: publishedParts});
-     },
-    search: (req,res) => { 
-        //Not implemented yet but this needs to return only the vehicles/products that match the query
-        let testBrand = "Ford"
-        let testModel = "Ranger"
-        const vehicles = jsonReader(vehiclesFilePath);
-        const publishedVehicles = vehicles.filter(vehicle => vehicle.published === true);
-        const parts = jsonReader(partsFilePath);
-        const publishedParts = parts.filter(part => part.published === true);
-
-        const vehicleBrands = jsonReader(vehicleBrandsFilePath);
-        const vehicleModels = jsonReader(vehicleModelsFilePath);
-        const vehicleVersions = jsonReader(vehicleVersionsFilePath);
-
-        const partBrands = jsonReader(partBrandsFilePath);
-        const partModels = jsonReader(partModelsFilePath);
-
-        res.render('search', { vehicleBrands, vehicleModels, vehicleVersions, partBrands, partModels, vehicles: publishedVehicles, parts: publishedParts });
-    },    
+     },    
 };
 
 module.exports = mainController;
