@@ -2,11 +2,14 @@ const express = require("express");
 const multer = require('multer');
 const { body, validationResult } = require('express-validator');
 const path = require('path');
-
+const guestMiddleware = require('../middlwares/guestMiddleware');
+const authMiddleware = require('../middlwares/authMiddleware');
 const router = express.Router();
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
+
+//Middlewares
 const validations = [
   body("userName")
     .notEmpty()
@@ -24,15 +27,15 @@ const validations = [
   body("postal_code")
     .notEmpty()
     .withMessage("Por favor ingrese su código postal"),
-  body('passwrod').notEmpty().withMessage('Por favor ingrese una contraseña'),
+  body('password').notEmpty().withMessage('Por favor ingrese una contraseña'),
   body('image').custom((value, { req })=> {
     let file = req.file;
-    let acceptedExtensions = ['.jpg', 'png', '.gif'];
+    let acceptedExtensions = ['.jpg', '.jpeg', 'png', '.gif'];    
     if (!file) {
       throw new Error('Por favor subir una imagen');
-    }else{
-      if (!cceptedExtensions.includes(fileExtension)) {
-        let fileExtension = path.extname(file.originalname);
+    } else {
+      let fileExtension = path.extname(file.originalname);
+      if (!acceptedExtensions.includes(fileExtension)) {
         throw new Error(`Las extensiones de archvo permitido son: ${acceptedExtensions.join(', ')}`);
       }
     };
@@ -53,17 +56,21 @@ const storage = multer.diskStorage({
 
 const uploadFile = multer({ storage });
 
-router.get("/login", usersController.login);
+router.get("/login", guestMiddleware, usersController.login);
+router.post("/login", usersController.loginProcess);
 
-router.get("/register", usersController.create);
+router.get("/register",guestMiddleware, usersController.create);
 router.post("/register", uploadFile.single("image"),validations, usersController.store);
 
 router.get('/', usersController.index);
-router.get('/details/:userId', usersController.detail);
+router.get('/details/:userId', usersController.details);
+router.get("/profile", authMiddleware, usersController.profile);
 
-router.get('edit/:userId', usersController.edit);
-router.put('edit/:userId',uploadFile.single("image"), usersController.update);
+router.get('/edit/:userId', usersController.edit);
+router.put('/edit/:userId',uploadFile.single("image"), usersController.update);
 
-router.delete("/:userId", usersController.destroy);
+router.get('/logout/', usersController.logout);
+
+router.delete("/delete/:userId", usersController.destroy);
 
 module.exports = router;

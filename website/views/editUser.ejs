@@ -1,0 +1,24 @@
+<!-- My style -->
+<% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles-register.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />'] %>
+<%- include("./partials/head", {"styles": styles}) %>
+
+  <body>
+    <nav class="navbar navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-text" id="nav-btn-main-page" href='/'>
+          <i class="fas fa-chevron-left"></i> Volver
+        </a>
+      </div>
+    </nav>
+    </header>
+    <div class="container-fluid registration">
+      <div class="container-fluid text-center">
+        <img id="logo-image" src="/img/logo_old.png" alt="logo" srcset="">
+      </div>
+      <div class="container-fluid text-center byline">
+        <h6>Estas editando un usuario</h6>
+      </div>
+      <%- include("./partials/userForm",{ action: "edit" })%>      
+    </div>
+  </body>
+  </html>

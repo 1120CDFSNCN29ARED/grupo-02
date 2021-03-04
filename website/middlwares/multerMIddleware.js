@@ -1,0 +1,1 @@
+//Move multer middleware here and not in the router so as to free up the router code

@@ -17,7 +17,7 @@
 		border: none;
 		width: 50%;
 	}
-	#userID,
+	#email,
 	#btn-login-google,
 	#forgottenPassword {
 		margin-top: 10px;

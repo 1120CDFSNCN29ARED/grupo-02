@@ -1,5 +1,5 @@
 <!-- My style -->
-<% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" />','<link rel="stylesheet" href="/css/styles-admin.css" />'] %>
+<% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" />','<link rel="stylesheet" href="/css/styles-admin.css" />','<link rel="stylesheet" href="/css/usersStyles.css" />'] %>
 <%- include("./partials/head", {"styles": styles}) %>
   <%- include("./partials/header") %>
 
@@ -27,11 +27,11 @@
                   <div class="col">
                     <h4>Apellido</h4>
                   </div>
-                </div>
+                </div>                
                 <hr>
                 <% users.forEach(user=> { %>
-                  <a href="/users/details/<%= user.userID%>">
-                    <div class="row">                    
+                  <a href="/users/profile/<%= user.userID%>" class="user-link">
+                    <div class="row user-card">                    
                     <div class="col">
                       <%= user.userID %>
                     </div>

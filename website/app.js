@@ -4,7 +4,9 @@ const path = require("path");
 const logger = require("morgan");
 const mainRoutes = require("./routes/mainRoutes");
 const methodOverride = require("method-override");
-
+const session = require('express-session');
+const cookies = require('cookie-parser');
+const userLoggedMiddleware = require('./middlwares/userLoggedMiddleware');
 const app = express();
 const MYPORT = 3000;
 
@@ -13,12 +15,20 @@ const staticFolder = path.resolve(__dirname, "./public");
 app.use(express.static(staticFolder));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
+app.use(session({
+	secret: 'classified',
+	resave: false,
+	saveUninitialized: false
+}));
+app.use(cookies());
+app.use(userLoggedMiddleware);
 
 //View Engine
 app.set("view engine", "ejs");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 
 //Routers
 app.listen(process.env.PORT || MYPORT, () => {
