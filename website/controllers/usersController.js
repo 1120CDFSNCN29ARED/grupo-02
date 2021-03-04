@@ -51,9 +51,10 @@ const controller = {
 		res.render("register", {});
 	},
 	processRegistration: (req, res, next) => {
-		const regValidation = validationResult(req);
-		if (regValidation.errors.length > 0) {			
-			return res.render('register', { errors: regValidation.mapped(), old:req.body });
+		//Quiero abstraer est parte de validación haciael middleware y no aqui en el controller.
+		const registrationValidation = validationResult(req);
+		if (registrationValidation.errors.length > 0) {			
+			return res.render('register', { errors: registrationValidation.mapped(), old:req.body });
 		} else {
 			let userEmailInDB = User.findUserByField('email', req.body.email);
 			let userUserNameInDB = User.findUserByField('userName', req.body.userName);

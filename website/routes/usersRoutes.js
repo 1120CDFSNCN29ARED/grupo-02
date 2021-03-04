@@ -4,15 +4,14 @@ const { body, validationResult } = require('express-validator');
 const path = require('path');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-const validateRegMiddleware = require('../middlewares/validateRegisterMiddleware');
+const { registrationValidationRules, validation } = require('../middlewares/validator');
 const router = express.Router();
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
 
 //Middlewares
-//let validations = validateRegMiddleware;
-let validations = [
+/* let validations = [
 	body("userName")
 		.notEmpty()
 		.withMessage("Por favor elige un nomber de usaurio"),
@@ -66,7 +65,7 @@ let validations = [
 		}
 		return true;
 	}),
-];
+]; */
 //************** MULTER ************************
 const storage = multer.diskStorage({
   destination: function (req, file, cb) { 
@@ -85,7 +84,12 @@ router.get("/login", guestMiddleware, usersController.login);
 router.post("/login", usersController.loginProcess);
 
 router.get("/register",guestMiddleware, usersController.create);
-router.post("/register", uploadFile.single("image"),validations, usersController.processRegistration);
+router.post(
+	"/register",
+	uploadFile.single("image"),registrationValidationRules(),
+	validation,
+	usersController.processRegistration
+);
 
 router.get('/', usersController.index);
 router.get('/details/:userId', usersController.details);
