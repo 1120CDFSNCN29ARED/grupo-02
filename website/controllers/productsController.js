@@ -326,7 +326,7 @@ const productsController = {
                     }
                 }
             }
-            else if(product.imageURLs.length === 0) {
+            else if(product.imageURLs.length === 0 || !req.files.productImages) {
                 imageURLs.push("no-image-found.jpeg");
             }
 
@@ -404,7 +404,7 @@ const productsController = {
                     }
                 }
             }
-            else if(product.imageURLs.length === 0) {
+            else if(product.imageURLs.length === 0 || !req.files.productImages) {
                 imageURLs.push("no-image-found.jpeg");
             }
 
