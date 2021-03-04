@@ -50,7 +50,7 @@ const controller = {
 	create: (req, res, next) => {		
 		res.render("register", {});
 	},
-	store: (req, res, next) => {
+	processRegistration: (req, res, next) => {
 		const regValidation = validationResult(req);
 		if (regValidation.errors.length > 0) {			
 			return res.render('register', { errors: regValidation.mapped(), old:req.body });

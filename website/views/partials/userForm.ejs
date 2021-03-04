@@ -91,7 +91,7 @@
         <% } %>
     </div>
     <div class="form-floating mb-1">
-      <input type="password" class="form-control registration-field <%=locals.errors && errors.password ? 'is-invalid':null %>" id="password" name="password" placeholder="Password" value="<%= locals.old && old.password ? old.password : null %>" />
+      <input type="password" class="form-control registration-field <%=locals.errors && errors.password ? 'is-invalid':null %>" id="password" name="password" placeholder="Password" value= '' />
       <label for="password">Contraseña</label>
       <% if (locals.errors && errors.password) { %>
         <div class="invalid-feedback">
@@ -100,7 +100,16 @@
         <% } %>
     </div>
     <div class="form-floating mb-1">
-      <input type="file" class="form-control <%=locals.errors && errors.image ? 'is-invalid':null %>" id="image" name="image" single>
+      <input type="password" class="form-control registration-field <%=locals.errors && errors.confirmPassword ? 'is-invalid':null %>" id="confirmPassword" name="confirmPassword" placeholder="Password" value='' />
+      <label for="password">Confirmar Contraseña</label>
+      <% if (locals.errors && errors.confirmPassword) { %>
+        <div class="invalid-feedback">
+          <%= errors.confirmPassword.msg %>
+        </div>
+        <% } %>
+    </div>
+    <div class="form-floating mb-1">
+      <input type="file" class="form-control <%=locals.errors && errors.image ? 'is-invalid':null %>" id="image" name="image" single value="<%= locals.old && old.image ? old.image : null %>">
       <% if (locals.errors && errors.image) { %>
         <div class="invalid-feedback">
           <%= errors.image.msg %>
