@@ -13,32 +13,33 @@ const controller = {
 		res.render("login", {});
 	},
 	loginProcess: (req, res) => {
-		let userToLogin = User.findUserByField('email', req.body.email);
+		let userToLogin = User.findUserByField("email", req.body.email);
 		if (userToLogin) {
-			let passwordMatched = bcryptjs.compareSync(req.body.password, userToLogin.password);
+			let passwordMatched = bcryptjs.compareSync(
+				req.body.password,
+				userToLogin.password
+			);
 			if (passwordMatched) {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 				if (req.body.keepLogged) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 });
+					res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 2 });
 				}
 				return res.redirect("/users/profile");
 			}
-				return res.render("login", {
-					errors: { email: { msg: "Las credenciales son inválidas" } },
-				});
-						
-		}
-		return res.render("login", {
+			return res.render("login", {
 				errors: { email: { msg: "Las credenciales son inválidas" } },
 			});
-		
+		}
+		return res.render("login", {
+			errors: { email: { msg: "Las credenciales son inválidas" } },
+		});
 	},
 	index: (req, res, next) => {
 		const users = User.findAll();
 		res.render("users", { users });
 	},
-	profile: (req, res, next) => { 
+	profile: (req, res, next) => {
 		let user = req.session.userLogged;
 		res.render("userProfile", { user });
 	},
@@ -47,15 +48,28 @@ const controller = {
 		const user = User.findUserByPk(userID);
 		res.render("userProfile", { user });
 	},
-	create: (req, res, next) => {		
+	create: (req, res, next) => {
 		res.render("register", {});
 	},
 	processRegistration: (req, res, next) => {
 		//Quiero abstraer est parte de validación haciael middleware y no aqui en el controller.
 		const registrationValidation = validationResult(req);
-		if (registrationValidation.errors.length > 0) {			
-			return res.render('register', { errors: registrationValidation.mapped(), old:req.body });
-		} else {
+		if (registrationValidation.errors.length > 0) {
+			return res.render("register", {
+				errors: registrationValidation.mapped(),
+				old: req.body,
+			});
+		}
+		/* let userToCreate = {
+			...req.body,
+			password: bcryptjs.hashSync(req.body.password, 10),
+			category: "user",
+			image: req.file ? req.file.filename : "",
+		};
+		User.create(userToCreate);
+		res.redirect("/users"); */
+
+		else {
 			let userEmailInDB = User.findUserByField('email', req.body.email);
 			let userUserNameInDB = User.findUserByField('userName', req.body.userName);
 			if (userEmailInDB || userUserNameInDB) {				
@@ -85,12 +99,12 @@ const controller = {
 				User.create(userToCreate);
 			}
 			res.redirect("/users");
-		}		
+		}	
 	},
 	edit: (req, res, next) => {
 		let userId = req.params.userId;
 		let userToEdit = User.findUserByPk(userId);
-		res.render("editUser",{ user: userToEdit })
+		res.render("editUser", { user: userToEdit });
 	},
 	update: (req, res, next) => {
 		///no tengo la pantalla de Edicion armada
@@ -111,9 +125,9 @@ const controller = {
 		res.render("/users", { users });
 	},
 	logout: (req, res, next) => {
-		res.clear.cookie('userEmail');
+		res.clear.cookie("userEmail");
 		req.session.destroy();
-		return res.redirect('/');
+		return res.redirect("/");
 	},
 };
 
