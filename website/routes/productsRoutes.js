@@ -1,4 +1,5 @@
 const express = require("express");
+const { url } = require("inspector");
 const multer = require('multer');
 const path = require('path');
 
@@ -19,6 +20,8 @@ const storage = multer.diskStorage({
   
 const uploadFile = multer({ storage });
 
+const urlClearner = require('../middlewares/urlCleaner');
+
 
 router.get("/create/:productType?", productsController.create);
 router.post("/create/:productType", uploadFile.fields([{ name: 'productImages' }]), productsController.store);
@@ -32,5 +35,7 @@ router.post("/question/:productType/:productID", productsController.question);
 
 router.get("/deleteImage/:productType/:productID", productsController.deleteImage);
 router.delete("/delete/:productType/:productID", productsController.delete);
+
+router.get("/search", urlClearner, productsController.search);
 
 module.exports = router;

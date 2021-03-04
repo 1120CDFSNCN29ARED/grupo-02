@@ -1,6 +1,7 @@
 const { EDESTADDRREQ } = require('constants');
 const fs = require('fs');
 const path = require("path");
+const fuse = require('fuse.js');
 
 const vehiclesFilePath = path.join(__dirname, '../json/vehicles.json');
 const partsFilePath = path.join(__dirname, '../json/parts.json');
@@ -474,11 +475,10 @@ const productsController = {
 
         const product = products.find(e => e.adID === productID);
         
-        product.imageURLs.forEach(image => console.log(image))
         const imageIndex = product.imageURLs.findIndex(image => image === req.query.image)
         product.imageURLs.splice(imageIndex, 1);
 
-        console.log(product);
+        //console.log(product);
 
         if(productType === "vehicle"){
             fs.writeFileSync(vehiclesFilePath, JSON.stringify(products, null, 4));
@@ -497,7 +497,7 @@ const productsController = {
     delete: (req, res) => {
         const productType = req.params.productType
         let products = ""
-        console.log(productType)
+        //console.log(productType)
         if(productType === "vehicle"){
             products = jsonReader(vehiclesFilePath);
         }
@@ -520,6 +520,62 @@ const productsController = {
             fs.writeFileSync(partsFilePath, JSON.stringify(products, null, 4));
         }
 		res.redirect("/");
+    },
+    search: (req,res) => { 
+        const vehicles = jsonReader(vehiclesFilePath);
+        const publishedVehicles = vehicles.filter(vehicle => vehicle.published === true);
+        const parts = jsonReader(partsFilePath);
+        const publishedParts = parts.filter(part => part.published === true);
+
+        let foundProducts = [];
+        let foundVehicles = [];
+        let foundParts = [];
+        const queryParameters = Object.getOwnPropertyNames(req.query);
+        const excludedParameters = ["productType", "vehicleType", "vehicleSearchList"];
+        if(req.query.productType){
+            if(req.query.productType === "vehicle"){
+                if(req.query.vehicleType){
+                    foundVehicles = publishedVehicles.filter(vehicle => vehicle.type === req.query.vehicleType);
+                }
+                else{
+                    foundVehicles = publishedVehicles;
+                }
+                queryParameters.forEach(parameter => {
+                    if(!excludedParameters.includes(parameter)){
+                        foundVehicles = foundVehicles.filter(vehicle => vehicle[parameter] == req.query[parameter])
+                    }                    
+                });
+            }
+            if(req.query.productType === "part"){
+                foundParts = publishedParts;
+                queryParameters.forEach(parameter => {
+                    if(!excludedParameters.includes(parameter)){
+                        foundParts = foundParts.filter(part => part[parameter] == req.query[parameter])
+                    }                    
+                });
+            }            
+        }
+        else{
+            foundVehicles = publishedVehicles;
+            foundProducts = publishedParts;
+
+        }
+
+        foundVehicles.forEach(vehicle => foundProducts.push(vehicle));
+        foundParts.forEach(part => foundProducts.push(part));
+        //console.log(req.query.productType)
+
+        //console.log(foundVehicles)
+        //console.log(foundProducts)
+        
+        const vehicleBrands = jsonReader(vehicleBrandsFilePath);
+        const vehicleModels = jsonReader(vehicleModelsFilePath);
+        const vehicleVersions = jsonReader(vehicleVersionsFilePath);
+
+        const partBrands = jsonReader(partBrandsFilePath);
+        const partModels = jsonReader(partModelsFilePath);
+
+        res.render('search', { vehicleBrands, vehicleModels, vehicleVersions, partBrands, partModels, products: foundProducts });
     }
 }
 
