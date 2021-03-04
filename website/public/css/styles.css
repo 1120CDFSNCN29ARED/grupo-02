@@ -20,6 +20,16 @@ main {
   margin:auto;
 }
 
+.inline {
+  display: inline;
+}
+
+.stripped {
+  text-decoration: line-through;
+  font-size: 14px;
+  color: #666;
+}
+
 /* Category Bar */
 
 /* SearchBar */

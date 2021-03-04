@@ -30,7 +30,12 @@
             </a>
         </div>
         <div id="mainDetails">
-            <h2 class="price">$ <%= product.price.toLocaleString("es-AR") %> </h2>
+            <h2 class="price <%= product.onSale.status ? "inline stripped" : "" %>">$ <%= product.price.toLocaleString("es-AR") %> </h2>
+            <% if (product.onSale.status === true) { %>
+                <h5 class="price inline">
+                    $<%= (product.price * (100 - product.onSale.discount) / 100).toLocaleString("es-AR") %> 
+                </h5>
+            <% } %>
             <%- product.published ? `<p class="date">Publicado el ${product.publishedDate.toLocaleString("es-AR")}</p>` : '<p class="date"> El producto no ha sido publicado todavía </p>' %> 
             <h2 class="title"><%= product.title %> </h2>
             <p class="product-state"><%= product.state %></p>

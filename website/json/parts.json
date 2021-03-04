@@ -24,6 +24,7 @@
         ],
         "price": 23456,
         "state": "Nuevo",
+        "rating": 2,
         "location": {
             "province": "CABA",
             "city": "CABA",
