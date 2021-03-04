@@ -13,8 +13,11 @@ const urlCleaner = (req, res, next) => {
     while(req.originalUrl.includes("&&")){
         req.originalUrl = req.originalUrl.replace("&&","");
     }
-    if(req.originalUrl[req.originalUrl.length - 1] === "&")    {
+    if(req.originalUrl[req.originalUrl.length - 1] === "&"){
         req.originalUrl = req.originalUrl.slice(0, -1)
+    }
+    if(req.originalUrl.includes("?&")){
+        req.originalUrl = req.originalUrl.replace("?&","");
     }
     if(redirect){
         return res.redirect(req.originalUrl)
