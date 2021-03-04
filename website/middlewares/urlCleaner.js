@@ -1,12 +1,8 @@
 const urlCleaner = (req, res, next) => {
     const queryParameters = Object.getOwnPropertyNames(req.query);
-    console.log(req.query)
     let redirect = false;
     queryParameters.forEach(parameter => {
-        console.log("query" + req.query[parameter])
         if(req.query[parameter] == ""){
-            //console.log("parameter: " + parameter)
-            //console.log("query" + req.query[parameter])
             delete req.query[parameter];
             const fullParameter = parameter + "=";
             const parameterIndex = req.originalUrl.indexOf(fullParameter);            
@@ -14,10 +10,14 @@ const urlCleaner = (req, res, next) => {
             redirect = true
         }
     });
-    req.originalUrl = req.originalUrl.replace("&&","");
-    console.log(req.originalUrl)
+    while(req.originalUrl.includes("&&")){
+        req.originalUrl = req.originalUrl.replace("&&","");
+    }
+    if(req.originalUrl[req.originalUrl.length - 1] === "&")    {
+        req.originalUrl = req.originalUrl.slice(0, -1)
+    }
     if(redirect){
-        res.redirect(req.originalUrl)
+        return res.redirect(req.originalUrl)
     }
     next();
 }
