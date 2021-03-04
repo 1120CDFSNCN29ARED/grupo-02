@@ -19,6 +19,9 @@ const urlCleaner = (req, res, next) => {
     if(req.originalUrl.includes("?&")){
         req.originalUrl = req.originalUrl.replace("?&","");
     }
+    if(req.originalUrl.includes("vehicleType")){
+        req.originalUrl = req.originalUrl.replace("productType","&productType");
+    }
     if(redirect){
         return res.redirect(req.originalUrl)
     }
