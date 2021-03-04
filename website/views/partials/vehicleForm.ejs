@@ -186,26 +186,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md col-lg-4">
-                <div class="form-floating mb-1">
-                    <input type="file" name="vehicleImage1" id="vehicleImage1" class="form-control input-file" value="<%= //(product.imageURLs) ? product.imageURLs[0] : "" %>">
-                    <label for="vehicleImage1">Imagen 1</label>
-                </div>
-            </div>
-            <div class="col-md col-lg-4">
-                <div class="form-floating mb-1">
-                    <input type="file" name="vehicleImage2" id="vehicleImage2" class="form-control input-file" value="<%= (product.imageURLs) ? product.imageURLs[1] : "" %>">
-                    <label for="vehicleImage2">Imagen 2</label>
-                </div>
-            </div>
-            <div class="col-md col-lg-4">
-                <div class="form-floating mb-1">
-                    <input type="file" name="vehicleImage3" id="vehicleImage3" class="form-control input-file" value="<%= (product.imageURLs) ? product.imageURLs[2] : "" %>">
-                    <label for="vehicleImage3">Imagen 3</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
                     <textarea class="form-control" name="vehicleDescription" id="vehicleDescription"><%= product.description %></textarea>
@@ -213,6 +193,40 @@
                 </div>
             </div>
         </div>
+        <% if (action === "create") { %>
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-floating mb-1">
+                        <input type="file" name="productImages" id="productImages" class="form-control input-file" multiple>
+                        <label for="productImages">Seleccione hasta 5 imágenes para su producto</label>
+                    </div>
+                </div>
+            </div>
+        <% } else if (action === "edit") { %>
+            <div class="row">
+                <div class="form-floating mb-1">
+                    <input type="file" name="productImages" id="productImages" class="form-control input-file" multiple>
+                    <label for="productImages">Seleccione imágenes (hasta 5 en total) para su producto</label>
+                </div>
+                <div class="current-product-images">
+                    <p>Imagenes actuales</p>
+                <% for( let i = 0; i < 5; i++ ) { %>
+                    <div class="current-product-image-container">
+                        <ul>
+                            <li>
+                                <% if (product.imageURLs[i] && product.imageURLs[i] !== "no-image-found.jpeg") { %>
+                                    <img src="<%= product.imageURLs.length && (product.imageURLs)[i].includes("http") ? product.imageURLs[i] : `/img/products/${product.imageURLs[i]}` %>" alt="image-product-<%= i %>" class="edit-product-img">
+                                    <a class="btn btn-danger" href="<%- `/products/deleteImage/${productType}/${productID}?image=${product.imageURLs[i]}` %>">
+                                        Borrar
+                                    </a>
+                                <% } %>
+                            </li>
+                        </ul>
+                    </div>
+                <% } %>
+                </div>
+            </div>
+        <% } %>
         <!-- Buttons Section -->
         <div class="container-fluid d-flex container-add-product-cta">
             <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>

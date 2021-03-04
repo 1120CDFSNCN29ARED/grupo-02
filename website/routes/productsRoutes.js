@@ -21,15 +21,16 @@ const uploadFile = multer({ storage });
 
 
 router.get("/create/:productType?", productsController.create);
-router.post("/create/:productType", uploadFile.fields([{ name: 'vehicleImage1', maxCount: 1 },{ name: 'vehicleImage2', maxCount: 1 },{ name: 'vehicleImage3', maxCount: 1 }]), productsController.store);
+router.post("/create/:productType", uploadFile.fields([{ name: 'productImages' }]), productsController.store);
 
 router.get("/details/:productType/:productID", productsController.details);
 
 router.get("/edit/:productType/:productID", productsController.edit);
-router.put("/edit/:productType/:productID",uploadFile.single("image"), productsController.update);
+router.put("/edit/:productType/:productID",uploadFile.fields([{ name: 'productImages' }]), productsController.update);
 
 router.post("/question/:productType/:productID", productsController.question);
 
+router.get("/deleteImage/:productType/:productID", productsController.deleteImage);
 router.delete("/delete/:productType/:productID", productsController.delete);
 
 module.exports = router;

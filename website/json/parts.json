@@ -5,27 +5,25 @@
         "published": true,
         "featured": true,
         "onSale": {
-            "status": false,
+            "status": true,
             "discount": 0
         },
         "stock": 5,
         "publishedDate": "15/1/2021",
         "title": "Led Giro De Espejo Kia Sorento 2009/2014",
-        "brandID": 5,
-        "modelID": 1,
+        "brandID": null,
+        "modelID": null,
         "partID": "0404ABC",
         "vehicleType": {
-            "car": true
+            "car": "on"
         },
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
         "imageURLs": [
             "https://http2.mlstatic.com/D_NQ_NP_898458-MLA43987588875_112020-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_781901-MLA43987646141_112020-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_813705-MLA43987593828_112020-O.webp"
+            "https://http2.mlstatic.com/D_NQ_NP_781901-MLA43987646141_112020-O.webp"
         ],
         "price": 23456,
         "state": "Nuevo",
-        "rating": 4,
         "location": {
             "province": "CABA",
             "city": "CABA",
@@ -37,7 +35,8 @@
             "name": "Car One",
             "phone": 123456789,
             "email": "carone@realcars.com"
-        }
+        },
+        "type": "part"
     },
     {
         "adID": 2,
@@ -119,7 +118,7 @@
     {
         "adID": 4,
         "productType": "part",
-        "published": true,
+        "published": false,
         "featured": false,
         "onSale": {
             "status": false,
