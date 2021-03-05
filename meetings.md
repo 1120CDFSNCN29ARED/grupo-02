@@ -2,6 +2,8 @@
 
 ## 18-Febrero
 
+Participantes: Simon, Santi
+
 ### Tareas para cumplir con el Sprint 4
 
 * Archivos json
@@ -26,7 +28,10 @@
 
 ### Revision avance
 
+Participantes: Simon, Santi
 
+Se revisa el código hecho por Santi, se hacen ajustes visuales y se hace merge con la branch de Simon para seguir avanzando.
+Se remarca preocupación por falta de noticias de Lucas
 
 ## 24-Febrero
 
@@ -84,3 +89,37 @@ Participantes: Simon, Lucas, Santi
     - Register -> *Simon* - revisar el boton de Login
     - Login -> *Simon* -> complete
     - Search -> *Lucas* - cambiar filtros para que esten a la izquierda en la version desktop
+
+
+## 1-Marzo
+
+### Revisión Avance
+
+Participantes: Simon, Lucas, Santi
+
+Se revisa el código hecho por cada uno.
+    - Santi - Se debe terminar de pulir la edición de productos para subir imagenes
+    - Lucas - Realizar toda lo correspondiente a la sección del search
+    - Simon - Terminó de actualizar register/login y comenzará a trabajar con la sesión de usuarios
+
+## 3-Marzo
+
+### Revisión Avance
+
+Participantes: Simon, Santi
+
+Se revisa el código hecho por cada uno.
+    - Santi - Se completaron los requerimientos del sprint 4 referido a productos
+    - Simon - Se realizó versión inicial de validación y sesión. Se revisa el código del middleware y se destraba el avance
+No se tienen noticias de Lucas -> Santi va a hacer la parte del search
+
+## 4-Marzo
+
+### Revisión Avance y merges
+
+Participantes: Simon, Santi
+
+Lucas abandona el curso
+
+Se hace merge de Simon a Santi y no se encuentran conflictos. Se procede a realizar Pull Requests a develop y main sin conflictos.
+Se hace el deploy a Heroku y la pagina funciona correctamente

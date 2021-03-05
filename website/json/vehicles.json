@@ -91,9 +91,9 @@
         "brandID": 53,
         "modelID": 508,
         "versionID": 3224,
-        "gearType": "Manual",
-        "year": 2021,
-        "state": "nuevo",
+        "gearType": "automática",
+        "year": "2021",
+        "state": "Nuevo",
         "rating": 4,
         "kilometers": 0,
         "color": "Blanco",
@@ -107,7 +107,8 @@
         "imageURLs": [
             "https://http2.mlstatic.com/D_NQ_NP_880115-MLA32161913737_092019-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_656897-MLA32161923614_092019-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_601386-MLA32161895867_092019-O.webp"
+            "https://http2.mlstatic.com/D_NQ_NP_601386-MLA32161895867_092019-O.webp",
+            "no-image-found.jpeg"
         ],
         "price": 2722000,
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",

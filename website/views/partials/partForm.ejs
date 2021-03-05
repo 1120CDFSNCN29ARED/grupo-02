@@ -123,26 +123,61 @@
                     <label for="stock">Stock</label>
                 </div>
             </div>
+            <!--
             <div class="col-md col-lg-6">
                 <div class="form-floating mb-1">
+                    
                     <div name="rating" id="rating">
                         <p>Rating</p>
-                        <p>
-                            <% for( let i = 0; i < product.rating; i++ ) { %>
-                                <i class="fas fa-star"></i>
-                            <% } %>
-                            <% if (product.rating < 5 ) { %>
-                                <% for( let i = 0; i < (5 - product.rating); i++ ) { %>
-                                    <i class="far fa-star"></i>
-                                <% } %>
-                            <% } %>
-                            <% if (!product.rating) { %>
-                                <% for( let i = 0; i < 5; i++ ) { %>
-                                    <i class="far fa-star"></i>
-                                <% } %>
-                            <% } %>
-                        </p>
+                        <span>
+                            <label for="">
+                                <input type="radio" name="rating" value="1" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                            <label for="">
+                                <input type="radio" name="rating" value="2" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                            <label for="">
+                                <input type="radio" name="rating" value="3" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                            <label for="">
+                                <input type="radio" name="rating" value="4" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                            <label for="">
+                                <input type="radio" name="rating" value="5" class="hide">
+                                <i class="far fa-star"></i>
+                            </label>
+                        </span>
                     </div>
+                    
+                    <input type="number" name="rating" id="rating">
+                    <label for="rating">Rating</label>
+                </div>
+            </div>
+            -->
+            <div class="col-md col-lg-6">
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" placeholder="" id="rating" name="rating" value="<%= product.rating %>"></input>
+                    <label for="rating">Rating      
+
+                        <% for( let i = 0; i < product.rating; i++ ) { %>
+                            <i class="fas fa-star"></i>
+                        <% } %>
+                        <% if (product.rating < 5 ) { %>
+                            <% for( let i = 0; i < (5 - product.rating); i++ ) { %>
+                                <i class="far fa-star"></i>
+                            <% } %>
+                        <% } %>
+                        <% if (!product.rating) { %>
+                            <% for( let i = 0; i < 5; i++ ) { %>
+                                <i class="far fa-star"></i>
+                            <% } %>
+                        <% } %>
+
+                    </label>
                 </div>
             </div>
         </div>

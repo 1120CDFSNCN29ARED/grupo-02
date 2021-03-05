@@ -11,16 +11,6 @@
   padding-right: 10px;
 }
 
-.inline {
-  display: inline;
-}
-
-.stripped {
-  text-decoration: line-through;
-  font-size: 14px;
-  color: #666;
-}
-
 .card-img-container {
   min-height: 200px;
   white-space: nowrap;
