@@ -1,5 +1,5 @@
 <!-- My style -->
-<% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" />','<link rel="stylesheet" href="/css/styles-admin.css" />'] %>
+<% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" />','<link rel="stylesheet" href="/css/styles-product-form.css" />','<link rel="stylesheet" href="/css/styles-product-form-mediaQuery.css" />'] %>
 <%- include("./partials/head", {"styles": styles}) %>
     <%- include("./partials/header") %>
 
@@ -22,9 +22,9 @@
                     </section>
                     
                     <% if (productType === "vehicle" ) { %>
-                        <%- include("./partials/vehicleForm")%>
+                        <%- include("./partials/vehicleForm", {action: "create"})%>
                     <% } else if (productType === "part" ) { %>                         
-                        <%- include("./partials/partForm") %> 
+                        <%- include("./partials/partForm", {action: "create"}) %> 
                     <% } %>
                 </div>
             </div>

@@ -1,0 +1,1022 @@
+[
+	{
+		"brandID": 1,
+		"brandName": "ACURA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 4,
+		"brandName": "ALEKO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"brandName": "ALFA ROMEO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"brandName": "ARO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 8,
+		"brandName": "ASIA",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 10,
+		"brandName": "AUDI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 11,
+		"brandName": "AUTOBIANCHI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"brandName": "BMW",
+		"vehicleType": ["car", "motorbike"]
+	},
+	{
+		"brandID": 179,
+		"brandName": "BUIK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 180,
+		"brandName": "CADILLAC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"brandName": "CITROEN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"brandName": "CHEVROLET",
+		"vehicleType": ["car", "truck"]
+	},
+	{
+		"brandID": 31,
+		"brandName": "CHRYSLER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 84,
+		"brandName": "JEEP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 44,
+		"brandName": "DODGE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 34,
+		"brandName": "DACIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"brandName": "DAEWOO",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 37,
+		"brandName": "DAIHATSU",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 52,
+		"brandName": "FIAT",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 53,
+		"brandName": "FORD",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 71,
+		"brandName": "HONDA",
+		"vehicleType": ["car", "motorbike"]
+	},
+	{
+		"brandID": 75,
+		"brandName": "HYUNDAI",
+		"vehicleType": ["car", "truck", "bus"]
+	},
+	{
+		"brandID": 2,
+		"brandName": "AEOLUS",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 78,
+		"brandName": "ISUZU",
+		"vehicleType": ["car", "truck", "bus"]
+	},
+	{
+		"brandID": 82,
+		"brandName": "JAGUAR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"brandName": "KIA",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 99,
+		"brandName": "LADA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"brandName": "MAZDA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 196,
+		"brandName": "MERCURY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"brandName": "MERCEDES BENZ",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 115,
+		"brandName": "MITSUBISHI",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 120,
+		"brandName": "NISSAN",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 124,
+		"brandName": "OPEL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"brandName": "PEUGEOT",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 130,
+		"brandName": "POLONEZ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 131,
+		"brandName": "PONTIAC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"brandName": "PORSCHE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"brandName": "RENAULT",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 139,
+		"brandName": "ROVER-LAND ROV.",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 140,
+		"brandName": "SAAB",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"brandName": "SEAT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 147,
+		"brandName": "SKODA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 79,
+		"brandName": "IVECO",
+		"vehicleType": ["car", "truck", "bus"]
+	},
+	{
+		"brandID": 152,
+		"brandName": "SUBARU",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"brandName": "SUZUKI",
+		"vehicleType": ["car", "motorbike", "bus"]
+	},
+	{
+		"brandID": 158,
+		"brandName": "TAVRIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"brandName": "TOYOTA",
+		"vehicleType": ["car", "truck", "bus"]
+	},
+	{
+		"brandID": 193,
+		"brandName": "LEXUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"brandName": "VOLKSWAGEN",
+		"vehicleType": ["car", "truck", "bus"]
+	},
+	{
+		"brandID": 167,
+		"brandName": "VOLVO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 133,
+		"brandName": "PROTON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 72,
+		"brandName": "HUMMER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 143,
+		"brandName": "SCANIA",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 51,
+		"brandName": "FERRARI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 65,
+		"brandName": "HAM-JIANG",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"brandName": "LANCIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 184,
+		"brandName": "ENIAK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 106,
+		"brandName": "MAHINDRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 200,
+		"brandName": "RASTROJERO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 156,
+		"brandName": "TATA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 19,
+		"brandName": "BLAC",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 188,
+		"brandName": "I.K.A. RENAULT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 177,
+		"brandName": "AUSTIN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 17,
+		"brandName": "BERTONE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 112,
+		"brandName": "METRO",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 3,
+		"brandName": "AGRALE",
+		"vehicleType": ["car", "truck"]
+	},
+	{
+		"brandID": 63,
+		"brandName": "GROSSPAL",
+		"vehicleType": ["car", "truck"]
+	},
+	{
+		"brandID": 135,
+		"brandName": "RANQUEL",
+		"vehicleType": ["car", "truck"]
+	},
+	{
+		"brandID": 166,
+		"brandName": "VOLKSWAGEN CAM.",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 105,
+		"brandName": "MAESTRO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 86,
+		"brandName": "JINBEI",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 49,
+		"brandName": "F.E.R.E.S.A.",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"brandName": "RENAULT CAMION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 9,
+		"brandName": "ASIA CAMION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"brandName": "CHEVROLET CAM.",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 54,
+		"brandName": "FORD CAMION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 94,
+		"brandName": "KIA CAMION",
+		"vehicleType": ["car", "truck"]
+	},
+	{
+		"brandID": 111,
+		"brandName": "MERCEDES BENZ C",
+		"vehicleType": ["car", "truck"]
+	},
+	{
+		"brandID": 157,
+		"brandName": "TATA CAMION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 119,
+		"brandName": "NAKAI (CHANGAN)",
+		"vehicleType": ["car", "truck"]
+	},
+	{
+		"brandID": 15,
+		"brandName": "BELAVTOMAZ",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 56,
+		"brandName": "G.A.Z.",
+		"vehicleType": ["car", "truck", "bus"]
+	},
+	{
+		"brandID": 70,
+		"brandName": "HINO",
+		"vehicleType": ["truck", "bus"]
+	},
+	{
+		"brandID": 80,
+		"brandName": "IZH",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 90,
+		"brandName": "KAMAZ",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 92,
+		"brandName": "KENWORTH",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 102,
+		"brandName": "LIAZ",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 162,
+		"brandName": "UAZ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 174,
+		"brandName": "YUEJIN",
+		"vehicleType": ["truck", "bus"]
+	},
+	{
+		"brandID": 77,
+		"brandName": "INTERNATIONAL",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 168,
+		"brandName": "VOLVO CAMION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 43,
+		"brandName": "DIMEX",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 109,
+		"brandName": "MAZDA CAMION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 116,
+		"brandName": "MITSUBISHI CAM.",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 121,
+		"brandName": "NISSAN CAMION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 38,
+		"brandName": "DAIHATSU CAMION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 127,
+		"brandName": "PIAGGIO",
+		"vehicleType": ["car", "motorbike", "bus"]
+	},
+	{
+		"brandID": 142,
+		"brandName": "SANXING",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 151,
+		"brandName": "STAR (3-STAR)",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 173,
+		"brandName": "YANTAI",
+		"vehicleType": ["truck", "bus"]
+	},
+	{
+		"brandID": 81,
+		"brandName": "JAC MOTORS",
+		"vehicleType": ["car", "truck", "bus"]
+	},
+	{
+		"brandID": 69,
+		"brandName": "HEIBAO",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 169,
+		"brandName": "WULING MOTORS",
+		"vehicleType": ["car", "bus"]
+	},
+	{
+		"brandID": 150,
+		"brandName": "SPACE",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 107,
+		"brandName": "MASERATI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 141,
+		"brandName": "SANTANA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 202,
+		"brandName": "SIAM DI TELLA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 199,
+		"brandName": "PLYMOUTH",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 114,
+		"brandName": "MINI COOPER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 138,
+		"brandName": "ROLLS ROYCE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 27,
+		"brandName": "CHERY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 194,
+		"brandName": "LINCOLN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 149,
+		"brandName": "SMART",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 104,
+		"brandName": "MACK",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 41,
+		"brandName": "DFM",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 88,
+		"brandName": "JMC",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 103,
+		"brandName": "LIFAN",
+		"vehicleType": ["car", "motorbike", "truck"]
+	},
+	{
+		"brandID": 55,
+		"brandName": "FOTON",
+		"vehicleType": ["car", "truck", "bus"]
+	},
+	{
+		"brandID": 59,
+		"brandName": "GEELY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 46,
+		"brandName": "DS AUTOMOBILES",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 13,
+		"brandName": "BAIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 42,
+		"brandName": "DFSK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 146,
+		"brandName": "SHINERAY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 62,
+		"brandName": "GREAT WALL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 68,
+		"brandName": "HAVAL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 26,
+		"brandName": "CHANGAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 175,
+		"brandName": "ZANELLA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 145,
+		"brandName": "SERO ELECTRIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 198,
+		"brandName": "PEUGEOT MOTOS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 178,
+		"brandName": "BLACKSTONE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 159,
+		"brandName": "TIBO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 57,
+		"brandName": "GAMMA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 148,
+		"brandName": "SKYGO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 101,
+		"brandName": "LEGNANO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 76,
+		"brandName": "IMSA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 134,
+		"brandName": "RAFTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 39,
+		"brandName": "DAYAMA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 129,
+		"brandName": "POLARIS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 74,
+		"brandName": "HYOSUNG",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 97,
+		"brandName": "KTM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 58,
+		"brandName": "GAS GAS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 128,
+		"brandName": "PIT BIKE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 20,
+		"brandName": "BLOOWER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 155,
+		"brandName": "SYM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 161,
+		"brandName": "TVS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 73,
+		"brandName": "HUSQVARNA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 96,
+		"brandName": "KONISA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 14,
+		"brandName": "BAJAJ",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 12,
+		"brandName": "BABOON",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 83,
+		"brandName": "JAWA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 23,
+		"brandName": "CAGIVA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 89,
+		"brandName": "JUKI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 123,
+		"brandName": "OLMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"brandName": "BENELLI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 117,
+		"brandName": "MONDIAL",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"brandName": "YAMAHA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 85,
+		"brandName": "JIANSHE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"brandName": "BETA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 25,
+		"brandName": "CERRO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 50,
+		"brandName": "FAMSA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 95,
+		"brandName": "KIKAI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 113,
+		"brandName": "MINARELLI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"brandName": "MOTOMEL",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 125,
+		"brandName": "PANTHER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 164,
+		"brandName": "VENTO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 87,
+		"brandName": "JINCHENG",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 35,
+		"brandName": "DAELIM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 30,
+		"brandName": "CHIRETTE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 67,
+		"brandName": "HARLEY DAVI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 170,
+		"brandName": "XQUAD",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 22,
+		"brandName": "BRAVA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 163,
+		"brandName": "VELIMOTOR",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 64,
+		"brandName": "GUERRERO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 66,
+		"brandName": "HAMATSU",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 153,
+		"brandName": "SUMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 122,
+		"brandName": "OKINOI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 47,
+		"brandName": "DUCATI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 40,
+		"brandName": "DAYANG",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 91,
+		"brandName": "KELLER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 33,
+		"brandName": "CORVEN",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"brandName": "GILERA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 61,
+		"brandName": "GOES",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 6,
+		"brandName": "APRILIA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 171,
+		"brandName": "XSCREEMS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 48,
+		"brandName": "EUROMOT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 24,
+		"brandName": "CAN AM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 98,
+		"brandName": "KYMCO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 183,
+		"brandName": "DYNAMIC",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 192,
+		"brandName": "KAWASAKI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 187,
+		"brandName": "HERO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 190,
+		"brandName": "JIALING",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 195,
+		"brandName": "MAVERICK",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 191,
+		"brandName": "JINLING",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 182,
+		"brandName": "DA DALT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 176,
+		"brandName": "APPIA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 197,
+		"brandName": "MV AGUSTA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"brandName": "ZANELLA MOTOS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 201,
+		"brandName": "ROYAL ENFIELD",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 203,
+		"brandName": "TRIUMPH",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 204,
+		"brandName": "VESPA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 186,
+		"brandName": "GUZZI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 181,
+		"brandName": "CF MOTO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 185,
+		"brandName": "GHIGGERI",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 189,
+		"brandName": "JAGUAR ATV",
+		"vehicleType": ["motorbike"]
+	}
+]

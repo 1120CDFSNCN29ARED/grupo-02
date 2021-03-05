@@ -1,5 +1,5 @@
 <article class="col col-md-4 col-lg-3 mb-4">
-    <a class="card-link" href="/products/<%= vehicle.productType %>/details/<%= vehicle.adID%>">
+    <a class="card-link" href="/products/details/<%= vehicle.productType %>/<%= vehicle.adID%>">
         <div class="card h-100">
             <div class="card-img-container">
                 <span class="helper">
@@ -22,15 +22,15 @@
                 <div class="card-details">
                     <div class="row">
                         <div class="col">
-                            <p class="card-text bold"><%= vehicle.brand %></p>
+                            <p class="card-text bold"><%= brand.brandName %></p>
                         </div>
                         <div class="col">
-                            <p class="card-text bold"><%= vehicle.model %></p>
+                            <p class="card-text bold"><%= model.modelName %></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="card-text"><%= vehicle.version %></p>
+                            <p class="card-text"><%= version.versionName %></p>
                         </div>
                         <div class="col">
                             <p class="card-text"><%= vehicle.year %></p>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="card-text bold"><%= vehicle.kilometers.toLocaleString("es-AR") %> km<% if (vehicle.kilometers > 0) {%><%= "s" %><%} %></p>
+                <p class="card-text bold"><%= vehicle.kilometers ? vehicle.kilometers.toLocaleString("es-AR") : "N/A" %> km<% if (vehicle.kilometers > 0) {%><%= "s" %><%} %></p>
             </div>
         </div>
     </a>

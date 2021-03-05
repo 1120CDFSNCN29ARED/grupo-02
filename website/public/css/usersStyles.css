@@ -1,0 +1,19 @@
+
+.user-link{
+  text-decoration: none;
+  color: black;
+}
+.user-link:hover{
+  text-decoration:none;
+  color: grey;
+}
+.user-card {
+  padding: 5px;
+  margin-bottom: 2px;
+  background-color: whitesmoke;
+  border: 1px solid lightgrey;
+}
+.user-card:hover{
+  background-color: lightgray;
+  border: 1px solid grey;
+}

@@ -1,17 +1,68 @@
 [
     {
         "cartID": 1,
-        "userName": "pepito",
-        "items": [1, 2, 3, 4]
+        "userID": 1,
+        "items": [
+            {
+                "adID": 1,
+                "quantity": 1
+            },
+            {
+                "adID": 2,
+                "quantity": 3
+            },
+            {
+                "adID": 3,
+                "quantity": 2
+            },
+            {
+                "adID": 4,
+                "quantity": 4
+            }
+        ]
     },
     {
-        "cartID": 2,
-        "userName": "pepito",
-        "items": [2, 1, 3, 4]
+        "cartID": 1,
+        "userID": 2,
+        "items": [
+            {
+                "adID": 2,
+                "quantity": 1
+            },
+            {
+                "adID": 3,
+                "quantity": 2
+            },
+            {
+                "adID": 1,
+                "quantity": 3
+            },
+            {
+                "adID": 4,
+                "quantity": 4
+            }
+        ]
     },
     {
         "cartID": 3,
-        "userName": "pepito",
-        "items": [1, 2, 4, 3]
+        "userID": 3,
+        "items": [
+            {
+                "adID": 4,
+                "quantity": 4
+            },
+            {
+                "adID": 3,
+                "quantity": 3
+            },
+            {
+                "adID": 2,
+                "quantity": 2
+            },
+            {
+                "adID": 1,
+                "quantity": 1
+            }
+        ]
     }
 ]

@@ -7,24 +7,24 @@
             <% items.forEach(item => { %>
                 <article class="cart-item">
                     <div class="cart-item-image">
-                        <img src="<%= (item.imageURLs)[0] %>" alt="" srcset="">
+                        <img src="<%= (item.product.imageURLs)[0] %>" alt="" srcset="">
                     </div>
                     <div class="cart-item-details-container">
-                        <h2 class="cart-item-title"><%= item.title %> </h2>
-                        <p class="cart-item-description"><%= item.description %> </p>
+                        <h2 class="cart-item-title"><%= item.product.title %> </h2>
+                        <p class="cart-item-description"><%= item.product.description %> </p>
                         <div class="cart-item-shipping-container">
                             <p class="cart-item-shipping-label">Costo de envío: <span class="cart-item-shipping-price">$200</span></p>
                         </div>
-                        <p class="cart-item-seller"><%= item.seller.name %> </p>
+                        <p class="cart-item-seller"><%= item.product.seller.name %> </p>
                     </div>
                     <div class="cart-item-quantity-container">
                         <div class="cart-item-quantity">
                             <i class="fas fa-minus"></i>
-                            <input type="text" name="quantity-product-1" id="quantity-product-1">
+                            <input type="text" name="quantity-product-1" id="quantity-product-1" value="<%= item.quantity %>">
                             <i class="fas fa-plus"></i>
-                            <p class="cart-item-available-quantity"><%= item.stock %> </p>
+                            <p class="cart-item-available-quantity"><%= item.product.stock %> </p>
                         </div>
-                        <h2 class="cart-item-price">$ <%= item.price.toLocaleString("es-AR") %> </h2>
+                        <h2 class="cart-item-price">$ <%= item.product.price.toLocaleString("es-AR") %> </h2>
                     </div>
                     <button class="btn btn-danger">Eliminar</button>
                 </article>
