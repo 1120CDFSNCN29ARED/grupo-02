@@ -1867,5 +1867,22 @@
     "confirmPassword": "test",
     "category": "user",
     "image": "user-image-1614872856901.jpeg"
+  },
+  {
+    "userID": 111,
+    "userName": "test22",
+    "email": "test22@test.com",
+    "first_name": "simon",
+    "last_name": "ssss",
+    "id_number": "45454545",
+    "telephone": "45454",
+    "province": "aaaa",
+    "city": "aaa",
+    "neighbourhood": "aaa",
+    "postal_code": "4444",
+    "password": "$2a$10$3IRScsjtATVuTt4ScYOXcOgH/IdkbEB2GC3bZA0/pZF3V.IeHBAaK",
+    "confirmPassword": "testing",
+    "category": "user",
+    "image": "user-image-1614895367747.jpeg"
   }
 ]
