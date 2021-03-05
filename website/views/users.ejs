@@ -1,0 +1,60 @@
+<!-- My style -->
+<% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" />','<link rel="stylesheet" href="/css/styles-admin.css" />','<link rel="stylesheet" href="/css/usersStyles.css" />'] %>
+<%- include("./partials/head", {"styles": styles}) %>
+  <%- include("./partials/header") %>
+
+    <body>
+      <main>
+        <!-- Create an admin window that has an add or edit product option -->
+        <div class="container-fluid admin text-center">
+          <div class="container-fluid text-center byline">
+            <h2>User Admin Panel</h2>
+          </div>
+          <div class="container-fluid container-admin text-center">
+            <!-- Add in buttons to link to pages for each type of product -->
+            <section class="product-type=selector">
+              <div class="container-fluid mb-2">
+                <div class="row">
+                  <div class="col">
+                    <h4>#</h4>
+                  </div>
+                  <div class="col">
+                    <h4>Usuario</h4>
+                  </div>
+                  <div class="col">
+                    <h4>Nombre</h4>
+                  </div>
+                  <div class="col">
+                    <h4>Apellido</h4>
+                  </div>
+                </div>                
+                <hr>
+                <% users.forEach(user=> { %>
+                  <a href="/users/profile/<%= user.userID%>" class="user-link">
+                    <div class="row user-card">                    
+                    <div class="col">
+                      <%= user.userID %>
+                    </div>
+                    <div class="col">
+                      <%= user.userName %>
+                    </div>
+                    <div class="col">
+                      <%= user.first_name %>
+                    </div>
+                    <div class="col">
+                      <%= user.last_name %>
+                    </div>               
+                  </div>
+                </a>
+                  <% }) %>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <%- include("./partials/footer") %>
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    </body>
+
+    </html>

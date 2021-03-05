@@ -12,11 +12,11 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="<%= (product.imageURLs)[0] %>" class="d-block w-100" alt="...">
+                <img src="<%= product.imageURLs.length && (product.imageURLs)[0].includes("http") ? product.imageURLs[0] : `/img/products/${product.imageURLs[0]}` %>" class="d-block w-100" alt="...">
               </div>
               <% for( let i = 1; i < product.imageURLs.length; i++ ) { %>
                 <div class="carousel-item">
-                    <img src="<%= (product.imageURLs)[i] %>" class="d-block w-100" alt="...">
+                    <img src="<%= product.imageURLs.length && (product.imageURLs)[i].includes("http") ? product.imageURLs[i] : `/img/products/${product.imageURLs[i]}` %>" class="d-block w-100" alt="...">
                   </div>
               <% } %>
             </div>
@@ -30,8 +30,13 @@
             </a>
         </div>
         <div id="mainDetails">
-            <h2 class="price">$ <%= product.price.toLocaleString("es-AR") %> </h2>
-            <p class="date">Publicado el <%= product.publishedDate %> </p>
+            <h2 class="price <%= product.onSale.status ? "inline stripped" : "" %>">$ <%= product.price.toLocaleString("es-AR") %> </h2>
+            <% if (product.onSale.status === true) { %>
+                <h5 class="price inline">
+                    $<%= (product.price * (100 - product.onSale.discount) / 100).toLocaleString("es-AR") %> 
+                </h5>
+            <% } %>
+            <%- product.published ? `<p class="date">Publicado el ${product.publishedDate.toLocaleString("es-AR")}</p>` : '<p class="date"> El producto no ha sido publicado todavía </p>' %> 
             <h2 class="title"><%= product.title %> </h2>
             <p class="product-state"><%= product.state %></p>
             <p class="location">Ubicación: <%= product.location.neighbourhood %>,
@@ -77,7 +82,7 @@
                 </div>
             <% } %>
             <div class="btn-edit-container">
-                <a href="/products/<%= productType %>/edit/<%= product.adID %>">
+                <a href="/products/edit/<%= productType %>/<%= product.adID %>">
                     <button type="button" class="btn btn-warning btn-edit">Editar</button>
                 </a>
             </div>
@@ -90,15 +95,15 @@
                 <table class="table table-striped table-hover" id="attributesTable">
                     <tr>
                         <td>
-                            <strong>Marca: </strong><%= product.brand %> 
+                            <strong>Marca: </strong><%= brand.brandName %> 
                         </td>
                         <td>
-                            <strong>Modelo: </strong><%= product.model %> 
+                            <strong>Modelo: </strong><%= model.modelName %> 
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <strong>Versión: </strong> <%= product.version %> 
+                            <strong>Versión: </strong> <%= version.versionName %> 
                         </td>
                         <td>
                             <strong>Año: </strong> <%= product.year %> 
@@ -135,18 +140,22 @@
         <% } %>
         <div id="questions">
             <h2>Preguntale al vendedor</h2>
-            <form id="question-form">
+            <form id="question-form" action="/products/question/<%= productType %>/<%= product.adID %>" method="POST">
                 <div class="form-floating">
-                    <textarea class="form-control" name="question" id="question"></textarea>
+                    <textarea class="form-control" name="question" id="question" form="question-form"></textarea>
                     <label for="question">Escribí tu respuesta</label>
                 </div>
                 <button id="askQuestion" type="submit" class="btn btn-primary">Preguntar</button>
             </form>                
             <h2>Preguntas</h2>
             <% questions.forEach(e => { %>
-                <p class="question"><%= e.question %> <i class="fas fa-level-down-alt question-arrow"></i></p>
-                <p class="answer"><%= e.answer %> </p>
-            <% }) %>            
+                <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %> - <%= e.questionDate.toLocaleString() %></span> <%- e.answer !== "" ? '<i class="fas fa-level-down-alt question-arrow"></i>' : "" %> </p>
+                <%- e.answer !== "" ? `<p class="answer"> ${e.answer} - ${e.answerDate.toLocaleString()} </p>` : "" %> 
+                
+            <% }) %>  
+            <% if (questions.length === 0) { %>
+                <p>No hay preguntas! Sos el primero!</p>
+            <% } %>          
         </div>
         
     </section>
@@ -157,7 +166,7 @@
                 <h5 class="modal-title">Medios de pago</h5>
             </div>
             <div class="modal-body">
-                <p>Estas son los distintos medios de pago</p>
+                <p>Estos son los distintos medios de pago</p>
             </div>
         </div>
         </div>

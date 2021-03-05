@@ -1,0 +1,9680 @@
+[
+	{
+		"brandID": 1,
+		"modelID": 1,
+		"modelName": "INTEGRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 1,
+		"modelID": 2,
+		"modelName": "LEGEND",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 1,
+		"modelID": 3,
+		"modelName": "NSX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 4,
+		"modelID": 10,
+		"modelName": 2141,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 4,
+		"modelID": 11,
+		"modelName": 2335,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 12,
+		"modelName": "SPYDER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 13,
+		"modelName": "GTV",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 14,
+		"modelName": 33,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 15,
+		"modelName": 75,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 16,
+		"modelName": 145,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 17,
+		"modelName": 155,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 18,
+		"modelName": 164,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 19,
+		"modelName": "ALFETA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 20,
+		"modelName": "GIULIETTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 21,
+		"modelName": 146,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 22,
+		"modelName": "ALFASUD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 23,
+		"modelName": "ZAGATO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 24,
+		"modelName": "RIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 25,
+		"modelName": 156,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 26,
+		"modelName": 166,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 27,
+		"modelName": 147,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 28,
+		"modelName": "GT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 29,
+		"modelName": 159,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 30,
+		"modelName": "BRERA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 31,
+		"modelName": "MITO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 32,
+		"modelName": "STELVIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 5,
+		"modelID": 33,
+		"modelName": "GIULIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 39,
+		"modelName": 10.1,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 40,
+		"modelName": 10.4,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 41,
+		"modelName": 243,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 42,
+		"modelName": 244,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 43,
+		"modelName": 320,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 44,
+		"modelName": 246,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 45,
+		"modelName": 10.9,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 46,
+		"modelName": 10.6,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 47,
+		"modelName": 324,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 7,
+		"modelID": 48,
+		"modelName": "SPARTANA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 8,
+		"modelID": 49,
+		"modelName": "TOWNER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 8,
+		"modelID": 49,
+		"modelName": "TOWNER",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 8,
+		"modelID": 50,
+		"modelName": "TOPIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 8,
+		"modelID": 50,
+		"modelName": "TOPIC",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 8,
+		"modelID": 51,
+		"modelName": "ROCSTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 8,
+		"modelID": 52,
+		"modelName": "AM",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 54,
+		"modelName": 80,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 55,
+		"modelName": "A4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 56,
+		"modelName": 100,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 57,
+		"modelName": "A6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 58,
+		"modelName": 200,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 59,
+		"modelName": "A3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 60,
+		"modelName": "A8",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 61,
+		"modelName": "CABRIOLET",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 62,
+		"modelName": 5000,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 63,
+		"modelName": "TT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 64,
+		"modelName": "S3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 65,
+		"modelName": "S4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 66,
+		"modelName": "ALLROAD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 67,
+		"modelName": "RS4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 68,
+		"modelName": "DKW",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 69,
+		"modelName": "RS6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 70,
+		"modelName": 90,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 71,
+		"modelName": "Q7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 72,
+		"modelName": "R8",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 73,
+		"modelName": "A5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 74,
+		"modelName": "S5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 75,
+		"modelName": "Q5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 76,
+		"modelName": "A1",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 77,
+		"modelName": "RS5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 78,
+		"modelName": "A7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 79,
+		"modelName": "Q3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 80,
+		"modelName": "S7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 81,
+		"modelName": "S6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 82,
+		"modelName": "RS7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 83,
+		"modelName": "Q2",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 84,
+		"modelName": "SQ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 85,
+		"modelName": "RS3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 10,
+		"modelID": 86,
+		"modelName": "Q8",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 11,
+		"modelID": 87,
+		"modelName": "Y 10",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 114,
+		"modelName": 320,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 115,
+		"modelName": 316,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 116,
+		"modelName": 325,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 117,
+		"modelName": 318,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 118,
+		"modelName": 328,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 119,
+		"modelName": 323,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 120,
+		"modelName": 520,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 121,
+		"modelName": 525,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 122,
+		"modelName": 524,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 123,
+		"modelName": 635,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 124,
+		"modelName": 735,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 125,
+		"modelName": 740,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 126,
+		"modelName": 750,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 127,
+		"modelName": 850,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 128,
+		"modelName": "M 3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 129,
+		"modelName": 528,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 130,
+		"modelName": "Z 3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 131,
+		"modelName": 530,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 132,
+		"modelName": 535,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 133,
+		"modelName": 540,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 134,
+		"modelName": 728,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 135,
+		"modelName": 730,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 136,
+		"modelName": 840,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 137,
+		"modelName": 518,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 138,
+		"modelName": 628,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 139,
+		"modelName": 633,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 140,
+		"modelName": 733,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 141,
+		"modelName": 745,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 142,
+		"modelName": 523,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 143,
+		"modelName": 324,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 144,
+		"modelName": "M 5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 145,
+		"modelName": "X 5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 146,
+		"modelName": 330,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 147,
+		"modelName": "Z 8",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 148,
+		"modelName": "Z 4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 149,
+		"modelName": "X 3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 150,
+		"modelName": 545,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 151,
+		"modelName": 645,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 152,
+		"modelName": 120,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 153,
+		"modelName": 130,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 154,
+		"modelName": 550,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 155,
+		"modelName": 650,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 156,
+		"modelName": 116,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 157,
+		"modelName": "M 6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 158,
+		"modelName": 335,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 159,
+		"modelName": "X 6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 160,
+		"modelName": 125,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 161,
+		"modelName": 135,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 162,
+		"modelName": "X 1",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 163,
+		"modelName": 118,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 164,
+		"modelName": "DE CARLO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 165,
+		"modelName": "M 1",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 166,
+		"modelName": 640,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 167,
+		"modelName": 220,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 168,
+		"modelName": 235,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 169,
+		"modelName": 428,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 170,
+		"modelName": 435,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 171,
+		"modelName": "X 4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 172,
+		"modelName": "M 4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 173,
+		"modelName": 440,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 174,
+		"modelName": 430,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 175,
+		"modelName": 240,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 176,
+		"modelName": 140,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 177,
+		"modelName": "M 2",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 178,
+		"modelName": "X 2",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 179,
+		"modelID": 1441,
+		"modelName": "CENTURY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 179,
+		"modelID": 1442,
+		"modelName": "SKYLARK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 179,
+		"modelID": 1443,
+		"modelName": "LE SABRE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 180,
+		"modelID": 1444,
+		"modelName": "SEVILLE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 180,
+		"modelID": 1445,
+		"modelName": "DEVILLE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 180,
+		"modelID": 1446,
+		"modelName": "EL DORADO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 310,
+		"modelName": "2CV - 3CV",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 310,
+		"modelName": "2CV - 3CV",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 311,
+		"modelName": "CX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 312,
+		"modelName": "AX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 313,
+		"modelName": "ZX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 314,
+		"modelName": "XANTIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 315,
+		"modelName": "C 15",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 316,
+		"modelName": "BX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 317,
+		"modelName": "EVASION",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 318,
+		"modelName": "VISA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 319,
+		"modelName": "GS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 320,
+		"modelName": "BERLINGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 321,
+		"modelName": "XM",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 322,
+		"modelName": "SAXO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 323,
+		"modelName": "XSARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 324,
+		"modelName": "JUMPER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 320,
+		"modelName": "BERLINGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 325,
+		"modelName": "PICASSO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 326,
+		"modelName": "C 5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 327,
+		"modelName": "C 3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 328,
+		"modelName": "C 6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 329,
+		"modelName": "C 4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 330,
+		"modelName": "C 4 GRAND PICASO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 331,
+		"modelName": "C 4 PICASSO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 332,
+		"modelName": "C 3 AIRCROSS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 333,
+		"modelName": "C 3 PICASSO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 334,
+		"modelName": "C 4 AIRCROSS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 335,
+		"modelName": "C-ELYSEE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 336,
+		"modelName": "C 4 CACTUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 337,
+		"modelName": "JUMPY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 338,
+		"modelName": "SPACETOURER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 339,
+		"modelName": "C 4 SPACETOURER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 32,
+		"modelID": 340,
+		"modelName": "C 4 GRAND SPACETOURER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 210,
+		"modelName": "CORSA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 211,
+		"modelName": "KADETT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 212,
+		"modelName": "IPANEMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 213,
+		"modelName": "MONZA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 214,
+		"modelName": "OMEGA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 215,
+		"modelName": "VERANEIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 216,
+		"modelName": "SUPREMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 217,
+		"modelName": "VECTRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 218,
+		"modelName": "PICK-UP LUV",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 219,
+		"modelName": "PICK-UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 220,
+		"modelName": "BLAZER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 221,
+		"modelName": "LUMINA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 222,
+		"modelName": "CHEVETTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 222,
+		"modelName": "CHEVETTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 210,
+		"modelName": "CORSA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 223,
+		"modelName": 400,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 224,
+		"modelName": "CAMARO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 225,
+		"modelName": "CHEVY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 226,
+		"modelName": "CITATION",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 227,
+		"modelName": "CORSICA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 228,
+		"modelName": "JEEP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 229,
+		"modelName": "BERETTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 230,
+		"modelName": "PICK-UP S-10",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 231,
+		"modelName": "ASTRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 232,
+		"modelName": "ASTRO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 233,
+		"modelName": "CORVETTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 234,
+		"modelName": "ESPECIALES",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 235,
+		"modelName": "PICK-UP SILVERADO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 236,
+		"modelName": 230,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 237,
+		"modelName": "PICK-UP GMC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 238,
+		"modelName": "CELEBRITY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 239,
+		"modelName": "CAPRICE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 240,
+		"modelName": "CAVALIER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 241,
+		"modelName": "MONTECARLO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 242,
+		"modelName": "OPALA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 243,
+		"modelName": "GRAND BLAZER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 244,
+		"modelName": "SUBURBAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 245,
+		"modelName": "GRAND VITARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 246,
+		"modelName": "JIMNY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 247,
+		"modelName": "BALENO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 245,
+		"modelName": "GRAND VITARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 225,
+		"modelName": "CHEVY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 248,
+		"modelName": "SATURN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 249,
+		"modelName": "ZAFIRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 250,
+		"modelName": "IMPALA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 251,
+		"modelName": "51 DELUXE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 252,
+		"modelName": "MERIVA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 253,
+		"modelName": "VIKING",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 254,
+		"modelName": "GRUMMAN OLSON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 255,
+		"modelName": "AVALANCHE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 256,
+		"modelName": "METRO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 257,
+		"modelName": "COUPE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 258,
+		"modelName": "CAPTIVA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 259,
+		"modelName": "SPARK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 260,
+		"modelName": "AVEO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 261,
+		"modelName": "EL CAMINO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 262,
+		"modelName": "GMC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 263,
+		"modelName": "AGILE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 264,
+		"modelName": "CLASSIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 265,
+		"modelName": "CRUZE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 264,
+		"modelName": "CLASSIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 266,
+		"modelName": "MONTANA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 267,
+		"modelName": "CELTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 268,
+		"modelName": "PRISMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 269,
+		"modelName": "SONIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 270,
+		"modelName": "SPIN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 271,
+		"modelName": "TRAILBLAZER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 272,
+		"modelName": "COBALT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 273,
+		"modelName": "ONIX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 274,
+		"modelName": "TRACKER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 275,
+		"modelName": "PRIZM",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 28,
+		"modelID": 276,
+		"modelName": "EQUINOX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 289,
+		"modelName": "CARAVAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 290,
+		"modelName": "GRAND CARAVAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 84,
+		"modelID": 733,
+		"modelName": "CHEROKEE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 84,
+		"modelID": 734,
+		"modelName": "GRAND CHEROKEE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 44,
+		"modelID": 409,
+		"modelName": "DAKOTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 44,
+		"modelID": 410,
+		"modelName": "SHADOW",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 44,
+		"modelID": 411,
+		"modelName": "SPIRIT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 291,
+		"modelName": "TALON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 84,
+		"modelID": 735,
+		"modelName": "WRANGLER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 292,
+		"modelName": "NEON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 293,
+		"modelName": "INTREPID",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 44,
+		"modelID": 412,
+		"modelName": "RAM",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 294,
+		"modelName": "STRATUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 44,
+		"modelID": 413,
+		"modelName": "VIPER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 295,
+		"modelName": "LEBARON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 296,
+		"modelName": "VALIANT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 297,
+		"modelName": "DAYTONA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 298,
+		"modelName": "CONCORDE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 299,
+		"modelName": "VOYAGER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 300,
+		"modelName": 300,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 301,
+		"modelName": "SEBRING",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 302,
+		"modelName": "PT CRUISER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 303,
+		"modelName": "CROSSFIRE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 84,
+		"modelID": 736,
+		"modelName": "COMPASS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 304,
+		"modelName": "STEALTH",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 305,
+		"modelName": "TOWN & COUNTRY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 306,
+		"modelName": "SAFARI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 44,
+		"modelID": 414,
+		"modelName": "JOURNEY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 84,
+		"modelID": 737,
+		"modelName": "PATRIOT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 307,
+		"modelName": "HONCHO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 308,
+		"modelName": "CHARGER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 31,
+		"modelID": 309,
+		"modelName": "COMANCHE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 44,
+		"modelID": 415,
+		"modelName": "DURANGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 84,
+		"modelID": 738,
+		"modelName": "RENEGADE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 34,
+		"modelID": 348,
+		"modelName": 1410,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 34,
+		"modelID": 348,
+		"modelName": 1410,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 34,
+		"modelID": 349,
+		"modelName": 1310,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 34,
+		"modelID": 350,
+		"modelName": 325,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 34,
+		"modelID": 351,
+		"modelName": "BERLINA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 34,
+		"modelID": 352,
+		"modelName": "BREAK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 34,
+		"modelID": 353,
+		"modelName": 524,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 34,
+		"modelID": 354,
+		"modelName": "PICK UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 359,
+		"modelName": "ESPERO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 360,
+		"modelName": "RACER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 361,
+		"modelName": "TICO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 362,
+		"modelName": "DAMAS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 362,
+		"modelName": "DAMAS",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 363,
+		"modelName": "CIELO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 364,
+		"modelName": "KORANDO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 365,
+		"modelName": "MUSSO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 366,
+		"modelName": "LABO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 367,
+		"modelName": "ISTANA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 368,
+		"modelName": "LANOS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 369,
+		"modelName": "NUBIRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 370,
+		"modelName": "LEGANZA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 367,
+		"modelName": "ISTANA",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 371,
+		"modelName": "PRINCE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 372,
+		"modelName": "MATIZ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 364,
+		"modelName": "KORANDO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 373,
+		"modelName": "CHAIRMAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 374,
+		"modelName": "TACUMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 375,
+		"modelName": "REXTON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 376,
+		"modelName": "ACTYON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 36,
+		"modelID": 377,
+		"modelName": "KYRON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 378,
+		"modelName": "FEROZA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 379,
+		"modelName": "APPLAUSE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 380,
+		"modelName": "CHARADE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 381,
+		"modelName": "CUORE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 382,
+		"modelName": "HIJET",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 383,
+		"modelName": "ROCKY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 384,
+		"modelName": "PIAGGIO",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 385,
+		"modelName": "CAB VAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 386,
+		"modelName": "CHARMANT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 382,
+		"modelName": "HIJET",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 387,
+		"modelName": "MAX CUORE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 388,
+		"modelName": "TAFTT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 389,
+		"modelName": "WIDE",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 390,
+		"modelName": "L 100",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 391,
+		"modelName": "MOVE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 392,
+		"modelName": "TERIOS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 393,
+		"modelName": "SIRION",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 394,
+		"modelName": "FURGON ROUTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 395,
+		"modelName": "MIRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 396,
+		"modelName": "DIFFERENT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 37,
+		"modelID": 389,
+		"modelName": "WIDE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 449,
+		"modelName": 128,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 450,
+		"modelName": 147,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 451,
+		"modelName": "FIORINO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 452,
+		"modelName": "REGATTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 453,
+		"modelName": "DUNA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 454,
+		"modelName": "UNO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 455,
+		"modelName": "TEMPRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 456,
+		"modelName": "TIPO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 457,
+		"modelName": "DUCATO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 458,
+		"modelName": "600 - 800",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 459,
+		"modelName": 125,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 460,
+		"modelName": 132,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 461,
+		"modelName": 133,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 462,
+		"modelName": 1500,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 463,
+		"modelName": 1600,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 459,
+		"modelName": 125,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 464,
+		"modelName": 148,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 465,
+		"modelName": "PUNTO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 466,
+		"modelName": "CINQUECENTO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 457,
+		"modelName": "DUCATO",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 467,
+		"modelName": "BARCHETTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 468,
+		"modelName": "COUPE FIAT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 469,
+		"modelName": 127,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 470,
+		"modelName": 131,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 462,
+		"modelName": 1500,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 471,
+		"modelName": "PALIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 472,
+		"modelName": "SIENA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 463,
+		"modelName": 1600,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 473,
+		"modelName": "CROMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 474,
+		"modelName": "RITMO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 475,
+		"modelName": "MAREA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 476,
+		"modelName": "BRAVO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 477,
+		"modelName": "STRADA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 478,
+		"modelName": "BRAVA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 479,
+		"modelName": "BERTONE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 454,
+		"modelName": "UNO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 480,
+		"modelName": "MULTIPLA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 481,
+		"modelName": "STILO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 482,
+		"modelName": 1100,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 483,
+		"modelName": "IDEA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 484,
+		"modelName": 500,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 485,
+		"modelName": "LINEA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 486,
+		"modelName": "QUBO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 486,
+		"modelName": "QUBO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 487,
+		"modelName": "GRAND SIENA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 488,
+		"modelName": "DOBLO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 488,
+		"modelName": "DOBLO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 489,
+		"modelName": "SCUDO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 490,
+		"modelName": "TORO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 491,
+		"modelName": "MOBI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 492,
+		"modelName": "ARGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 52,
+		"modelID": 493,
+		"modelName": "CRONOS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 494,
+		"modelName": "FALCON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 495,
+		"modelName": "TAUNUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 496,
+		"modelName": "SIERRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 497,
+		"modelName": "ESCORT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 498,
+		"modelName": "GALAXY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 499,
+		"modelName": "ORION",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 500,
+		"modelName": "FIESTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 501,
+		"modelName": "MONDEO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 502,
+		"modelName": "F-100",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 503,
+		"modelName": "F-150",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 504,
+		"modelName": "F-350",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 505,
+		"modelName": "F-400",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 506,
+		"modelName": "RANCHERO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 507,
+		"modelName": "EXPLORER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 508,
+		"modelName": "RANGER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 509,
+		"modelName": "TRANSIT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 510,
+		"modelName": "F-250",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 511,
+		"modelName": "BRONCO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 512,
+		"modelName": "CAPRI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 513,
+		"modelName": "FAIRLANE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 514,
+		"modelName": "LASER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 515,
+		"modelName": "MUSTANG",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 516,
+		"modelName": "GRANADA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 517,
+		"modelName": "AERO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 518,
+		"modelName": "ECONO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 519,
+		"modelName": "COURIER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 520,
+		"modelName": "KA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 521,
+		"modelName": "FESTIVA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 522,
+		"modelName": "CORCEL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 523,
+		"modelName": "FAIRMONT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 524,
+		"modelName": "PROBE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 525,
+		"modelName": "SCORPIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 526,
+		"modelName": "TAURUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 527,
+		"modelName": "THUNDERBIRD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 528,
+		"modelName": "VAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 529,
+		"modelName": "MAVERICK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 509,
+		"modelName": "TRANSIT",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 530,
+		"modelName": "FOCUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 531,
+		"modelName": "PUMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 532,
+		"modelName": "GALAXY VAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 533,
+		"modelName": "EXPEDITION",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 534,
+		"modelName": "ESCAPE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 535,
+		"modelName": "A",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 536,
+		"modelName": "ECO SPORT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 537,
+		"modelName": "S-MAX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 528,
+		"modelName": "VAN",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 538,
+		"modelName": "T",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 539,
+		"modelName": "PICK UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 540,
+		"modelName": "KUGA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 53,
+		"modelID": 541,
+		"modelName": "CONTOUR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 600,
+		"modelName": "CIVIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 601,
+		"modelName": "ACCORD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 602,
+		"modelName": "ODISSEY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 603,
+		"modelName": "PRELUDE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 604,
+		"modelName": "CRX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 605,
+		"modelName": "PASSPORT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 606,
+		"modelName": "NSX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 607,
+		"modelName": "LEGEND",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 608,
+		"modelName": "CRV",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 609,
+		"modelName": "S",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 610,
+		"modelName": "HRV",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 611,
+		"modelName": "STREAM",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 612,
+		"modelName": "FIT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 613,
+		"modelName": "FURGON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 614,
+		"modelName": "PILOT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 615,
+		"modelName": "CITY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 616,
+		"modelName": "WR-V",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 637,
+		"modelName": "EXCEL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 638,
+		"modelName": "ACCENT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 639,
+		"modelName": "ELANTRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 640,
+		"modelName": "S",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 641,
+		"modelName": "SONATA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 642,
+		"modelName": "H100",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 643,
+		"modelName": "MIGTHY",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 644,
+		"modelName": "GALLOPER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 642,
+		"modelName": "H100",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 645,
+		"modelName": "GENESIS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 646,
+		"modelName": "PONY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 646,
+		"modelName": "PONY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 647,
+		"modelName": "ATOS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 648,
+		"modelName": "H1",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 649,
+		"modelName": "COUNTY",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 650,
+		"modelName": "SANTAMO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 648,
+		"modelName": "H1",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 651,
+		"modelName": "HD",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 652,
+		"modelName": "SANTA FE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 653,
+		"modelName": "TRAJET",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 654,
+		"modelName": "MATRIX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 655,
+		"modelName": "TERRACAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 656,
+		"modelName": "GETZ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 657,
+		"modelName": "TUCSON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 658,
+		"modelName": "I 30",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 659,
+		"modelName": "VERACRUZ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 660,
+		"modelName": "I 10",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 661,
+		"modelName": "VELOSTER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 662,
+		"modelName": "GRAND I 10",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 663,
+		"modelName": "CRETA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 664,
+		"modelName": "GRAND SANTA FE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 665,
+		"modelName": "H350",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 666,
+		"modelName": "KONA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 75,
+		"modelID": 667,
+		"modelName": "IONIQ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 2,
+		"modelID": 4,
+		"modelName": "EQ",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 675,
+		"modelName": "PICK-UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 676,
+		"modelName": "TROOPER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 677,
+		"modelName": "RODEO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 678,
+		"modelName": "AMIGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 679,
+		"modelName": "STYLUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 680,
+		"modelName": "MINIBUS",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 681,
+		"modelName": "NPR",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 682,
+		"modelName": "VEHICROSS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 683,
+		"modelName": "NKR",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 78,
+		"modelID": 684,
+		"modelName": "NQR",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 712,
+		"modelName": "XJ6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 713,
+		"modelName": "XJR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 714,
+		"modelName": "DAIMLER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 715,
+		"modelName": "SOVEREING",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 716,
+		"modelName": "XJS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 717,
+		"modelName": "XK8",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 718,
+		"modelName": "XKE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 719,
+		"modelName": "XKR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 720,
+		"modelName": "XJ8",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 721,
+		"modelName": "S-TYPE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 722,
+		"modelName": "X-TYPE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 723,
+		"modelName": "XF",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 724,
+		"modelName": "XK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 725,
+		"modelName": "XFR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 726,
+		"modelName": "MK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 727,
+		"modelName": "F-TYPE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 728,
+		"modelName": "XE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 82,
+		"modelID": 729,
+		"modelName": "F-PACE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 764,
+		"modelName": "PRIDE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 765,
+		"modelName": "SEPHIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 766,
+		"modelName": "SPORTAGE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 767,
+		"modelName": "BESTA",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 768,
+		"modelName": "CAPITAL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 767,
+		"modelName": "BESTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 769,
+		"modelName": "CLARUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 770,
+		"modelName": "AVELLA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 771,
+		"modelName": "PREGIO",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 772,
+		"modelName": "CERES",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 773,
+		"modelName": "GRAND SPORTAGE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 774,
+		"modelName": "CARNIVAL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 775,
+		"modelName": "SHUMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 771,
+		"modelName": "PREGIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 776,
+		"modelName": "CARENS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 777,
+		"modelName": "JOICE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 778,
+		"modelName": "MAGENTIS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 779,
+		"modelName": "RETONA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 780,
+		"modelName": "SORENTO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 781,
+		"modelName": "CERATO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 782,
+		"modelName": "OPIRUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 783,
+		"modelName": "PICANTO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 784,
+		"modelName": "RIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 785,
+		"modelName": "RONDO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 786,
+		"modelName": "MOHAVE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 93,
+		"modelID": 787,
+		"modelName": "SOUL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 99,
+		"modelID": 808,
+		"modelName": "LAIKA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 99,
+		"modelID": 809,
+		"modelName": "SAMARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 99,
+		"modelID": 810,
+		"modelName": "NIVA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 99,
+		"modelID": 811,
+		"modelName": "AFALINA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 849,
+		"modelName": 121,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 850,
+		"modelName": 323,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 851,
+		"modelName": 626,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 852,
+		"modelName": 929,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 853,
+		"modelName": "RX7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 854,
+		"modelName": "MX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 855,
+		"modelName": "MPV",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 856,
+		"modelName": "PICK-UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 857,
+		"modelName": "FURGON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 108,
+		"modelID": 858,
+		"modelName": "NAVAJO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 196,
+		"modelID": 1483,
+		"modelName": "CAPRI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 196,
+		"modelID": 1484,
+		"modelName": "LINX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 196,
+		"modelID": 1485,
+		"modelName": "COUGAR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 196,
+		"modelID": 1486,
+		"modelName": "MARQUISE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 196,
+		"modelID": 1487,
+		"modelName": "TOPAZ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 196,
+		"modelID": 1488,
+		"modelName": "VILLAGER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 196,
+		"modelID": 1489,
+		"modelName": "SABLE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 860,
+		"modelName": 190,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 861,
+		"modelName": "C",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 862,
+		"modelName": "E",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 863,
+		"modelName": 560,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 864,
+		"modelName": 300,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 865,
+		"modelName": "S",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 866,
+		"modelName": "SL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 867,
+		"modelName": 230,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 868,
+		"modelName": 280,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 869,
+		"modelName": 380,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 870,
+		"modelName": 500,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 871,
+		"modelName": "MB",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 871,
+		"modelName": "MB",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 872,
+		"modelName": 240,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 873,
+		"modelName": 350,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 874,
+		"modelName": 420,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 875,
+		"modelName": 250,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 876,
+		"modelName": 200,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 877,
+		"modelName": "SPRINTER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 877,
+		"modelName": "SPRINTER",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 878,
+		"modelName": "SLK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 879,
+		"modelName": "CL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 880,
+		"modelName": 220,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 881,
+		"modelName": 450,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 882,
+		"modelName": "CLK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 883,
+		"modelName": 260,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 872,
+		"modelName": 240,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 884,
+		"modelName": 170,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 885,
+		"modelName": 600,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 886,
+		"modelName": "ML",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 887,
+		"modelName": "VITO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 888,
+		"modelName": "VIANO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 889,
+		"modelName": "G",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 890,
+		"modelName": "A",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 891,
+		"modelName": "CLS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 892,
+		"modelName": "B",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 893,
+		"modelName": "CLC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 894,
+		"modelName": "GLK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 895,
+		"modelName": "SLS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 896,
+		"modelName": "GL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 897,
+		"modelName": "CLA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 898,
+		"modelName": "GLA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 899,
+		"modelName": "GT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 887,
+		"modelName": "VITO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 900,
+		"modelName": "GLC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 901,
+		"modelName": "GLE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 889,
+		"modelName": "G",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 902,
+		"modelName": "GLS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 110,
+		"modelID": 903,
+		"modelName": "SLC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 931,
+		"modelName": "COLT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 932,
+		"modelName": "LANCER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 933,
+		"modelName": "GALANT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 934,
+		"modelName": "SIGMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 935,
+		"modelName": "SPACE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 936,
+		"modelName": "ECLIPSE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 937,
+		"modelName": 3000,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 938,
+		"modelName": "MONTERO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 939,
+		"modelName": "L200",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 940,
+		"modelName": "L300",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 940,
+		"modelName": "L300",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 941,
+		"modelName": "CELESTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 942,
+		"modelName": "EXPO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 943,
+		"modelName": "L100",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 944,
+		"modelName": "SAPPORO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 938,
+		"modelName": "MONTERO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 945,
+		"modelName": "DIAMANTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 946,
+		"modelName": "VARICA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 946,
+		"modelName": "VARICA",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 947,
+		"modelName": "NATIVA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 115,
+		"modelID": 948,
+		"modelName": "OUTLANDER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 969,
+		"modelName": "NX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 970,
+		"modelName": "BLUEBIRD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 971,
+		"modelName": "PATHFINDER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 972,
+		"modelName": "AD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 973,
+		"modelName": "SENTRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 974,
+		"modelName": "MAXIMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 975,
+		"modelName": "SX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 976,
+		"modelName": "FURGON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 977,
+		"modelName": "VANETTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 978,
+		"modelName": "PATROL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 979,
+		"modelName": "SERENA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 980,
+		"modelName": "PICK-UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 981,
+		"modelName": "ZX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 982,
+		"modelName": "TERRANO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 983,
+		"modelName": "DATSUN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 984,
+		"modelName": "SUNNY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 985,
+		"modelName": "ALTIMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 986,
+		"modelName": "QUEST",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 983,
+		"modelName": "DATSUN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 987,
+		"modelName": "PRIMERA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 988,
+		"modelName": "MARCH",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 989,
+		"modelName": "MICRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 990,
+		"modelName": "XTERRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 991,
+		"modelName": "XTRAIL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 992,
+		"modelName": "STANZA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 993,
+		"modelName": "Z 350",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 977,
+		"modelName": "VANETTE",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 994,
+		"modelName": "TIIDA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 995,
+		"modelName": "TEANA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 996,
+		"modelName": "MURANO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 997,
+		"modelName": "Z 370",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 998,
+		"modelName": "VERSA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 999,
+		"modelName": "NOTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 1000,
+		"modelName": "KICKS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 120,
+		"modelID": 1001,
+		"modelName": "LEAF",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1011,
+		"modelName": "VECTRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1012,
+		"modelName": "ASTRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1013,
+		"modelName": "OMEGA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1014,
+		"modelName": "CORSA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1015,
+		"modelName": "CALIBRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1016,
+		"modelName": "K 180",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1017,
+		"modelName": "REKORD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1018,
+		"modelName": "TIGRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1019,
+		"modelName": "FRONTERA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1020,
+		"modelName": "KADETT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 124,
+		"modelID": 1021,
+		"modelName": "VIVARO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1023,
+		"modelName": 504,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1024,
+		"modelName": 205,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1025,
+		"modelName": "PICK-UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1026,
+		"modelName": 505,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1027,
+		"modelName": 405,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1028,
+		"modelName": 306,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1029,
+		"modelName": 605,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1030,
+		"modelName": 806,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1031,
+		"modelName": "BOXER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1032,
+		"modelName": 406,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1033,
+		"modelName": 106,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1034,
+		"modelName": 309,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1035,
+		"modelName": 403,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1036,
+		"modelName": 404,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1036,
+		"modelName": 404,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1037,
+		"modelName": 604,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1031,
+		"modelName": "BOXER",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1038,
+		"modelName": "PARTNER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1039,
+		"modelName": 206,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1038,
+		"modelName": "PARTNER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1040,
+		"modelName": "EXPERT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1041,
+		"modelName": 607,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1042,
+		"modelName": 307,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1043,
+		"modelName": 807,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1044,
+		"modelName": 407,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1045,
+		"modelName": 305,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1040,
+		"modelName": "EXPERT",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1046,
+		"modelName": 207,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1035,
+		"modelName": 403,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1047,
+		"modelName": 308,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1048,
+		"modelName": 3008,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1049,
+		"modelName": "RCZ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1050,
+		"modelName": 408,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1051,
+		"modelName": "HOGGAR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1052,
+		"modelName": 5008,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1053,
+		"modelName": 508,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1054,
+		"modelName": 208,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1055,
+		"modelName": 4008,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1056,
+		"modelName": 2008,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1057,
+		"modelName": 301,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 126,
+		"modelID": 1058,
+		"modelName": "TRAVELER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 130,
+		"modelID": 1064,
+		"modelName": "1600 GLE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 130,
+		"modelID": 1065,
+		"modelName": "GLD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 130,
+		"modelID": 1066,
+		"modelName": "PICK-UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 130,
+		"modelID": 1067,
+		"modelName": "TRUCK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 130,
+		"modelID": 1068,
+		"modelName": "CARO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 130,
+		"modelID": 1069,
+		"modelName": "DINO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 131,
+		"modelID": 1070,
+		"modelName": "SUNBIRD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 131,
+		"modelID": 1071,
+		"modelName": "FIREBIRD",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 131,
+		"modelID": 1072,
+		"modelName": "TRANSPORT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 131,
+		"modelID": 1073,
+		"modelName": "BONNEVILLE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1074,
+		"modelName": 911,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1075,
+		"modelName": 968,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1076,
+		"modelName": 928,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1077,
+		"modelName": 912,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1078,
+		"modelName": 924,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1079,
+		"modelName": 944,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1080,
+		"modelName": "BOXSTER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1081,
+		"modelName": "CAYENNE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1082,
+		"modelName": "CAYMAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1083,
+		"modelName": "PANAMERA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1084,
+		"modelName": "MACAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1085,
+		"modelName": 718,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 132,
+		"modelID": 1083,
+		"modelName": "PANAMERA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1092,
+		"modelName": "R 4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1093,
+		"modelName": "R 12",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1094,
+		"modelName": "CLIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1095,
+		"modelName": "R 18",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1096,
+		"modelName": "FUEGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1097,
+		"modelName": "R 11",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1098,
+		"modelName": "R 9",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1099,
+		"modelName": "R 25",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1100,
+		"modelName": "R 21",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1101,
+		"modelName": "R 19",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1102,
+		"modelName": "TWINGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1103,
+		"modelName": "SAFRANE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1104,
+		"modelName": "EXPRESS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1105,
+		"modelName": "LAGUNA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1106,
+		"modelName": "TRAFIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1107,
+		"modelName": "ESPACE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1106,
+		"modelName": "TRAFIC",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1108,
+		"modelName": "R 20",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1109,
+		"modelName": "R 30",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1092,
+		"modelName": "R 4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1110,
+		"modelName": "R 5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1111,
+		"modelName": "R 6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1112,
+		"modelName": "GORDINI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1113,
+		"modelName": "MEGANE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1114,
+		"modelName": "SCENIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1115,
+		"modelName": "KANGOO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1116,
+		"modelName": "MASTER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1115,
+		"modelName": "KANGOO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1116,
+		"modelName": "MASTER",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1117,
+		"modelName": "LOGAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1118,
+		"modelName": "GRAND SCENIC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1119,
+		"modelName": "SANDERO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1120,
+		"modelName": "SYMBOL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1121,
+		"modelName": "KOLEOS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1122,
+		"modelName": "FLUENCE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1123,
+		"modelName": "LATITUDE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1124,
+		"modelName": "DUSTER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1094,
+		"modelName": "CLIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1125,
+		"modelName": "OROCH",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1126,
+		"modelName": "CAPTUR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 136,
+		"modelID": 1127,
+		"modelName": "KWID",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1139,
+		"modelName": 214,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1140,
+		"modelName": 216,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1141,
+		"modelName": 220,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1142,
+		"modelName": 414,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1143,
+		"modelName": 416,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1144,
+		"modelName": 420,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1145,
+		"modelName": 620,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1146,
+		"modelName": 820,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1147,
+		"modelName": "DISCOVERY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1148,
+		"modelName": "DEFENDER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1149,
+		"modelName": 114,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1150,
+		"modelName": "RANGE ROVER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1151,
+		"modelName": "MGF",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1152,
+		"modelName": "SANTANA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1153,
+		"modelName": 618,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1154,
+		"modelName": 623,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1155,
+		"modelName": "FREELANDER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1156,
+		"modelName": 218,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1157,
+		"modelName": 25,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1158,
+		"modelName": 45,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1159,
+		"modelName": 75,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1160,
+		"modelName": "RANGE ROVER EVOQUE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1161,
+		"modelName": "STATION WAGON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1162,
+		"modelName": "RANGE ROVER VELAR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 139,
+		"modelID": 1160,
+		"modelName": "RANGE ROVER EVOQUE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 140,
+		"modelID": 1163,
+		"modelName": 9000,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 140,
+		"modelID": 1164,
+		"modelName": 900,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 140,
+		"modelID": 1165,
+		"modelName": "9-5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 140,
+		"modelID": 1166,
+		"modelName": "9-3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1179,
+		"modelName": "IBIZA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1180,
+		"modelName": "CORDOBA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1181,
+		"modelName": "TOLEDO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1182,
+		"modelName": "MARBELLA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1183,
+		"modelName": "INCA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1184,
+		"modelName": "ALHAMBRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1184,
+		"modelName": "ALHAMBRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1185,
+		"modelName": "TERRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1186,
+		"modelName": "LEON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 144,
+		"modelID": 1187,
+		"modelName": "ALTEA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 147,
+		"modelID": 1194,
+		"modelName": "FELICIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 147,
+		"modelID": 1195,
+		"modelName": "RURAL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 685,
+		"modelName": "DAILY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 685,
+		"modelName": "DAILY",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 685,
+		"modelName": "DAILY",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 686,
+		"modelName": 619,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 687,
+		"modelName": 697,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 688,
+		"modelName": 150,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 689,
+		"modelName": 190,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 690,
+		"modelName": 130,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 691,
+		"modelName": "EUROTRAKER",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 692,
+		"modelName": "EUROCARGO",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 693,
+		"modelName": 673,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 694,
+		"modelName": "EUROTECH",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 695,
+		"modelName": "POWER STAR",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 696,
+		"modelName": "STRALIS",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 697,
+		"modelName": "TRAKKER",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 698,
+		"modelName": "TECTOR",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 699,
+		"modelName": "CURSOR",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 700,
+		"modelName": 682,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 701,
+		"modelName": "VERTIS",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 79,
+		"modelID": 702,
+		"modelName": "ASTRA",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1202,
+		"modelName": "JUSTY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1203,
+		"modelName": "IMPREZA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1204,
+		"modelName": "LEGACY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1205,
+		"modelName": "SVX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1206,
+		"modelName": "OUTBACK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1207,
+		"modelName": 1300,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1208,
+		"modelName": "FORESTER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1209,
+		"modelName": "TRIBECA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1210,
+		"modelName": 1600,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1211,
+		"modelName": "XV",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1212,
+		"modelName": 600,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 152,
+		"modelID": 1213,
+		"modelName": "WRX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1215,
+		"modelName": "VITARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1216,
+		"modelName": "SWIFT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1217,
+		"modelName": "JEEP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1218,
+		"modelName": "SAMURAI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1215,
+		"modelName": "VITARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1219,
+		"modelName": "SUPER CARRY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1220,
+		"modelName": "BALENO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1219,
+		"modelName": "SUPER CARRY",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1221,
+		"modelName": "ALTO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1222,
+		"modelName": "GRAND VITARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1222,
+		"modelName": "GRAND VITARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1223,
+		"modelName": "WAGON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1224,
+		"modelName": "JIMMY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1225,
+		"modelName": "x 90",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1226,
+		"modelName": "CAB VAN",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1227,
+		"modelName": "FUN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1228,
+		"modelName": "ST",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1229,
+		"modelName": "SC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1230,
+		"modelName": "SS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 158,
+		"modelID": 1245,
+		"modelName": "TAVRIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1248,
+		"modelName": "CORONA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1249,
+		"modelName": "CELICA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1250,
+		"modelName": "HILUX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1251,
+		"modelName": "COASTER",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1252,
+		"modelName": "4RUNER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1253,
+		"modelName": "LAND CRUISER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1254,
+		"modelName": "CRESSIDA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1255,
+		"modelName": "HIACE",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1256,
+		"modelName": "DYNA",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1257,
+		"modelName": "CROWN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1255,
+		"modelName": "HIACE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1258,
+		"modelName": "ACE",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1259,
+		"modelName": "CAMRY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1260,
+		"modelName": "TERCEL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1261,
+		"modelName": "AVALON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1262,
+		"modelName": "CARINA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1263,
+		"modelName": "COROLLA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1264,
+		"modelName": "PREVIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1265,
+		"modelName": "RAV",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1266,
+		"modelName": "STARLET",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1267,
+		"modelName": "SUPRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1268,
+		"modelName": "SW4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "LS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1269,
+		"modelName": "PASEO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "LX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "SC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1270,
+		"modelName": "TACOMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "IS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "GS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1271,
+		"modelName": "LAND CRUISER  PRADO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1272,
+		"modelName": "AVENSIS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1273,
+		"modelName": "PRIUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1274,
+		"modelName": "STOUT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1275,
+		"modelName": "FJ CRUISER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1276,
+		"modelName": 86,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1277,
+		"modelName": "ETIOS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1278,
+		"modelName": "YARIS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1279,
+		"modelName": "INNOVA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1280,
+		"modelName": "SIENA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "NX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "RC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "RX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 160,
+		"modelID": 1281,
+		"modelName": "CH-R",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "UX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 193,
+		"modelID": "#N/A",
+		"modelName": "ES",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1290,
+		"modelName": "VW 1.5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1291,
+		"modelName": "VW 1.8",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1292,
+		"modelName": "GACEL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1293,
+		"modelName": "SENDA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1294,
+		"modelName": "CARAT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1295,
+		"modelName": "GOL",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1296,
+		"modelName": "QUANTUM",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1297,
+		"modelName": "PASSAT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1298,
+		"modelName": "POINTER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1299,
+		"modelName": "GOLF",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1300,
+		"modelName": "VW KOMBI",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1301,
+		"modelName": "VW FURGON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1302,
+		"modelName": "DODGE PICK-UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1303,
+		"modelName": "SAVEIRO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1304,
+		"modelName": "SHARAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1305,
+		"modelName": "POLO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1306,
+		"modelName": "TRANSPORTER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1307,
+		"modelName": "DODGE 1500",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1308,
+		"modelName": "DODGE POLARA-GTX-CORONADO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1302,
+		"modelName": "DODGE PICK-UP",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1309,
+		"modelName": 1300,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1310,
+		"modelName": "PARATI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1311,
+		"modelName": "SANTANA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1312,
+		"modelName": "ESCARABAJO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1313,
+		"modelName": "BRASILIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1314,
+		"modelName": "JETTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1315,
+		"modelName": "RABBIT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1316,
+		"modelName": "CADDY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1317,
+		"modelName": "NEW BEETLE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1318,
+		"modelName": "BORA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1306,
+		"modelName": "TRANSPORTER",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1319,
+		"modelName": "TOUAREG",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1320,
+		"modelName": "FOX",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1321,
+		"modelName": "VENTO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1322,
+		"modelName": "SURAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1323,
+		"modelName": "MULTIVAN",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1324,
+		"modelName": "TIGUAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1325,
+		"modelName": "VOYAGE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1308,
+		"modelName": "DODGE POLARA-GTX-CORONADO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1308,
+		"modelName": "DODGE POLARA-GTX-CORONADO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1326,
+		"modelName": "AMAZON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1327,
+		"modelName": "AMAROK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1328,
+		"modelName": "SCIROCCO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1329,
+		"modelName": "THE BEETLE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1330,
+		"modelName": "UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1331,
+		"modelName": "VIRTUS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 165,
+		"modelID": 1332,
+		"modelName": "T-CROSS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1373,
+		"modelName": 240,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1374,
+		"modelName": 740,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1375,
+		"modelName": 760,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1376,
+		"modelName": 850,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1377,
+		"modelName": 940,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1378,
+		"modelName": 960,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1379,
+		"modelName": 242,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1380,
+		"modelName": 244,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1381,
+		"modelName": 264,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1382,
+		"modelName": 460,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1383,
+		"modelName": 245,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1384,
+		"modelName": 945,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1385,
+		"modelName": 360,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1386,
+		"modelName": 780,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1387,
+		"modelName": "S 40",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1388,
+		"modelName": "V 40",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1389,
+		"modelName": 265,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1390,
+		"modelName": 343,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1391,
+		"modelName": 345,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1392,
+		"modelName": "S 90",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1393,
+		"modelName": "XC 70",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1394,
+		"modelName": "S 70",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1395,
+		"modelName": "V 90",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1396,
+		"modelName": "V 70",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1397,
+		"modelName": "C 70",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1398,
+		"modelName": "S 80",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1399,
+		"modelName": "S 60",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1400,
+		"modelName": "XC 90",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1401,
+		"modelName": "V 50",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1402,
+		"modelName": "C 30",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1403,
+		"modelName": "XC 60",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1404,
+		"modelName": 544,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1405,
+		"modelName": "V 60",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1388,
+		"modelName": "V 40",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 167,
+		"modelID": 1406,
+		"modelName": "XC 40",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 133,
+		"modelID": 1086,
+		"modelName": "WIRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 133,
+		"modelID": 1087,
+		"modelName": 420,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 133,
+		"modelID": 1088,
+		"modelName": 416,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 72,
+		"modelID": 627,
+		"modelName": "TECHO DURO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 72,
+		"modelID": 628,
+		"modelName": "H2",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 72,
+		"modelID": 629,
+		"modelName": "H3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 143,
+		"modelID": 1171,
+		"modelName": "LT 111",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 143,
+		"modelID": 1172,
+		"modelName": "T",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 143,
+		"modelID": 1173,
+		"modelName": "P",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 143,
+		"modelID": 1174,
+		"modelName": "R",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 143,
+		"modelID": 1175,
+		"modelName": "G",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 143,
+		"modelID": 1176,
+		"modelName": "RN",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 143,
+		"modelID": 1177,
+		"modelName": "RH",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 143,
+		"modelID": 1178,
+		"modelName": "S",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 429,
+		"modelName": 355,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 430,
+		"modelName": 456,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 431,
+		"modelName": "F 50",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 432,
+		"modelName": 308,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 433,
+		"modelName": "F 550",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 434,
+		"modelName": 512,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 435,
+		"modelName": 360,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 436,
+		"modelName": 430,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 437,
+		"modelName": 612,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 438,
+		"modelName": "SUPERAMERICA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 439,
+		"modelName": 599,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 440,
+		"modelName": 328,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 441,
+		"modelName": "TESTAROSSA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 442,
+		"modelName": "CALIFORNIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 443,
+		"modelName": 348,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 444,
+		"modelName": 458,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 445,
+		"modelName": 250,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 446,
+		"modelName": "FF",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 447,
+		"modelName": "F12",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 51,
+		"modelID": 448,
+		"modelName": 488,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 65,
+		"modelID": 585,
+		"modelName": "PICK-UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 812,
+		"modelName": "DEDRA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 813,
+		"modelName": "BETA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 814,
+		"modelName": "DELTA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 815,
+		"modelName": "TEMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 816,
+		"modelName": "PRISMA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 817,
+		"modelName": 132,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 818,
+		"modelName": "KAPPA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 819,
+		"modelName": "YPSILON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 820,
+		"modelName": "K",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 100,
+		"modelID": 821,
+		"modelName": "FLAMINIA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 184,
+		"modelID": 1450,
+		"modelName": "ANTIQUE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 184,
+		"modelID": 1451,
+		"modelName": "DURANGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 106,
+		"modelID": 837,
+		"modelName": "CJ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 106,
+		"modelID": 838,
+		"modelName": "PICK UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 200,
+		"modelID": 1493,
+		"modelName": "RASTROJERO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 200,
+		"modelID": 1494,
+		"modelName": "S 73",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 156,
+		"modelID": 1239,
+		"modelName": "SUMO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 156,
+		"modelID": 1240,
+		"modelName": "TELCOLINE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 156,
+		"modelID": 1241,
+		"modelName": "SAFARI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 19,
+		"modelID": 112,
+		"modelName": "BJ",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 188,
+		"modelID": 1456,
+		"modelName": "GLADIATOR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 188,
+		"modelID": 1457,
+		"modelName": "ESTANCIERA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 188,
+		"modelID": 1458,
+		"modelName": "GORDINI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 188,
+		"modelID": 1459,
+		"modelName": "JEEP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 188,
+		"modelID": 1460,
+		"modelName": "RAMBLER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 188,
+		"modelID": 1461,
+		"modelName": "TORINO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 188,
+		"modelID": 1457,
+		"modelName": "ESTANCIERA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 188,
+		"modelID": 1462,
+		"modelName": "KAISER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 188,
+		"modelID": 1463,
+		"modelName": "BUGGY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 177,
+		"modelID": 1436,
+		"modelName": "MONTEGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 177,
+		"modelID": 1437,
+		"modelName": "MORRIS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 177,
+		"modelID": 1438,
+		"modelName": "ALLEGRO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 177,
+		"modelID": 1439,
+		"modelName": "SHERPA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 17,
+		"modelID": 102,
+		"modelName": "FREECLEMBER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 112,
+		"modelID": 918,
+		"modelName": "METRO",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 3,
+		"modelID": 5,
+		"modelName": "DYNAMIC",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 3,
+		"modelID": 6,
+		"modelName": "STARK",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 3,
+		"modelID": 7,
+		"modelName": "STALLION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 3,
+		"modelID": 8,
+		"modelName": "AGRALE",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 3,
+		"modelID": 8,
+		"modelName": "AGRALE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 3,
+		"modelID": 9,
+		"modelName": "MARRUA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 63,
+		"modelID": 575,
+		"modelName": "GROSS",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 63,
+		"modelID": 576,
+		"modelName": "G",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 135,
+		"modelID": 1090,
+		"modelName": "PICK-UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 135,
+		"modelID": 1091,
+		"modelName": "CAMION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1333,
+		"modelName": 9.14,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1334,
+		"modelName": 15.16,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1335,
+		"modelName": 17.21,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1336,
+		"modelName": 17.3,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1337,
+		"modelName": 26.26,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1338,
+		"modelName": 9.15,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1339,
+		"modelName": 26.3,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1340,
+		"modelName": 13.18,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1341,
+		"modelName": 18.31,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1342,
+		"modelName": 17.31,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1343,
+		"modelName": 17.24,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1344,
+		"modelName": 17.22,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1345,
+		"modelName": 26.31,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1346,
+		"modelName": 15.18,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1347,
+		"modelName": 19.32,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1348,
+		"modelName": 17.25,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1349,
+		"modelName": 5.14,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1350,
+		"modelName": "31.320 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1351,
+		"modelName": 8.15,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1352,
+		"modelName": 10.15,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1353,
+		"modelName": 25.32,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1354,
+		"modelName": "9.160 DELIVERY",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1355,
+		"modelName": "13.190 WORKER",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1356,
+		"modelName": "17.190 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1357,
+		"modelName": "17.280 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1358,
+		"modelName": "19.330 CONTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1359,
+		"modelName": "19.420 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1360,
+		"modelName": "25.420 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1361,
+		"modelName": "26.420 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1362,
+		"modelName": "26.280 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1363,
+		"modelName": "31.280 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1364,
+		"modelName": "31.330 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1365,
+		"modelName": 19.36,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1366,
+		"modelName": 15.19,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1367,
+		"modelName": 17.23,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1368,
+		"modelName": "9.170 DELIVERY",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1369,
+		"modelName": "11.180 DELIVERY",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1370,
+		"modelName": "17.230 CONSTELLATION ROBUST",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1371,
+		"modelName": "25.360 CONSTELLATION",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 166,
+		"modelID": 1372,
+		"modelName": "6.160 DELIVERY",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 105,
+		"modelID": 836,
+		"modelName": "MAESTRO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 86,
+		"modelID": 742,
+		"modelName": "SY",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 49,
+		"modelID": 425,
+		"modelName": "AV-120",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1128,
+		"modelName": "MIDLINER",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1129,
+		"modelName": "PREMIUM",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1130,
+		"modelName": "MANAGER",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1131,
+		"modelName": "MAGNUM",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1132,
+		"modelName": "MAXTER",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1133,
+		"modelName": "CBH",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1134,
+		"modelName": "MIDLUM",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1135,
+		"modelName": "KERAX",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1136,
+		"modelName": "D",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 137,
+		"modelID": 1137,
+		"modelName": "C",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 9,
+		"modelID": 53,
+		"modelName": "AM",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 277,
+		"modelName": 6000,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 278,
+		"modelName": 14000,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 279,
+		"modelName": "KODIAK",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 280,
+		"modelName": "NPR",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 281,
+		"modelName": "G-",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 282,
+		"modelName": "15-190",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 283,
+		"modelName": "NKR",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 284,
+		"modelName": "16-220",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 285,
+		"modelName": 714,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 29,
+		"modelID": 286,
+		"modelName": "C 50",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 54,
+		"modelID": 542,
+		"modelName": "CARGO",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 54,
+		"modelID": 543,
+		"modelName": "F-14000",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 54,
+		"modelID": 544,
+		"modelName": "F-6000",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 54,
+		"modelID": 545,
+		"modelName": "F-7000",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 54,
+		"modelID": 546,
+		"modelName": "F-700",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 54,
+		"modelID": 547,
+		"modelName": "F-600",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 54,
+		"modelID": 548,
+		"modelName": "F-4000",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 94,
+		"modelID": 788,
+		"modelName": "K",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 94,
+		"modelID": 788,
+		"modelName": "K",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 94,
+		"modelID": 789,
+		"modelName": "FRONTIER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 904,
+		"modelName": "L",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 905,
+		"modelName": "LK",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 906,
+		"modelName": "LP",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 907,
+		"modelName": "LAK",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 908,
+		"modelName": "LS",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 909,
+		"modelName": "LB",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 910,
+		"modelName": "UNIMOG",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 911,
+		"modelName": "ACCELO",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 912,
+		"modelName": "OM",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 913,
+		"modelName": "ATEGO",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 914,
+		"modelName": "AXOR",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 915,
+		"modelName": "ACTROS",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 916,
+		"modelName": "ATRON",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 111,
+		"modelID": 917,
+		"modelName": "AROCS",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 157,
+		"modelID": 1242,
+		"modelName": 609,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 157,
+		"modelID": 1243,
+		"modelName": 608,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 157,
+		"modelID": 1244,
+		"modelName": 709,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 119,
+		"modelID": 966,
+		"modelName": "SC 1010",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 119,
+		"modelID": 967,
+		"modelName": "DOMINIUM",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 119,
+		"modelID": 968,
+		"modelName": "SC 1011",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 15,
+		"modelID": 96,
+		"modelName": "BTM",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 56,
+		"modelID": 553,
+		"modelName": 3309,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 56,
+		"modelID": 554,
+		"modelName": "GAZELLE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 56,
+		"modelID": 554,
+		"modelName": "GAZELLE",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 70,
+		"modelID": 598,
+		"modelName": "FC",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 70,
+		"modelID": 599,
+		"modelName": "SERIE 300",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 70,
+		"modelID": 599,
+		"modelName": "SERIE 300",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 80,
+		"modelID": 703,
+		"modelName": 2715,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 90,
+		"modelID": 747,
+		"modelName": 55111,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 90,
+		"modelID": 748,
+		"modelName": 54112,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 90,
+		"modelID": 749,
+		"modelName": 53212,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 90,
+		"modelID": 750,
+		"modelName": 53215,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 90,
+		"modelID": 751,
+		"modelName": 53229,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 90,
+		"modelID": 752,
+		"modelName": 54115,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 90,
+		"modelID": 753,
+		"modelName": 65115,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 92,
+		"modelID": 762,
+		"modelName": "T 3000",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 92,
+		"modelID": 763,
+		"modelName": "W 900",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 102,
+		"modelID": 824,
+		"modelName": 110471,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 102,
+		"modelID": 825,
+		"modelName": 110050,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 162,
+		"modelID": 1284,
+		"modelName": "FURGON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 162,
+		"modelID": 1285,
+		"modelName": "JEEP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 174,
+		"modelID": 1428,
+		"modelName": "NJ",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 174,
+		"modelID": 1429,
+		"modelName": "MINIBUS",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 77,
+		"modelID": 669,
+		"modelName": 4900,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 77,
+		"modelID": 670,
+		"modelName": 4700,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 77,
+		"modelID": 671,
+		"modelName": 2654,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 77,
+		"modelID": 672,
+		"modelName": 8200,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 77,
+		"modelID": 673,
+		"modelName": 9800,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 77,
+		"modelID": 674,
+		"modelName": 5070,
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 168,
+		"modelID": 1407,
+		"modelName": "NL",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 168,
+		"modelID": 1408,
+		"modelName": "EDC",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 168,
+		"modelID": 1409,
+		"modelName": "FH",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 168,
+		"modelID": 1410,
+		"modelName": "NH",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 168,
+		"modelID": 1411,
+		"modelName": "FM",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 168,
+		"modelID": 1412,
+		"modelName": "VM",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 168,
+		"modelID": 1413,
+		"modelName": "FMX",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 43,
+		"modelID": 408,
+		"modelName": "CUMMINS",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 109,
+		"modelID": 859,
+		"modelName": "T 4000",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 116,
+		"modelID": 949,
+		"modelName": "CANTER",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 116,
+		"modelID": 950,
+		"modelName": "SANSUNG",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 121,
+		"modelID": 1002,
+		"modelName": "CPC",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 121,
+		"modelID": 1003,
+		"modelName": "CPB",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 121,
+		"modelID": 1004,
+		"modelName": "CMF",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 121,
+		"modelID": 1005,
+		"modelName": "ECO",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 121,
+		"modelID": 1006,
+		"modelName": "U",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 38,
+		"modelID": 397,
+		"modelName": "DELTA",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 127,
+		"modelID": 1059,
+		"modelName": "PORTER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 127,
+		"modelID": 1059,
+		"modelName": "PORTER",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 142,
+		"modelID": 1169,
+		"modelName": "D/CAB",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 142,
+		"modelID": 1170,
+		"modelName": "S/CAB",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 151,
+		"modelID": 1200,
+		"modelName": "SXZ 1047",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 151,
+		"modelID": 1201,
+		"modelName": "SXZ 3043",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 173,
+		"modelID": 1426,
+		"modelName": "YTQ",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 173,
+		"modelID": 1427,
+		"modelName": "METRO",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 81,
+		"modelID": 704,
+		"modelName": "HFC CAMIONES",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 81,
+		"modelID": 705,
+		"modelName": "MINIBUS",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 81,
+		"modelID": 706,
+		"modelName": "T6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 81,
+		"modelID": 707,
+		"modelName": "X200",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 81,
+		"modelID": 708,
+		"modelName": "S2",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 81,
+		"modelID": 709,
+		"modelName": "S3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 81,
+		"modelID": 710,
+		"modelName": "S5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 81,
+		"modelID": 711,
+		"modelName": "S7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 69,
+		"modelID": 597,
+		"modelName": "PICK UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 69,
+		"modelID": 597,
+		"modelName": "PICK UP",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 169,
+		"modelID": 1414,
+		"modelName": "LZW",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 169,
+		"modelID": 1414,
+		"modelName": "LZW",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 150,
+		"modelID": 1199,
+		"modelName": "GHT",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 839,
+		"modelName": "3200 GT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 840,
+		"modelName": "QUATTROPORTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 841,
+		"modelName": "COUPE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 842,
+		"modelName": "SPYDER",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 843,
+		"modelName": "GRANSPORT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 844,
+		"modelName": "GRANTURISMO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 845,
+		"modelName": 420,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 846,
+		"modelName": "GT SPORT",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 847,
+		"modelName": "GHIBLI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 107,
+		"modelID": 848,
+		"modelName": "LEVANTE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 141,
+		"modelID": 1167,
+		"modelName": "SAMURAI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 141,
+		"modelID": 1167,
+		"modelName": "SAMURAI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 141,
+		"modelID": 1168,
+		"modelName": "VITARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 141,
+		"modelID": 1168,
+		"modelName": "VITARA",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 202,
+		"modelID": 1503,
+		"modelName": "SIAM",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 199,
+		"modelID": 1492,
+		"modelName": "PLYMOUTH",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 114,
+		"modelID": 925,
+		"modelName": "MINI",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 114,
+		"modelID": 926,
+		"modelName": "CABRIO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 114,
+		"modelID": 927,
+		"modelName": "CLUBMAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 114,
+		"modelID": 928,
+		"modelName": "COUNTRYMAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 114,
+		"modelID": 929,
+		"modelName": "COUPE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 114,
+		"modelID": 930,
+		"modelName": "PACEMAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 138,
+		"modelID": 1138,
+		"modelName": "PHANTON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 27,
+		"modelID": 204,
+		"modelName": "TIGGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 27,
+		"modelID": 205,
+		"modelName": "FACE",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 27,
+		"modelID": 206,
+		"modelName": "QQ",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 27,
+		"modelID": 207,
+		"modelName": "SKIN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 27,
+		"modelID": 208,
+		"modelName": "FULWIN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 27,
+		"modelID": 209,
+		"modelName": "ARRIZO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 194,
+		"modelID": 1475,
+		"modelName": "TOWN CAR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 194,
+		"modelID": 1476,
+		"modelName": "NAVIGATOR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 149,
+		"modelID": 1197,
+		"modelName": "FORTWO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 149,
+		"modelID": 1198,
+		"modelName": "FORFOUR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 104,
+		"modelID": 835,
+		"modelName": "GRANITE",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 41,
+		"modelID": 402,
+		"modelName": "DUOLICA",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 41,
+		"modelID": 403,
+		"modelName": "T 01",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 41,
+		"modelID": 404,
+		"modelName": "DF",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 88,
+		"modelID": 744,
+		"modelName": "N900",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 88,
+		"modelID": 745,
+		"modelName": "N 601",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 103,
+		"modelID": 826,
+		"modelName": "x 60",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 103,
+		"modelID": 827,
+		"modelName": "FOISON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 103,
+		"modelID": 828,
+		"modelName": "x 50",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 103,
+		"modelID": 829,
+		"modelName": "MY WAY",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 103,
+		"modelID": 830,
+		"modelName": "X 70",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 103,
+		"modelID": 831,
+		"modelName": "M 7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 103,
+		"modelID": 832,
+		"modelName": "KYC",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 55,
+		"modelID": 549,
+		"modelName": "TUNLAND",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 55,
+		"modelID": 550,
+		"modelName": "GRATOUR",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 55,
+		"modelID": 551,
+		"modelName": "AUMARK",
+		"vehicleType": ["truck"]
+	},
+	{
+		"brandID": 55,
+		"modelID": 552,
+		"modelName": "VIEW",
+		"vehicleType": ["bus"]
+	},
+	{
+		"brandID": 55,
+		"modelID": 551,
+		"modelName": "AUMARK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 59,
+		"modelID": 558,
+		"modelName": "LC",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 59,
+		"modelID": 559,
+		"modelName": 515,
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 59,
+		"modelID": 560,
+		"modelName": "EMGRAND 7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 59,
+		"modelID": 561,
+		"modelName": "EMGRAND WAGON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 46,
+		"modelID": 416,
+		"modelName": "DS3",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 46,
+		"modelID": 417,
+		"modelName": "DS4",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 46,
+		"modelID": 418,
+		"modelName": "DS7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 13,
+		"modelID": 89,
+		"modelName": "X 55",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 13,
+		"modelID": 90,
+		"modelName": "X 35",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 13,
+		"modelID": 91,
+		"modelName": "X 25",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 13,
+		"modelID": 92,
+		"modelName": "D 20",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 13,
+		"modelID": 93,
+		"modelName": "X 65",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 42,
+		"modelID": 405,
+		"modelName": "PICK UP",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 42,
+		"modelID": 406,
+		"modelName": "FURGON",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 42,
+		"modelID": 407,
+		"modelName": "TRUCK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 146,
+		"modelID": 1190,
+		"modelName": "T 30",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 146,
+		"modelID": 1191,
+		"modelName": "T 32",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 146,
+		"modelID": 1192,
+		"modelName": "X 30",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 146,
+		"modelID": 1193,
+		"modelName": "X 7",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 62,
+		"modelID": 573,
+		"modelName": "WINGLE 5",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 62,
+		"modelID": 574,
+		"modelName": "WINGLE 6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 68,
+		"modelID": 594,
+		"modelName": "H1",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 68,
+		"modelID": 595,
+		"modelName": "H2",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 68,
+		"modelID": 596,
+		"modelName": "H6",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 26,
+		"modelID": 201,
+		"modelName": "CS 15",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 26,
+		"modelID": 202,
+		"modelName": "CS 75",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 26,
+		"modelID": 203,
+		"modelName": "MD 201",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 175,
+		"modelID": 1430,
+		"modelName": "FORCE TRUCK",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 145,
+		"modelID": 1188,
+		"modelName": "SEDAN",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 145,
+		"modelID": 1189,
+		"modelName": "CARGO",
+		"vehicleType": ["car"]
+	},
+	{
+		"brandID": 198,
+		"modelID": 1491,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 178,
+		"modelID": 1440,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 159,
+		"modelID": 1246,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 159,
+		"modelID": 1247,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 57,
+		"modelID": 555,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 57,
+		"modelID": 556,
+		"modelName": "UTV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 148,
+		"modelID": 1196,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 127,
+		"modelID": 1060,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 101,
+		"modelID": 822,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 101,
+		"modelID": 823,
+		"modelName": "CUATRICICLO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 76,
+		"modelID": 668,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 103,
+		"modelID": 833,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 103,
+		"modelID": 834,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 134,
+		"modelID": 1089,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 39,
+		"modelID": 398,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 39,
+		"modelID": 399,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 39,
+		"modelID": 400,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 129,
+		"modelID": 1062,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 129,
+		"modelID": 1063,
+		"modelName": "UTV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 74,
+		"modelID": 635,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 74,
+		"modelID": 636,
+		"modelName": "CRUISER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 97,
+		"modelID": 798,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 97,
+		"modelID": 799,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 97,
+		"modelID": 800,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 97,
+		"modelID": 801,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 58,
+		"modelID": 557,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 128,
+		"modelID": 1061,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 20,
+		"modelID": 113,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 155,
+		"modelID": 1238,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 161,
+		"modelID": 1282,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 161,
+		"modelID": 1283,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 73,
+		"modelID": 630,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 73,
+		"modelID": 631,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 73,
+		"modelID": 632,
+		"modelName": "SUPER SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 73,
+		"modelID": 633,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 73,
+		"modelID": 634,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 617,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 618,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 619,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 620,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 621,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 622,
+		"modelName": "SUPER SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 623,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 624,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 625,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 71,
+		"modelID": 626,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 96,
+		"modelID": 795,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 96,
+		"modelID": 796,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 96,
+		"modelID": 797,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 14,
+		"modelID": 94,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 14,
+		"modelID": 95,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 12,
+		"modelID": 88,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 83,
+		"modelID": 730,
+		"modelName": "BUSSINES",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 83,
+		"modelID": 731,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 83,
+		"modelID": 732,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 23,
+		"modelID": 191,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 23,
+		"modelID": 192,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 23,
+		"modelID": 193,
+		"modelName": "SUPER SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 89,
+		"modelID": 746,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 123,
+		"modelID": 1010,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 97,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 98,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 99,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 100,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 101,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 100,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 117,
+		"modelID": 951,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 117,
+		"modelID": 952,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 117,
+		"modelID": 953,
+		"modelName": "CICLOMOTOR",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 117,
+		"modelID": 954,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 117,
+		"modelID": 955,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 117,
+		"modelID": 956,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 117,
+		"modelID": 957,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 117,
+		"modelID": 958,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"modelID": 1417,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"modelID": 1418,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"modelID": 1419,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"modelID": 1420,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"modelID": 1421,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"modelID": 1422,
+		"modelName": "SUPERSPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"modelID": 1423,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"modelID": 1424,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 172,
+		"modelID": 1425,
+		"modelName": "UTV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 85,
+		"modelID": 739,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 85,
+		"modelID": 740,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 85,
+		"modelID": 741,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 85,
+		"modelID": 739,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"modelID": 103,
+		"modelName": "CICLOMOTOR",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"modelID": 104,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"modelID": 105,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"modelID": 106,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"modelID": 107,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"modelID": 108,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"modelID": 109,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"modelID": 110,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 18,
+		"modelID": 111,
+		"modelName": "ELECTRICA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 179,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 180,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 181,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 182,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 183,
+		"modelName": "URBAN",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 21,
+		"modelID": 184,
+		"modelName": "ROADSTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 25,
+		"modelID": 197,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 25,
+		"modelID": 198,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 25,
+		"modelID": 199,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 25,
+		"modelID": 200,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1231,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1232,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1233,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1234,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1235,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1236,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 154,
+		"modelID": 1237,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 50,
+		"modelID": 426,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 50,
+		"modelID": 427,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 50,
+		"modelID": 428,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 95,
+		"modelID": 790,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 95,
+		"modelID": 791,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 95,
+		"modelID": 792,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 95,
+		"modelID": 793,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 95,
+		"modelID": 794,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 113,
+		"modelID": 919,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 113,
+		"modelID": 920,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 113,
+		"modelID": 921,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 113,
+		"modelID": 922,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 113,
+		"modelID": 923,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 113,
+		"modelID": 924,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"modelID": 959,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"modelID": 960,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"modelID": 961,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"modelID": 962,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"modelID": 963,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"modelID": 964,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"modelID": 965,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"modelID": 961,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 118,
+		"modelID": 959,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 125,
+		"modelID": 1022,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 164,
+		"modelID": 1288,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 164,
+		"modelID": 1289,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 87,
+		"modelID": 743,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 35,
+		"modelID": 355,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 35,
+		"modelID": 356,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 35,
+		"modelID": 357,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 35,
+		"modelID": 358,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 35,
+		"modelID": 357,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 30,
+		"modelID": 287,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 30,
+		"modelID": 288,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 67,
+		"modelID": 587,
+		"modelName": "DYNAS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 67,
+		"modelID": 588,
+		"modelName": "SPORTERS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 67,
+		"modelID": 589,
+		"modelName": "SOFTAILS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 67,
+		"modelID": 590,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 67,
+		"modelID": 591,
+		"modelName": "SCREAMING EAGLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 67,
+		"modelID": 592,
+		"modelName": "POLICE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 67,
+		"modelID": 593,
+		"modelName": "TRIKE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 170,
+		"modelID": 1415,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 22,
+		"modelID": 185,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 22,
+		"modelID": 186,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 22,
+		"modelID": 187,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 22,
+		"modelID": 188,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 22,
+		"modelID": 189,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 22,
+		"modelID": 190,
+		"modelName": "CICLOMOTOR",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 163,
+		"modelID": 1286,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 163,
+		"modelID": 1287,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 64,
+		"modelID": 577,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 64,
+		"modelID": 578,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 64,
+		"modelID": 579,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 64,
+		"modelID": 580,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 64,
+		"modelID": 581,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 64,
+		"modelID": 581,
+		"modelName": "ENDURO",
+		"vehicleType": []
+	},
+	{
+		"brandID": 64,
+		"modelID": 582,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 64,
+		"modelID": 583,
+		"modelName": "CARGA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 64,
+		"modelID": 584,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 66,
+		"modelID": 586,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 153,
+		"modelID": 1214,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 122,
+		"modelID": 1007,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 122,
+		"modelID": 1008,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 122,
+		"modelID": 1009,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 47,
+		"modelID": 419,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 47,
+		"modelID": 420,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 40,
+		"modelID": 401,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 91,
+		"modelID": 754,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 91,
+		"modelID": 755,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 91,
+		"modelID": 756,
+		"modelName": "CICLOMOTOR",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 91,
+		"modelID": 757,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 91,
+		"modelID": 758,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 91,
+		"modelID": 759,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 91,
+		"modelID": 760,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 91,
+		"modelID": 761,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 33,
+		"modelID": 341,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 33,
+		"modelID": 342,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 33,
+		"modelID": 343,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 33,
+		"modelID": 344,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 33,
+		"modelID": 345,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 33,
+		"modelID": 346,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 33,
+		"modelID": 347,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 562,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 563,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 564,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 565,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 566,
+		"modelName": "CICLOMOTOR",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 567,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 568,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 569,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 570,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 60,
+		"modelID": 571,
+		"modelName": "ELECTRICA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 61,
+		"modelID": 572,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 6,
+		"modelID": 34,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 6,
+		"modelID": 35,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 6,
+		"modelID": 36,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 6,
+		"modelID": 37,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 6,
+		"modelID": 38,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 171,
+		"modelID": 1416,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 48,
+		"modelID": 421,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 48,
+		"modelID": 422,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 48,
+		"modelID": 423,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 48,
+		"modelID": 424,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 24,
+		"modelID": 194,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 24,
+		"modelID": 195,
+		"modelName": "ROADSTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 24,
+		"modelID": 196,
+		"modelName": "SIDE BY SIDE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 98,
+		"modelID": 802,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 98,
+		"modelID": 803,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 98,
+		"modelID": 804,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 98,
+		"modelID": 805,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 98,
+		"modelID": 806,
+		"modelName": "UTV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 98,
+		"modelID": 807,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 183,
+		"modelID": 1449,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 192,
+		"modelID": 1467,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 192,
+		"modelID": 1468,
+		"modelName": "SUPER SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 192,
+		"modelID": 1469,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 192,
+		"modelID": 1470,
+		"modelName": "CROSS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 192,
+		"modelID": 1471,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 192,
+		"modelID": 1472,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 192,
+		"modelID": 1473,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 187,
+		"modelID": 1454,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 187,
+		"modelID": 1455,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 190,
+		"modelID": 1465,
+		"modelName": "BUSINEES",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 195,
+		"modelID": 1477,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 195,
+		"modelID": 1478,
+		"modelName": "CICLOMOTOR",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 195,
+		"modelID": 1479,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 195,
+		"modelID": 1480,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 195,
+		"modelID": 1481,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 195,
+		"modelID": 1482,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 191,
+		"modelID": 1466,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 182,
+		"modelID": 1448,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 176,
+		"modelID": 1431,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 176,
+		"modelID": 1432,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 176,
+		"modelID": 1433,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 176,
+		"modelID": 1434,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 176,
+		"modelID": 1435,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 197,
+		"modelID": 1490,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1513,
+		"modelName": "CICLOMOTOR",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1514,
+		"modelName": "CUATRICICLO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1515,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1516,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1517,
+		"modelName": "CALLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1518,
+		"modelName": "ENDURO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1519,
+		"modelName": "UTV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1520,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1521,
+		"modelName": "SPORT",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 205,
+		"modelID": 1522,
+		"modelName": "TURISMO",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 201,
+		"modelID": 1495,
+		"modelName": "BULLET",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 201,
+		"modelID": 1496,
+		"modelName": "ELECTRA",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 201,
+		"modelID": 1497,
+		"modelName": "HIMALAYAN",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 201,
+		"modelID": 1498,
+		"modelName": "CLASSIC CHROME 500",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 201,
+		"modelID": 1499,
+		"modelName": "CONTINENTAL GT 500",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 201,
+		"modelID": 1500,
+		"modelName": "CLASSIC",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 201,
+		"modelID": 1501,
+		"modelName": "CONTINENTAL GT 650",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 201,
+		"modelID": 1502,
+		"modelName": "INTERCEPTOR 650",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 203,
+		"modelID": 1504,
+		"modelName": "TIGER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 203,
+		"modelID": 1505,
+		"modelName": "BONNEVILLE",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 203,
+		"modelID": 1506,
+		"modelName": "ROCKET",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 203,
+		"modelID": 1507,
+		"modelName": "THRUXTON",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 203,
+		"modelID": 1508,
+		"modelName": "SCRAMBLER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 203,
+		"modelID": 1509,
+		"modelName": "STREET",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 203,
+		"modelID": 1510,
+		"modelName": "TROPHY",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 203,
+		"modelID": 1511,
+		"modelName": "MODERN CLASSICS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 204,
+		"modelID": 1512,
+		"modelName": "SCOOTER",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 186,
+		"modelID": 1453,
+		"modelName": "CUSTOM",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 181,
+		"modelID": 1447,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 185,
+		"modelID": 1452,
+		"modelName": "BUSINESS",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 189,
+		"modelID": 1464,
+		"modelName": "ATV",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 16,
+		"modelID": 1523,
+		"modelName": "TRK",
+		"vehicleType": ["motorbike"]
+	},
+	{
+		"brandID": 14,
+		"modelID": 1524,
+		"modelName": "NS200",
+		"vehicleType": ["motorbike"]
+	}
+]

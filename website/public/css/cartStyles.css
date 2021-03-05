@@ -46,6 +46,7 @@
 
 .cart-item-quantity input {
   width: 50px;
+  text-align: center;
 }
 
 .cart-item-price {

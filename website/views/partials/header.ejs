@@ -18,7 +18,7 @@
 				<a href="/"><img src="/img/logo.png" alt="logo" srcset=""/></a>
 			</div>
 			<div class="d-flex w-75">
-				<form action="/search" method="GET" class="d-flex w-75">
+				<form action="/products/search" method="GET" class="d-flex w-75">
 					<div class="input-group">
 						<input
 							type="search"
@@ -49,27 +49,25 @@
 							</button>
 						</a>
 					</li>
+					<% if (!locals.isLogged) { %>
 					<li class="nav-item pe-1 my-2 my-md-0">
-						<a class="nav-item" href="/register">
-							<button
-								type="button"
-								class="nav-item btn btn-secondary btn-sm me-1 nav-btn btn-register"
-							>
+						<a class="nav-item" href="/users/register">
+							<button type="button" class="nav-item btn btn-secondary btn-sm me-1 nav-btn btn-register">
 								Registrarse
 							</button>
 						</a>
 					</li>
 					<li class="nav-item pe-1 my-2 my-md-0">
-						<a class="nav-item" href="/login">
-							<button
-								type="button"
-								class="nav-item btn btn-danger btn-sm me-1 nav-btn btn-login"
-							>
+						<a class="nav-item" href="/users/login">
+							<button type="button" class="nav-item btn btn-danger btn-sm me-1 nav-btn btn-login">
 								Login
 							</button>
 						</a>
 						<!-- Button trigger modal -->
 					</li>
+					 
+					<% } %>
+					
 					<li class="nav-item pe-1 my-2 my-md-0">
 						<a class="nav-item" href="/products/create">
 							<button
@@ -82,24 +80,19 @@
 						<!-- Button trigger modal -->
 					</li>
 				</ul>
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item pe-md-3 my-2 my-md-0">
-						<a class="t-d-none" href="#"
-							><i class="fas fa-user d-none d-md-inline"></i
-							><span class="d-md-none ps-2 nav-icon-description nav-item"
-								>Perfil</span
-							></a
-						>
-					</li>
-					<li class="nav-item pe-md-3 my-2 my-md-0">
-						<a class="t-d-none" href="#"
-							><i class="fas fa-bell d-none d-md-inline"></i
-							><span class="d-md-none ps-2 nav-icon-description nav-item"
-								>Notificaciones</span
-							></a
-						>
-					</li>
-				</ul>
+				<% if (locals.isLogged) { %>
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item pe-md-3 my-2 my-md-0">
+							<a class="t-d-none" href="/users/perfil/"><i class="fas fa-user d-none d-md-inline"></i><span class="d-md-none ps-2 nav-icon-description nav-item">Perfil: <%=locals.userLogged.userName%></span></a>
+						</li>
+						<li class="nav-item pe-md-3 my-2 my-md-0">
+							<a class="t-d-none" href="#"><i class="fas fa-bell d-none d-md-inline"></i><span class="d-md-none ps-2 nav-icon-description nav-item">Notificaciones</span></a>
+						</li>
+						<li class="nav-item pe-md-3 my-2 my-md-0">
+							<a class="t-d-none" href="/users/logout/"><i class="fas fa-sign-out-alt d-none d-md-inline"></i><span class="d-md-none ps-2 nav-icon-description nav-item">Logout</span></a>
+						</li>
+					</ul>
+				<% } %>
 			</div>
 			<div class="nav-item my-2 my-md-0 nav-icon-cart">
 				<a class="" href="/cart/1/details"
@@ -108,6 +101,7 @@
 					></i
 				></a>
 			</div>
+			
 		</div>
 	</nav>
 	<nav class="navbar navbar-expand-md navbar-dark navbar-secondary">

@@ -1,5 +1,5 @@
 <!-- My style -->
-<% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" />','<link rel="stylesheet" href="/css/styles-admin.css" />'] %>
+<% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" />','<link rel="stylesheet" href="/css/styles-product-form.css" />','<link rel="stylesheet" href="/css/styles-product-form-mediaQuery.css" />'] %>
 <%- include("./partials/head", {"styles": styles}) %>
     <%- include("./partials/header") %>
 
@@ -11,9 +11,9 @@
                 </div>
                 <div class="container-fluid container-admin text-center">
                     <% if (productType === "vehicle" ) { %>
-                        <%- include("./partials/vehicleForm", {product: product})%>
+                        <%- include("./partials/vehicleForm", {product, brands, models, versions, action: "edit"})%>
                     <% } else if (productType === "part" ) { %>                         
-                        <%- include("./partials/partForm", {product: product}) %> 
+                        <%- include("./partials/partForm", {product, brands, models, action: "edit"}) %> 
                     <% } %>
                 </div>
             </div>

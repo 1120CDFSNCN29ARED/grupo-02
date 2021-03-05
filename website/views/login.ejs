@@ -9,34 +9,34 @@
 					<a class="navbar-text" id="nav-btn-main-page" href='/'>
 						<i class="fas fa-chevron-left"></i> Volver
 					</a>
-					<a class="navbar-text" id="nav-btn-register" href="/register">Registrarme <i
+					<a class="navbar-text" id="nav-btn-register" href="/users/register">Registrarme <i
 							class="fas fa-chevron-right"></i></a>
 				</div>
 			</nav>
 		</header>
 		<main>
 			<div class="container-fluid login-main text-center">
-				<div class="container-fluid text-center">
+				<div class="container-fluid text-center img-container">
 					<img id="logo-image" src="/img/logo.png" alt="logo" srcset="">
 				</div>
 				<div class="container d-flex flex-wrap container-login">
 					<div class="container fluid flex-wrap d-flex text-center login-block">
 						<section class="container-fluid login-left-social">
-							<form action="/" class="form-login-Social">
+							<form action="/" method="POST" class="form-login-Social">
 								<div class="form-floating mb-1">
-									<button type="" class="form-control login-field" id="btn-login-google">
+									<button type="submit" class="form-control login-field" id="btn-login-google">
 										Continuar con Google
 										<i class="fab fa-google"></i>
 									</button>
 								</div>
 								<div class="form-floating mb-1">
-									<button type="" class="form-control login-field" id="btn-login-facebook">
+									<button type="submit" class="form-control login-field" id="btn-login-facebook">
 										Continuar con Facebook
 										<i class="fab fa-facebook-f"></i>
 									</button>
 								</div>
 								<div class="form-floating mb-1">
-									<button type="" class="form-control login-field" id="btn-login-twitter">
+									<button type="submit" class="form-control login-field" id="btn-login-twitter">
 										Continuar con Twitter
 										<i class="fab fa-twitter"></i>
 									</button>
@@ -44,15 +44,20 @@
 							</form>
 						</section>
 						<section class="container-fluid login-right-user">
-							<form action="/" class="form-login-User">
+							<form action="/users/login" method ="POST" class="form-login-User">
 								<div class="form-floating mb-1">
-									<input type="text" class="form-control login-field" id="userID"
-										placeholder="userName or name@example.com" required />
-									<label for="userID">Usuario o Email</label>
+									<input type="email" class="form-control login-field <%=locals.errors && errors.email ? 'is-invalid':null %> "" id="email" name="email"
+										placeholder="name@example.com" />
+									<label for="email"> Email</label>
+									<% if (locals.errors && errors.email ) { %>
+									<div class="invalid-feedback">
+										<%=  errors.email.msg %>
+									</div>
+									<% } %>
 								</div>
 								<div class="form-floating mb-1">
-									<input type="password" class="form-control login-field" id="userPassword"
-										placeholder="Password" required />
+									<input type="password" class="form-control login-field" id="userPassword" name="password"
+										placeholder="Password" />
 									<label for="userPassword">Contraseña</label>
 								</div>
 								<div class="form-floating mb-1">
@@ -63,7 +68,7 @@
 								<!-- UNICODE FOR OPEN LOCK ICON:f3c1 -->
 								<div class="container-fluid" id="container-keepLogged">
 									<label for="keepLogged">
-										<input type="checkbox" selected="false" id="keepLogged"
+										<input type="checkbox" selected="false" id="keepLogged" name="keepLogged"
 											class="form-input" />Mantener sesión</label>
 								</div>
 							</form>

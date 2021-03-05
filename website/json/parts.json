@@ -5,27 +5,26 @@
         "published": true,
         "featured": true,
         "onSale": {
-            "status": false,
+            "status": true,
             "discount": 0
         },
         "stock": 5,
         "publishedDate": "15/1/2021",
         "title": "Led Giro De Espejo Kia Sorento 2009/2014",
-        "partBrand": "Mopart",
-        "partModel": "LED",
+        "brandID": null,
+        "modelID": null,
         "partID": "0404ABC",
         "vehicleType": {
-            "car": true
+            "car": "on"
         },
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
         "imageURLs": [
             "https://http2.mlstatic.com/D_NQ_NP_898458-MLA43987588875_112020-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_781901-MLA43987646141_112020-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_813705-MLA43987593828_112020-O.webp"
+            "https://http2.mlstatic.com/D_NQ_NP_781901-MLA43987646141_112020-O.webp"
         ],
         "price": 23456,
         "state": "Nuevo",
-        "rating": 4,
+        "rating": 2,
         "location": {
             "province": "CABA",
             "city": "CABA",
@@ -37,7 +36,8 @@
             "name": "Car One",
             "phone": 123456789,
             "email": "carone@realcars.com"
-        }
+        },
+        "type": "part"
     },
     {
         "adID": 2,
@@ -51,8 +51,8 @@
         "stock": 2,
         "publishedDate": "15/1/2021",
         "title": "Kit Transmision P/ Benelli Tnt 15 Original Reforzada",
-        "partBrand": "Benelli",
-        "partModel": "TNT15",
+        "brandID": 4,
+        "modelID": 2,
         "partID": "123456ABC",
         "vehicleType": {
             "motorcycle": true
@@ -90,8 +90,8 @@
         "stock": 4,
         "publishedDate": "10/1/2021",
         "title": "Cadena Choho 520x118 Con Oring P/ Benelli Tnt25",
-        "partBrand": "Choho",
-        "partModel": "Oring TNT25",
+        "brandID": 6,
+        "modelID": 3,
         "partID": "hh119",
         "vehicleType": {
             "motorcycle": true
@@ -119,7 +119,7 @@
     {
         "adID": 4,
         "productType": "part",
-        "published": true,
+        "published": false,
         "featured": false,
         "onSale": {
             "status": false,
@@ -128,8 +128,8 @@
         "stock": 10,
         "publishedDate": "11/1/2021",
         "title": "Corona Original Transmision Benelli Tnt 25 Solo En Agrobikes",
-        "partBrand": "Benelli",
-        "partModel": "TNT25",
+        "brandID": 4,
+        "modelID": 4,
         "partID": "abc123",
         "vehicleType": {
             "motorcycle": true
@@ -167,8 +167,8 @@
         "stock": 1,
         "publishedDate": "11/1/2021",
         "title": "Paragolpe Delantero P/ Volkswagen Amarok 2017 2018 2019 2020",
-        "partBrand": "Volkswagen",
-        "partModel": "Paragolpe delantero Amarok",
+        "brandID": 7,
+        "modelID": 5,
         "partID": "abc1223",
         "vehicleType": {
             "pickup": true

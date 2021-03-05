@@ -1,0 +1,32 @@
+[
+    {
+		"brandID": 1,
+		"modelID": 1,
+		"modelName": "LED ESPEJO SORENTO",
+		"vehicleType": ["car"]
+	},
+    {
+		"brandID": 4,
+		"modelID": 2,
+		"modelName": "KIT TRANSMISION BENELLI TNT 15",
+		"vehicleType": ["motorbike"]
+	},
+    {
+		"brandID": 6,
+		"modelID": 3,
+		"modelName": "CADENA CHOHO TNT 15",
+		"vehicleType": ["motorbike"]
+	},
+    {
+		"brandID": 6,
+		"modelID": 4,
+		"modelName": "CORONA BENELLI TNT 15",
+		"vehicleType": ["motorbike"]
+	},
+    {
+		"brandID": 6,
+		"modelID": 5,
+		"modelName": "PARAGOLPE DELANTERO AMAROK",
+		"vehicleType": ["pickup"]
+	}
+]
