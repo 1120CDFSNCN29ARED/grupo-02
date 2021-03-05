@@ -2,34 +2,39 @@ const { body, validationResult } = require('express-validator');
 const User = require('../models/User');
 const path = require('path');
 
-/* No me funciona cuando no encuentre que el userName o email ya existe - tire un error de valro invalido que es el mesnaje de rror por default. */
 const registrationValidationRules = () => {
 	return [
 		body("userName")
 			.notEmpty()
-			.withMessage("Por favor elige un nomber de usaurio").bail()/* .custom((value, { req }) => {
+			.withMessage("Por favor elige un nomber de usaurio")
+			.bail()
+			.custom((value, { req }) => {
 				if(User.findUserByField("userName", value)){ 
 					throw new Error('El usuario ya se encuentre en uso');
 				}
-			}) */,
+				return true;
+			}),
 		body("first_name").notEmpty().withMessage("Por favor ingrese su nombre"),
 		body("last_name").notEmpty().withMessage("Por favor ingrese su apellido"),
 		body("id_number")
 			.notEmpty()
-			.withMessage("Por favor ingrese su DNI")
+			.withMessage("Por favor ingrese su DNI sin punots ni espacios")
 			.bail()
-			.isInt()
-			.withMessage("Por favor ingrese un DNI válido."),
+			.isNumeric()
+			.withMessage("Por favor ingrese un DNI válido. Sin punto ni espacios"),
 		body("email")
 			.notEmpty()
 			.withMessage("Por favor ingrese un email")
 			.bail()
 			.isEmail()
-			.withMessage("Por favor ingrese un email válido").bail()/* .custom((value, { req }) => {
+			.withMessage("Por favor ingrese un email válido")
+			.bail()
+			.custom((value, { req }) => {
 				if(User.findUserByField("email", value)){
 						throw new Error('El email ya se encuentre registrado');
 					}
-				}) */,
+					return true;
+				}),
 		body("telephone")
 			.notEmpty()
 			.withMessage("Por favor ingrese su numero de teléfono")

@@ -60,16 +60,16 @@ const controller = {
 				old: req.body,
 			});
 		}
-		/* let userToCreate = {
+		let userToCreate = {
 			...req.body,
 			password: bcryptjs.hashSync(req.body.password, 10),
 			category: "user",
 			image: req.file ? req.file.filename : "",
 		};
 		User.create(userToCreate);
-		res.redirect("/users"); */
-
-		else {
+		res.redirect("/users");
+		//BORRAR ESTO Despues de testear bien la validación en validator.js
+		/* else {
 			let userEmailInDB = User.findUserByField('email', req.body.email);
 			let userUserNameInDB = User.findUserByField('userName', req.body.userName);
 			if (userEmailInDB || userUserNameInDB) {				
@@ -99,7 +99,7 @@ const controller = {
 				User.create(userToCreate);
 			}
 			res.redirect("/users");
-		}	
+		}	 */
 	},
 	edit: (req, res, next) => {
 		let userId = req.params.userId;
