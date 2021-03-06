@@ -63,7 +63,7 @@ const registrationValidationRules = () => {
 				let fileExtension = path.extname(file.originalname);
 				if (!acceptedExtensions.includes(fileExtension)) {
 					throw new Error(
-						`Las extensiones de archvo permitido son: ${acceptedExtensions.join(
+						`Puede subir los siguintes tipos de imagenes: ${acceptedExtensions.join(
 							", "
 						)}`
 					);
@@ -74,13 +74,13 @@ const registrationValidationRules = () => {
 	];
 };
 
-const validation = (req, res, next) => {
+const registrationValidation = (req, res, next) => {
 	const errors = validationResult(req);
 	if (errors.isEmpty()) {
 		return next();
 	}
 	const validationErrors = errors.mapped();
-	return res.render("register", { errors: validationErrors, old: req.body });
+	return res.render("register", { errors: validationErrors, old: req.body});
 };
 
-module.exports = { registrationValidationRules, validation };
+module.exports = { registrationValidationRules, registrationValidation };

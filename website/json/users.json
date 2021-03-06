@@ -1884,5 +1884,39 @@
     "confirmPassword": "testing",
     "category": "user",
     "image": "user-image-1614895367747.jpeg"
+  },
+  {
+    "userID": 112,
+    "userName": "test25",
+    "email": "test25@test.com",
+    "first_name": "test",
+    "last_name": "ing",
+    "id_number": "45",
+    "telephone": "45",
+    "province": "a",
+    "city": "s",
+    "neighbourhood": "s",
+    "postal_code": "4444",
+    "password": "$2a$10$P75hTgoO.nQ.KzogaQ9O/uUSS2qZYn8AWYW9kHGYQoYuvv4OulNlO",
+    "confirmPassword": "testing",
+    "category": "user",
+    "image": "user-image-1614992693571.jpeg"
+  },
+  {
+    "userID": 113,
+    "userName": "test26",
+    "email": "test26@test.com",
+    "first_name": "test",
+    "last_name": "ing26",
+    "id_number": "2600",
+    "telephone": "0000",
+    "province": "a",
+    "city": "b",
+    "neighbourhood": "c",
+    "postal_code": "1004",
+    "password": "$2a$10$aa2Ug.FCUTfB5OJ139iAseFo7m39XMaraPPMZXpuf46Bkj0GjkRnq",
+    "confirmPassword": "testing",
+    "category": "user",
+    "image": "user-image-1614992836795.jpeg"
   }
 ]

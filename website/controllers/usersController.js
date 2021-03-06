@@ -13,34 +13,14 @@ const controller = {
 		res.render("login", {});
 	},
 	loginProcess: (req, res) => {
-		let userToLogin = User.findUserByField("email", req.body.email);
-		if (userToLogin) {
-			let passwordMatched = bcryptjs.compareSync(
-				req.body.password,
-				userToLogin.password
-			);
-			if (passwordMatched) {
-				delete userToLogin.password;
-				req.session.userLogged = userToLogin;
-				if (req.body.keepLogged) {
-					res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 2 });
-				}
-				return res.redirect("/users/profile");
-			}
-			return res.render("login", {
-				errors: { email: { msg: "Las credenciales son inválidas" } },
-			});
-		}
-		return res.render("login", {
-			errors: { email: { msg: "Las credenciales son inválidas" } },
-		});
+		res.redirect('/users/profile');
 	},
 	index: (req, res, next) => {
 		const users = User.findAll();
 		res.render("users", { users });
 	},
 	profile: (req, res, next) => {
-		let user = req.session.userLogged;
+		let user = req.session.assertUserLogged;
 		res.render("userProfile", { user });
 	},
 	details: (req, res, next) => {
@@ -51,15 +31,7 @@ const controller = {
 	create: (req, res, next) => {
 		res.render("register", {});
 	},
-	processRegistration: (req, res, next) => {
-		//Quiero abstraer est parte de validación haciael middleware y no aqui en el controller.
-		const registrationValidation = validationResult(req);
-		if (registrationValidation.errors.length > 0) {
-			return res.render("register", {
-				errors: registrationValidation.mapped(),
-				old: req.body,
-			});
-		}
+	processRegistration: (req, res, next) => {		
 		let userToCreate = {
 			...req.body,
 			password: bcryptjs.hashSync(req.body.password, 10),
