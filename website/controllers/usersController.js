@@ -40,38 +40,6 @@ const controller = {
 		};
 		User.create(userToCreate);
 		res.redirect("/users");
-		//BORRAR ESTO Despues de testear bien la validación en validator.js
-		/* else {
-			let userEmailInDB = User.findUserByField('email', req.body.email);
-			let userUserNameInDB = User.findUserByField('userName', req.body.userName);
-			if (userEmailInDB || userUserNameInDB) {				
-				let errors = {};
-				if (userEmailInDB) {
-					console.log('El Mail ya existe');
-					errors.email= {
-							msg:'Este email ya se encuentra registrado'
-						}
-					}				
-				if (userUserNameInDB) {
-					errors.userName= {
-							msg:'Este usuario ya se encuentra registrado'						
-					}
-				}
-				return res.render("register", {					
-						errors: errors,
-					old: req.body,
-				});
-			} else {
-				let userToCreate = {
-					...req.body,
-					password: bcryptjs.hashSync(req.body.password, 10),
-					category: "user",
-					image: req.file ? req.file.filename : "",
-				};
-				User.create(userToCreate);
-			}
-			res.redirect("/users");
-		}	 */
 	},
 	edit: (req, res, next) => {
 		let userId = req.params.userId;
@@ -97,7 +65,7 @@ const controller = {
 		res.render("/users", { users });
 	},
 	logout: (req, res, next) => {
-		res.clear.cookie("userEmail");
+		res.clearCookie("userEmail");
 		req.session.destroy();
 		return res.redirect("/");
 	},
