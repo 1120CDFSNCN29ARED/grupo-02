@@ -6,6 +6,7 @@ const mainRoutes = require("./routes/mainRoutes");
 const methodOverride = require("method-override");
 const session = require('express-session');
 const cookies = require('cookie-parser');
+const { v4: uuidv4 } = require("uuid");
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const app = express();
 const MYPORT = 3000;
@@ -15,8 +16,9 @@ const staticFolder = path.resolve(__dirname, "./public");
 app.use(express.static(staticFolder));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
+//I am using UUID to create the secret key for my session - is this good practice or not?
 app.use(session({
-	secret: 'classified',
+	secret: uuidv4(),
 	resave: false,
 	saveUninitialized: false
 }));
