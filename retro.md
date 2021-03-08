@@ -20,7 +20,7 @@
 
 ## Sprint 2
 
-#### [Retro](https://drive.google.com/file/d/1gPcfIKVtnYRiZZQsoPABR1Mp4ijllJKi/view?usp=sharing) :
+#### [Retro](https://drive.google.com/file/d/1gPcfIKVtnYRiZZQsoPABR1Mp4ijllJKi/view?usp=sharing)
 
 #### Reflexiones Iniciales
      Logramos implementar la mayoria de las iniciativas que propusimos durante el retro 1.
@@ -29,15 +29,26 @@
      Se decidió implementar peer-reviews de las secciones que va haciendo cada uno para así poder detectar errores o cosas faltantes de manera temprana. Se hará moviendo las tareas a la sección de review en lugar de a done en el tablero de Trello.
 ## Sprint 3
 
-#### [Retro]() :
+#### [Retro](https://drive.google.com/file/d/1OlOxQvVrCro0yw2hvwYYIEaVfh6sh3s8/view?usp=sharing)
 
 #### Reflexiones Iniciales
+
+     Se logró cumplir con todos los requerimientos del sprint en tiempo, incluso un miembro menos.
+     Hubo buena coordinación en la redistribución de las tareas y buena predisposición para tomar las adicionales.
+     Para lograrlo se postergaron al siguiente sprint las features adicionales que se habían planteado entre los miembros del equipo.
+     Se reitera la necesidad de implementar el peer-programming, como así también mayor compromiso en cumplir con las meetings recurrentes.
+     Se plantea la idea de re asignar las secciones de la página que tiene cada uno para así poder adquirir más conocimientos.
 
 ## Sprint 4
 
 #### [Retro]() :
 
 #### Reflexiones Iniciales
+
+     Se volvió a cumplir con todos los requerimientos y algunas funcionalidades adicionales incluso habiendo tenido un miembro menos en equipo nuevamente.
+     Hubo muy buena comunicación para hacer el trabajo de manera organizada y dividir las tareas a partir de la baja.
+     Muy buen uso de Git para los avances haciendo que prácticamente no haya conflictos de mergeo.
+     Para la entrega del próximo Sprint vamos a mezclar más las tareas asignadas a cada uno, para así tener un mejor entendimiento de cómo funcionan las distintas secciones de la página.
 
 ## Sprint 5
 

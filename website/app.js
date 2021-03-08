@@ -13,7 +13,7 @@ const MYPORT = 3000;
 
 //Middleware
 const staticFolder = path.resolve(__dirname, "./public");
-app.use(express.static(staticFolder));
+app.use(static(staticFolder));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
 //I am using UUID to create the secret key for my session - is this good practice or not?
