@@ -1,19 +1,73 @@
 <% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />', '<link rel="stylesheet" href="/css/styles-footer.css" />', '<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" media="(min-width: 768px" />'] %>
 <%- include("./partials/head", {"styles": styles}) %>
   <%- include("./partials/header") %>
+
     <body>
       </header>
-      <div class="container-fluid registration">        
-        <div class="container-fluid container-user-profile text-center">
-          <div class="w-75 card mb-3">
-            <img src="../public/img/users/<%=user.image%>" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Usuario</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <div class="container-fluid container-user-profile w-75">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="text-center">
+              <img src="../public/img/users/<%=user.image%>" class="avatar rounded-circle img-thumbnail" alt="avatar">
             </div>
+          </div>
+          <div class="col-sm-9">
+            <h1>Bienvenido <%=user.first_name + " " + user.last_name%>
+            </h1>            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <!--left col-->            
+            </hr>
+            <ul class="list-group text-center">
+              <li class="list-group-item mb-1 text-muted">Historial <i class="fa fa-dashboard fa-1x"></i></li>
+              <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Compras</strong></span> 2</li>
+              <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Favoritos</strong></span> 13</li>
+              <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Preguntas</strong></span> 37</li>
+            </ul>
+          </div>
+          <!--/col-3-->
+          <div class="col-sm-9">                        
+            <hr>
+            
+            <form class="form" action="/users/edit/<%=user.userID%>" method="GET" id="profile">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12">
+                <div class="form-floating mb-1">
+                  <input type="text" class="form-control" id="userName" name="userName" placeholder="Usuario" value="<%= locals.user && user.userName ? user.userName : null %>" disabled />
+                  <label for="userName">Usuario</label>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12">
+                <div class="form-floating mb-1">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="email@host.com" value="<%= locals.user && user.email ? user.email : null %>" disabled />
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12">
+                <div class="form-floating mb-1">
+                  <input type="text" class="form-control" id="telephone" name="telephone" placeholder="+5491133048054" value="<%= locals.user && user.telephone ? user.telephone : null %>" disabled />
+                  <label for="telephone">Teléfono</label>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12">
+                <div class="form-floating mb-1">
+                  <input type="text" class="form-control" id="city" name="city" placeholder="ciudad" value="<%= locals.user && user.city ? user.city : null %>" disabled />
+                  <label for="city">Ciudad</label>
+                </div>
+              </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <br>
+                  <button class="btn btn-lg btn-success" type="submit">Editar <i class="fas fa-edit"></i></button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </body>
-</html>
+    
+    </html>
