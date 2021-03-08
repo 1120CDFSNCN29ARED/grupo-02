@@ -123,3 +123,37 @@ Lucas abandona el curso
 
 Se hace merge de Simon a Santi y no se encuentran conflictos. Se procede a realizar Pull Requests a develop y main sin conflictos.
 Se hace el deploy a Heroku y la pagina funciona correctamente
+
+
+## 8-Marzo
+
+### Organización Sprint 5
+
+Participantes: Simon, Santi
+
+Se decide reorganizar un poco el código para que quede más prolijo -> crear Model de Productos *Santi*
+
+Cambios a realizar:
+
+    * Search
+        - Hacer los filtros dinamicos *Simon*
+        - Agregar funcionalidad de busqueda por texto y por los filtros del home / search *Simon*
+    * Hearder
+        - Remover historial *Santi*
+        - Hacer que vender y favoritos aparezcan solo si el usuario esta logeado *Santi*
+        - Agregar links a las categorias *Santi*
+    * Product Details
+        - Hacer que el boton de editar aparezca solo si esta logeado y el owner del producto *Santi*
+        - Agregar funcionalidad de favoritos y que solo aparezca si esta logeado *Santi*
+    * Cart
+        - Agregar funcionalidad entera de cart (agregar y quitar productos) *Simon*
+    * JSONs
+        - Vehicles: cambiar seller por sellerID *Santi*
+        - Parts: cambiar seller por sellerID *Santi*
+        - Crear uno de favoritos *Santi*
+    * Admin
+        - Crear view de admin para editar usuarios *Simon*
+    * Product forms
+        - Agregar validacion *Santi*
+    * Users
+        - Arreglar validacion de edicion de usuarios *Simon*

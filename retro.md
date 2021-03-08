@@ -31,19 +31,24 @@
 
 #### [Retro](https://drive.google.com/file/d/1OlOxQvVrCro0yw2hvwYYIEaVfh6sh3s8/view?usp=sharing)
 
+#### Reflexiones Iniciales
+
      Se logró cumplir con todos los requerimientos del sprint en tiempo, incluso un miembro menos.
      Hubo buena coordinación en la redistribución de las tareas y buena predisposición para tomar las adicionales.
      Para lograrlo se postergaron al siguiente sprint las features adicionales que se habían planteado entre los miembros del equipo.
      Se reitera la necesidad de implementar el peer-programming, como así también mayor compromiso en cumplir con las meetings recurrentes.
      Se plantea la idea de re asignar las secciones de la página que tiene cada uno para así poder adquirir más conocimientos.
 
-#### Reflexiones Iniciales
-
 ## Sprint 4
 
 #### [Retro]() :
 
 #### Reflexiones Iniciales
+
+     Se volvió a cumplir con todos los requerimientos y algunas funcionalidades adicionales incluso habiendo tenido un miembro menos en equipo nuevamente.
+     Hubo muy buena comunicación para hacer el trabajo de manera organizada y dividir las tareas a partir de la baja.
+     Muy buen uso de Git para los avances haciendo que prácticamente no haya conflictos de mergeo.
+     Para la entrega del próximo Sprint vamos a mezclar más las tareas asignadas a cada uno, para así tener un mejor entendimiento de cómo funcionan las distintas secciones de la página.
 
 ## Sprint 5
 
