@@ -83,7 +83,7 @@
 				<% if (locals.isLogged) { %>
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item pe-md-3 my-2 my-md-0">
-							<a class="t-d-none" href="/users/perfil/"><i class="fas fa-user d-none d-md-inline"></i><span class="d-md-none ps-2 nav-icon-description nav-item">Perfil: <%=locals.userLogged.userName%></span></a>
+							<a class="t-d-none" href="/users/profile/"><i class="fas fa-user d-none d-md-inline"></i><span class="d-md-none ps-2 nav-icon-description nav-item">Perfil: <%=locals.assertUserLogged.userName%></span></a>
 						</li>
 						<li class="nav-item pe-md-3 my-2 my-md-0">
 							<a class="t-d-none" href="#"><i class="fas fa-bell d-none d-md-inline"></i><span class="d-md-none ps-2 nav-icon-description nav-item">Notificaciones</span></a>

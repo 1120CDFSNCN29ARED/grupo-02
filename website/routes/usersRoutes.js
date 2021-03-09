@@ -4,7 +4,8 @@ const { body, validationResult } = require('express-validator');
 const path = require('path');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-const { registrationValidationRules, validation } = require('../middlewares/validator');
+const { registrationValidationRules, registrationValidation } = require('../middlewares/registrationValidator');
+const { loginValidationRules, loginValidation } = require('../middlewares/loginValidator');
 const router = express.Router();
 
 // ************ Controller Require ************
@@ -26,13 +27,18 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 
 router.get("/login", guestMiddleware, usersController.login);
-router.post("/login", usersController.loginProcess);
+router.post(
+	"/login",
+	loginValidationRules(),
+	loginValidation,
+	usersController.loginProcess
+);
 
 router.get("/register",guestMiddleware, usersController.create);
 router.post(
 	"/register",
 	uploadFile.single("image"),registrationValidationRules(),
-	validation,
+	registrationValidation,
 	usersController.processRegistration
 );
 
