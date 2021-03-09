@@ -633,7 +633,7 @@ const productsController = {
 		const partBrands = jsonReader(partBrandsFilePath);
 		const partModels = jsonReader(partModelsFilePath);
 
-		//Obtain search strign from searchBar
+		//Obtain search string from searchBar
 		const searchQuery = req.query.searchValue;
         if (!searchQuery) {
             return res.render("search", {
