@@ -20,7 +20,6 @@ Para el desarrollo de este nuevo e-commerce, se cuenta con un equipo de tres mar
 
 - Santiago Maldini - Ingeniero en Informática, associate del sector de Finanzas y Controles de JP Morgan, especializado en la automatización de procesos.
 - Simon Huxter - CPN de la UNT, formación en finanzas y actualmente como co-fundador de un start-up que se dedica a desarrollar soluciones para la industria autmotriz.
-- Lucas Spisso - Estudiante de economia en UDA - Manager de emprendimiento gastronomico en Valle de Uco Mendoza.
 
 ## Sitios de inspiración
 
