@@ -2,6 +2,7 @@ const { EDESTADDRREQ } = require("constants");
 const fs = require("fs");
 const path = require("path");
 const fuse = require("fuse.js");
+const _ = require("lodash");
 
 const vehiclesFilePath = path.join(__dirname, "../json/vehicles.json");
 const partsFilePath = path.join(__dirname, "../json/parts.json");
@@ -714,7 +715,10 @@ function searchBar(
 		}
 		return productString.match(searchTermRegex);
 	});
-	return filteredList;
+	let searchResults = filteredList;
+	//Need to update the id generation of adds as they overlap between parts and vehicles.
+	//let searchResults = _.uniqBy(filteredList, 'adID');
+	return searchResults;
 }
 
 module.exports = productsController;
