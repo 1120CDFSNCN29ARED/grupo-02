@@ -617,7 +617,6 @@ const productsController = {
 		});
 	},
     searchBar: (req, res, next) => {
-        //There is an issue with this logic as in our Product object we do not use the names of Brand, Model and Version but rather their codes. We therefore need to add a layer of tranlsation from text to codes...
 		const vehicles = jsonReader(vehiclesFilePath);
 		const publishedVehicles = vehicles.filter(
 			(vehicle) => vehicle.published === true
@@ -635,17 +634,25 @@ const productsController = {
 
 		//Obtain search string from searchBar
 		const searchQuery = req.query.searchValue;
-        if (!searchQuery) {
-            return res.render("search", {
-							vehicleBrands,
-							vehicleModels,
-							vehicleVersions,
-							partBrands,
-							partModels,
-							products: publishedProducts,
-						});
-        }
-        let filteredList = searchBar(searchQuery, publishedProducts);
+		if (!searchQuery) {
+				return res.render("search", {
+					vehicleBrands,
+					vehicleModels,
+					vehicleVersions,
+					partBrands,
+					partModels,
+					products: publishedProducts,
+				});
+		}
+		let filteredList = searchBar(
+			searchQuery,
+			publishedProducts,
+			vehicleBrands,
+			vehicleModels,
+			vehicleVersions,
+			partBrands,
+			partModels
+		);
 		
         
 		res.render("search", {
@@ -659,7 +666,15 @@ const productsController = {
 	},
 };
 
-function searchBar(searchQuery, publishedProducts) {
+function searchBar(
+	searchQuery,
+	publishedProducts,
+	vehicleBrands,
+	vehicleModels,
+	vehicleVersions,
+	partBrands,
+	partModels
+) {
 	//Tokenize the search terms in order to use regEx later to create matches.
 	let tokens = searchQuery
 		.toLowerCase()
@@ -684,12 +699,22 @@ function searchBar(searchQuery, publishedProducts) {
 				publishedProduct[key] != null
 			) {
 				productString += JSON.stringify(publishedProduct);
-				//publishedProduct[key].toString().toLowerCase().trim()+ " ";
+				if (publishedProduct.productType === "vehicle") {
+					productString += " " + JSON.stringify(vehicleBrands.find((e) => e.brandID === publishedProduct.brandID)) + " ";
+					productString +=
+						JSON.stringify(vehicleModels.find(e => e.modelID === publishedProduct.modelID)) + " ";
+					productString += JSON.stringify(vehicleVersions.find(
+						(e) => e.versionID === publishedProduct.versionID
+					)) + " ";
+				} else if (publishedProduct.productType === "part") {	
+					productString += " " + JSON.stringify(partBrands.find(e => e.brandID === publishedProduct.brandID)) + " ";
+					productString += " " + JSON.stringify(partModels.find(e => e.modelID === publishedProduct.modelID)) + " ";
+        } 				
 			}
 		}
 		return productString.match(searchTermRegex);
-    });
-    return filteredList;
+	});
+	return filteredList;
 }
 
 module.exports = productsController;
