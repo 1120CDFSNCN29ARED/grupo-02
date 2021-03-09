@@ -2,6 +2,7 @@ const { EDESTADDRREQ } = require("constants");
 const fs = require("fs");
 const path = require("path");
 const fuse = require("fuse.js");
+const { v4: uuidv4 } = require("uuid");
 const _ = require("lodash");
 
 const vehiclesFilePath = path.join(__dirname, "../json/vehicles.json");

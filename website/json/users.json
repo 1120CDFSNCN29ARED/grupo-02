@@ -1918,5 +1918,22 @@
     "confirmPassword": "testing",
     "category": "user",
     "image": "user-image-1614992836795.jpeg"
+  },
+  {
+    "userID": "0144d058-1ba3-4fd5-8cb0-8eb357e9fb13",
+    "userName": "test31",
+    "email": "test31@test.com",
+    "first_name": "s",
+    "last_name": "f",
+    "id_number": "44",
+    "telephone": "555",
+    "province": "a",
+    "city": "b",
+    "neighbourhood": "c",
+    "postal_code": "1000",
+    "password": "$2a$10$GXq2IxfpKYy.e9h6YvyVP.pSSgZhTx4WbggWGCv0lhLzH2JRc9LLG",
+    "confirmPassword": "testing",
+    "category": "user",
+    "image": "user-image-1615333089336.jpeg"
   }
 ]
