@@ -37,5 +37,6 @@ router.get("/deleteImage/:productType/:productID", productsController.deleteImag
 router.delete("/delete/:productType/:productID", productsController.delete);
 
 router.get("/search", urlClearner, productsController.search);
+router.get("/searchBar/:searchValue?", urlClearner, productsController.searchBar);
 
 module.exports = router;

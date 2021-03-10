@@ -35,8 +35,6 @@ const mainController = {
         const partBrands = jsonReader(partBrandsFilePath);
         const partModels = jsonReader(partModelsFilePath);
 
-
-
         res.render("index", { mmav, vehicleBrands, vehicleModels, vehicleVersions, partBrands, partModels, vehicles: publishedVehicles, parts: publishedParts});
      },    
 };

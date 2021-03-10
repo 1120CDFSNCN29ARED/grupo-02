@@ -35,16 +35,16 @@ const User = {
     return newUser;
   },
   generateId: function () {
-    let users = this.findAll();
+    /* let users = this.findAll();
     let newId = users.length > 0 ? users[users.length - 1].userID + 1 : 1;
-    return newId;
-    //return uuidv4();
+    return newId; */
+    return uuidv4();
   },
   delete: function (id) {
     let users = this.findAll();
     let finalUsers = users.filter(user => { user.userID != id; });
     this.writeData(finalUsers);
-    //add in deelte image.
+    //add in delete image.
   },
 };
 
