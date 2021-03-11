@@ -13,7 +13,11 @@ const controller = {
 		res.render("login", {});
 	},
 	loginProcess: (req, res) => {
-		res.redirect('/users/profile');
+		console.log(req.session.userType);
+		if(req.session.userType==='admin'){
+			return res.redirect('/admin/');
+		}
+		return res.redirect("/users/profile");		
 	},
 	index: (req, res, next) => {
 		const users = User.findAll();

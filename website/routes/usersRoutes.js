@@ -4,6 +4,7 @@ const { body, validationResult } = require('express-validator');
 const path = require('path');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const adminAuthMiddleware = require("../middlewares/adminAuthMiddleware");
 const { registrationValidationRules, registrationValidation } = require('../middlewares/registrationValidator');
 const { loginValidationRules, loginValidation } = require('../middlewares/loginValidator');
 const router = express.Router();
@@ -42,7 +43,7 @@ router.post(
 	usersController.processRegistration
 );
 
-router.get('/', usersController.index);
+router.get('/', adminAuthMiddleware, usersController.index);
 router.get('/details/:userId', usersController.details);
 router.get("/profile", authMiddleware, usersController.profile);
 

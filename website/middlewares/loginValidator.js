@@ -21,7 +21,8 @@ const loginValidation = (req, res, next) => {
     if (userToLogin) {
       if (bcryptjs.compareSync(req.body.password, userToLogin.password)) {
         delete userToLogin.password;
-        req.session.assertUserLogged = userToLogin;
+				req.session.assertUserLogged = userToLogin;
+				req.session.userType = userToLogin.category;
         if (req.body.keepLogged != undefined) {
 					res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 2 });
 				}

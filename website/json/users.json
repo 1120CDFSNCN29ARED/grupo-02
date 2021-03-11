@@ -1933,7 +1933,7 @@
     "postal_code": "1000",
     "password": "$2a$10$GXq2IxfpKYy.e9h6YvyVP.pSSgZhTx4WbggWGCv0lhLzH2JRc9LLG",
     "confirmPassword": "testing",
-    "category": "user",
+    "category": "admin",
     "image": "user-image-1615333089336.jpeg"
   }
 ]
