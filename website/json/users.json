@@ -1935,5 +1935,22 @@
     "confirmPassword": "testing",
     "category": "user",
     "image": "user-image-1615333089336.jpeg"
+  },
+  {
+    "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
+    "userName": "santi",
+    "email": "santi@test.com",
+    "first_name": "santi",
+    "last_name": "maldini",
+    "id_number": "12345678",
+    "telephone": "12345678",
+    "province": "Buenos Aires",
+    "city": "Hurlingham",
+    "neighbourhood": "Hurlingham",
+    "postal_code": "1686",
+    "password": "$2a$10$1ZLxQK9Y6p12WDO442cDwuaPyWp12B.inpLIK4riunxQSmnjTlBO6",
+    "confirmPassword": "test",
+    "category": "user",
+    "image": "user-image-1615353370255.jpeg"
   }
 ]

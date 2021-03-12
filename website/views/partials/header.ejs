@@ -68,18 +68,19 @@
 					</li>
 					 
 					<% } %>
-					
-					<li class="nav-item pe-1 my-2 my-md-0">
-						<a class="nav-item" href="/products/create">
-							<button
-								type="button"
-								class="nav-item btn btn-primary btn-sm me-2 nav-btn btn-load-product"
-							>
-								Vender
-							</button>
-						</a>
-						<!-- Button trigger modal -->
-					</li>
+					<% if (locals.isLogged) { %>
+						<li class="nav-item pe-1 my-2 my-md-0">
+							<a class="nav-item" href="/products/create">
+								<button
+									type="button"
+									class="nav-item btn btn-primary btn-sm me-2 nav-btn btn-load-product"
+								>
+									Vender
+								</button>
+							</a>
+							<!-- Button trigger modal -->
+						</li>
+					<% } %>
 				</ul>
 				<% if (locals.isLogged) { %>
 					<ul class="navbar-nav ms-auto">
@@ -128,66 +129,63 @@
 							aria-labelledby="navbarDropdown"
 						>
 							<li>
-								<a class="dropdown-item" href="#">Autos</a>
+								<a class="dropdown-item" href="/products/search?productType=vehicle&vehicleType=auto">Autos</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="#">Camionetas</a>
-							</li>
-							<li></li>
-							<li>
-								<a class="dropdown-item" href="#">Motos</a>
+								<a class="dropdown-item" href="/products/search?productType=vehicle&vehicleType=camioneta">Camionetas</a>
 							</li>
 							<li></li>
 							<li>
-								<a class="dropdown-item" href="#">Camiones</a>
+								<a class="dropdown-item" href="/products/search?productType=vehicle&vehicleType=moto">Motos</a>
+							</li>
+							<li></li>
+							<li>
+								<a class="dropdown-item" href="/products/search?productType=vehicle&vehicleType=camion">Camiones</a>
 							</li>
 							<li>
 								<hr class="dropdown-divider bg-danger" />
 							</li>
 							<li>
-								<a class="dropdown-item" href="#">Repuestos</a>
+								<a class="dropdown-item" href="/products/search?productType=part">Repuestos</a>
 							</li>
 						</ul>
 					</li>
-					<li class="nav-item dropdown active">
-						<a
-							class="nav-link dropdown-toggle"
-							href="#"
-							id="navbarDropdownFavourites"
-							role="button"
-							data-bs-toggle="dropdown"
-							aria-expanded="false"
-						>
-							Favoritos
-						</a>
-						<ul
-							class="dropdown-menu"
-							aria-labelledby="navbarDropdown"
-						>
-							<li>
-								<a class="dropdown-item" href="#">Favorito 1</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Favorito 2</a>
-							</li>
-							<li></li>
-							<li>
-								<a class="dropdown-item" href="#">Favorito 3</a>
-							</li>
-							<li></li>
-							<li>
-								<a class="dropdown-item" href="#">Favorito 4</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Favorito 5</a>
-							</li>
-						</ul>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" aria-disabled="false"
-							>Historial</a
-						>
-					</li>
+					<% if (locals.islogged) { %>
+						<li class="nav-item dropdown active">
+							<a
+								class="nav-link dropdown-toggle"
+								href="#"
+								id="navbarDropdownFavourites"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Favoritos
+							</a>
+							<ul
+								class="dropdown-menu"
+								aria-labelledby="navbarDropdown"
+							>
+								<li>
+									<a class="dropdown-item" href="#">Favorito 1</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Favorito 2</a>
+								</li>
+								<li></li>
+								<li>
+									<a class="dropdown-item" href="#">Favorito 3</a>
+								</li>
+								<li></li>
+								<li>
+									<a class="dropdown-item" href="#">Favorito 4</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Favorito 5</a>
+								</li>
+							</ul>
+						</li>
+					<% } %>
 					<li class="nav-item">
 						<a class="nav-link" href="#" aria-disabled="false"
 							>Ayuda</a

@@ -121,6 +121,7 @@
     },
     {
         "adID": 4,
+        "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
         "productType": "vehicle",
         "type": "moto",
         "published": true,
@@ -198,5 +199,37 @@
             "phone": 123456789,
             "email": "santimaldini@gmail.com"
         }
+    },
+    {
+        "adID": 6,
+        "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
+        "type": "auto",
+        "published": true,
+        "publishedDate": "2021-03-12T19:48:06.671Z",
+        "featured": false,
+        "onSale": {
+            "status": true,
+            "discount": 10
+        },
+        "brandID": 1,
+        "modelID": 1,
+        "versionID": 1,
+        "gearType": "automática",
+        "year": 2021,
+        "state": "Nuevo",
+        "rating": "2",
+        "kilometers": 0,
+        "color": "Blanco",
+        "location": {
+            "province": "CABA",
+            "city": "CABA",
+            "neighbourhood": "Belgrano",
+            "postalCode": "1426"
+        },
+        "imageURLs": [
+            "no-image-found.jpeg"
+        ],
+        "price": 123456,
+        "description": "Publicacion de prueba"
     }
 ]

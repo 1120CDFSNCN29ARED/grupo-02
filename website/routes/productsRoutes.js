@@ -4,6 +4,9 @@ const multer = require('multer');
 const path = require('path');
 
 const productsController = require("../controllers/productsController");
+const {vehicleCreationValidator, vehicleCreationValidation} = require("../middlewares/productCreationMiddleware");
+
+const authMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
@@ -23,12 +26,12 @@ const uploadFile = multer({ storage });
 const urlClearner = require('../middlewares/urlCleaner');
 
 
-router.get("/create/:productType?", productsController.create);
-router.post("/create/:productType", uploadFile.fields([{ name: 'productImages' }]), productsController.store);
+router.get("/create/:productType?", authMiddleware,productsController.create);
+router.post("/create/:productType", uploadFile.fields([{ name: 'productImages' }]),vehicleCreationValidator, vehicleCreationValidation, productsController.store);
 
 router.get("/details/:productType/:productID", productsController.details);
 
-router.get("/edit/:productType/:productID", productsController.edit);
+router.get("/edit/:productType/:productID", authMiddleware,productsController.edit);
 router.put("/edit/:productType/:productID",uploadFile.fields([{ name: 'productImages' }]), productsController.update);
 
 router.post("/question/:productType/:productID", productsController.question);
