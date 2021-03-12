@@ -13,24 +13,29 @@ const controller = {
 		res.render("login", {});
 	},
 	loginProcess: (req, res) => {
-		console.log(req.session.userType);
+		let userId = req.session.userId;
 		if(req.session.userType==='admin'){
 			return res.redirect('/admin/');
 		}
-		return res.redirect("/users/profile");		
+		return res.redirect(`/users/profile/${userId}`);		
 	},
 	index: (req, res, next) => {
 		const users = User.findAll();
 		res.render("users", { users });
 	},
 	profile: (req, res, next) => {
-		let user = req.session.assertUserLogged;
-		res.render("userProfile", { user });
+		if (req.params.userID) {
+			let userID = req.params.userId;
+			const user = User.findUserByPk(userID);
+			return res.render("userProfile", { user, action: "view" });
+		}
+		const user = req.session.assertUserLogged;
+		res.render("userProfile", { user, action: "view" });
 	},
 	details: (req, res, next) => {
 		let userID = req.params.userId;
 		const user = User.findUserByPk(userID);
-		res.render("userProfile", { user });
+		res.render("userProfile", { user, action: "view" });
 	},
 	create: (req, res, next) => {
 		res.render("register", {});
@@ -48,7 +53,7 @@ const controller = {
 	edit: (req, res, next) => {
 		let userId = req.params.userId;
 		let userToEdit = User.findUserByPk(userId);
-		res.render("editUser", { user: userToEdit });
+		res.render("userProfile", { user: userToEdit, action: 'edit' });
 	},
 	update: (req, res, next) => {
 		///no tengo la pantalla de Edicion armada

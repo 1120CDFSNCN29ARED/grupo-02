@@ -44,10 +44,10 @@ router.post(
 );
 
 router.get('/', adminAuthMiddleware, usersController.index);
-router.get('/details/:userId', usersController.details);
-router.get("/profile", authMiddleware, usersController.profile);
+//router.get('/details/:userId',authMiddleware, usersController.details);
+router.get("/profile/:userId", authMiddleware, usersController.profile);
 
-router.get('/edit/:userId', usersController.edit);
+router.get('/edit/:userId', authMiddleware, usersController.edit);
 router.put('/edit/:userId',uploadFile.single("image"), usersController.update);
 
 router.get('/logout/', usersController.logout);

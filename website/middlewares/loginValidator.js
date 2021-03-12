@@ -23,6 +23,7 @@ const loginValidation = (req, res, next) => {
         delete userToLogin.password;
 				req.session.assertUserLogged = userToLogin;
 				req.session.userType = userToLogin.category;
+				req.session.userId = userToLogin.userID;
         if (req.body.keepLogged != undefined) {
 					res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 2 });
 				}

@@ -65,8 +65,7 @@
 							</button>
 						</a>
 						<!-- Button trigger modal -->
-					</li>
-					 
+					</li>					 
 					<% } %>
 					
 					<li class="nav-item pe-1 my-2 my-md-0">
@@ -81,10 +80,10 @@
 						<!-- Button trigger modal -->
 					</li>
 				</ul>
-				<% if (locals.isLogged) { %>
 					<ul class="navbar-nav ms-auto">
+						<% if (locals.isLogged) { %>
 						<li class="nav-item pe-md-3 my-2 my-md-0">
-							<a class="t-d-none" href="/users/profile/"><i class="fas fa-user d-none d-md-inline"></i><span class="d-md-none ps-2 nav-icon-description nav-item">Perfil: <%=locals.assertUserLogged.userName%></span></a>
+							<a class="t-d-none" href="/users/profile/<%=assertUserLogged.userID%>"><i class="fas fa-user d-none d-md-inline"></i><span class="d-md-none ps-2 nav-icon-description nav-item">Perfil: <%=locals.assertUserLogged.userName%></span></a>
 						</li>
 						<li class="nav-item pe-md-3 my-2 my-md-0">
 							<a class="t-d-none" href="#"><i class="fas fa-bell d-none d-md-inline"></i><span class="d-md-none ps-2 nav-icon-description nav-item">Notificaciones</span></a>

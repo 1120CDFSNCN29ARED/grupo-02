@@ -2,7 +2,7 @@ const express = require("express");
 const { url } = require("inspector");
 const multer = require('multer');
 const path = require('path');
-
+const authMiddleware = require('../middlewares/authMiddleware');
 const productsController = require("../controllers/productsController");
 
 const router = express.Router();
@@ -23,7 +23,7 @@ const uploadFile = multer({ storage });
 const urlClearner = require('../middlewares/urlCleaner');
 
 
-router.get("/create/:productType?", productsController.create);
+router.get("/create/:productType?", authMiddleware,productsController.create);
 router.post("/create/:productType", uploadFile.fields([{ name: 'productImages' }]), productsController.store);
 
 router.get("/details/:productType/:productID", productsController.details);
