@@ -139,11 +139,11 @@ Cambios a realizar:
         - Hacer los filtros dinamicos *Simon*
         - Agregar funcionalidad de busqueda por texto y por los filtros del home / search *Simon*
     * Hearder
-        - Remover historial *Santi*
-        - Hacer que vender y favoritos aparezcan solo si el usuario esta logeado *Santi*
-        - Agregar links a las categorias *Santi*
+        - Remover historial *Santi* - OK
+        - Hacer que vender y favoritos aparezcan solo si el usuario esta logeado *Santi* - OK
+        - Agregar links a las categorias *Santi* - OK
     * Product Details
-        - Hacer que el boton de editar aparezca solo si esta logeado y el owner del producto *Santi*
+        - Hacer que el boton de editar aparezca solo si esta logeado y el owner del producto *Santi* - OK
         - Agregar funcionalidad de favoritos y que solo aparezca si esta logeado *Santi*
     * Cart
         - Agregar funcionalidad entera de cart (agregar y quitar productos) *Simon*

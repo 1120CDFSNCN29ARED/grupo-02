@@ -76,16 +76,17 @@
                     <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
                     <i class="far fa-heart"></i>
                 </div>
-
                 <div class="payment-methods-link">
                     <a data-bs-toggle="modal" data-bs-target="#paymentMethodsModal"><i class="fas fa-credit-card"></i> Medios de pago</a>
                 </div>
             <% } %>
-            <div class="btn-edit-container">
-                <a href="/products/edit/<%= productType %>/<%= product.adID %>">
-                    <button type="button" class="btn btn-warning btn-edit">Editar</button>
-                </a>
-            </div>
+            <% if (locals.assertUserLogged && assertUserLogged.userID === product.userID) { %>
+                <div class="btn-edit-container">
+                    <a href="/products/edit/<%= productType %>/<%= product.adID %>">
+                        <button type="button" class="btn btn-warning btn-edit">Editar</button>
+                    </a>
+                </div>     
+            <% } %>            
         </div>
     </section>
     <section>

@@ -5,21 +5,13 @@ const fuse = require("fuse.js");
 const { v4: uuidv4 } = require("uuid");
 const _ = require("lodash");
 
+const Vehicle = require("../models/Vehicle");
 const vehiclesFilePath = path.join(__dirname, "../json/vehicles.json");
 const partsFilePath = path.join(__dirname, "../json/parts.json");
 const questionsFilePath = path.join(__dirname, "../json/questions.json");
-const vehicleBrandsFilePath = path.join(
-	__dirname,
-	"../json/vehicleBrands.json"
-);
-const vehicleModelsFilePath = path.join(
-	__dirname,
-	"../json/vehicleModels.json"
-);
-const vehicleVersionsFilePath = path.join(
-	__dirname,
-	"../json/vehicleVersions.json"
-);
+const vehicleBrandsFilePath = path.join(__dirname,"../json/vehicleBrands.json");
+const vehicleModelsFilePath = path.join(__dirname,"../json/vehicleModels.json");
+const vehicleVersionsFilePath = path.join(__dirname,"../json/vehicleVersions.json");
 
 const partBrandsFilePath = path.join(__dirname, "../json/partBrands.json");
 const partModelsFilePath = path.join(__dirname, "../json/partModels.json");
@@ -29,7 +21,7 @@ const jsonReader = (filePath) => JSON.parse(fs.readFileSync(filePath, "utf-8"));
 let product = {};
 const productsController = {
 	details: (req, res) => {
-		const vehicles = jsonReader(vehiclesFilePath);
+		//const vehicles = Vehicle.findAll();
 		const parts = jsonReader(partsFilePath);
 		let brands = "";
 		let models = "";
@@ -37,11 +29,9 @@ const productsController = {
 		let version = "";
 		const questions = jsonReader(questionsFilePath);
 		const productID = parseInt(req.params.productID, 10);
-		const productQuestions = questions.filter(
-			(question) => question.adID === productID
-		);
+		const productQuestions = questions.filter(question => question.adID === productID);
 		if (req.params.productType === "vehicle") {
-			product = vehicles.find((vehicle) => vehicle.adID === productID);
+			product = Vehicle.findVehicleByPk(productID);
 			if (!product) {
 				res.redirect("/");
 			}
@@ -50,15 +40,17 @@ const productsController = {
 			versions = jsonReader(vehicleVersionsFilePath);
 			version = versions.find((e) => e.versionID === product.versionID);
 		} else if (req.params.productType === "part") {
-			product = parts.find((part) => part.adID === productID);
+			product = parts.find(part => part.adID === productID);
 			if (!product) {
 				res.redirect("/");
 			}
 			brands = jsonReader(partBrandsFilePath);
 			models = jsonReader(partModelsFilePath);
 		}
-		const brand = brands.find((e) => e.brandID === product.brandID);
-		const model = models.find((e) => e.modelID === product.modelID);
+		const brand = brands.find(e => e.brandID === product.brandID);
+		const model = models.find(e => e.modelID === product.modelID);
+		console.log(req.session.assertUserLogged.userID === product.userID)
+		console.log(product)
 		res.render("productDetails", {
 			productType: req.params.productType,
 			productID: productID,
@@ -73,11 +65,9 @@ const productsController = {
 		const questions = jsonReader(questionsFilePath);
 		const productID = parseInt(req.params.productID, 10);
 
-		const newID =
-			questions.length > 0 ? questions[questions.length - 1].questionID + 1 : 1;
+		const newID = questions.length > 0 ? questions[questions.length - 1].questionID + 1 : 1;
 		const date = new Date();
-		const questionDate =
-			date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+		const questionDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
 
 		const newQuestion = {
 			questionID: newID,
@@ -90,9 +80,7 @@ const productsController = {
 		};
 		questions.push(newQuestion);
 		fs.writeFileSync(questionsFilePath, JSON.stringify(questions, null, 4));
-		res.redirect(
-			"/products/details/" + req.params.productType + "/" + productID
-		);
+		res.redirect("/products/details/" + req.params.productType + "/" + productID);
 	},
 	create: (req, res) => {
 		let brands = "";
@@ -135,8 +123,7 @@ const productsController = {
 			imageURLs.push("no-image-found.jpeg");
 		}
 		if (productType === "vehicle") {
-			const newID =
-				vehicles.length > 0 ? vehicles[vehicles.length - 1].adID + 1 : 1;
+			const newID = vehicles.length > 0 ? vehicles[vehicles.length - 1].adID + 1 : 1;
 			let published = "";
 			let publishedDate = "";
 			let onSaleStatus = "";
@@ -158,6 +145,7 @@ const productsController = {
 			}
 			let product = {
 				adID: newID,
+				userID: req.session.assertUserLogged.userID,
 				type: req.body.vehicleType,
 				published: published,
 				publishedDate: publishedDate,
@@ -185,10 +173,7 @@ const productsController = {
 				price: Number(req.body.vehiclePrice),
 				description: req.body.vehicleDescription,
 			};
-			if (
-				req.files.productImages &&
-				req.files.productImages.length - imageURLs.length > 0
-			) {
+			if(req.files.productImages && req.files.productImages.length - imageURLs.length > 0){
 				req.files.productImages.forEach((image) => {
 					if (!imageURLs.includes(image.filename)) {
 						fs.unlinkSync(
@@ -224,6 +209,7 @@ const productsController = {
 			}
 			let product = {
 				adID: newID,
+				userID: req.session.assertUserLogged.userID,
 				type: "part",
 				published: published,
 				publishedDate: publishedDate,
@@ -377,7 +363,7 @@ const productsController = {
 			product.year = req.body.vehicleYear;
 			product.state = req.body.vehicleState;
 			product.publishedDate = publishedDate;
-			//product.rating = req.body.rating;
+			product.rating = req.body.rating;
 			product.kilometers = Number(req.body.vehicleKMs);
 			product.color = req.body.vehicleColor;
 			product.location.province = req.body.vehicleProvince;
@@ -547,10 +533,11 @@ const productsController = {
 		res.redirect("/");
 	},
 	search: (req, res) => {
-		const vehicles = jsonReader(vehiclesFilePath);
+		/*const vehicles = jsonReader(vehiclesFilePath);
 		const publishedVehicles = vehicles.filter(
 			(vehicle) => vehicle.published === true
-		);
+		);*/
+		const publishedVehicles = Vehicle.filterVehiclesByField("published", true);
 		const parts = jsonReader(partsFilePath);
 		const publishedParts = parts.filter((part) => part.published === true);
 
@@ -619,10 +606,11 @@ const productsController = {
 		});
 	},
     searchBar: (req, res, next) => {
-		const vehicles = jsonReader(vehiclesFilePath);
+		/*const vehicles = jsonReader(vehiclesFilePath);
 		const publishedVehicles = vehicles.filter(
 			(vehicle) => vehicle.published === true
-		);
+		);*/
+		const publishedVehicles = Vehicle.filterVehiclesByField("published", true);
 		const parts = jsonReader(partsFilePath);
 		const publishedParts = parts.filter((part) => part.published === true);
 		const publishedProducts = publishedVehicles.concat(publishedParts);
