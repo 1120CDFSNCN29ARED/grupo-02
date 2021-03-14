@@ -126,26 +126,27 @@
         "published": false,
         "featured": false,
         "onSale": {
-            "status": false,
+            "status": true,
             "discount": 0
         },
-        "stock": 10,
+        "stock": 123,
         "publishedDate": "11/1/2021",
         "title": "Corona Original Transmision Benelli Tnt 25 Solo En Agrobikes",
-        "brandID": 4,
-        "modelID": 4,
+        "brandID": null,
+        "modelID": null,
         "partID": "abc123",
         "vehicleType": {
-            "motorcycle": true
+            "motorcycle": "on"
         },
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
         "imageURLs": [
             "https://http2.mlstatic.com/D_NQ_NP_853957-MLA41451642565_042020-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_103225-MLA25408560310_032017-O.webp"
+            "https://http2.mlstatic.com/D_NQ_NP_103225-MLA25408560310_032017-O.webp",
+            "no-image-found.jpeg"
         ],
         "price": 1236,
         "state": "Nuevo",
-        "rating": 3,
+        "rating": "3",
         "location": {
             "province": "CABA",
             "city": "CABA",
@@ -157,34 +158,36 @@
             "name": "Agrobikes",
             "phone": 123456789,
             "email": "agrobikes@realcars.com"
-        }
+        },
+        "type": "part"
     },
     {
         "adID": 5,
         "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
         "productType": "part",
-        "published": true,
+        "published": false,
         "featured": false,
         "onSale": {
-            "status": false,
+            "status": true,
             "discount": 0
         },
-        "stock": 1,
+        "stock": 1233,
         "publishedDate": "11/1/2021",
         "title": "Paragolpe Delantero P/ Volkswagen Amarok 2017 2018 2019 2020",
-        "brandID": 7,
-        "modelID": 5,
+        "brandID": null,
+        "modelID": null,
         "partID": "abc1223",
         "vehicleType": {
-            "pickup": true
+            "pickup": "on"
         },
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, maiores? Nemo sit consequuntur quos necessitatibus eos assumenda libero nam distinctio error, sunt harum ullam doloremque ipsa eum recusandae tenetur velit.",
         "imageURLs": [
-            "https://http2.mlstatic.com/D_NQ_NP_936865-MLA26346153229_112017-O.webp"
+            "https://http2.mlstatic.com/D_NQ_NP_936865-MLA26346153229_112017-O.webp",
+            "no-image-found.jpeg"
         ],
         "price": 20236,
         "state": "Usado",
-        "rating": 3,
+        "rating": "3",
         "location": {
             "province": "CABA",
             "city": "CABA",
@@ -196,6 +199,7 @@
             "name": "Volkwagen Argentina",
             "phone": 123456789,
             "email": "volkwagenargentina@realcars.com"
-        }
+        },
+        "type": "part"
     }
 ]

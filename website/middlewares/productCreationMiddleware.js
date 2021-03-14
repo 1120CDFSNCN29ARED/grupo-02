@@ -1,5 +1,6 @@
-const { body, validationResult } = require('express-validator');
+const { body, check, oneOf, validationResult } = require('express-validator');
 const Vehicle = require('../models/Vehicle');
+const Part = require('../models/Part');
 const fs = require("fs");
 const path = require("path");
 const productsController = require('../controllers/productsController');
@@ -117,6 +118,7 @@ const vehicleCreationValidator = [
 ];
 
 const vehicleCreationValidation = (req, res, next) => {
+    console.log("llegue a validacion")
     const errors = validationResult(req);
     if (errors.isEmpty()) {
 		return next();
@@ -125,8 +127,17 @@ const vehicleCreationValidation = (req, res, next) => {
     models = jsonReader(vehicleModelsFilePath);
     versions = jsonReader(vehicleVersionsFilePath);
 	const validationErrors = errors.mapped();
+    //console.log(req)
+    console.log(req.url)
     //console.log(validationErrors)
-	return res.render("createProduct", { brands, models, versions, productType: "vehicle",errors: validationErrors, old: req.body});
+    if(req.url.includes("create")){
+        return res.render("createProduct", { brands, models, versions, productType: "vehicle",errors: validationErrors, old: req.body});
+    }
+	else if(req.url.includes("edit")){
+        const vehicle = Vehicle.findVehicleByPk(parseInt(req.params.productID, 10))
+        console.log("llegue aca")
+        return res.render("editProduct", { brands, models, versions, productType: "vehicle",errors: validationErrors, product: vehicle});
+    }
 }
 
 const partCreationValidator = [
@@ -134,20 +145,25 @@ const partCreationValidator = [
     body("partBrand").notEmpty().withMessage("Debe seleccionar una marca"),
     body("partModel").notEmpty().withMessage("Debe seleccionar una versión"),
     body("partID").notEmpty().withMessage("Debe ingresar un número de parte"),
-    body("partVehicleType").notEmpty().withMessage("Debe seleccionar al menos un tipo de vehículo al que corresponde la parte"),
     body("rating").notEmpty().withMessage("Debe ingresar un rating").bail()
     .isNumeric().withMessage("Debe ingresar un número (entre 0 y 5)").isIn([0,1,2,3,4,5]),
     body("partState").notEmpty().withMessage("Debe seleccionar un estado"),
     body("partPrice").notEmpty().withMessage("Debe ingresar el precio").bail()
     .isNumeric().withMessage("Debe ingresar un número").bail().isInt({ gt: 0 }).withMessage("Debe ingresar un número mayor a cero"),
     body("discount").notEmpty().withMessage("Debe ingresar el descuento. Si no desea aplicar un descuento, ingrese 0").bail()
-    .isNumeric().withMessage("Debe ingresar un número").bail().isFloat({ gt: 0, lt: 100 }).withMessage("Debe ingresar un número entre 0 y 100"),
+    .isNumeric().withMessage("Debe ingresar un número").bail().isFloat({ gt: -1, lt: 100 }).withMessage("Debe ingresar un número entre 0 y 100"),
     body("stock").notEmpty().withMessage("Debe ingresar la cantidad de stock"),
     body("partProvince").notEmpty().withMessage("Debe ingresar la provincia").bail().isAlpha().withMessage("Debe ingresar una provincia válida"),
     body("partCity").notEmpty().withMessage("Debe ingresar la ciudad"),
     body("partNeighbourhood").notEmpty().withMessage("Debe ingresar el barrio"),
     body("partPostalCode").notEmpty().withMessage("Debe ingresar el código postal"),
     body("partDescription").notEmpty().withMessage("Debe ingresar una descripción"),
+    oneOf([
+        body("partVehicleTypeCar").exists(),
+        body("partVehicleTypePickup").exists(),
+        body("partVehicleTypeMotorcycle").exists(),
+        body("partVehicleTypeTruck").exists(),
+    ])
 ];
 
 const partCreationValidation = (req, res, next) => {
@@ -157,9 +173,18 @@ const partCreationValidation = (req, res, next) => {
     if (errors.isEmpty()) {
 		return next();
 	}
+    console.log(errors)
+    console.log(req.body)
 	const validationErrors = errors.mapped();
     //console.log(validationErrors)
-	return res.render("createProduct", { brands, models,productType: "part",errors: validationErrors, old: req.body});
+	if(req.url.includes("create")){
+        return res.render("editProduct", { brands, models, versions, productType: "part", productID: req.params.productID, errors: validationErrors, old: req.body});
+    }
+	else if(req.url.includes("edit")){
+        const part = Part.findPartByPk(parseInt(req.params.productID, 10))
+        console.log("llegue aca")
+        return res.render("editProduct", { brands, models, productType: "part", productID: req.params.productID, errors: validationErrors, product: part});
+    }
 }
 
 //console.log(vehicleCreationValidator)

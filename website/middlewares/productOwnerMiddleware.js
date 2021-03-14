@@ -1,12 +1,20 @@
 const Vehicle = require('../models/Vehicle');
+const Part = require('../models/Part');
 
 
 const productOwner = (req, res, next) => {
-    product = Vehicle.findVehicleByPk(parseInt(req.params.productID))
-    if(req.session.assertUserLogged.userID === product.userID){
-        next();
+    if(req.params.productType === "vehicle"){
+        product = Vehicle.findVehicleByPk(parseInt(req.params.productID, 10))
     }
-    res.redirect("/users/register");
+    else if(req.params.productType === "part"){
+        product = Part.findPartByPk(parseInt(req.params.productID, 10))
+    }
+    if(req.session.assertUserLogged.userID !== product.userID){
+        return res.redirect("/users/register");
+    }
+    console.log(req.session.assertUserLogged.userID)
+    console.log(product.userID)
+    next();
 }
 
 module.exports = productOwner;

@@ -13,6 +13,7 @@ const questionsFilePath = path.join(__dirname, "../json/questions.json");
 const vehicleBrandsFilePath = path.join(__dirname,"../json/vehicleBrands.json");
 const vehicleModelsFilePath = path.join(__dirname,"../json/vehicleModels.json");
 const vehicleVersionsFilePath = path.join(__dirname,"../json/vehicleVersions.json");
+const favouritesFilePath = path.join(__dirname, "../json/favourites.json");
 
 const partBrandsFilePath = path.join(__dirname, "../json/partBrands.json");
 const partModelsFilePath = path.join(__dirname, "../json/partModels.json");
@@ -442,6 +443,191 @@ const productsController = {
 			versions,
 		});
 	},
+	updateVehicle: (req, res) => {
+		const vehicles = Vehicle.findAll();
+		const productID = parseInt(req.params.productID, 10);
+		product = vehicles.find((vehicle) => vehicle.adID === productID);
+			let imageURLs = product.imageURLs;
+			const imageIndex = product.imageURLs.findIndex(
+				(image) => image === "no-image-found.jpeg"
+			);
+			if (imageIndex > -1) {
+				product.imageURLs.splice(imageIndex, 1);
+			}
+			if (req.files.productImages) {
+				if (
+					product.imageURLs.length === 0 &&
+					req.files.productImages.length < 5
+				) {
+					for (let i = 0; i < req.files.productImages.length; i++) {
+						imageURLs.push(req.files.productImages[i].filename);
+					}
+				} else if (product.imageURLs.length > 0) {
+					if (req.files.productImages.length === 1) {
+						imageURLs.push(req.files.productImages[0].filename);
+					} else {
+						for (let i = 0; i <= 5 - imageURLs.length; i++) {
+							imageURLs.push(req.files.productImages[i].filename);
+						}
+					}
+				} else if (
+					product.imageURLs.length === 0 &&
+					req.files.productImages.length > 5
+				) {
+					for (let i = 0; i < 5; i++) {
+						imageURLs.push(req.files.productImages[i].filename);
+					}
+				}
+			} else if (product.imageURLs.length === 0 || !req.files.productImages) {
+				imageURLs.push("no-image-found.jpeg");
+			}
+
+			if (
+				req.files.productImages &&
+				req.files.productImages.length - product.imageURLs.length > 0
+			) {
+				req.files.productImages.forEach((image) => {
+					if (!imageURLs.includes(image.filename)) {
+						fs.unlinkSync(
+							path.join(__dirname, `../public/img/products/${image.filename}`)
+						);
+					}
+				});
+			}
+
+			product.type = req.body.vehicleType;
+			if (req.body.submit === "publish") {
+				published = true;
+				publishedDate = new Date();
+			} else if (req.body.submit === "save") {
+				published = false;
+				publishedDate = product.publishedDate;
+			}
+			if (req.body.discount >= 0) {
+				product.onSale.status = true;
+				product.onSale.discount = Number(req.body.discount);
+			} else {
+				product.onSale.status = false;
+				product.onSale.discount = 0;
+			}
+			product.brandID = Number(req.body.vehicleBrand);
+			product.modelID = Number(req.body.vehicleModel);
+			product.versionID = Number(req.body.vehicleVersion);
+			product.gearType = req.body.vehicleGearType; //
+			product.year = req.body.vehicleYear;
+			product.state = req.body.vehicleState;
+			product.publishedDate = publishedDate;
+			product.rating = req.body.rating;
+			product.kilometers = Number(req.body.vehicleKMs);
+			product.color = req.body.vehicleColor;
+			product.location.province = req.body.vehicleProvince;
+			product.location.city = req.body.vehicleCity;
+			product.location.neighbourhood = req.body.vehicleNeighbourhood;
+			product.location.postalCode = req.body.vehiclePostalCode;
+			product.imageURLs = imageURLs;
+			product.price = Number(req.body.vehiclePrice);
+			product.description = req.body.vehicleDescription;
+
+			fs.writeFileSync(vehiclesFilePath, JSON.stringify(vehicles, null, 4));
+			res.redirect("/products/details/vehicle/" + productID);
+
+	},
+	updatePart: (req, res) => {
+		const productID = parseInt(req.params.productID, 10);
+		const parts = Part.findAll();
+
+		let published = "";
+		let publishedDate = "";
+
+		product = parts.find((part) => part.adID === productID);
+			let imageURLs = product.imageURLs;
+			const imageIndex = product.imageURLs.findIndex(
+				(image) => image === "no-image-found.jpeg"
+			);
+			if (imageIndex > -1) {
+				product.imageURLs.splice(imageIndex, 1);
+			}
+			if (req.files.productImages) {
+				if (
+					product.imageURLs.length === 0 &&
+					req.files.productImages.length < 5
+				) {
+					for (let i = 0; i < req.files.productImages.length; i++) {
+						imageURLs.push(req.files.productImages[i].filename);
+					}
+				} else if (product.imageURLs.length > 0) {
+					if (req.files.productImages.length === 1) {
+						imageURLs.push(req.files.productImages[0].filename);
+					} else {
+						for (let i = 0; i <= 5 - imageURLs.length; i++) {
+							imageURLs.push(req.files.productImages[i].filename);
+						}
+					}
+				} else if (
+					product.imageURLs.length === 0 &&
+					req.files.productImages.length > 5
+				) {
+					for (let i = 0; i < 5; i++) {
+						imageURLs.push(req.files.productImages[i].filename);
+					}
+				}
+			} else if (product.imageURLs.length === 0 || !req.files.productImages) {
+				imageURLs.push("no-image-found.jpeg");
+			}
+
+			if (
+				req.files.productImages &&
+				req.files.productImages.length - product.imageURLs.length > 0
+			) {
+				req.files.productImages.forEach((image) => {
+					if (!imageURLs.includes(image.filename)) {
+						fs.unlinkSync(
+							path.join(__dirname, `../public/img/products/${image.filename}`)
+						);
+					}
+				});
+			}
+
+			product.type = "part";
+			if (req.body.submit === "publish") {
+				published = true;
+				publishedDate = new Date();
+			} else if (req.body.submit === "save") {
+				published = false;
+				publishedDate = product.publishedDate;
+			}
+			if (req.body.discount >= 0) {
+				product.onSale.status = true;
+				product.onSale.discount = Number(req.body.discount);
+			} else {
+				product.onSale.status = false;
+				product.onSale.discount = 0;
+			}
+			product.published = published;
+			product.publishedDate = publishedDate;
+			product.brandID = Number(req.body.brand);
+			product.modelID = Number(req.body.model);
+			product.stock = Number(req.body.stock);
+			product.title = req.body.partTitle;
+			product.state = req.body.partState;
+			product.rating = req.body.rating;
+			product.partID = req.body.partID;
+			product.vehicleType.car = req.body.partVehicleTypeCar;
+			product.vehicleType.pickup = req.body.partVehicleTypePickup;
+			product.vehicleType.motorcycle = req.body.partVehicleTypeMotorcycle;
+			product.vehicleType.truck = req.body.partVehicleTypeTruck;
+			product.location.province = req.body.partProvince;
+			product.location.city = req.body.partCity;
+			product.location.neighbourhood = req.body.partNeighbourhood;
+			product.location.postalCode = req.body.partPostalCode;
+			product.imageURLs = imageURLs;
+			product.price = Number(req.body.partPrice);
+			product.description = req.body.partDescription;
+
+			fs.writeFileSync(partsFilePath, JSON.stringify(parts, null, 4));
+
+			res.redirect("/products/details/part/" + productID);
+	},
 	update: (req, res) => {
 		const vehicles = jsonReader(vehiclesFilePath);
 		const parts = jsonReader(partsFilePath);
@@ -813,6 +999,34 @@ const productsController = {
 			products: filteredList,
 		});
 	},
+	addFavourite: (req, res) => {
+		const favourites = jsonReader(favouritesFilePath);
+		let favourite = {};
+		const userFavourites = favourites.find(favourite => favourite.userID == req.session.assertUserLogged.userID);
+		if(userFavourites){
+			for(let i = 0; i < userFavourites.favouriteProducts.length; i++){
+				if(userFavourites.favouriteProducts.adID === req.params.productID && userFavourites.favouriteProducts.productType === req.params.productType){
+					return res.redirect(`/products/details/${req.params.productType}/${req.params.productID}`)
+				}
+			}
+			favourite = {
+				productType: req.params.productType,
+                adID: parseInt(req.params.productID),
+                dateAdded: new Date()
+			}
+			userFavourites.favouriteProducts.push(favourite);
+			console.log(favourites)
+			/*const favouriteIndex = favourites.findIndex(
+				(favourite) => favourite.userID === req.session.assertUserLogged.userID
+			);
+			favourites.splice(favouriteIndex, 1);*/
+			fs.writeFileSync(favouritesFilePath, JSON.stringify(favourites, null, 4));
+			return res.redirect(`/products/details/${req.params.productType}/${req.params.productID}`)
+		}
+	},
+	deleteFavourite: (req, res) => {
+
+	}
 };
 
 function searchBar(

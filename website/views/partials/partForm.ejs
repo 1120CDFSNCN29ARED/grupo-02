@@ -179,7 +179,7 @@
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" name="stock" id="stock" class="form-control <%=locals.errors && errors.stock ? 'is-invalid': null %>" value="<%= locals.product && product.stock ? product.stocl : "" %>">
+                    <input type="number" name="stock" id="stock" class="form-control <%=locals.errors && errors.stock ? 'is-invalid': null %>" value="<%= locals.product && product.stock ? product.stock : "" %>">
                     <label for="stock">Stock</label>
                     <% if (locals.errors && errors.stock) { %>
                         <div class="invalid-feedback">

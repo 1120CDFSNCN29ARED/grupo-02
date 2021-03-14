@@ -28,13 +28,16 @@ const urlClearner = require('../middlewares/urlCleaner');
 
 
 router.get("/create/:productType?", authMiddleware, productsController.create);
-router.post("/create/vehicle", uploadFile.fields([{ name: 'productImages' }]),vehicleCreationValidator, vehicleCreationValidation, productsController.storeVehicle);
-router.post("/create/part", uploadFile.fields([{ name: 'productImages' }]),partCreationValidator, partCreationValidation, productsController.storePart);
+router.post("/create/vehicle", uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator, vehicleCreationValidation, productsController.storeVehicle);
+router.post("/create/part", uploadFile.fields([{ name: 'productImages' }]), partCreationValidator, partCreationValidation, productsController.storePart);
 
 router.get("/details/:productType/:productID", productsController.details);
 
 router.get("/edit/:productType/:productID", authMiddleware, productOwner, productsController.edit);
-router.put("/edit/:productType/:productID", authMiddleware, uploadFile.fields([{ name: 'productImages' }]), productOwner, productsController.update);
+router.put("/edit/vehicle/:productID", authMiddleware, productOwner, uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator,
+vehicleCreationValidation, productsController.updateVehicle);
+router.put("/edit/part/:productID", authMiddleware, productOwner, uploadFile.fields([{ name: 'productImages' }]), partCreationValidator,
+partCreationValidation, productsController.updatePart);
 
 router.post("/question/:productType/:productID", productsController.question);
 
@@ -43,5 +46,8 @@ router.delete("/delete/:productType/:productID", authMiddleware, productOwner, p
 
 router.get("/search", urlClearner, productsController.search);
 router.get("/searchBar/:searchValue?", urlClearner, productsController.searchBar);
+
+router.get("/favourites/add/:productType/:productID", authMiddleware, productsController.addFavourite)
+router.get("/favourites/delete/:productType/:productID", authMiddleware, productsController.deleteFavourite)
 
 module.exports = router;
