@@ -1,6 +1,7 @@
 [
     {
         "adID": 1,
+        "userID": 109,
         "productType": "part",
         "published": true,
         "featured": true,
@@ -41,6 +42,7 @@
     },
     {
         "adID": 2,
+        "userID": 109,
         "productType": "part",
         "published": true,
         "featured": false,
@@ -80,6 +82,7 @@
     },
     {
         "adID": 3,
+        "userID": 109,
         "productType": "part",
         "published": true,
         "featured": false,
@@ -118,6 +121,7 @@
     },
     {
         "adID": 4,
+        "userID": 109,
         "productType": "part",
         "published": false,
         "featured": false,

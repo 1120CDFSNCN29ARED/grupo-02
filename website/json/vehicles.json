@@ -1,6 +1,7 @@
 [
     {
         "adID": 1,
+        "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
         "productType": "vehicle",
         "type": "camioneta",
         "published": true,
@@ -41,6 +42,7 @@
     },
     {
         "adID": 2,
+        "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
         "productType": "vehicle",
         "type": "auto",
         "published": true,
@@ -80,6 +82,7 @@
     },
     {
         "adID": 3,
+        "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
         "productType": "vehicle",
         "type": "camioneta",
         "published": true,
@@ -162,6 +165,7 @@
     },
     {
         "adID": 5,
+        "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
         "productType": "vehicle",
         "type": "moto",
         "published": true,
