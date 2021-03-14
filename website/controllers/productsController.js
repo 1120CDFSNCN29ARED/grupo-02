@@ -104,6 +104,161 @@ const productsController = {
 			product: {},
 		});
 	},
+	storeVehicle: (req, res) => {
+		const vehicles = Vehicle.findAll();
+		let imageURLs = [];
+		if (req.files.productImages) {
+			if (req.files.productImages.length < 5) {
+				for (let i = 0; i < req.files.productImages.length; i++) {
+					imageURLs.push(req.files.productImages[i].filename);
+				}
+			} else {
+				for (let i = 0; i < 5; i++) {
+					imageURLs.push(req.files.productImages[i].filename);
+				}
+			}
+		} else {
+			imageURLs.push("no-image-found.jpeg");
+		}
+			const newID = vehicles.length > 0 ? vehicles[vehicles.length - 1].adID + 1 : 1;
+			let published = "";
+			let publishedDate = "";
+			let onSaleStatus = "";
+			let onSaleDiscount = "";
+			if (req.body.submit === "publish") {
+				published = true;
+				publishedDate = new Date();
+			} else if (req.body.submit === "save") {
+				published = false;
+				publishedDate = "";
+			}
+
+			if (Number(req.body.discount) > 0) {
+				onSaleStatus = true;
+				onSaleDiscount = Number(req.body.discount);
+			} else {
+				onSaleStatus = false;
+				onSaleDiscount = 0;
+			}
+			let product = {
+				adID: newID,
+				userID: req.session.assertUserLogged.userID,
+				type: req.body.vehicleType,
+				published: published,
+				publishedDate: publishedDate,
+				featured: false,
+				onSale: {
+					status: onSaleStatus,
+					discount: onSaleDiscount,
+				},
+				brandID: Number(req.body.vehicleBrand),
+				modelID: Number(req.body.vehicleModel),
+				versionID: Number(req.body.vehicleVersion),
+				gearType: req.body.vehicleGearType,
+				year: Number(req.body.vehicleYear),
+				state: req.body.vehicleState,
+				rating: req.body.rating,
+				kilometers: Number(req.body.vehicleKMs),
+				color: req.body.vehicleColor,
+				location: {
+					province: req.body.vehicleProvince,
+					city: req.body.vehicleCity,
+					neighbourhood: req.body.vehicleNeighbourhood,
+					postalCode: req.body.vehiclePostalCode,
+				},
+				imageURLs: imageURLs,
+				price: Number(req.body.vehiclePrice),
+				description: req.body.vehicleDescription,
+			};
+			if(req.files.productImages && req.files.productImages.length - imageURLs.length > 0){
+				req.files.productImages.forEach((image) => {
+					if (!imageURLs.includes(image.filename)) {
+						fs.unlinkSync(
+							path.join(__dirname, `../public/img/products/${image.filename}`)
+						);
+					}
+				});
+			}
+			vehicles.push(product);
+
+			//console.log(product)
+			fs.writeFileSync(vehiclesFilePath, JSON.stringify(vehicles, null, 4));
+			res.redirect("/products/details/" + req.params.productType + "/" + newID);
+	},
+	storePart: (req, res) => {
+		const parts = jsonReader(partsFilePath);
+		let imageURLs = [];
+		if (req.files.productImages) {
+			if (req.files.productImages.length < 5) {
+				for (let i = 0; i < req.files.productImages.length; i++) {
+					imageURLs.push(req.files.productImages[i].filename);
+				}
+			} else {
+				for (let i = 0; i < 5; i++) {
+					imageURLs.push(req.files.productImages[i].filename);
+				}
+			}
+		} else {
+			imageURLs.push("no-image-found.jpeg");
+		}
+		const newID = parts.length > 0 ? parts[parts.length - 1].adID + 1 : 1;
+			let published = "";
+			let publishedDate = "";
+			let onSaleStatus = "";
+			let onSaleDiscount = "";
+			if (req.body.submit === "publish") {
+				published = true;
+				publishedDate = new Date();
+			} else if (req.body.submit === "save") {
+				published = false;
+			}
+
+			if (Number(req.body.discount) > 0) {
+				onSaleStatus = true;
+				onSaleDiscount = Number(req.body.discount);
+			} else {
+				onSaleStatus = false;
+				onSaleDiscount = 0;
+			}
+			let product = {
+				adID: newID,
+				userID: req.session.assertUserLogged.userID,
+				type: "part",
+				published: published,
+				publishedDate: publishedDate,
+				onSale: {
+					status: onSaleStatus,
+					discount: onSaleDiscount,
+				},
+				brandID: Number(req.body.brand),
+				modelID: Number(req.body.model),
+				stock: Number(req.body.stock),
+				title: req.body.partTitle,
+				state: req.body.partState,
+				rating: req.body.rating,
+				partID: req.body.partID,
+				vehicleType: {
+					car: req.body.partVehicleTypeCar,
+					pickup: req.body.partVehicleTypePickup,
+					motorcycle: req.body.partVehicleTypeMotorcycle,
+					truck: req.body.partVehicleTypeTruck,
+				},
+				location: {
+					province: req.body.partProvince,
+					city: req.body.partCity,
+					neighbourhood: req.body.partNeighbourhood,
+					postalCode: req.body.partPostalCode,
+				},
+				imageURLs: imageURLs,
+				price: Number(req.body.partPrice),
+				description: req.body.partDescription,
+			};
+
+			parts.push(product);
+			//console.log(product)
+			fs.writeFileSync(partsFilePath, JSON.stringify(parts, null, 4));
+			res.redirect("/products/details/" + req.params.productType + "/" + newID);
+	},
 	store: (req, res) => {
 		const vehicles = jsonReader(vehiclesFilePath);
 		const parts = jsonReader(partsFilePath);

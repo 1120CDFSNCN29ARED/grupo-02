@@ -204,7 +204,7 @@
         "adID": 6,
         "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
         "type": "auto",
-        "published": true,
+        "published": false,
         "publishedDate": "2021-03-12T19:48:06.671Z",
         "featured": false,
         "onSale": {
@@ -215,7 +215,7 @@
         "modelID": 1,
         "versionID": 1,
         "gearType": "automática",
-        "year": 2021,
+        "year": "2021",
         "state": "Nuevo",
         "rating": "2",
         "kilometers": 0,

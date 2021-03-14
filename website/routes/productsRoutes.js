@@ -4,7 +4,8 @@ const multer = require('multer');
 const path = require('path');
 
 const productsController = require("../controllers/productsController");
-const {vehicleCreationValidator, vehicleCreationValidation} = require("../middlewares/productCreationMiddleware");
+const {vehicleCreationValidator, vehicleCreationValidation, partCreationValidator, partCreationValidation} = require("../middlewares/productCreationMiddleware");
+const productOwner = require("../middlewares/productOwnerMiddleware");
 
 const authMiddleware = require('../middlewares/authMiddleware');
 
@@ -26,18 +27,19 @@ const uploadFile = multer({ storage });
 const urlClearner = require('../middlewares/urlCleaner');
 
 
-router.get("/create/:productType?", authMiddleware,productsController.create);
-router.post("/create/:productType", uploadFile.fields([{ name: 'productImages' }]),vehicleCreationValidator, vehicleCreationValidation, productsController.store);
+router.get("/create/:productType?", authMiddleware, productsController.create);
+router.post("/create/vehicle", uploadFile.fields([{ name: 'productImages' }]),vehicleCreationValidator, vehicleCreationValidation, productsController.storeVehicle);
+router.post("/create/part", uploadFile.fields([{ name: 'productImages' }]),partCreationValidator, partCreationValidation, productsController.storePart);
 
 router.get("/details/:productType/:productID", productsController.details);
 
-router.get("/edit/:productType/:productID", authMiddleware,productsController.edit);
-router.put("/edit/:productType/:productID",uploadFile.fields([{ name: 'productImages' }]), productsController.update);
+router.get("/edit/:productType/:productID", authMiddleware, productOwner, productsController.edit);
+router.put("/edit/:productType/:productID", authMiddleware, uploadFile.fields([{ name: 'productImages' }]), productOwner, productsController.update);
 
 router.post("/question/:productType/:productID", productsController.question);
 
-router.get("/deleteImage/:productType/:productID", productsController.deleteImage);
-router.delete("/delete/:productType/:productID", productsController.delete);
+router.get("/deleteImage/:productType/:productID", authMiddleware, productOwner, productsController.deleteImage);
+router.delete("/delete/:productType/:productID", authMiddleware, productOwner, productsController.delete);
 
 router.get("/search", urlClearner, productsController.search);
 router.get("/searchBar/:searchValue?", urlClearner, productsController.searchBar);

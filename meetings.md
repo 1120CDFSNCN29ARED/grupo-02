@@ -139,11 +139,11 @@ Cambios a realizar:
         - Hacer los filtros dinamicos *Simon*
         - Agregar funcionalidad de busqueda por texto y por los filtros del home / search *Simon*
     * Hearder
-        - Remover historial *Santi* - OK
-        - Hacer que vender y favoritos aparezcan solo si el usuario esta logeado *Santi* - OK
-        - Agregar links a las categorias *Santi* - OK
+        - Remover historial *Santi*
+        - Hacer que vender y favoritos aparezcan solo si el usuario esta logeado *Santi*
+        - Agregar links a las categorias *Santi*
     * Product Details
-        - Hacer que el boton de editar aparezca solo si esta logeado y el owner del producto *Santi* - OK
+        - Hacer que el boton de editar aparezca solo si esta logeado y el owner del producto *Santi*
         - Agregar funcionalidad de favoritos y que solo aparezca si esta logeado *Santi*
     * Cart
         - Agregar funcionalidad entera de cart (agregar y quitar productos) *Simon*
@@ -157,3 +157,17 @@ Cambios a realizar:
         - Agregar validacion *Santi*
     * Users
         - Arreglar validacion de edicion de usuarios *Simon*
+
+
+## 12-Marzo
+
+### Revision avance
+
+Participantes: Simon, Santi
+
+Progreso:
+    * Productos:
+        - Se tiene que terminar de arreglar la parte de validacion para partes y productos - hacer dos rutas
+    * Admin:
+        - Se implemento version inicial de pantalla de admin con validacion de rol
+        - Queda refinar las validaciones con accesos, edicion de usuarios, etc
