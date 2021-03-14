@@ -6,6 +6,7 @@ const { v4: uuidv4 } = require("uuid");
 const _ = require("lodash");
 
 const Vehicle = require("../models/Vehicle");
+const Part = require("../models/Part");
 const vehiclesFilePath = path.join(__dirname, "../json/vehicles.json");
 const partsFilePath = path.join(__dirname, "../json/parts.json");
 const questionsFilePath = path.join(__dirname, "../json/questions.json");
@@ -27,6 +28,7 @@ const productsController = {
 		let models = "";
 		let versions = "";
 		let version = "";
+		let seller = "";
 		const questions = jsonReader(questionsFilePath);
 		const productID = parseInt(req.params.productID, 10);
 		const productQuestions = questions.filter(question => question.adID === productID);
@@ -35,6 +37,7 @@ const productsController = {
 			if (!product) {
 				res.redirect("/");
 			}
+			seller = seller = Vehicle.seller(product.adID);
 			brands = jsonReader(vehicleBrandsFilePath);
 			models = jsonReader(vehicleModelsFilePath);
 			versions = jsonReader(vehicleVersionsFilePath);
@@ -44,17 +47,18 @@ const productsController = {
 			if (!product) {
 				res.redirect("/");
 			}
+			seller = Part.seller(product.adID);
 			brands = jsonReader(partBrandsFilePath);
 			models = jsonReader(partModelsFilePath);
 		}
 		const brand = brands.find(e => e.brandID === product.brandID);
 		const model = models.find(e => e.modelID === product.modelID);
-		console.log(req.session.assertUserLogged.userID === product.userID)
-		console.log(product)
+		
 		res.render("productDetails", {
 			productType: req.params.productType,
-			productID: productID,
+			productID,
 			product,
+			seller,
 			questions: productQuestions,
 			brand,
 			model,
