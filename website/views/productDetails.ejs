@@ -46,6 +46,7 @@
                     <%= product.location.city %>,<%= product.location.province %>
                 <% } %>
              </p>
+            <h5>Vendedor: <span class="seller"><%= (locals.seller && seller.userName) ? seller.userName : "" %></span></h5> 
             <% if (productType === "part") { %>
                 <p class="product-shipping">Costo de envío <span class="product-shipping-price">$250</span></p> <!-- to be replaced with dynamic data once shipping service cost is implemented -->
             <% } %>
@@ -62,19 +63,23 @@
             </div>
             <% if (productType === "vehicle") { %>
                 <div class="buttons-container">
-                    <button type="button" class="btn btn-primary">Preguntar</button>
-                    <button type="button" class="btn btn-secondary">Reservar</button>
+                    <% if (locals.assertUserLogged) { %>
+                        <button type="button" class="btn btn-primary">Preguntar</button>
+                        <button type="button" class="btn btn-secondary">Reservar</button>
+                        <i class="far fa-heart"></i>
+                    <% } %>                    
                     <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
-                    <i class="far fa-heart"></i>
                 </div>
             
             <% } else if (productType === "part") { %>
                 <div class="buttons-container">
-                    <button type="button" class="btn btn-primary">Comprar</button>
-                    <button type="button" class="btn btn-secondary">Preguntar</button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-cart-plus"></i></button>
+                    <% if (locals.assertUserLogged) { %>
+                        <button type="button" class="btn btn-primary">Comprar</button>
+                        <button type="button" class="btn btn-secondary">Preguntar</button>
+                        <button type="button" class="btn btn-danger"><i class="fas fa-cart-plus"></i></button>
+                        <i class="far fa-heart"></i>
+                    <% } %>
                     <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
-                    <i class="far fa-heart"></i>
                 </div>
                 <div class="payment-methods-link">
                     <a data-bs-toggle="modal" data-bs-target="#paymentMethodsModal"><i class="fas fa-credit-card"></i> Medios de pago</a>
@@ -140,14 +145,16 @@
             <%- include("./partials/vehicleDatasheet") %> 
         <% } %>
         <div id="questions">
-            <h2>Preguntale al vendedor</h2>
-            <form id="question-form" action="/products/question/<%= productType %>/<%= product.adID %>" method="POST">
-                <div class="form-floating">
-                    <textarea class="form-control" name="question" id="question" form="question-form"></textarea>
-                    <label for="question">Escribí tu respuesta</label>
-                </div>
-                <button id="askQuestion" type="submit" class="btn btn-primary">Preguntar</button>
-            </form>                
+            <% if (locals.assertUserLogged) { %>
+                <h2>Preguntale al vendedor</h2>
+                <form id="question-form" action="/products/question/<%= productType %>/<%= product.adID %>" method="POST">
+                    <div class="form-floating">
+                        <textarea class="form-control" name="question" id="question" form="question-form"></textarea>
+                        <label for="question">Escribí tu respuesta</label>
+                    </div>
+                    <button id="askQuestion" type="submit" class="btn btn-primary">Preguntar</button>
+                </form>
+            <% } %>
             <h2>Preguntas</h2>
             <% questions.forEach(e => { %>
                 <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %> - <%= e.questionDate.toLocaleString() %></span> <%- e.answer !== "" ? '<i class="fas fa-level-down-alt question-arrow"></i>' : "" %> </p>

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const User = require("./User");
 
 const Vehicle = {
     fileName: "./json/vehicles.json",
@@ -26,6 +27,11 @@ const Vehicle = {
 		let vehicles = this.findAll();
         let vehiclesFound = vehicles.filter(vehicle => vehicle[field] == fieldValue);
         return vehiclesFound;
+    },
+    seller: function (id) {
+        let vehicle = this.findVehicleByPk(parseInt(id));
+        let user = User.findUserByPk(vehicle.userID);
+        return user;
     },
 	create: function (vehicleData) {
         let vehicles = this.findAll();

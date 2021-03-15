@@ -61,6 +61,12 @@ h2 {
   font-size: x-large;
 }
 
+.seller {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
 .product-state {
   font-weight: bold;
   font-size: 1.2em;
@@ -97,6 +103,8 @@ h2 {
 .fa-heart {
   font-size: 1.3em;
   color: red;
+  margin-right: 7px;
+  cursor: pointer;
 }
 
 .payment-methods-link {
