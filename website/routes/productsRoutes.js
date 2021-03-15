@@ -6,8 +6,6 @@ const authMiddleware = require('../middlewares/authMiddleware');
 const productsController = require("../controllers/productsController");
 const {vehicleCreationValidator, vehicleCreationValidation} = require("../middlewares/productCreationMiddleware");
 
-const authMiddleware = require('../middlewares/authMiddleware');
-
 const router = express.Router();
 
 const storage = multer.diskStorage({

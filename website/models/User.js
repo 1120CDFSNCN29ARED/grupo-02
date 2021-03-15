@@ -34,10 +34,7 @@ const User = {
     this.writeData(users);
     return newUser;
   },
-  generateId: function () {
-    /* let users = this.findAll();
-    let newId = users.length > 0 ? users[users.length - 1].userID + 1 : 1;
-    return newId; */
+  generateId: function () {    
     return uuidv4();
   },
   delete: function (id) {
