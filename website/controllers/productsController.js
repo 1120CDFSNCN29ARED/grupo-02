@@ -1015,7 +1015,7 @@ const productsController = {
                 dateAdded: new Date()
 			}
 			userFavourites.favouriteProducts.push(favourite);
-			console.log(favourites)
+			//console.log(favourites)
 			/*const favouriteIndex = favourites.findIndex(
 				(favourite) => favourite.userID === req.session.assertUserLogged.userID
 			);

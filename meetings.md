@@ -171,3 +171,24 @@ Progreso:
     * Admin:
         - Se implemento version inicial de pantalla de admin con validacion de rol
         - Queda refinar las validaciones con accesos, edicion de usuarios, etc
+
+## 16-Marzo
+
+### Revision avance
+
+Participantes: Simon, Santi
+
+Progreso:
+    * Cart:
+        - Se creó el Cart model, funcionan los métodos (add/remove).
+        - Queda:
+            - Vincular el cart al usuario logeado.
+            - Definir si va a haber un guest cart. -> Si
+            - Definir cómo va a ser el tratamiendo del cart id y su flujo -> Se va a crear un cart solo si el guest hace click en Add to cart. Si la persona esta logeada se chequea si ya tiene uno activo y se asigna a req.session.cartID.
+    * Favourites:
+        - Se creo version inicial. Falta pasarlo a model e implementar delete.
+        - Agregar links e iconos a product details correspondientes a si ya esta en favoritos o no -> agregar middleware
+        - Agregar lista de favoritos en dropdown de la navbar.
+    * Products:
+        - Se implemento express-validator para create y edit.
+        - Se agrego middleware de si es el owner del producto.

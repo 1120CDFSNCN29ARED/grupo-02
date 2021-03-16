@@ -173,16 +173,12 @@ const partCreationValidation = (req, res, next) => {
     if (errors.isEmpty()) {
 		return next();
 	}
-    console.log(errors)
-    console.log(req.body)
 	const validationErrors = errors.mapped();
-    //console.log(validationErrors)
 	if(req.url.includes("create")){
-        return res.render("editProduct", { brands, models, versions, productType: "part", productID: req.params.productID, errors: validationErrors, old: req.body});
+        return res.render("createProduct", { brands, models, versions, productType: "part", productID: req.params.productID, errors: validationErrors, old: req.body});
     }
 	else if(req.url.includes("edit")){
-        const part = Part.findPartByPk(parseInt(req.params.productID, 10))
-        console.log("llegue aca")
+        const part = Part.findPartByPk(parseInt(req.params.productID, 10));        
         return res.render("editProduct", { brands, models, productType: "part", productID: req.params.productID, errors: validationErrors, product: part});
     }
 }
