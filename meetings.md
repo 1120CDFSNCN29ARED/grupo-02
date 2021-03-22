@@ -192,3 +192,21 @@ Progreso:
     * Products:
         - Se implemento express-validator para create y edit.
         - Se agrego middleware de si es el owner del producto.
+
+
+## 16-Marzo
+
+### Revision avance
+
+Participantes: Simon, Santi
+
+Progreso:
+    * Cart:
+        - Se implemento el carrito en session.
+    * Users:
+        - Remover confirm password del json y formularios
+        - Pasar password a archivo separado
+    * Products:
+        - Remover rating del formulario para parts y vehicles
+    * Database:
+        - Created first draft of database ERD
