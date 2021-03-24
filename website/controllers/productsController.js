@@ -1026,6 +1026,11 @@ const productsController = {
 	},
 	deleteFavourite: (req, res) => {
 
+	},
+	testingModel: (req, res) => {
+		const db = require("../database/models");
+		
+		db.Role.findAll().then(roles => res.send(roles))
 	}
 };
 

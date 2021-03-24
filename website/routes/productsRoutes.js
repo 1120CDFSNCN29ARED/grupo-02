@@ -50,4 +50,6 @@ router.get("/searchBar/:searchValue?", urlClearner, productsController.searchBar
 router.get("/favourites/add/:productType/:productID", authMiddleware, productsController.addFavourite)
 router.get("/favourites/delete/:productType/:productID", authMiddleware, productsController.deleteFavourite)
 
+router.get("/testing", productsController.testingModel)
+
 module.exports = router;
