@@ -1,6 +1,6 @@
 /* Resources::after<!-- https://uxdesign.cc/ux-best-practices-registration-500e55284f82 --> */
 .registration {
-  max-width: 500px;
+  max-width: 750px;
 }
 /* Header and Main logo */
 #nav-btn-main-page {
@@ -41,5 +41,4 @@
   text-decoration: none;
   color: #166fd9;
 }
-@media (min-width: 768px) {
-}
+

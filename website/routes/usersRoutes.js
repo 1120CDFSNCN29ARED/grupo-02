@@ -4,7 +4,9 @@ const { body, validationResult } = require('express-validator');
 const path = require('path');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-const { registrationValidationRules, validation } = require('../middlewares/validator');
+const adminAuthMiddleware = require("../middlewares/adminAuthMiddleware");
+const { registrationValidationRules, registrationValidation } = require('../middlewares/registrationValidator');
+const { loginValidationRules, loginValidation } = require('../middlewares/loginValidator');
 const router = express.Router();
 
 // ************ Controller Require ************
@@ -26,21 +28,26 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 
 router.get("/login", guestMiddleware, usersController.login);
-router.post("/login", usersController.loginProcess);
+router.post(
+	"/login",
+	loginValidationRules(),
+	loginValidation,
+	usersController.loginProcess
+);
 
 router.get("/register",guestMiddleware, usersController.create);
 router.post(
 	"/register",
 	uploadFile.single("image"),registrationValidationRules(),
-	validation,
+	registrationValidation,
 	usersController.processRegistration
 );
 
-router.get('/', usersController.index);
-router.get('/details/:userId', usersController.details);
-router.get("/profile", authMiddleware, usersController.profile);
+router.get('/', adminAuthMiddleware, usersController.index);
+//router.get('/details/:userId',authMiddleware, usersController.details);
+router.get("/profile/:userId", authMiddleware, usersController.profile);
 
-router.get('/edit/:userId', usersController.edit);
+router.get('/edit/:userId', authMiddleware, usersController.edit);
 router.put('/edit/:userId',uploadFile.single("image"), usersController.update);
 
 router.get('/logout/', usersController.logout);

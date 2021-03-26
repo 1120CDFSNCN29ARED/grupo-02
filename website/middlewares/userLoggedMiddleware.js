@@ -7,12 +7,12 @@ function userLoggedMiddleware(req, res, next) {
   let userFromCookie = User.findUserByField("email", userEmailInCookie);
   
   if (userFromCookie) {
-    req.session.userLogged = userFromCookie;
+    req.session.assertUserLogged = userFromCookie;
   }
 
-  if (req.session.userLogged) {
+  if (req.session.assertUserLogged) {
     res.locals.isLogged = true;
-    res.locals.userLogged = req.session.userLogged;    
+    res.locals.assertUserLogged = req.session.assertUserLogged;    
   }
   
   next();
