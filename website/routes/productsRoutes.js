@@ -26,8 +26,8 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 
 router.get("/create/:productType?", authMiddleware, productsController.create);
-router.post("/create/vehicle", uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator, vehicleCreationValidation, productsController.storeVehicle);
-router.post("/create/part", uploadFile.fields([{ name: 'productImages' }]), partCreationValidator, partCreationValidation, productsController.storePart);
+router.post("/create/vehicle", authMiddleware, uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator, vehicleCreationValidation, productsController.storeVehicle);
+router.post("/create/part", authMiddleware, uploadFile.fields([{ name: 'productImages' }]), partCreationValidator, partCreationValidation, productsController.storePart);
 
 router.get("/details/:productType/:productID", productsController.details);
 
@@ -37,7 +37,7 @@ vehicleCreationValidation, productsController.updateVehicle);
 router.put("/edit/part/:productID", authMiddleware, productOwner, uploadFile.fields([{ name: 'productImages' }]), partCreationValidator,
 partCreationValidation, productsController.updatePart);
 
-router.post("/question/:productType/:productID", productsController.question);
+router.post("/question/:productType/:productID", authMiddleware, productsController.question);
 
 router.get("/deleteImage/:productType/:productID", authMiddleware, productOwner, productsController.deleteImage);
 router.delete("/delete/:productType/:productID", authMiddleware, productOwner, productsController.delete);
@@ -47,5 +47,7 @@ router.get("/searchBar/:searchValue?", urlClearner, productsController.searchBar
 
 router.get("/favourites/add/:productType/:productID", authMiddleware, productsController.addFavourite)
 router.get("/favourites/delete/:productType/:productID", authMiddleware, productsController.deleteFavourite)
+
+router.get("/testing", productsController.testingModel)
 
 module.exports = router;
