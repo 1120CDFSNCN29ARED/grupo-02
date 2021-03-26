@@ -234,6 +234,12 @@
             "no-image-found.jpeg"
         ],
         "price": 123456,
-        "description": "Publicacion de prueba"
+        "description": "Publicacion de prueba",
+        "seller": {
+            "userName": "carone",
+            "name": "Car One",
+            "phone": 123456789,
+            "email": "carone@gmail.com"
+        }
     }
 ]

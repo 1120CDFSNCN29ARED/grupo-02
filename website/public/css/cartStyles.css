@@ -63,10 +63,17 @@
   font-style: italic;
 }
 
-.cart-item button {
-  margin-left: 40%;
+.cart-item-update-button {
+  margin-top:5px;
 }
-
+.cart-delete-button-container{
+  margin-top:-40px;
+}
+.cart-delete-button{
+  margin-right: 5px;
+  margin-bottom:5px;
+  padding-bottom:5px;
+}
 .cart-footer {
   position: fixed;
   bottom: 0;

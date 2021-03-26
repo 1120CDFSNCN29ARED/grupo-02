@@ -7,8 +7,7 @@
             <ol class="carousel-indicators">
                 <% for( let i = 0; i < product.imageURLs.length; i++ ) { %>
                     <li data-bs-target="#productPhotoCarousel" data-bs-slide-to=" <%= i %> "  <% if(i === 0){ %> <%- 'class="active"' %> <% } %> ></li>
-                <% } %>
-              
+                <% } %>              
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -76,7 +75,7 @@
                     <% if (locals.assertUserLogged) { %>
                         <button type="button" class="btn btn-primary">Comprar</button>
                         <button type="button" class="btn btn-secondary">Preguntar</button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-cart-plus"></i></button>
+                        <a href="/cart/addItem/<%=product.adID%>"><button type="button" class="btn btn-danger"><i class="fas fa-cart-plus"></i></button></a>
                         <i class="far fa-heart"></i>
                     <% } %>
                     <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>

@@ -8,7 +8,7 @@ const User = {
     return JSON.parse(fs.readFileSync(this.fileName, "utf-8"));    
 	},
 	writeData: function (userArray) {
-		fs.writeFileSync(this.fileName, JSON.stringify(userArray, null, "  "));
+		fs.writeFileSync(this.fileName, JSON.stringify(userArray, null, 2));
 	},
 	findAll: function () {
 		return this.getData();
@@ -16,7 +16,6 @@ const User = {
 	findUserByPk: function (id) {
 		let users = this.findAll();
 		let userFound = users.find(user => user.userID == id);
-    console.log(userFound);
     return userFound;
 	},
 	findUserByField: function (field, fieldValue) {

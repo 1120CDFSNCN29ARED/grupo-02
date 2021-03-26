@@ -1,68 +1,83 @@
 [
-    {
-        "cartID": 1,
-        "userID": 1,
-        "items": [
-            {
-                "adID": 1,
-                "quantity": 1
-            },
-            {
-                "adID": 2,
-                "quantity": 3
-            },
-            {
-                "adID": 3,
-                "quantity": 2
-            },
-            {
-                "adID": 4,
-                "quantity": 4
-            }
-        ]
-    },
-    {
-        "cartID": 1,
-        "userID": 2,
-        "items": [
-            {
-                "adID": 2,
-                "quantity": 1
-            },
-            {
-                "adID": 3,
-                "quantity": 2
-            },
-            {
-                "adID": 1,
-                "quantity": 3
-            },
-            {
-                "adID": 4,
-                "quantity": 4
-            }
-        ]
-    },
-    {
-        "cartID": 3,
-        "userID": 3,
-        "items": [
-            {
-                "adID": 4,
-                "quantity": 4
-            },
-            {
-                "adID": 3,
-                "quantity": 3
-            },
-            {
-                "adID": 2,
-                "quantity": 2
-            },
-            {
-                "adID": 1,
-                "quantity": 1
-            }
-        ]
-    }
+  {
+    "cartID": 1,
+    "userID": 1,
+    "status": "pending",
+    "items": [
+      {
+        "adID": 2,
+        "quantity": 1,
+        "price": 12345
+      },
+      {
+        "adID": 3,
+        "quantity": 2,
+        "price": 23456
+      },
+      {
+        "adID": 4,
+        "quantity": 4,
+        "price": 1236
+      },
+      {
+        "adID": 1,
+        "quantity": 5,
+        "price": 23456
+      }
+    ]
+  },
+  {
+    "cartID": 2,
+    "userID": 112,
+    "status": "pending",
+    "items": [
+      {
+        "adID": 2,
+        "quantity": 1,
+        "price": 12345
+      },
+      {
+        "adID": 3,
+        "quantity": 2,
+        "price": 3456
+      },
+      {
+        "adID": 1,
+        "quantity": 3,
+        "price": 23456
+      },
+      {
+        "adID": 4,
+        "quantity": 4,
+        "price": 1236
+      }
+    ]
+  },
+  {
+    "cartID": 3,
+    "userID": 113,
+    "status": "pending",
+    "items": [
+      {
+        "adID": 3,
+        "quantity": 1,
+        "price": 23456
+      },
+      {
+        "adID": 2,
+        "quantity": 1,
+        "price": 100
+      },
+      {
+        "adID": 4,
+        "quantity": 4,
+        "price": 1236
+      },
+      {
+        "adID": 1,
+        "quantity": 1,
+        "price": 100
+      }
+    ]
+  }
 ]

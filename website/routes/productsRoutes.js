@@ -2,10 +2,13 @@ const express = require("express");
 const { url } = require("inspector");
 const multer = require('multer');
 const path = require('path');
+
+//Middlewares
 const authMiddleware = require('../middlewares/authMiddleware');
 const productsController = require("../controllers/productsController");
 const {vehicleCreationValidator, vehicleCreationValidation, partCreationValidator, partCreationValidation} = require("../middlewares/productCreationMiddleware");
 const productOwner = require("../middlewares/productOwnerMiddleware");
+const urlClearner = require("../middlewares/urlCleaner");
 
 const router = express.Router();
 
@@ -21,9 +24,6 @@ const storage = multer.diskStorage({
   });
   
 const uploadFile = multer({ storage });
-
-const urlClearner = require('../middlewares/urlCleaner');
-
 
 router.get("/create/:productType?", authMiddleware, productsController.create);
 router.post("/create/vehicle", uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator, vehicleCreationValidation, productsController.storeVehicle);
