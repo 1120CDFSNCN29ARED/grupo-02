@@ -9,19 +9,41 @@ const registrationValidationRules = () => {
 			.withMessage("Por favor elige un nomber de usaurio")
 			.bail()
 			.custom((value, { req }) => {
-				if(User.findUserByField("userName", value)){ 
-					throw new Error('El usuario ya se encuentre en uso');
+				if (User.findUserByField("userName", value)) {
+					throw new Error("El usuario ya se encuentre en uso");
 				}
 				return true;
 			}),
-		body("first_name").notEmpty().withMessage("Por favor ingrese su nombre"),
-		body("last_name").notEmpty().withMessage("Por favor ingrese su apellido"),
-		body("id_number")
+		body("first_name")
 			.notEmpty()
-			.withMessage("Por favor ingrese su DNI sin punots ni espacios")
+			.withMessage("Por favor ingrese su nombre")
+			.bail()
+			.isAlpha("es-ES")
+			.withMessage("Por favor solo ingrese letras")
+			.bail()
+			.isLength({ min: 2, max: undefined })
+			.withMessage("Por favor ingrese un nombre con mas de 2 caracteres"),
+		body("last_name")
+			.notEmpty()
+			.withMessage("Por favor ingrese su apellido")
+			.bail()
+			.isAlpha("es-ES")
+			.withMessage("Por favor solo ingrese letras")
+			.bail()
+			.isLength({ min: 2, max: undefined })
+			.withMessage("Por favor ingrese un apellido con mas de 2 caracteres"),
+		body(
+			"id_number",
+			"Por favor ingrese su DNI valido de 8 números sin punots ni espacios"
+		)
+			.notEmpty()
+			.withMessage()
 			.bail()
 			.isNumeric()
-			.withMessage("Por favor ingrese un DNI válido. Sin punto ni espacios"),
+			.withMessage()
+			.bail()
+			.isLength({ min: 8, max: 8 })
+			.withMessage(),
 		body("email")
 			.notEmpty()
 			.withMessage("Por favor ingrese un email")
@@ -30,26 +52,47 @@ const registrationValidationRules = () => {
 			.withMessage("Por favor ingrese un email válido")
 			.bail()
 			.custom((value, { req }) => {
-				if(User.findUserByField("email", value)){
-						throw new Error('El email ya se encuentre registrado');
-					}
-					return true;
-				}),
+				if (User.findUserByField("email", value)) {
+					throw new Error("El email ya se encuentre registrado");
+				}
+				return true;
+			}),
 		body("telephone")
 			.notEmpty()
 			.withMessage("Por favor ingrese su numero de teléfono")
 			.bail()
-			.isInt()
+			.isNumeric()
 			.withMessage("Por favor ingrese un número de teléfono válido."),
-		body("province").notEmpty().withMessage("Por favor ingrese su provincia"),
-		body("city").notEmpty().withMessage("Por favor ingrese su ciudad"),
-		body("neighbourhood").notEmpty().withMessage("Por favor ingrese su barrio"),
-		body("postal_code")
+		body("province")
+			.notEmpty()
+			.withMessage("Por favor ingrese su provincia")
+			.bail()
+			.isAlpha("es-ES")
+			.withMessage("Por favor ingrese una provincia válida"),
+		body("city")
+			.notEmpty()
+			.withMessage("Por favor ingrese su ciudad")
+			.bail()
+			.isAlpha("es-ES")
+			.withMessage("Por favor ingrese una ciudad válida"),
+		body("neighbourhood")
+			.notEmpty()
+			.withMessage("Por favor ingrese su barrio")
+			.bail()
+			.isAlphanumeric()
+			.withMessage("Por favor ingrese un barrio válido"),
+		body(
+			"postal_code",
+			"Por favor ingrese un Código Postal válido de 4 dígitos"
+		)
 			.notEmpty()
 			.withMessage("Por favor ingrese su código postal")
 			.bail()
 			.isInt()
-			.withMessage("Por favor ingrese un Código Postal válido de 4 dígitos"),
+			.withMessage()
+			.bail()
+			.isLength({ min: 4, max: 4 })
+			.withMessage(),
 		body("password").notEmpty().withMessage("Por favor ingrese una contraseña"),
 		body("confirmPassword", "Las contraseñas ingresadas no coinciden.").custom(
 			(value, { req }) => value === req.body.password
@@ -57,13 +100,11 @@ const registrationValidationRules = () => {
 		body("image").custom((value, { req }) => {
 			let file = req.file;
 			let acceptedExtensions = [".jpg", ".jpeg", "png", ".gif"];
-			if (!file) {
-				throw new Error("Por favor subir una imagen");
-			} else {
+			if (file) {
 				let fileExtension = path.extname(file.originalname);
 				if (!acceptedExtensions.includes(fileExtension)) {
 					throw new Error(
-						`Puede subir los siguintes tipos de imagenes: ${acceptedExtensions.join(
+						`Puede subir los siguientes tipos de imagenes: ${acceptedExtensions.join(
 							", "
 						)}`
 					);
