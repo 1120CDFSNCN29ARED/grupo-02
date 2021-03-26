@@ -18,20 +18,32 @@ const registrationValidationRules = () => {
 			.notEmpty()
 			.withMessage("Por favor ingrese su nombre")
 			.bail()
-			.isAlpha()
-			.withMessage("Por favor solo ingrese letras"),
+			.isAlpha("es-ES")
+			.withMessage("Por favor solo ingrese letras")
+			.bail()
+			.isLength({ min: 2, max: undefined })
+			.withMessage("Por favor ingrese un nombre con mas de 2 caracteres"),
 		body("last_name")
 			.notEmpty()
 			.withMessage("Por favor ingrese su apellido")
 			.bail()
-			.isAlpha()
-			.withMessage("Por favor solo ingrese letras"),
-		body("id_number")
+			.isAlpha("es-ES")
+			.withMessage("Por favor solo ingrese letras")
+			.bail()
+			.isLength({ min: 2, max: undefined })
+			.withMessage("Por favor ingrese un apellido con mas de 2 caracteres"),
+		body(
+			"id_number",
+			"Por favor ingrese su DNI valido de 8 números sin punots ni espacios"
+		)
 			.notEmpty()
-			.withMessage("Por favor ingrese su DNI sin punots ni espacios")
+			.withMessage()
 			.bail()
 			.isNumeric()
-			.withMessage("Por favor ingrese un DNI válido. Sin punto ni espacios"),
+			.withMessage()
+			.bail()
+			.isLength({ min: 8, max: 8 })
+			.withMessage(),
 		body("email")
 			.notEmpty()
 			.withMessage("Por favor ingrese un email")
@@ -55,13 +67,13 @@ const registrationValidationRules = () => {
 			.notEmpty()
 			.withMessage("Por favor ingrese su provincia")
 			.bail()
-			.isAlpha()
+			.isAlpha("es-ES")
 			.withMessage("Por favor ingrese una provincia válida"),
 		body("city")
 			.notEmpty()
 			.withMessage("Por favor ingrese su ciudad")
 			.bail()
-			.isAlpha()
+			.isAlpha("es-ES")
 			.withMessage("Por favor ingrese una ciudad válida"),
 		body("neighbourhood")
 			.notEmpty()
@@ -79,7 +91,8 @@ const registrationValidationRules = () => {
 			.isInt()
 			.withMessage()
 			.bail()
-			.isLength({ min: 4, max: 4 }).withMessage(),
+			.isLength({ min: 4, max: 4 })
+			.withMessage(),
 		body("password").notEmpty().withMessage("Por favor ingrese una contraseña"),
 		body("confirmPassword", "Las contraseñas ingresadas no coinciden.").custom(
 			(value, { req }) => value === req.body.password
