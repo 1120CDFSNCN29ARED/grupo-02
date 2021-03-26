@@ -1029,8 +1029,8 @@ const productsController = {
 	},
 	testingModel: (req, res) => {
 		const db = require("../database/models");
-		
-		db.Role.findAll().then(roles => res.send(roles))
+				
+		db.Role.findAll().then(roles => res.send(roles)).catch((error) => res.send(error))
 	}
 };
 

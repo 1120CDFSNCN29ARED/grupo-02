@@ -1,4 +1,4 @@
-const sequelize = require("sequelize");
+const Role = require("./role")
 
 const Vehicle = (sequelize, DataTypes) => {
     const alias = "Product";
