@@ -2,35 +2,57 @@
 <%- include("./partials/head", {"styles": styles}) %> 
 <%- include("./partials/header") %>
 <main>
-    <main>
-        <section class="cart-container">
-            <% items.forEach(item => { %>
-                <article class="cart-item">
-                    <div class="cart-item-image">
-                        <img src="<%= (item.product.imageURLs)[0] %>" alt="" srcset="">
-                    </div>
-                    <div class="cart-item-details-container">
-                        <h2 class="cart-item-title"><%= item.product.title %> </h2>
-                        <p class="cart-item-description"><%= item.product.description %> </p>
-                        <div class="cart-item-shipping-container">
-                            <p class="cart-item-shipping-label">Costo de envío: <span class="cart-item-shipping-price">$200</span></p>
+    <section class="cart-container">
+        <% if (items.length>0) { %>
+        <% items.forEach(item=> { %>
+            <div class="cart-item-container">
+                <form action="/cart/updateItem/<%=item.product.adID%>?_method=PUT" method="POST">
+                    <article class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="<%= (item.product.imageURLs)[0] %>" alt="" srcset="">
                         </div>
-                        <p class="cart-item-seller"><%= item.product.seller.name %> </p>
-                    </div>
-                    <div class="cart-item-quantity-container">
-                        <div class="cart-item-quantity">
-                            <i class="fas fa-minus"></i>
-                            <input type="text" name="quantity-product-1" id="quantity-product-1" value="<%= item.quantity %>">
-                            <i class="fas fa-plus"></i>
-                            <p class="cart-item-available-quantity"><%= item.product.stock %> </p>
+                        <div class="cart-item-details-container">
+                            <h2 class="cart-item-title">
+                                <%= item.product.title %>
+                            </h2>
+                            <p class="cart-item-description">
+                                <%= item.product.description %>
+                            </p>
+                            <div class="cart-item-shipping-container">
+                                <p class="cart-item-shipping-label">Costo de envío: <span class="cart-item-shipping-price">$200</span></p>
+                            </div>
+                            <p class="cart-item-seller">
+                                <%= item.product.seller.name %>
+                            </p>
                         </div>
-                        <h2 class="cart-item-price">$ <%= item.product.price.toLocaleString("es-AR") %> </h2>
-                    </div>
-                    <button class="btn btn-danger">Eliminar</button>
-                </article>
+                        <div class="cart-item-quantity-container">
+                            <div class="cart-item-quantity">
+                                <a href="#"><i class="fas fa-minus"></i></a>
+                                <input type="text" name="quantity" id="quantity" value="<%= item.quantity %>">
+                                <a href="#"><i class="fas fa-plus"></i></a>
+                                <p class="cart-item-available-quantity">
+                                    <%= item.product.stock %>
+                                </p>
+                            </div>
+                            <h2 class="cart-item-price">$ <%= item.product.price.toLocaleString("es-AR") %>
+                            </h2>
+                        </div>
+                        <div class="cart-item-button-container">
+                            <button class="cart-item-update-button btn btn-success" type="submit">Actualizar</button>
+                        </div>
+                    </article>
+                </form>
+                <form action="/cart/removeItem/<%=item.product.adID%>" method="GET" class="cart-delete-button-container d-flex">
+                    <button class="cart-delete-button ms-auto btn btn-danger">Eliminar</button></a>
+                </form>
+            </div>
             <% }) %>
-        </section>
-    </main>
+            <% } else { %>
+             <div class="cart-item-container">
+                <div><h1>Aun no agregaste items a su carro. </h1><a href="/"><button class="btn - btn-danger">Mirar los productos</button></a></div>
+             </div>
+            <% } %>
+    </section>
 </main>
 <footer class="container-fluid text-light text-center sticky-bottom">
         <p><i class="far fa-copyright"></i> REAL CARS 2021</p>

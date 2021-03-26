@@ -5,7 +5,8 @@ let product = {
 };
 const adminController = {
     display: (req, res) => {
-        res.render("admin", { brands: brands, mmav: mmav });
+        const adminUser = req.session.assertUserLogged;
+        res.render("adminDashboard", { user: adminUser, brands: brands, mmav: mmav });
     },
     productAdmin: (req, res) => { 
         const productType = req.params.productType;

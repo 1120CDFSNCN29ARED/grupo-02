@@ -14,6 +14,7 @@ const partModelsFilePath = path.join(__dirname, "../json/partModels.json");
 
 const jsonReader = filePath => JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
+const User = require("../models/User");
 
 /*
 const questions = require("../json/questions.json");
@@ -23,6 +24,7 @@ const parts = require("../json/parts.json");
 
 const mainController = {
     index: (req, res) => {   
+        const users = User.findAll();
         const vehicles = jsonReader(vehiclesFilePath);
         const publishedVehicles = vehicles.filter(vehicle => vehicle.published === true);
         const parts = jsonReader(partsFilePath);
@@ -35,9 +37,7 @@ const mainController = {
         const partBrands = jsonReader(partBrandsFilePath);
         const partModels = jsonReader(partModelsFilePath);
 
-
-
-        res.render("index", { mmav, vehicleBrands, vehicleModels, vehicleVersions, partBrands, partModels, vehicles: publishedVehicles, parts: publishedParts});
+        res.render("index", { users, mmav, vehicleBrands, vehicleModels, vehicleVersions, partBrands, partModels, vehicles: publishedVehicles, parts: publishedParts});
      },    
 };
 

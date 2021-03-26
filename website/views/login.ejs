@@ -46,7 +46,7 @@
 						<section class="container-fluid login-right-user">
 							<form action="/users/login" method ="POST" class="form-login-User">
 								<div class="form-floating mb-1">
-									<input type="email" class="form-control login-field <%=locals.errors && errors.email ? 'is-invalid':null %> "" id="email" name="email"
+									<input type="text" class="form-control login-field <%=locals.errors && errors.email ? 'is-invalid':null %> "" id="email" name="email"
 										placeholder="name@example.com" />
 									<label for="email"> Email</label>
 									<% if (locals.errors && errors.email ) { %>

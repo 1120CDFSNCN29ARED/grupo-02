@@ -78,4 +78,12 @@ Extra extra large	xxl	≥1400px
 		text-align: center;
 		padding-left: 2px;
 	}
+	.admin-icon{
+  display: flex; 
+  padding-left:0px;
+  justify-content: center;
+	border-bottom:none;
+	border-right:solid 2px #4C4C4C;
+	
+}
 }

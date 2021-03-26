@@ -1,0 +1,70 @@
+<!-- My style -->
+<% let styles=['<link rel="stylesheet" href="/css/styles-header.css" />','<link rel="stylesheet" href="/css/styles.css" />','<link rel="stylesheet" href="/css/styles-footer.css" />','<link rel="stylesheet" href="/css/styles-admin.css" />','<link rel="stylesheet" href="/css/styles-adminDashboard.css" />','<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" />'] %>
+<%- include("./partials/head", {"styles": styles}) %>
+  <%- include("./partials/header") %>
+
+<body>
+    <main>
+      <section>
+        <h2>Bienvenido <%=user.first_name + " " + user.last_name%></h1>
+      </section>
+      <section>        
+        <hr>
+        <section>
+        <h3>Users</h3>
+        <div class="card admin-db-item mb-3" style="max-width: 540px;">
+          <a href="/users">
+            <div class="row g-0">
+              <div class="col-md-2 admin-icon">
+                <i class="fas admin-fas fa-users"></i>
+              </div>
+              <div class="col-md-10">
+                <div class="card-body">
+                  <h5 class="card-title">Users</h5>
+                  <p class="card-text">Actulamente hay ### users registrado en la plataforma</p>
+                  <p class="card-text"><small class="text-muted">Ver todos los usuarios</small></p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        </section>
+        <hr>
+        <section>
+          <h3>Products</h3>
+          <div class="card admin-db-item mb-3" style="max-width: 540px;">
+            <a href="/products/search?productType=vehicle">
+              <div class="row g-0">
+                <div class="col-md-2 admin-icon">
+                  <i class="fas admin-fas fa-car"></i>
+                </div>
+                <div class="col-md-10">
+                  <div class="card-body">
+                    <h5 class="card-title">Vehiculos</h5>
+                    <p class="card-text">Actulamente hay ### vehiculos publicados en la plataforma</p>
+                    <p class="card-text"><small class="text-muted">Ver los Véhiculos</small></p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card admin-db-item mb-3" style="max-width: 540px;">
+            <a href="products/search?productType=part"><div class="row g-0">
+              <div class="col-md-2 admin-icon">
+                <i class="fas admin-fas fa-wrench"></i>
+              </div>
+              <div class="col-md-10">
+                <div class="card-body">
+                  <h5 class="card-title">Repuestos</h5>
+                  <p class="card-text">Actulamente hay ### repuestos publicados en la plataforma</p>
+                  <p class="card-text"><small class="text-muted">Ver los Repuestos</small></p>
+                </div>
+              </div>
+            </div>
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,67 @@
+[
+    {
+        "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
+        "favouriteProducts": [
+            {
+                "productType": "vehicle",
+                "adID": 1,
+                "dateAdded": "14/3/2021"
+            },
+            {
+                "productType": "vehicle",
+                "adID": 2,
+                "dateAdded": "14/3/2021"
+            },
+            {
+                "productType": "part",
+                "adID": 3,
+                "dateAdded": "14/3/2021"
+            },
+            {
+                "productType": "part",
+                "adID": 1,
+                "dateAdded": "14/3/2021"
+            },
+            {
+                "productType": "part",
+                "adID": 2,
+                "dateAdded": "14/3/2021"
+            },
+            {
+                "productType": "vehicle",
+                "adID": 5,
+                "dateAdded": "2021-03-14T21:17:17.697Z"
+            }
+        ]
+    },
+    {
+        "userID": 1,
+        "favouriteProducts": [
+            {
+                "productType": "vehicle",
+                "adID": 1,
+                "dateAdded": "14/3/2021"
+            },
+            {
+                "productType": "vehicle",
+                "adID": 2,
+                "dateAdded": "14/3/2021"
+            },
+            {
+                "productType": "part",
+                "adID": 3,
+                "dateAdded": "14/3/2021"
+            },
+            {
+                "productType": "part",
+                "adID": 1,
+                "dateAdded": "14/3/2021"
+            },
+            {
+                "productType": "part",
+                "adID": 2,
+                "dateAdded": "14/3/2021"
+            }
+        ]
+    }
+]

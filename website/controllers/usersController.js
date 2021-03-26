@@ -13,98 +13,48 @@ const controller = {
 		res.render("login", {});
 	},
 	loginProcess: (req, res) => {
-		let userToLogin = User.findUserByField("email", req.body.email);
-		if (userToLogin) {
-			let passwordMatched = bcryptjs.compareSync(
-				req.body.password,
-				userToLogin.password
-			);
-			if (passwordMatched) {
-				delete userToLogin.password;
-				req.session.userLogged = userToLogin;
-				if (req.body.keepLogged) {
-					res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 2 });
-				}
-				return res.redirect("/users/profile");
-			}
-			return res.render("login", {
-				errors: { email: { msg: "Las credenciales son inválidas" } },
-			});
+		let userId = req.session.userId;
+		if(req.session.userType==='admin'){
+			return res.redirect('/admin/');
 		}
-		return res.render("login", {
-			errors: { email: { msg: "Las credenciales son inválidas" } },
-		});
+		return res.redirect(`/users/profile/${userId}`);		
 	},
 	index: (req, res, next) => {
 		const users = User.findAll();
 		res.render("users", { users });
 	},
 	profile: (req, res, next) => {
-		let user = req.session.userLogged;
-		res.render("userProfile", { user });
+		if (req.params.userID) {
+			let userID = req.params.userId;
+			const user = User.findUserByPk(userID);
+			return res.render("userProfile", { user, action: "view" });
+		}
+		const user = req.session.assertUserLogged;
+		res.render("userProfile", { user, action: "view" });
 	},
 	details: (req, res, next) => {
 		let userID = req.params.userId;
 		const user = User.findUserByPk(userID);
-		res.render("userProfile", { user });
+		res.render("userProfile", { user, action: "view" });
 	},
 	create: (req, res, next) => {
 		res.render("register", {});
 	},
-	processRegistration: (req, res, next) => {
-		//Quiero abstraer est parte de validación haciael middleware y no aqui en el controller.
-		const registrationValidation = validationResult(req);
-		if (registrationValidation.errors.length > 0) {
-			return res.render("register", {
-				errors: registrationValidation.mapped(),
-				old: req.body,
-			});
-		}
+	processRegistration: (req, res, next) => {		
 		let userToCreate = {
 			...req.body,
 			password: bcryptjs.hashSync(req.body.password, 10),
+			confirmPassword: '',
 			category: "user",
 			image: req.file ? req.file.filename : "",
 		};
 		User.create(userToCreate);
 		res.redirect("/users");
-		//BORRAR ESTO Despues de testear bien la validación en validator.js
-		/* else {
-			let userEmailInDB = User.findUserByField('email', req.body.email);
-			let userUserNameInDB = User.findUserByField('userName', req.body.userName);
-			if (userEmailInDB || userUserNameInDB) {				
-				let errors = {};
-				if (userEmailInDB) {
-					console.log('El Mail ya existe');
-					errors.email= {
-							msg:'Este email ya se encuentra registrado'
-						}
-					}				
-				if (userUserNameInDB) {
-					errors.userName= {
-							msg:'Este usuario ya se encuentra registrado'						
-					}
-				}
-				return res.render("register", {					
-						errors: errors,
-					old: req.body,
-				});
-			} else {
-				let userToCreate = {
-					...req.body,
-					password: bcryptjs.hashSync(req.body.password, 10),
-					category: "user",
-					image: req.file ? req.file.filename : "",
-				};
-				User.create(userToCreate);
-			}
-			res.redirect("/users");
-		}	 */
 	},
 	edit: (req, res, next) => {
 		let userId = req.params.userId;
 		let userToEdit = User.findUserByPk(userId);
-		res.render("editUser", { user: userToEdit });
+		res.render("userProfile", { user: userToEdit, action: 'edit' });
 	},
 	update: (req, res, next) => {
 		///no tengo la pantalla de Edicion armada
@@ -125,7 +75,7 @@ const controller = {
 		res.render("/users", { users });
 	},
 	logout: (req, res, next) => {
-		res.clear.cookie("userEmail");
+		res.clearCookie("userEmail");
 		req.session.destroy();
 		return res.redirect("/");
 	},
