@@ -3,6 +3,7 @@
 <%- include("./partials/header") %>
 <main>
     <section class="cart-container">
+        <% if (items.length>0) { %>
         <% items.forEach(item=> { %>
             <div class="cart-item-container">
                 <form action="/cart/updateItem/<%=item.product.adID%>?_method=PUT" method="POST">
@@ -46,6 +47,11 @@
                 </form>
             </div>
             <% }) %>
+            <% } else { %>
+             <div class="cart-item-container">
+                <div><h1>Aun no agregaste items a su carro. </h1><a href="/"><button class="btn - btn-danger">Mirar los productos</button></a></div>
+             </div>
+            <% } %>
     </section>
 </main>
 <footer class="container-fluid text-light text-center sticky-bottom">

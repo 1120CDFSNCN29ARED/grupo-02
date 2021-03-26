@@ -1,6 +1,7 @@
 const fs = require('fs');
 const parts = require("../json/parts.json");
 const vehicles = require("../json/vehicles.json");
+const { v4: uuidv4 } = require("uuid");
 
 const Cart = {
 	fileName: "./json/carts.json",
@@ -25,22 +26,25 @@ const Cart = {
 	},
 	getCartItems: function (cart) {
 		let items = [];
+		if (cart.items.length > 0) {
 		cart.items.forEach((item) => {
 			let product = parts.find((part) => part.adID === item.adID);
 			items.push({ product, quantity: item.quantity });
-		});
+		});	
+		}
 		return items;
 	},
-	addToCart: function (cartId, itemId, quantity=1,price = 100) {
+	addToCart: function (cartId, itemId, quantity=1) {
 		let carts = this.findAll();
 		let cartID = cartId;
-		console.log("this is the CartID: " + cartID);
+		let adID = parseInt(itemId, 10);
+		let item = this.getItemDetails(adID);
 		let cart = this.findCartByPk(cartID);
 		if (!this.itemInCart( itemId, cart )) {
 			cart.items.push({
-				adID: parseInt(itemId, 10),
+				adID: adID,
 				quantity: parseInt(quantity, 10),
-				price: parseInt(price, 10)
+				price: parseInt(item.price, 10)
 			});
 		}
 		const cartToUpdate = (cart) => cart.cartID == cartID;
@@ -54,11 +58,6 @@ const Cart = {
 		const cartToUpdate = (cart) => cart.cartID == cartId;
 		let cartToUpdateID = carts.findIndex(cartToUpdate);
 		let cart = carts.splice(carts.findIndex(cartToUpdate), 1);
-		//Me parece bastante debil esta solución. => adapt to the same way you solved the addproduct..
-		/* if (cartToUpdateID == -1) {
-      console.log("CartToUpdateID does not exist");
-      return;
-    } */
 		if (!cart[0]) {
 			console.log("Cart[0] does not exist");
 			return;
@@ -92,15 +91,22 @@ const Cart = {
 		});
 		return foundInCart;
 	},
-	create: function (cartData) {
+	create: function (userId) {
 		let carts = this.findAll();
+		console.log(userId);
 		let newCart = {
-			...cartData,
+			cartID: this.generateId(),
+			userID: userId,
+			status: "pending",
+			items:[]
 		};
 		carts.push(newCart);
 		this.writeData(carts);
 		return newCart;
 	},
+  generateId: function () {    
+    return uuidv4();
+  },
 	//Totals is not yet implemented
 	calculateTotals: function (cart) {
 		cart.totals = 0.00
@@ -115,6 +121,11 @@ const Cart = {
 	clearCart: function () {
 		
 	},
+	getItemDetails: function (itemID) {
+		let item = parts.find((part) => part.adID === itemID);
+		console.log(item);
+		return item;
+	}
 };
 
 module.exports = Cart;

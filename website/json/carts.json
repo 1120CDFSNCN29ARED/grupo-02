@@ -1,7 +1,7 @@
 [
   {
     "cartID": 1,
-    "userID": 1,
+    "userID": "ed8e1335-f79d-430f-ac01-c152db09912e",
     "status": "pending",
     "items": [
       {
@@ -77,6 +77,24 @@
         "adID": 1,
         "quantity": 1,
         "price": 100
+      }
+    ]
+  },
+  {
+    "cartID": "faa77313-d950-4dd6-941a-089b49aa8023",
+    "userID": "0144d058-1ba3-4fd5-8cb0-8eb357e9fb13",
+    "status": "pending",
+    "items": []
+  },
+  {
+    "cartID": "bc347318-61d7-4e45-9d86-1dfb8c2515c0",
+    "userID": "470b166f-3446-4259-8024-249c637ba4cb",
+    "status": "pending",
+    "items": [
+      {
+        "adID": 1,
+        "quantity": 1,
+        "price": 23456
       }
     ]
   }

@@ -10,8 +10,7 @@ const { reset } = require('nodemon');
 const cartFilePath = path.join(__dirname, '../json/carts.json');
 const cartController = {
     details: (req, res) => {       
-        if (req.session.cartID == 'guest') {
-            
+        if (req.session.cartID == 'guest') {            
             return res.send("Guest Cart Functionality not yet implemented");
         }
         let cart = Cart.findCartByPk(req.session.cartID);

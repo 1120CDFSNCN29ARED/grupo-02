@@ -13,8 +13,9 @@ const activeCart = (req, res, next) => {
   if (userCart) {
     req.session.cartID = userCart.cartID;
   } else {
-    //create a new cart and link it the the user id
-    
+    console.log("Creating a new cart");
+    Cart.create(userID);
+    return res.redirect('/cart/details');
   }
 
   next();
