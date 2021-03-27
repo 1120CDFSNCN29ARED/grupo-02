@@ -4,6 +4,7 @@ const path = require("path");
 const fuse = require("fuse.js");
 const { v4: uuidv4 } = require("uuid");
 const _ = require("lodash");
+const db = require('../database/models');
 
 const Vehicle = require("../models/Vehicle");
 const Part = require("../models/Part");
