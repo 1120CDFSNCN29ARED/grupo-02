@@ -166,6 +166,7 @@ Cambios a realizar:
 Participantes: Simon, Santi
 
 Progreso:
+
     * Productos:
         - Se tiene que terminar de arreglar la parte de validacion para partes y productos - hacer dos rutas
     * Admin:
@@ -179,6 +180,7 @@ Progreso:
 Participantes: Simon, Santi
 
 Progreso:
+
     * Cart:
         - Se creó el Cart model, funcionan los métodos (add/remove).
         - Queda:
@@ -201,6 +203,7 @@ Progreso:
 Participantes: Simon, Santi
 
 Progreso:
+
     * Cart:
         - Se implemento el carrito en session.
     * Users:
@@ -210,3 +213,26 @@ Progreso:
         - Remover rating del formulario para parts y vehicles
     * Database:
         - Created first draft of database ERD
+
+
+## 28-Marzo
+
+### Revision avance
+
+Participantes: Simon, Santi
+
+Progreso:
+
+    * DB:
+        - Se hizo el seteo inicial de sequelize con el register y login funcionando, quedan ajustar detalles
+        - Detalles:
+            - Actualizar la query de login para que use los datos incluidos en el primer objeto (usa include: models) - *Santi*
+        - Tareas:
+            - Users:
+                - Crear modelos de carts, carts_users, locations - *Santi*
+                - Crear relaciones entre los modelos - *Santi*
+                - Actualizar modelo de user para que contega postal_code y address - *Santi*
+            - Posts:
+                - Crear modelos de products, vehicles, parts, questions, brands, models, vehicle_versions, image_urls - *Simon*
+                - Crear relaciones entre los modelos - *Simon*
+            - Refactorizar: refactorizar los controladores, middlewares y views que corresponden para cada modelo que se crea. - *Todos*
