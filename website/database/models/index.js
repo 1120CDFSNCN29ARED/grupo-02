@@ -35,11 +35,13 @@ let sql_string = fs.readFileSync(path.join(__dirname, "../config/schema.sql"), "
 sequelize.query(sql_string);
 //Foreign Keys
 //user_accesses
-
-db.Role.hasMany(db.UserAccess, {foreignKey: "roleID"});
 db.UserAccess.belongsTo(db.Role, {foreignKey: "roleID"});
-//db.UserAccess.belongsTo(db.User, {foreignKey: "userName"});
+db.UserAccess.belongsTo(db.User, {foreignKey: "userName", targetKey: "userName"});
+db.UserAccess.belongsTo(db.User, {foreignKey: "email", targetKey: "email"});
+//roles
+db.Role.hasMany(db.UserAccess, {foreignKey: "roleID"});
 //users
+db.User.hasMany(db.Favourite, {foreignKey: "userID"})
 //db.User.belongsTo(db.UserAccess, {foreignKey: "userName"});
 
 //favourites
