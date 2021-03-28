@@ -6,8 +6,6 @@ const { v4: uuidv4 } = require("uuid");
 const _ = require("lodash");
 const db = require('../database/models');
 
-const db = require("../database/models");
-
 const Vehicle = require("../models/Vehicle");
 const Part = require("../models/Part");
 const vehiclesFilePath = path.join(__dirname, "../json/vehicles.json");
