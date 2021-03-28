@@ -1,17 +1,17 @@
-const sequelize = require("sequelize");
 
 const Role = (sequelize, DataTypes) => {
     const alias = "Role";
     const cols = {
         roleID: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
+            type: DataTypes.TINYINT,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         role_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         role_description: {
             type: DataTypes.STRING,
@@ -20,7 +20,7 @@ const Role = (sequelize, DataTypes) => {
     };
     const config = {
         tableName: "roles",
-        timeStamps: true
+        timestamps: true
     };
     return sequelize.define(alias, cols, config);
 }

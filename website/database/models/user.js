@@ -1,7 +1,7 @@
-const Vehicle = (sequelize, DataTypes) => {
-    const alias = "Product";
+const User = (sequelize, DataTypes) => {
+    const alias = "User";
     const cols = {
-        adID: {
+        userID: {
             type: DataTypes.UUID,
             allowNull: false,
             primaryKey: true,
@@ -15,46 +15,39 @@ const Vehicle = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        userID: {
-            type: DataTypes.UUID,
-            allowNull: false
+        userName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
         },
         dni: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         telephone: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        province: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        city: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        neighbourhood: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        postal_code: {
             type: DataTypes.STRING,
             allowNull: false
         },
         image: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        locationID: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
-    };
+    }
     const config = {
-        tableName: "vehicles",
-        timeStamps: true
-    };
+        tableName: "users",
+        timestamps: true
+    }
     return sequelize.define(alias, cols, config);
 }
 
-Vehicle
-
-module.exports = Vehicle
+module.exports = User
