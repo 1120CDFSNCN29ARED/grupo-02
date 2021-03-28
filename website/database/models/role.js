@@ -1,4 +1,3 @@
-
 const Role = (sequelize, DataTypes) => {
     const alias = "Role";
     const cols = {

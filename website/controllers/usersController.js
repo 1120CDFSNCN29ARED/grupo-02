@@ -67,8 +67,7 @@ const controller = {
 				db.UserAccess.create(userAccess)
 			})
 			.then(() => res.redirect("/users"))
-		}).catch((error) => res.send("error, try again bitch!",error))
-			
+		}).catch((error) => res.send("error, try again bitch!",error))		
 	},
 	edit: (req, res, next) => {
 		let userId = req.params.userId;

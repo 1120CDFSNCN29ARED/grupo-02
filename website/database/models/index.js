@@ -46,7 +46,6 @@ db.User.hasMany(db.Favourite, {foreignKey: "userID"})
 
 //favourites
 db.Favourite.belongsTo(db.User, {foreignKey: "userID"});
-//db.User.hasMany(db.Favourites, {foreignKey: "userID"});
 
 
 sequelize.sync({force:true}).then(() => {
