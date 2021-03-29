@@ -41,9 +41,17 @@ db.UserAccess.belongsTo(db.User, {foreignKey: "email", targetKey: "email"});
 //roles
 db.Role.hasMany(db.UserAccess, {foreignKey: "roleID"});
 //users
-db.User.hasMany(db.Favourite, {foreignKey: "userID"})
-//db.User.belongsTo(db.UserAccess, {foreignKey: "userName"});
-
+db.User.hasMany(db.Favourite, {foreignKey: "userID"});
+db.User.belongsToMany(db.Cart, {through: "CartUser", foreignKey: "userID"});
+//db.User.hasMany(db.CartUser, {foreignKey: "userID"});
+//carts_users
+//db.CartUser.belongsTo(db.User, {foreignKey: "userID"});
+//db.CartUser.hasMany(db.Cart, {foreignKey: "cartID"});
+//carts
+db.Cart.belongsToMany(db.User, {through: "CartUser", foreignKey: "cartID"});
+//db.Cart.belongsTo(db.CartUser, {foreignKey: "cartID"})
+//cart_items
+db.CartItem.belongsTo(db.Cart, {foreignKey: "cartID"});
 //favourites
 db.Favourite.belongsTo(db.User, {foreignKey: "userID"});
 
