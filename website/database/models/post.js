@@ -29,6 +29,10 @@ const Post = (sequelize, DataTypes) => {
             allowNull: false,
             defaultValue: false
         },
+        price: {
+            type: DataTypes.DOUBLE,
+            allowNull: false
+        },
         discount: {
             type: DataTypes.INTEGER,
             allowNull: false,
