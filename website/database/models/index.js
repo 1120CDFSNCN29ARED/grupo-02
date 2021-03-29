@@ -123,7 +123,7 @@ sequelize.sync({ force: true }).then(() => {
 //Data insert
   db.Role.create({role_name: "user", role_description: "standard user access"}).catch();
   db.User.create({first_name: "test", last_name: "test", userName: "test", dni: 12345678, email: "test@test.com",
-                  telephone: 12345678, image: "no-image-found.jpeg", locationID: 1})
+                  telephone: 12345678,address:"calle falsa 123", postal_code: 1234, image: "no-image-found.jpeg", locationID: 1})
   .then(user => {
     db.Role.findOne({where:{role_name: "user"}}).then((role) => {
       db.UserAccess.create({userName: user.userName, email: user.email, password: bcryptjs.hashSync("test", 10), roleID: role.roleID })

@@ -25,11 +25,11 @@ const Question = (sequelize, DataTypes) => {
 		},
 		answer: {
 		type: DataTypes.STRING,
-		allowNull: false
+		allowNull: true
 		},
 		answer_date: {
 			type: DataTypes.DATE,
-			allowNull: false,
+			allowNull: true,
 		},
 	};
   const config = {

@@ -40,7 +40,7 @@ router.post(
 	"/register",
 	uploadFile.single("image"),registrationValidationRules(),
 	registrationValidation,
-	usersController.processRegistration
+	usersController.loginProcess
 );
 
 router.get('/', adminAuthMiddleware, usersController.index);

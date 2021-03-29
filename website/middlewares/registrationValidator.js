@@ -1,6 +1,8 @@
 const { body, validationResult } = require('express-validator');
-const User = require('../models/User');
+const bcryptjs = require("bcryptjs");
+const db = require("../database/models");
 const path = require('path');
+const { EDESTADDRREQ } = require('constants');
 
 const registrationValidationRules = () => {
 	return [
@@ -9,10 +11,11 @@ const registrationValidationRules = () => {
 			.withMessage("Por favor elige un nomber de usaurio")
 			.bail()
 			.custom((value, { req }) => {
-				if (User.findUserByField("userName", value)) {
-					throw new Error("El usuario ya se encuentre en uso");
-				}
-				return true;
+				return db.User.findOne({where:{userName: value}}).then(user => {
+					if (user) {
+					  return Promise.reject('El usuario ingresado se encuentra en uso');
+					}
+				})
 			}),
 		body("first_name")
 			.notEmpty()
@@ -33,7 +36,7 @@ const registrationValidationRules = () => {
 			.isLength({ min: 2, max: undefined })
 			.withMessage("Por favor ingrese un apellido con mas de 2 caracteres"),
 		body(
-			"id_number",
+			"dni",
 			"Por favor ingrese su DNI valido de 8 números sin punots ni espacios"
 		)
 			.notEmpty()
@@ -52,10 +55,11 @@ const registrationValidationRules = () => {
 			.withMessage("Por favor ingrese un email válido")
 			.bail()
 			.custom((value, { req }) => {
-				if (User.findUserByField("email", value)) {
-					throw new Error("El email ya se encuentre registrado");
-				}
-				return true;
+				return db.User.findOne({where:{email: value}}).then(user => {
+					if (user) {
+					  return Promise.reject('El email ingresado se encuentra en uso');
+					}
+				})
 			}),
 		body("telephone")
 			.notEmpty()
@@ -93,6 +97,11 @@ const registrationValidationRules = () => {
 			.bail()
 			.isLength({ min: 4, max: 4 })
 			.withMessage(),
+		body("address")
+			.notEmpty()
+			.escape()
+			.withMessage("Por favor ingrese su dirección")
+			.bail(),
 		body("password").notEmpty().withMessage("Por favor ingrese una contraseña"),
 		body("confirmPassword", "Las contraseñas ingresadas no coinciden.").custom(
 			(value, { req }) => value === req.body.password
@@ -118,10 +127,45 @@ const registrationValidationRules = () => {
 const registrationValidation = (req, res, next) => {
 	const errors = validationResult(req);
 	if (errors.isEmpty()) {
-		return next();
+		db.Role.findOne({where: {role_name: "user"}})
+		.then((role) => {
+			let userToCreate = {
+				first_name: req.body.first_name,
+				last_name: req.body.last_name,
+				userName: req.body.userName,
+				email: req.body.email,
+				telephone: req.body.telephone,
+				dni: req.body.dni,
+				locationID: 1,
+				address: req.body.address,
+				postal_code: req.body.postal_code,
+				image: req.file ? req.file.filename : "no-image-found.jpeg",
+			};
+			db.User.create(userToCreate)
+			.then((user) => {
+				console.log(user);
+				let userAccess = {
+					userName: user.userName,
+					email: user.email,
+					password: bcryptjs.hashSync(req.body.password, 10),
+					roleID: role.roleID,
+				}
+				db.UserAccess.create(userAccess).then((userAccessData => {
+					db.User.findOne({where: {userName: userAccessData.userName}}).then((user) => {
+						req.session.assertUserLogged = user.dataValues;
+						req.session.userType = role.role_name;
+						req.session.userId = user.userID;
+						console.log("session: ",req.session);
+					}).then(() => {return next()})					
+				}))
+			})
+		})
+		.catch((error) => res.json("error, try again bitch!",error));		
 	}
-	const validationErrors = errors.mapped();
-	return res.render("register", { errors: validationErrors, old: req.body});
+	else{
+		const validationErrors = errors.mapped();
+		return res.render("register", { errors: validationErrors, old: req.body});
+	}	
 };
 
 module.exports = { registrationValidationRules, registrationValidation };

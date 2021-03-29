@@ -47,11 +47,11 @@
       </div>
       <div class="col-xs-12 col-sm-6">
       <div class="form-floating mb-1">
-        <input type="text" class="form-control registration-field <%=locals.errors && errors.id_number ? 'is-invalid':null %> " id="id_number" name="id_number" placeholder="DNI" value="<%= locals.old && old.id_number ? old.id_number : action == 'edit' || action=='view' ? user.id_number : null %>" <%=action==='view'? "disabled":''%>/>
-        <label for="id_number">DNI</label>
-        <% if (locals.errors && errors.id_number) { %>
+        <input type="text" class="form-control registration-field <%=locals.errors && errors.dni ? 'is-invalid':null %> " id="dni" name="dni" placeholder="DNI" value="<%= locals.old && old.dni ? old.dni : action == 'edit' || action=='view' ? user.dni : null %>" <%=action==='view'? "disabled":''%>/>
+        <label for="dni">DNI</label>
+        <% if (locals.errors && errors.dni) { %>
           <div class="invalid-feedback">
-            <%= errors.id_number.msg %>
+            <%= errors.dni.msg %>
           </div>
           <% } %>
       </div>
@@ -102,11 +102,22 @@
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
-          <input type="text" class="form-control registration-field <%=locals.errors && errors.postal_code ? 'is-invalid':null %> " id="postal_code" name="postal_code" placeholder="Código Postal" value="<%= locals.old && old.postal_code ? old.postal_code : action == 'edit' || action=='view' ? user.postal_code :null %>" <%=action==='view'? "disabled":''%>/>
+          <input type="number" class="form-control registration-field <%=locals.errors && errors.postal_code ? 'is-invalid':null %> " id="postal_code" name="postal_code" placeholder="Código Postal" value="<%= locals.old && old.postal_code ? old.postal_code : action == 'edit' || action=='view' ? user.postal_code :null %>" <%=action==='view'? "disabled":''%>/>
           <label for="postal_code">Código Postal</label>
           <% if (locals.errors && errors.postal_code) { %>
             <div class="invalid-feedback">
               <%= errors.postal_code.msg %>
+            </div>
+            <% } %>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-floating mb-1">
+          <input type="text" class="form-control registration-field <%=locals.errors && errors.address ? 'is-invalid':null %> " id="address" name="address" placeholder="Dirección" value="<%= locals.old && old.address ? old.address : action == 'edit' || action=='view' ? user.address :null %>" <%=action==='view'? "disabled":''%>/>
+          <label for="postal_code">Dirección</label>
+          <% if (locals.errors && errors.address) { %>
+            <div class="invalid-feedback">
+              <%= errors.address.msg %>
             </div>
             <% } %>
         </div>

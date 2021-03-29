@@ -41,7 +41,15 @@ const User = (sequelize, DataTypes) => {
         locationID: {
             type: DataTypes.INTEGER,
             allowNull: false
-        }
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        postal_code: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
     }
     const config = {
         tableName: "users",

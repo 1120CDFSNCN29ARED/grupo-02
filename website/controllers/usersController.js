@@ -42,33 +42,6 @@ const controller = {
 	create: (req, res, next) => {
 		res.render("register", {});
 	},
-	processRegistration: (req, res, next) => {
-		db.Role.findOne({where: {role_name: "user"}})
-		.then((role) => {
-			let userToCreate = {
-				first_name: req.body.first_name,
-				last_name: req.body.last_name,
-				userName: req.body.userName,
-				email: req.body.email,
-				telephone: req.body.telephone,
-				dni: req.body.id_number,
-				locationID: 1,
-				image: req.file ? req.file.filename : "no-image-found.jpeg",
-			};
-			db.User.create(userToCreate)
-			.then((user) => {
-				console.log(user);
-				let userAccess = {
-					userName: user.userName,
-					email: user.email,
-					password: bcryptjs.hashSync(req.body.password, 10),
-					roleID: role.roleID,
-				}
-				db.UserAccess.create(userAccess)
-			})
-			.then(() => res.redirect("/users"))
-		}).catch((error) => res.send("error, try again bitch!",error))		
-	},
 	edit: (req, res, next) => {
 		let userId = req.params.userId;
 		let userToEdit = User.findUserByPk(userId);

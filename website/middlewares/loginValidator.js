@@ -19,8 +19,6 @@ const loginValidationRules = () => {
 const loginValidation = (req, res, next) => {
 	const errors = validationResult(req);
 	if (errors.isEmpty()) {
-    //let userToLogin = User.findUserByField('email', req.body.email);
-
 		db.UserAccess.findOne({
 				where:{
 					[Op.or]: [{userName: req.body.email}, {email: req.body.email}]
@@ -36,12 +34,35 @@ const loginValidation = (req, res, next) => {
 				}
 				return next();
 			}
-			console.log(errors);
+			else {
+				const validationErrors = {
+					email: {
+					  value: "",
+					  msg: 'El usuario y/o contraseña no son validos',
+					  param: 'email',
+					  location: 'body'
+					}
+				  };
+				res.render("login", { errors: validationErrors, old: req.body })
+			}
+		}).catch(error => {
+			const validationErrors = {
+				email: {
+				  value: "",
+				  msg: 'El usuario y/o contraseña no son validos',
+				  param: 'email',
+				  location: 'body'
+				}
+			  };
 			
-		}).catch(error => res.render("login", { errors, old: req.body }));	
+			res.render("login", { errors: validationErrors, old: req.body })
+		});	
 	}
-	const validationErrors = errors.mapped();
-	return res.render("login", { errors: validationErrors, old: req.body });
+	else {
+		const validationErrors = errors.mapped();
+		console.log(validationErrors)
+		return res.render("login", { errors: validationErrors, old: req.body });
+	}	
 };
 
 module.exports = {
