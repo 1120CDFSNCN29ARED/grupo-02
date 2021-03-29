@@ -2,3 +2,4 @@
 /node_modules/**
 /website/todo.md
 /website/.env
+/website/.env.development
