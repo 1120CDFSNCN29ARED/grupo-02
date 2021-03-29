@@ -34,44 +34,14 @@ const loginValidation = (req, res, next) => {
 				if (req.body.keepLogged != undefined) {
 					res.cookie("userEmail", userAccess.email, { maxAge: (1000 * 60) * 2 });
 				}
-				console.log(req.session)
 				return next();
 			}
-			return res.render("login", { errors: validationErrors, old: req.body })
-		}).catch(error => res.render("login", { errors: validationErrors, old: req.body }));
-
-	
-	}
-	/*
-    if (userToLogin) {
-      if (bcryptjs.compareSync(req.body.password, userToLogin.password)) {
-        delete userToLogin.password;
-				req.session.assertUserLogged = userToLogin;
-				req.session.userType = userToLogin.category;
-				req.session.userId = userToLogin.userID;
-        if (req.body.keepLogged != undefined) {
-					res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 2 });
-				}
-        return next();
-      }
-      return res.render('login', {
-        errors: {
-          email: {
-            msg: "Las credenciales son inválidas."
-          }
-        }
-      });
-    }
-    return res.render("login", {
-			errors: {
-				email: {
-					msg: "Las credenciales son inválidas.",
-				},
-			},
-		});
+			console.log(errors);
+			
+		}).catch(error => res.render("login", { errors, old: req.body }));	
 	}
 	const validationErrors = errors.mapped();
-	return res.render("login", { errors: validationErrors, old: req.body });*/
+	return res.render("login", { errors: validationErrors, old: req.body });
 };
 
 module.exports = {
