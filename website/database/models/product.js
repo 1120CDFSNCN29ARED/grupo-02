@@ -7,17 +7,15 @@ const Product = (sequelize, DataTypes) => {
 			primaryKey: true,
 			defaultValue: DataTypes.UUIDV4,
 		},
-		userID: {
-			type: DataTypes.UUID,
-			allowNull: false,
-		},
 		product_type: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		product_type_ID: {
+		partID: {
 			type: DataTypes.UUID,
-			allowNull: false,
+		},
+		vehicleID: {
+			type: DataTypes.UUID,
 		},
 		brandID: {
 			type: DataTypes.INTEGER,

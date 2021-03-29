@@ -7,6 +7,10 @@ const Cart = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
+        userID: {
+            type: DataTypes.UUID,
+            allowNull: false
+        },
         status: {
             type: DataTypes.STRING,
             allowNull: false
@@ -18,6 +22,5 @@ const Cart = (sequelize, DataTypes) => {
     };
     return sequelize.define(alias, cols, config);
 }
-
 
 module.exports = Cart

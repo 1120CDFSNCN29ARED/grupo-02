@@ -27,20 +27,17 @@ const loginValidation = (req, res, next) => {
 				},include: [{model: db.User},{model: db.Role}]
 			})
 			.then((userAccess) => {
-				console.log(userAccess.dataValues);
 			if(bcryptjs.compareSync(req.body.password, userAccess.password)){
-				db.Role.findOne({where: {roleID: userAccess.roleID}}).then((role) => {
-					db.User.findOne({where:{userName: userAccess.userName}}).then((user) => {
-						req.session.assertUserLogged = user;
-						req.session.userType = role.role_name;
-						req.session.userId = user.userID;
-						if (req.body.keepLogged != undefined) {
-							res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 2 });
-						}
-						return next();
-					});					
-				});
+				req.session.assertUserLogged = userAccess.User.dataValues;
+				req.session.userType = userAccess.Role.role_name;
+				req.session.userId = userAccess.User.userID;
+				if (req.body.keepLogged != undefined) {
+					res.cookie("userEmail", userAccess.email, { maxAge: (1000 * 60) * 2 });
+				}
+				console.log(req.session)
+				return next();
 			}
+			return res.render("login", { errors: validationErrors, old: req.body })
 		}).catch(error => res.render("login", { errors: validationErrors, old: req.body }));
 
 	
