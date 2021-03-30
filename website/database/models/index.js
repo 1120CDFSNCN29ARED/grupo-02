@@ -9,6 +9,7 @@ const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 const bcryptjs = require('bcryptjs');
+const { version } = require('os');
 
 let sequelize;
 if (config.use_env_variable) {
@@ -40,69 +41,58 @@ sequelize.query(sql_string);
 db.UserAccess.belongsTo(db.Role, {foreignKey: "roleID"});
 db.UserAccess.belongsTo(db.User, {foreignKey: "userName", targetKey: "userName"});
 db.UserAccess.belongsTo(db.User, {foreignKey: "email", targetKey: "email"});
+
 //roles
 db.Role.hasMany(db.UserAccess, {foreignKey: "roleID"});
+
 //users
 db.User.hasMany(db.Favourite, {foreignKey: "userID"});
-//db.User.belongsToMany(db.Cart, {through: "CartUser", foreignKey: "userID"});
 db.User.hasMany(db.Cart, {foreignKey: "userID"});
 db.User.hasMany(db.Favourite, { foreignKey: "userID" })
 db.User.hasMany(db.Post, { foreignKey: "sellerID", targetKey: "userID" });
 db.User.hasMany(db.Question, { foreignKey: "userID" });
+
 //carts
 db.Cart.belongsTo(db.User, {foreignKey: "userID"});
+
 //cart_items
 db.CartItem.belongsTo(db.Cart, {foreignKey: "cartID"});
 
 //favourites
 db.Favourite.belongsTo(db.User, {foreignKey: "userID"});
-  //Posts --> 1 to 1
+db.Favourite.belongsTo(db.Post, {foreignKey: "postID"});
 
 //Posts
-db.Post.belongsTo(db.Product, { foreignKey: "postID" });
-  //questions --> 1 to N
+db.Post.belongsTo(db.Product, { foreignKey: "productID" });
 db.Post.hasMany(db.Question, { foreignKey: "postID" });
-  //carts --> N to M
-  //favourites --> N to M
 db.Post.hasMany(db.Favourite, { foreignKey: "postID"});
-  //sellerID --> 1 to 1
 db.Post.belongsTo(db.User, { foreignKey: "sellerID", targetKey: "userID" });
-  //locationID --> one to one
-  //db.Post.belongsTo(db.Location, { foreignKey: "locationID" });
-  //ImageUrl 1 to N
 db.Post.hasMany(db.Image_url, { foreignKey: "postID"});
 
 //Questions
 db.Question.belongsTo(db.Post, { foreignKey: "postID" });
 db.Question.belongsTo(db.User, { foreignKey: "userID" });
-//db.Question.belongsTo(db.User, { foreignKey: "userName", targetKey: "userName" });
 
 //Products
-  //product_type_id --> 1 to 1 [partID | vehicelID]
+db.Product.hasOne(db.Post, {foreignKey: "postID"});
 db.Product.belongsTo(db.Part, { foreignKey: "partID"});
 db.Product.belongsTo(db.Vehicle, { foreignKey: "vehicleID" });
-  //brandID --> 1 to 1
 db.Product.belongsTo(db.Brand, { foreignKey: "brandID" });
-  //modelID --> 1 to 1
 
-//Part
-//db.Part.belongsTo(db.Product, { foreignKey: "partID", targetKey: "product_type_ID"});
+//Parts
+db.Part.hasOne(db.Product, { foreignKey: "productID"});
 
 //Vehicles
-  //Product 1 to 1
-//db.Vehicle.belongsTo(db.Product, { foreignKey: "product_type_ID" });
-  //Vehicle Versions 1 to 1
+db.Vehicle.hasOne(db.Product, { foreignKey: "productID" });
 db.Vehicle.belongsTo(db.Vehicle_version, { foreignKey: "versionID" });
 
 //Image_urls
-  //post --> 1 to 1
 db.Image_url.belongsTo(db.Post, { foreignKey: "postID" });
 
-//Location
+//Locations
   //db.location.belongsTo(db.Post);
 
 //Brands
-  //Products 1 to N
 db.Brand.hasMany(db.Product, { foreignKey: "brandID" });
 db.Brand.hasMany(db.Model, { foreignKey: "brandID"});
 
@@ -111,11 +101,8 @@ db.Model.belongsTo(db.Brand, { foreignKey: "brandID" });
 db.Model.hasMany(db.Product, { foreignKey: "modelID" });
 
 //vehicle_versions
-  //Vehicles 1 to Many
 db.Vehicle_version.hasMany(db.Vehicle, { foreignKey: "versionID" });
-  //Brand 1 to 1
 db.Vehicle_version.belongsTo(db.Brand, { foreignKey: "brandID" });
-  //Model 1 to 1
 db.Vehicle_version.belongsTo(db.Model, { foreignKey: "modelID" });
 
 
@@ -126,15 +113,33 @@ sequelize.sync({ force: true }).then(() => {
                   telephone: 12345678,address:"calle falsa 123", postal_code: 1234, image: "no-image-found.jpeg", locationID: 1})
   .then(user => {
     db.Role.findOne({where:{role_name: "user"}}).then((role) => {
+      console.log("roleID: ",role.roleID)
       db.UserAccess.create({userName: user.userName, email: user.email, password: bcryptjs.hashSync("test", 10), roleID: role.roleID })
-      .catch();
-    }).catch();
-  }).catch();
-  
-}).then(() => {
-  db.UserAccess.findAll({include: [{model: db.Role}]}).then((query => console.log(query)))
-})
-.catch((error) => console.log(error))
+      .then(() => {
+        db.Brand.create({brand_name: "BMW", vehicle_type_car: true, vehicle_type_motorcycle: true, vehicle_type_pickup: true, vehicle_type_truck: false,})
+        .then(brand => {
+          console.log("brandID: ",brand.brandID)
+          db.Model.create({model_name: "Serie 1", brandID: brand.brandID, vehicle_type_car: true})
+          .then(model => {
+            db.Vehicle_version.create({brandID: brand.brandID, modelID: model.modelID, version_name: "118i Advantage 5P"})
+            .then(vehicle_version => {
+              db.Vehicle.create({versionID: vehicle_version.versionID, gear_type: "automática", year: 2021, kilometers: 0, color: "black"})
+              .then(vehicle => {
+                db.Product.create({product_type: "vehicle", vehicleID: vehicle.vehicleID, brandID: brand.brandID, modelID: model.modelID})
+                .then(product => {
+                  db.Post.create({title: "Test Title", description: "Test Description", published: true, publishedDate: new Date(), price: 123456,
+                                  onSale: true, discount: 20, stock: 1, rating: 4, state: "Nuevo", featured: true, sellerID: user.userID, locationID: 1,
+                                  productID: product.productID
+                  }).catch((error) => console.log("failed at product",error));
+                }).catch((error) => console.log("failed at vehicle",error));
+              }).catch((error) => console.log("failed at vehicle_version",error));
+            }).catch((error) => console.log("failed at model",error));
+          }).catch((error) => console.log("failed at brand",error));
+        }).catch((error) => console.log("failed at user_access",error));
+      }).catch((error) => console.log("failed at role",error));
+    }).catch((error) => console.log("failed at user",error));
+  }).catch((error) => console.log("failed at role",error));  
+}).catch((error) => console.log(error))
 
 
 db.sequelize = sequelize;

@@ -13,9 +13,11 @@ const Product = (sequelize, DataTypes) => {
 		},
 		partID: {
 			type: DataTypes.UUID,
+			allowNull: true,
 		},
 		vehicleID: {
 			type: DataTypes.UUID,
+			allowNull: true,
 		},
 		brandID: {
 			type: DataTypes.INTEGER,

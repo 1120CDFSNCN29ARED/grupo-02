@@ -5,7 +5,6 @@ const Vehicle_version = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			primaryKey: true,
-			defaultValue: DataTypes.INTEGER,
 			autoIncrement: true,
 		},
 		brandID: {
@@ -16,10 +15,10 @@ const Vehicle_version = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
-    version_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+		version_name: {
+		type: DataTypes.STRING,
+		allowNull: false
+		},
 	};
   const config = {
 		tableName: "vehicle_versions",

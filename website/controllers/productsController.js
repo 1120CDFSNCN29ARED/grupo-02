@@ -26,6 +26,27 @@ let product = {};
 const productsController = {
 	details: (req, res) => {
 		//const vehicles = Vehicle.findAll();
+		const fullPost = {};
+		db.Post.findOne({where:{postID: req.params.postID}, include: [{model: Product}]}).then(post => {
+			db.Product.findOne({where: {postID: post.postID}}).then(product => {
+				if(product.product_type === "part"){
+					db.Part.findOne({where: {partID: product.partID}}).then(part => {
+						fullPost.Post = Post.dataValues;
+						fullPost.Part = part.dataValues;
+						//return res.render("details", {fullPost})
+						return console.log(fullPost)
+					})
+				}
+				else if(product.product_type === "vehicle"){
+					db.Vehicle.findOne({where: {vehicleID: product.vehicleID}}).then(vehicle => {
+						fullPost.Post = Post.dataValues;
+						fullPost.Part = vehicle.dataValues;
+						return console.log(fullPost)
+					});
+				}
+			})
+		}).catch(() => res.redirect("/"));
+		/*
 		const parts = jsonReader(partsFilePath);
 		let brands = "";
 		let models = "";
@@ -66,7 +87,7 @@ const productsController = {
 			brand,
 			model,
 			version,
-		});
+		});*/
 	},
 	question: (req, res) => {
 		const questions = jsonReader(questionsFilePath);

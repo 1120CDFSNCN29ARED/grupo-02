@@ -5,8 +5,7 @@ const Brand = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			primaryKey: true,
-      defaultValue: DataTypes.INTEGER,
-      autoIncrement: true
+			autoIncrement: true
 		},
 		brand_name: {
 			type: DataTypes.STRING,
@@ -15,23 +14,28 @@ const Brand = (sequelize, DataTypes) => {
 		vehicle_type_car: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
+			defaultValue: false
 		},
 		vehicle_type_motorcycle: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
+			defaultValue: false
 		},
 		vehicle_type_pickup: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
+			defaultValue: false
 		},
 		vehicle_type_truck: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-    },
-    makes_parts: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    }
+			defaultValue: false
+		},
+		makes_parts: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+			defaultValue: false
+		}
 	};
 	const config = {
 		tableName: "brands",

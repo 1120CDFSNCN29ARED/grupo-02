@@ -5,7 +5,6 @@ const Model = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			primaryKey: true,
-			defaultValue: DataTypes.INTEGER,
 			autoIncrement: true,
 		},
 		model_name: {
@@ -19,18 +18,22 @@ const Model = (sequelize, DataTypes) => {
 		vehicle_type_car: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
+			defaultValue: false
 		},
 		vehicle_type_motorcycle: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
+			defaultValue: false
 		},
 		vehicle_type_pickup: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
+			defaultValue: false
 		},
 		vehicle_type_truck: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
+			defaultValue: false
 		},
 	};
   const config = {
