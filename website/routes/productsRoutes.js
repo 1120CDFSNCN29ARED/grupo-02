@@ -29,7 +29,7 @@ router.get("/create/:productType?", authMiddleware, productsController.create);
 router.post("/create/vehicle", authMiddleware, uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator, vehicleCreationValidation, productsController.storeVehicle);
 router.post("/create/part", authMiddleware, uploadFile.fields([{ name: 'productImages' }]), partCreationValidator, partCreationValidation, productsController.storePart);
 
-router.get("/details/:productType/:productID", productsController.details);
+router.get("/details/:productType/:postID", productsController.details);
 
 router.get("/edit/:productType/:productID", authMiddleware, productOwner, productsController.edit);
 router.put("/edit/vehicle/:productID", authMiddleware, productOwner, uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator,

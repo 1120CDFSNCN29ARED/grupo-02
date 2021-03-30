@@ -57,6 +57,7 @@ db.Cart.belongsTo(db.User, {foreignKey: "userID"});
 
 //cart_items
 db.CartItem.belongsTo(db.Cart, {foreignKey: "cartID"});
+db.CartItem.belongsTo(db.Post, {foreignKey: "postID"});
 
 //favourites
 db.Favourite.belongsTo(db.User, {foreignKey: "userID"});
@@ -68,22 +69,23 @@ db.Post.hasMany(db.Question, { foreignKey: "postID" });
 db.Post.hasMany(db.Favourite, { foreignKey: "postID"});
 db.Post.belongsTo(db.User, { foreignKey: "sellerID", targetKey: "userID" });
 db.Post.hasMany(db.Image_url, { foreignKey: "postID"});
+db.Post.hasMany(db.CartItem, {foreignKey: "postID"});
 
 //Questions
 db.Question.belongsTo(db.Post, { foreignKey: "postID" });
 db.Question.belongsTo(db.User, { foreignKey: "userID" });
 
 //Products
-db.Product.hasOne(db.Post, {foreignKey: "postID"});
+db.Product.hasOne(db.Post, {foreignKey: "productID"});
 db.Product.belongsTo(db.Part, { foreignKey: "partID"});
 db.Product.belongsTo(db.Vehicle, { foreignKey: "vehicleID" });
 db.Product.belongsTo(db.Brand, { foreignKey: "brandID" });
 
 //Parts
-db.Part.hasOne(db.Product, { foreignKey: "productID"});
+db.Part.hasOne(db.Product, { foreignKey: "partID"});
 
 //Vehicles
-db.Vehicle.hasOne(db.Product, { foreignKey: "productID" });
+db.Vehicle.hasOne(db.Product, { foreignKey: "vehicleID" });
 db.Vehicle.belongsTo(db.Vehicle_version, { foreignKey: "versionID" });
 
 //Image_urls
