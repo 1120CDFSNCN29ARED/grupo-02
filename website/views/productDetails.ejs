@@ -5,17 +5,17 @@
     <section id="top">
         <div id="productPhotoCarousel" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators">
-                <% for( let i = 0; i < product.imageURLs.length; i++ ) { %>
+                <% for( let i = 0; i < fullPost.Post.Image_urls.length; i++ ) { %>
                     <li data-bs-target="#productPhotoCarousel" data-bs-slide-to=" <%= i %> "  <% if(i === 0){ %> <%- 'class="active"' %> <% } %> ></li>
                 <% } %>              
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="<%= product.imageURLs.length && (product.imageURLs)[0].includes("http") ? product.imageURLs[0] : `/img/products/${product.imageURLs[0]}` %>" class="d-block w-100" alt="...">
+                <img src="<%= fullPost.Post.Image_urls.length ? `/img/products/${fullPost.Post.Image_urls[0]}` : '/img/products/no-image-found.jpeg' %>" class="d-block w-100" alt="...">
               </div>
-              <% for( let i = 1; i < product.imageURLs.length; i++ ) { %>
+              <% for( let i = 1; i < fullPost.Post.Image_urls.length; i++ ) { %>
                 <div class="carousel-item">
-                    <img src="<%= product.imageURLs.length && (product.imageURLs)[i].includes("http") ? product.imageURLs[i] : `/img/products/${product.imageURLs[i]}` %>" class="d-block w-100" alt="...">
+                    <img src="<%= fullPost.Post.Image_urls.length && (fullPost.Image_urls)[i].includes("http") ? fullPost.Post.Image_urls[i] : `/img/products/${fullPost.Post.Image_urls[i]}` %>" class="d-block w-100" alt="...">
                   </div>
               <% } %>
             </div>
@@ -29,15 +29,15 @@
             </a>
         </div>
         <div id="mainDetails">
-            <h2 class="price <%= product.onSale.status ? "inline stripped" : "" %>">$ <%= product.price.toLocaleString("es-AR") %> </h2>
-            <% if (product.onSale.status === true) { %>
+            <h2 class="price <%= fullPost.Post.onSale ? "inline stripped" : "" %>">$ <%= fullPost.Post.price.toLocaleString("es-AR") %> </h2>
+            <% if (fullPost.Post.onSale) { %>
                 <h5 class="price inline">
-                    $<%= (product.price * (100 - product.onSale.discount) / 100).toLocaleString("es-AR") %> 
+                    $<%= (fullPost.Post.price * (100 - fullPost.Post.discount) / 100).toLocaleString("es-AR") %> 
                 </h5>
             <% } %>
-            <%- product.published ? `<p class="date">Publicado el ${product.publishedDate.toLocaleString("es-AR")}</p>` : '<p class="date"> El producto no ha sido publicado todavía </p>' %> 
-            <h2 class="title"><%= product.title %> </h2>
-            <p class="product-state"><%= product.state %></p>
+            <%- fullPost.Post.published ? `<p class="date">Publicado el ${fullPost.Post.publishedDate.toLocaleString("es-AR")}</p>` : '<p class="date"> El producto no ha sido publicado todavía </p>' %> 
+            <h2 class="title"><%= fullPost.Post.title %> </h2>
+            <p class="product-state"><%= fullPost.Post.state %></p>
             <p class="location">Ubicación: <%= product.location.neighbourhood %>,
                 <% if (product.location.city === product.location.province) { %>
                     <%= product.location.city %>
@@ -46,21 +46,21 @@
                 <% } %>
              </p>
             <h5>Vendedor: <span class="seller"><%= (locals.seller && seller.userName) ? seller.userName : "" %></span></h5> 
-            <% if (productType === "part") { %>
+            <% if (fullPost.Post.Product.product_type === "part") { %>
                 <p class="product-shipping">Costo de envío <span class="product-shipping-price">$250</span></p> <!-- to be replaced with dynamic data once shipping service cost is implemented -->
             <% } %>
             <div class="rating-container">
                 <p id="rating">Rating</p>
-                <% for( let i = 0; i < product.rating; i++ ) { %>
+                <% for( let i = 0; i < fullPost.Post.rating; i++ ) { %>
                     <i class="fas fa-star"></i>
                 <% } %>
-                <% if (product.rating < 5 ) { %>
-                    <% for( let i = 0; i < (5 - product.rating); i++ ) { %>
+                <% if (fullPost.Post.rating < 5 ) { %>
+                    <% for( let i = 0; i < (5 - fullPost.Post.rating); i++ ) { %>
                         <i class="far fa-star"></i>
                     <% } %>
                 <% } %>
             </div>
-            <% if (productType === "vehicle") { %>
+            <% if (fullPost.Post.Product.product_type === "vehicle") { %>
                 <div class="buttons-container">
                     <% if (locals.assertUserLogged) { %>
                         <button type="button" class="btn btn-primary">Preguntar</button>
@@ -70,12 +70,12 @@
                     <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
                 </div>
             
-            <% } else if (productType === "part") { %>
+            <% } else if (fullPost.Post.Product.product_type === "part") { %>
                 <div class="buttons-container">
                     <% if (locals.assertUserLogged) { %>
                         <button type="button" class="btn btn-primary">Comprar</button>
                         <button type="button" class="btn btn-secondary">Preguntar</button>
-                        <a href="/cart/addItem/<%=product.adID%>"><button type="button" class="btn btn-danger"><i class="fas fa-cart-plus"></i></button></a>
+                        <a href="/cart/addItem/<%=fullPost.Post.postID%>"><button type="button" class="btn btn-danger"><i class="fas fa-cart-plus"></i></button></a>
                         <i class="far fa-heart"></i>
                     <% } %>
                     <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
@@ -84,9 +84,9 @@
                     <a data-bs-toggle="modal" data-bs-target="#paymentMethodsModal"><i class="fas fa-credit-card"></i> Medios de pago</a>
                 </div>
             <% } %>
-            <% if (locals.assertUserLogged && assertUserLogged.userID === product.userID) { %>
+            <% if (locals.assertUserLogged && assertUserLogged.userID === fullPost.Post.sellerID) { %>
                 <div class="btn-edit-container">
-                    <a href="/products/edit/<%= productType %>/<%= product.adID %>">
+                    <a href="/products/edit/<%= fullPost.Post.Product.product_type %>/<%= fullPost.Post.postID %>">
                         <button type="button" class="btn btn-warning btn-edit">Editar</button>
                     </a>
                 </div>     
@@ -94,7 +94,7 @@
         </div>
     </section>
     <section>
-        <% if (productType === "vehicle") { %>
+        <% if (fullPost.Post.Product.product_type === "vehicle") { %>
             <div id="characteristics">
                 <h2>Características principales</h2>
                 <table class="table table-striped table-hover" id="attributesTable">
@@ -111,23 +111,23 @@
                             <strong>Versión: </strong> <%= version.versionName %> 
                         </td>
                         <td>
-                            <strong>Año: </strong> <%= product.year %> 
+                            <strong>Año: </strong> <%= fullPost.Vehicle.year %> 
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <strong>Kilometraje: </strong> <%= product.kilometers %>
+                            <strong>Kilometraje: </strong> <%= fullPost.Vehicle.kilometers %>
                         </td>
                         <td>
-                            <strong>Color: </strong> <%= product.color %>
+                            <strong>Color: </strong> <%= fullPost.Vehicle.color %>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <strong>Estado: </strong> <%= product.state %>
+                            <strong>Estado: </strong> <%= fullPost.Post.state %>
                         </td>
                         <td>
-                            <strong>Transmisión: </strong> <%= product.gearType %>
+                            <strong>Transmisión: </strong> <%= fullPost.Vehicle.gearType %>
                         </td>
                     </tr>
                 </table>
@@ -137,16 +137,16 @@
         <div id="description">
             <h2>Descripción</h2>
             <p>
-                <%= product.description %> 
+                <%= fullPost.Vehicle.description %> 
             </p>
         </div>
-        <% if (productType === "vehicle") { %>
+        <% if (fullPost.Post.Product.product_type === "vehicle") { %>
             <%- include("./partials/vehicleDatasheet") %> 
         <% } %>
         <div id="questions">
             <% if (locals.assertUserLogged) { %>
                 <h2>Preguntale al vendedor</h2>
-                <form id="question-form" action="/products/question/<%= productType %>/<%= product.adID %>" method="POST">
+                <form id="question-form" action="/products/question/<%= fullPost.Post.Product.product_type %>/<%= product.adID %>" method="POST">
                     <div class="form-floating">
                         <textarea class="form-control" name="question" id="question" form="question-form"></textarea>
                         <label for="question">Escribí tu respuesta</label>
@@ -155,7 +155,7 @@
                 </form>
             <% } %>
             <h2>Preguntas</h2>
-            <% questions.forEach(e => { %>
+            <% fullPost.Post.Question.forEach(e => { %>
                 <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %> - <%= e.questionDate.toLocaleString() %></span> <%- e.answer !== "" ? '<i class="fas fa-level-down-alt question-arrow"></i>' : "" %> </p>
                 <%- e.answer !== "" ? `<p class="answer"> ${e.answer} - ${e.answerDate.toLocaleString()} </p>` : "" %> 
                 

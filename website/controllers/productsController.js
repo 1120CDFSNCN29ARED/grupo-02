@@ -28,20 +28,22 @@ const productsController = {
 		//const vehicles = Vehicle.findAll();
 		const fullPost = {};
 		console.log("aca");
-		db.Post.findOne({where:{postID: req.params.postID}, include: [{model: db.Product}]}).then(post => {
+		db.Post.findOne({where:{postID: req.params.postID}, include: [{model: db.Product}, {model: db.Image_url}, {model: db.Question}, {model: db.User}]}).then(post => {
 				if(post.Product.product_type === "part"){
 					db.Part.findOne({where: {partID: post.Product.partID}}).then(part => {
 						fullPost.Post = post.dataValues;
 						fullPost.Part = part.dataValues;
-						//return res.render("details", {fullPost})
-						return console.log(fullPost)
+						return res.render("productDetails", {fullPost})
+						//return console.log(fullPost)
 					})
 				}
 				else if(post.Product.product_type === "vehicle"){
 					db.Vehicle.findOne({where: {vehicleID: post.Product.vehicleID}}).then(vehicle => {
 						fullPost.Post = post.dataValues;
 						fullPost.Vehicle = vehicle.dataValues;
-						return console.log(fullPost)
+						console.log(fullPost)
+						return res.render("productDetails", {fullPost})
+						//return console.log(fullPost)
 					});
 				}
 		}).catch(() => res.redirect("/"));

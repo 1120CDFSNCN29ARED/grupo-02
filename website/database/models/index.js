@@ -51,6 +51,7 @@ db.User.hasMany(db.Cart, {foreignKey: "userID"});
 db.User.hasMany(db.Favourite, { foreignKey: "userID" })
 db.User.hasMany(db.Post, { foreignKey: "sellerID", targetKey: "userID" });
 db.User.hasMany(db.Question, { foreignKey: "userID" });
+db.User.belongsTo(db.Locality, {foreignKey: "locationID", targetKey: "localityID"})
 
 //carts
 db.Cart.belongsTo(db.User, {foreignKey: "userID"});
@@ -70,6 +71,7 @@ db.Post.hasMany(db.Favourite, { foreignKey: "postID"});
 db.Post.belongsTo(db.User, { foreignKey: "sellerID", targetKey: "userID" });
 db.Post.hasMany(db.Image_url, { foreignKey: "postID"});
 db.Post.hasMany(db.CartItem, {foreignKey: "postID"});
+db.Post.belongsTo(db.Locality, {foreignKey: "locationID", targetKey: "localityID"})
 
 //Questions
 db.Question.belongsTo(db.Post, { foreignKey: "postID" });
@@ -92,7 +94,8 @@ db.Vehicle.belongsTo(db.Vehicle_version, { foreignKey: "versionID" });
 db.Image_url.belongsTo(db.Post, { foreignKey: "postID" });
 
 //Locations
-  //db.location.belongsTo(db.Post);
+db.Province.hasMany(db.Locality, {foreignKey: "provinceID"});
+db.Locality.belongsTo(db.Province, {foreignKey: "provinceID"});
 
 //Brands
 db.Brand.hasMany(db.Product, { foreignKey: "brandID" });
@@ -107,9 +110,16 @@ db.Vehicle_version.hasMany(db.Vehicle, { foreignKey: "versionID" });
 db.Vehicle_version.belongsTo(db.Brand, { foreignKey: "brandID" });
 db.Vehicle_version.belongsTo(db.Model, { foreignKey: "modelID" });
 
+//JSON data
+
+const localities = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/localities.json"), "utf-8"));
+const provinces = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/provinces.json"), "utf-8"));
+
 
 sequelize.sync({ force: true }).then(() => {
 //Data insert
+  
+  db.Province.bulkCreate(provinces).then(db.Locality.bulkCreate(localities).catch(error => console.log(error)));
   db.Role.create({role_name: "user", role_description: "standard user access"}).catch();
   db.User.create({first_name: "test", last_name: "test", userName: "test", dni: 12345678, email: "test@test.com",
                   telephone: 12345678,address:"calle falsa 123", postal_code: 1234, image: "no-image-found.jpeg", locationID: 1})
@@ -131,8 +141,11 @@ sequelize.sync({ force: true }).then(() => {
                 .then(product => {
                   db.Post.create({title: "Test Title", description: "Test Description", published: true, publishedDate: new Date(), price: 123456,
                                   onSale: true, discount: 20, stock: 1, rating: 4, state: "Nuevo", featured: true, sellerID: user.userID, locationID: 1,
-                                  productID: product.productID
-                  }).catch((error) => console.log("failed at product",error));
+                                  productID: product.productID})
+                  .then(post => {
+                    db.Image_url.create({imageURL: "no-image-found.jpeg", postID: post.postID})
+                  })
+                  .catch((error) => console.log("failed at product",error));
                 }).catch((error) => console.log("failed at vehicle",error));
               }).catch((error) => console.log("failed at vehicle_version",error));
             }).catch((error) => console.log("failed at model",error));
@@ -140,7 +153,7 @@ sequelize.sync({ force: true }).then(() => {
         }).catch((error) => console.log("failed at user_access",error));
       }).catch((error) => console.log("failed at role",error));
     }).catch((error) => console.log("failed at user",error));
-  }).catch((error) => console.log("failed at role",error));  
+  }).catch((error) => console.log("failed at role",error));
 }).catch((error) => console.log(error))
 
 
