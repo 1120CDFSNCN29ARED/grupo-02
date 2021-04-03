@@ -32,8 +32,14 @@ const Part = (sequelize, DataTypes) => {
 		tableName: "parts",
 		timeStamps: true,
 	};
+	let part = sequelize.define(alias, cols, config);
+	part.associate = models => {
+		part.hasOne(models.Product, {foreignKey: "partID", as: "product"});
+	}
 
-	return sequelize.define(alias, cols, config);
+	return part;
 };
+
+
 
 module.exports = Part;

@@ -4,6 +4,7 @@ const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const User = require('../models/User');
 const { reset } = require('nodemon');
+const { Op } = require("sequelize");
 
 const db = require("../database/models");
 

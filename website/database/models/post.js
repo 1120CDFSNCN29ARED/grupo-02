@@ -76,7 +76,18 @@ const Post = (sequelize, DataTypes) => {
         tableName: "posts",
         timeStamps: true
     };
-    return sequelize.define(alias, cols, config);
+    let post = sequelize.define(alias, cols, config);
+    post.associate = models => {
+        post.belongsTo(models.Product, {foreignKey: "productID", as:"product"});
+        post.hasMany(models.Question, {foreignKey: "postID", as:"questions"});
+        post.hasMany(models.Favourite, {foreignKey: "postID", as:"favourites"});
+        post.belongsTo(models.User, {foreignKey: "sellerID", targetKey: "userID", as:"user"});
+        post.hasMany(models.ImageUrl, {foreignKey: "postID", as:"images"});
+        post.hasMany(models.CartItem, {foreignKey: "postID", as:"cartItems"});
+        post.belongsTo(models.Locality, {foreignKey: "locationID", targetKey: "localityID", as:"locality"})
+    }
+    
+    return post;
 }
 
 module.exports = Post

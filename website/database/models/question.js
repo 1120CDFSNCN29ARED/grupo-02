@@ -36,8 +36,12 @@ const Question = (sequelize, DataTypes) => {
 		tableName: "questions",
 		timeStamps: true,
 	};
-
-	return sequelize.define(alias, cols, config);
+	let question = sequelize.define(alias, cols, config);
+	question.associate = models => {
+		question.belongsTo(models.Post, {foreignKey: "postID", as: "post"});
+		question.belongsTo(models.User, {foreignKey: "userID", as: "user"});
+	}
+	return question;
 }
 
 module.exports = Question;

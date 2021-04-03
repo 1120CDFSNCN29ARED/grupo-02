@@ -29,12 +29,20 @@ const Product = (sequelize, DataTypes) => {
 		},
 	};
 
-  const config = {
+  	const config = {
         tableName: "products",
         timeStamps: true
-    };
-
-  return sequelize.define(alias, cols, config);
+	};
+	let product = sequelize.define(alias, cols, config);
+	product.associate = models => {
+		product.hasOne(models.Post, {foreignKey: "productID", as: "post"});
+		product.belongsTo(models.Part, {foreignKey: "partID", as: "part"});
+		product.belongsTo(models.Vehicle, {foreignKey: "vehicleID", as: "vehicle"});
+		product.belongsTo(models.Brand, {foreignKey: "brandID", as: "brand"});
+	}
+	
+	return product;
 }
+
 
 module.exports = Product;

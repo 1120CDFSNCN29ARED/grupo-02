@@ -20,8 +20,14 @@ const Favourite = (sequelize, DataTypes) => {
         tableName: "favourites",
         timestamps: true
     };
-    return sequelize.define(alias, cols, config);
-}
+    let favourite = sequelize.define(alias, cols, config);
+    favourite.associate = models => {
+        favourite.belongsTo(models.User, {foreignKey: "userID", as: "user"});
+        favourite.belongsTo(models.Post, {foreignKey: "postID", as: "post"});
+    
+    }
 
+    return favourite;
+}
 
 module.exports = Favourite

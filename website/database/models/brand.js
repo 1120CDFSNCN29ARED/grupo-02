@@ -41,8 +41,12 @@ const Brand = (sequelize, DataTypes) => {
 		tableName: "brands",
 		timeStamps: true,
 	};
-
-	return sequelize.define(alias, cols, config);
+	let brand = sequelize.define(alias, cols, config);
+	brand.associate = models => {
+		brand.hasMany(models.Product, {foreignKey: "brandID", as: "products"});
+		brand.hasMany(models.Model, {foreignKey: "brandID", as: "models"});
+	}
+	return brand
 };
 
 module.exports = Brand;

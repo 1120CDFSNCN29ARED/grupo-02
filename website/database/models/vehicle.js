@@ -32,8 +32,12 @@ const Vehicle = (sequelize, DataTypes) => {
 		tableName: "vehicles",
 		timeStamps: true,
 	};
-
-	return sequelize.define(alias, cols, config);
+  let vehicle = sequelize.define(alias, cols, config);
+  vehicle.associate = models => {
+    vehicle.hasOne(models.Product, {foreignKey: "vehicleID", as: "product"});
+    vehicle.belongsTo(models.VehicleVersion, {foreignKey: "versionID", as: "version"});
+  }
+	return vehicle;
 
 }
 

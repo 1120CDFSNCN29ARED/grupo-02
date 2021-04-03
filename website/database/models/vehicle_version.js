@@ -1,5 +1,5 @@
-const Vehicle_version = (sequelize, DataTypes) => {
-  const alias = "Vehicle_version";
+const VehicleVersion = (sequelize, DataTypes) => {
+  const alias = "VehicleVersion";
   const cols = {
 		versionID: {
 			type: DataTypes.INTEGER,
@@ -24,9 +24,16 @@ const Vehicle_version = (sequelize, DataTypes) => {
 		tableName: "vehicle_versions",
 		timeStamps: true,
 	};
-
-	return sequelize.define(alias, cols, config);
+	let vehicleVersion = sequelize.define(alias, cols, config);
+	vehicleVersion.associate = models => {
+		vehicleVersion.hasMany(models.Vehicle, {foreignKey: "versionID", as: "vehicles"});
+		vehicleVersion.belongsTo(models.Brand, {foreignKey: "brandID", as: "brand"});
+		vehicleVersion.belongsTo(models.Model, {foreignKey: "modelID", as: "model"});
+	}
+	return vehicleVersion
 
 }
 
-module.exports = Vehicle_version;
+
+
+module.exports = VehicleVersion;

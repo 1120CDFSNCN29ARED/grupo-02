@@ -55,7 +55,15 @@ const User = (sequelize, DataTypes) => {
         tableName: "users",
         timestamps: true
     }
-    return sequelize.define(alias, cols, config);
+    let user = sequelize.define(alias, cols, config);
+    user.associate = models => {
+        user.hasMany(models.Favourite, {foreignKey: "userID", as: "favourites"});
+        user.hasMany(models.Cart, {foreignKey: "userID", as: "cart"});
+        user.hasMany(models.Post, {foreignKey: "sellerID", targetKey: "userID", as: "posts"});
+        user.hasMany(models.Question, {foreignKey: "userID", as: "questions"});
+        user.belongsTo(models.Locality, {foreignKey: "locationID", targetKey: "localityID", as: "locality"})
+    }
+    return user;
 }
 
 module.exports = User

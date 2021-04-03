@@ -1,6 +1,5 @@
 const { body, validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-const User = require('../models/User');
 const db = require("../database/models");
 const { Op } = require("sequelize");
 
@@ -20,15 +19,16 @@ const loginValidation = (req, res, next) => {
 	const errors = validationResult(req);
 	if (errors.isEmpty()) {
 		db.UserAccess.findOne({
-				where:{
-					[Op.or]: [{userName: req.body.email}, {email: req.body.email}]
-				},include: [{model: db.User},{model: db.Role}]
-			})
-			.then((userAccess) => {
+			where:{
+				[Op.or]: [{userName: req.body.email}, {email: req.body.email}]
+			},include: ["user", "role"]
+		})
+		.then((userAccess) => {
+				
 			if(bcryptjs.compareSync(req.body.password, userAccess.password)){
-				req.session.assertUserLogged = userAccess.User.dataValues;
-				req.session.userType = userAccess.Role.role_name;
-				req.session.userId = userAccess.User.userID;
+				req.session.assertUserLogged = userAccess.user.dataValues;
+				req.session.userType = userAccess.role.role_name;
+				req.session.userId = userAccess.user.userID;
 				if (req.body.keepLogged != undefined) {
 					res.cookie("userEmail", userAccess.email, { maxAge: (1000 * 60) * 2 });
 				}
@@ -37,12 +37,12 @@ const loginValidation = (req, res, next) => {
 			else {
 				const validationErrors = {
 					email: {
-					  value: "",
-					  msg: 'El usuario y/o contraseña no son validos',
-					  param: 'email',
-					  location: 'body'
+					value: "",
+					msg: 'El usuario y/o contraseña no son validos',
+					param: 'email',
+					location: 'body'
 					}
-				  };
+				};
 				res.render("login", { errors: validationErrors, old: req.body })
 			}
 		}).catch(error => {

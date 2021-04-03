@@ -1,5 +1,5 @@
-const Image_url = (sequelize, DataTypes) => {
-  const alias = 'Image_url';
+const ImageUrl = (sequelize, DataTypes) => {
+  const alias = 'ImageUrl';
   const cols = {
 		imageID: {
 			type: DataTypes.UUID,
@@ -20,8 +20,14 @@ const Image_url = (sequelize, DataTypes) => {
     tableName: "image_urls",
     timeStamps: true
   };
+  let imageUrl = sequelize.define(alias, cols, config);
+  imageUrl.associate = models => {
+    imageUrl.belongsTo(models.Post, {foreignKey: "postID", as: "post"});
+  }
 
-  return sequelize.define(alias, cols, config);
+  return imageUrl
 };
 
-module.exports = Image_url;
+
+
+module.exports = ImageUrl;

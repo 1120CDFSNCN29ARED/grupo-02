@@ -40,8 +40,13 @@ const Model = (sequelize, DataTypes) => {
 		tableName: "models",
 		timeStamps: true,
 	};
-
-	return sequelize.define(alias, cols, config);
+	let model = sequelize.define(alias, cols, config);
+	model.associate = models => {
+		model.belongsTo(models.Brand, {foreignKey: "brandID", as: "brand"});
+		model.hasMany(models.Product, {foreignKey: "modelID", as: "product"});
+		model.hasMany(models.VehicleVersion, {foreignKey: "modelID", as: "versions"});
+	}
+	return model;
   
 };
 

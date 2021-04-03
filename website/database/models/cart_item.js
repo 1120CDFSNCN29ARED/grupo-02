@@ -28,8 +28,13 @@ const CartItem = (sequelize, DataTypes) => {
         tableName: "cart_items",
         timestamps: true
     };
-    return sequelize.define(alias, cols, config);
-}
+    let cartItem = sequelize.define(alias, cols, config);
+    cartItem.associate = models => {
+        cartItem.belongsTo(models.Cart, {foreignKey: "cartID", as: "cart"});
+        cartItem.belongsTo(models.Post, {foreignKey: "postID", as: "post"});
+    }
 
+    return cartItem;
+}
 
 module.exports = CartItem
