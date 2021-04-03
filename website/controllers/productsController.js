@@ -28,19 +28,21 @@ const productsController = {
 		//const vehicles = Vehicle.findAll();
 		const fullPost = {};
 		console.log("aca");
-		db.Post.findOne({where:{postID: req.params.postID}, include: [{model: db.Product}, {model: db.Image_url}, {model: db.Question}, {model: db.User}]}).then(post => {
-				if(post.Product.product_type === "part"){
-					db.Part.findOne({where: {partID: post.Product.partID}}).then(part => {
-						fullPost.Post = post.dataValues;
-						fullPost.Part = part.dataValues;
+		db.Post.findOne({where:{postID: req.params.postID}, include: ["product", "images", "questions", "user", {association: "locality", include: ["province"]}]}).then(post => {
+			//console.log(post)
+				if(post.product.product_type === "part"){
+					db.Part.findOne({where: {partID: post.product.partID}}).then(part => {
+						fullPost.post = post.dataValues;
+						fullPost.part = part.dataValues;
 						return res.render("productDetails", {fullPost})
 						//return console.log(fullPost)
 					})
 				}
-				else if(post.Product.product_type === "vehicle"){
-					db.Vehicle.findOne({where: {vehicleID: post.Product.vehicleID}}).then(vehicle => {
-						fullPost.Post = post.dataValues;
-						fullPost.Vehicle = vehicle.dataValues;
+				else if(post.product.product_type === "vehicle"){
+					db.Vehicle.findOne({where: {vehicleID: post.product.vehicleID}, include: [{association: "version", include: ["brand", "model"]}]})
+					.then(vehicle => {
+						fullPost.post = post.dataValues;
+						fullPost.vehicle = vehicle.dataValues;
 						console.log(fullPost)
 						return res.render("productDetails", {fullPost})
 						//return console.log(fullPost)
