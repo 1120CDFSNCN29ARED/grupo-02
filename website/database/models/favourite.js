@@ -11,7 +11,7 @@ const Favourite = (sequelize, DataTypes) => {
             type: DataTypes.UUID,
             allowNull: false
         },
-        adID: {
+        postID: {
             type: DataTypes.UUID,
             allowNull: false
         }

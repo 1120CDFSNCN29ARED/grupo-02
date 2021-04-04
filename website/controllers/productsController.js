@@ -4,6 +4,7 @@ const path = require("path");
 const fuse = require("fuse.js");
 const { v4: uuidv4 } = require("uuid");
 const _ = require("lodash");
+const { Op } = require("sequelize");
 const db = require('../database/models');
 
 const Vehicle = require("../models/Vehicle");
@@ -25,95 +26,58 @@ let product = {};
 
 const productsController = {
 	details: (req, res) => {
-		//const vehicles = Vehicle.findAll();
 		const fullPost = {};
-		console.log("aca");
-		db.Post.findOne({where:{postID: req.params.postID}, include: ["product", "images", "questions", "user", {association: "locality", include: ["province"]}]}).then(post => {
-			//console.log(post)
-				if(post.product.product_type === "part"){
-					db.Part.findOne({where: {partID: post.product.partID}}).then(part => {
-						fullPost.post = post.dataValues;
-						fullPost.part = part.dataValues;
-						return res.render("productDetails", {fullPost})
-						//return console.log(fullPost)
-					})
-				}
-				else if(post.product.product_type === "vehicle"){
-					db.Vehicle.findOne({where: {vehicleID: post.product.vehicleID}, include: [{association: "version", include: ["brand", "model"]}]})
-					.then(vehicle => {
-						fullPost.post = post.dataValues;
-						fullPost.vehicle = vehicle.dataValues;
-						console.log(fullPost)
-						return res.render("productDetails", {fullPost})
-						//return console.log(fullPost)
-					});
-				}
+		db.Post.findOne({where:{postID: req.params.postID}, include: ["product", "images", {association: "questions", include: "user"}, "user", {association: "locality", include: ["province"]}]})
+		.then(post => {
+			if(post.product.product_type === "part"){
+				db.Part.findOne({where: {partID: post.product.partID}}).then(part => {
+					fullPost.post = post.dataValues;
+					fullPost.part = part.dataValues;
+					return res.render("productDetails", {fullPost})
+				})
+			}
+			else if(post.product.product_type === "vehicle"){
+				db.Vehicle.findOne({where: {vehicleID: post.product.vehicleID}, include: [{association: "version", include: ["brand", "model"]}]})
+				.then(vehicle => {
+					fullPost.post = post.dataValues;
+					fullPost.vehicle = vehicle.dataValues;
+					return res.render("productDetails", {fullPost})
+				});
+			}
 		}).catch(() => res.redirect("/"));
-		/*
-		const parts = jsonReader(partsFilePath);
-		let brands = "";
-		let models = "";
-		let versions = "";
-		let version = "";
-		let seller = "";
-		const questions = jsonReader(questionsFilePath);
-		const productID = parseInt(req.params.productID, 10);
-		const productQuestions = questions.filter(question => question.adID === productID);
-		if (req.params.productType === "vehicle") {
-			product = Vehicle.findVehicleByPk(productID);
-			if (!product) {
-				res.redirect("/");
-			}
-			seller = seller = Vehicle.seller(product.adID);
-			brands = jsonReader(vehicleBrandsFilePath);
-			models = jsonReader(vehicleModelsFilePath);
-			versions = jsonReader(vehicleVersionsFilePath);
-			version = versions.find((e) => e.versionID === product.versionID);
-		} else if (req.params.productType === "part") {
-			product = parts.find(part => part.adID === productID);
-			if (!product) {
-				res.redirect("/");
-			}
-			seller = Part.seller(product.adID);
-			brands = jsonReader(partBrandsFilePath);
-			models = jsonReader(partModelsFilePath);
-		}
-		const brand = brands.find(e => e.brandID === product.brandID);
-		const model = models.find(e => e.modelID === product.modelID);
-		
-		res.render("productDetails", {
-			productType: req.params.productType,
-			productID,
-			product,
-			seller,
-			questions: productQuestions,
-			brand,
-			model,
-			version,
-		});*/
 	},
 	question: (req, res) => {
-		const questions = jsonReader(questionsFilePath);
-		const productID = parseInt(req.params.productID, 10);
-
-		const newID = questions.length > 0 ? questions[questions.length - 1].questionID + 1 : 1;
-		const date = new Date();
-		const questionDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
-
 		const newQuestion = {
-			questionID: newID,
-			adID: productID,
-			userName: "santi", //change to logged in user
+			postID: req.params.postID,
+			userID: req.session.assertUserLogged.userID,
 			question: req.body.question,
-			questionDate: questionDate,
-			answer: "",
-			answerDate: "",
-		};
-		questions.push(newQuestion);
-		fs.writeFileSync(questionsFilePath, JSON.stringify(questions, null, 4));
-		res.redirect("/products/details/" + req.params.productType + "/" + productID);
+			question_date: new Date()
+		}
+
+		db.Question.create(newQuestion).then(res.redirect(`/products/details/${req.params.postID}`))
+		.catch(error => res.redirect(`/products/details/${req.params.postID}`));
 	},
 	create: (req, res) => {
+
+		if(req.params.productType === "vehicle"){
+			db.Brand.findAll({
+				where:{
+					[Op.or]: [{vehicle_type_car: true}, {vehicle_type_motorcycle: true}, {vehicle_type_pickup: true}, {vehicle_type_truck: true}]
+				},include: [{association: "models", include: ["versions"]}]
+			}).then(brand => {
+				brands = jsonReader(vehicleBrandsFilePath);
+				models = jsonReader(vehicleModelsFilePath);
+				versions = jsonReader(vehicleVersionsFilePath);
+				res.render("createProduct", {
+					brands,
+					models,
+					versions,
+					productType: req.params.productType,
+					product: {},
+				});
+			})
+		}
+
 		let brands = "";
 		let models = "";
 		let versions = "";
@@ -1026,32 +990,44 @@ const productsController = {
 		});
 	},
 	addFavourite: (req, res) => {
-		const favourites = jsonReader(favouritesFilePath);
-		let favourite = {};
-		const userFavourites = favourites.find(favourite => favourite.userID == req.session.assertUserLogged.userID);
-		if(userFavourites){
-			for(let i = 0; i < userFavourites.favouriteProducts.length; i++){
-				if(userFavourites.favouriteProducts.adID === req.params.productID && userFavourites.favouriteProducts.productType === req.params.productType){
-					return res.redirect(`/products/details/${req.params.productType}/${req.params.productID}`)
+		db.Favourite.findAll({where: {userID: req.session.assertUserLogged.userID}}).then(favourites => {
+			if(favourites.length > 0 && favourites.find(favourite => favourite.postID === req.params.postID)){
+				return res.redirect(`/products/details/${req.params.postID}`);
+			}
+			else {
+				const favourite = {
+					userID: req.session.assertUserLogged.userID,
+					postID: req.params.postID,
 				}
+				console.log("favorito: ",favourite)
+				db.Favourite.create(favourite).then(() => {
+					db.User.findByPk(req.session.assertUserLogged.userID,{include: ["favourites"]})
+					.then(user => {
+						req.session.assertUserLogged = user.dataValues;
+						return res.redirect(`/products/details/${req.params.postID}`)}
+					)
+				})
+				.catch(() => res.redirect(`/products/details/${req.params.postID}`))
 			}
-			favourite = {
-				productType: req.params.productType,
-                adID: parseInt(req.params.productID),
-                dateAdded: new Date()
-			}
-			userFavourites.favouriteProducts.push(favourite);
-			//console.log(favourites)
-			/*const favouriteIndex = favourites.findIndex(
-				(favourite) => favourite.userID === req.session.assertUserLogged.userID
-			);
-			favourites.splice(favouriteIndex, 1);*/
-			fs.writeFileSync(favouritesFilePath, JSON.stringify(favourites, null, 4));
-			return res.redirect(`/products/details/${req.params.productType}/${req.params.productID}`)
-		}
+		});
 	},
 	deleteFavourite: (req, res) => {
-
+		db.Favourite.findAll({where: {userID: req.session.assertUserLogged.userID}}).then(favourites => {
+			if(favourites.length > 0 && favourites.find(favourite => favourite.postID === req.params.postID)){
+				db.Favourite.destroy({where: {userID: req.session.assertUserLogged.userID, postID: req.params.postID}})
+				.then(() => {
+					db.User.findByPk(req.session.assertUserLogged.userID,{include: ["favourites"]})
+					.then(user => {
+						req.session.assertUserLogged = user.dataValues;
+						return res.redirect(`/products/details/${req.params.postID}`)}
+					)
+				})
+				.catch((error => res.redirect("/")))				
+			}
+			else {
+				return res.redirect("/")
+			}
+		}).catch(error => res.redirect("/"))
 	},
 	testingModel: (req, res) => {
 		

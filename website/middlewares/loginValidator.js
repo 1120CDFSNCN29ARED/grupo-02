@@ -21,7 +21,7 @@ const loginValidation = (req, res, next) => {
 		db.UserAccess.findOne({
 			where:{
 				[Op.or]: [{userName: req.body.email}, {email: req.body.email}]
-			},include: ["user", "role"]
+			},include: [{association: "user", include: ["favourites"]}, "role"]
 		})
 		.then((userAccess) => {
 				

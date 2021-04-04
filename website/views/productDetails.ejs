@@ -42,7 +42,7 @@
                 <% if (fullPost.post.locality.locality_name === fullPost.post.locality.province.province_name) { %>
                     <%= fullPost.post.locality.locality_name %>
                 <% } else { %>
-                    <%= fullPost.post.locality.locality_name %>,<%= fullPost.post.locality.province.province_name %>
+                    <%= fullPost.post.locality.locality_name %>, <%= fullPost.post.locality.province.province_name %>
                 <% } %>
              </p>
             <h5>Vendedor: <span class="seller"><%= fullPost.post.user.userName %></span></h5> 
@@ -65,7 +65,15 @@
                     <% if (locals.assertUserLogged) { %>
                         <button type="button" class="btn btn-primary">Preguntar</button>
                         <button type="button" class="btn btn-secondary">Reservar</button>
-                        <i class="far fa-heart"></i>
+                        <% if (locals.assertUserLogged.favourites.find(favourite => favourite.postID === fullPost.post.postID)) { %>
+                            <a href="/products/favourites/delete/<%= fullPost.post.postID %>">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                        <% } else { %>
+                            <a href="/products/favourites/add/<%= fullPost.post.postID %>">
+                                <i class="far fa-heart"></i>
+                            </a>
+                        <% } %> 
                     <% } %>                    
                     <button type="button" class="btn btn-success"><i class="fas fa-share-alt"></i> Compartir</button>
                 </div>
@@ -146,10 +154,10 @@
         <div id="questions">
             <% if (locals.assertUserLogged) { %>
                 <h2>Preguntale al vendedor</h2>
-                <form id="question-form" action="/products/question/<%= fullPost.post.product.product_type %>/<%= fullPost.post.postID %>" method="POST">
+                <form id="question-form" action="/products/question/<%= fullPost.post.postID %>" method="POST">
                     <div class="form-floating">
                         <textarea class="form-control" name="question" id="question" form="question-form"></textarea>
-                        <label for="question">Escribí tu respuesta</label>
+                        <label for="question">Escribí tu pregunta</label>
                     </div>
                     <button id="askQuestion" type="submit" class="btn btn-primary">Preguntar</button>
                 </form>
@@ -157,8 +165,9 @@
             <h2>Preguntas</h2>
             <% if (fullPost.post.questions && fullPost.post.questions.length > 0) { %>
                 <% fullPost.post.questions.forEach(e => { %>
-                    <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %> - <%= e.questionDate.toLocaleString() %></span> <%- e.answer !== "" ? '<i class="fas fa-level-down-alt question-arrow"></i>' : "" %> </p>
-                    <%- e.answer !== "" ? `<p class="answer"> ${e.answer} - ${e.answerDate.toLocaleString()} </p>` : "" %> 
+                    <%= console.log(e) %> 
+                    <p class="question"><%= e.question %> - <span class="question-user"><%= e.user.userName.toUpperCase() %> - <%= e.question_date.toLocaleString("es-AR") %></span> <%- e.answer ? '<i class="fas fa-level-down-alt question-arrow"></i>' : "" %> </p>
+                    <%- e.answer ? `<p class="answer"> ${e.answer} - ${e.answer_date.toLocaleString("es-AR")} </p>` : "" %> 
                     
                 <% }) %>
             <% } else { %>              

@@ -37,7 +37,7 @@ vehicleCreationValidation, productsController.updateVehicle);
 router.put("/edit/part/:productID", authMiddleware, productOwner, uploadFile.fields([{ name: 'productImages' }]), partCreationValidator,
 partCreationValidation, productsController.updatePart);
 
-router.post("/question/:productType/:productID", authMiddleware, productsController.question);
+router.post("/question/:postID", authMiddleware, productsController.question);
 
 router.get("/deleteImage/:productType/:productID", authMiddleware, productOwner, productsController.deleteImage);
 router.delete("/delete/:productType/:productID", authMiddleware, productOwner, productsController.delete);
@@ -45,8 +45,8 @@ router.delete("/delete/:productType/:productID", authMiddleware, productOwner, p
 router.get("/search", urlClearner, productsController.search);
 router.get("/searchBar/:searchValue?", urlClearner, productsController.searchBar);
 
-router.get("/favourites/add/:productType/:productID", authMiddleware, productsController.addFavourite)
-router.get("/favourites/delete/:productType/:productID", authMiddleware, productsController.deleteFavourite)
+router.get("/favourites/add/:postID", authMiddleware, productsController.addFavourite)
+router.get("/favourites/delete/:postID", authMiddleware, productsController.deleteFavourite)
 
 router.get("/testing", productsController.testingModel)
 
