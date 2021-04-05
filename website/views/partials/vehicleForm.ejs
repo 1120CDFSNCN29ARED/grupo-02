@@ -27,10 +27,11 @@
         <div class="row">
             <div class="col-md col-lg-2">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleBrand ? 'is-invalid': null %>" id="vehicleBrand" aria-label="Select brand" name="vehicleBrand">
+                    <select class="form-select <%=locals.errors && errors.vehicleBrand ? 'is-invalid': null %>" id="vehicleBrand" aria-label="Select brand" name="vehicleBrand" onchange="populateVersions()">
+                        <% console.log(brands) %> 
                         <% brands.forEach(brand => { %>
                             <option value='<%=brand.brandID%>' <%= (locals.product && product.brandID === brand.brandID)?"selected":"" %>>
-                                <%= brand.brandName %>
+                                <%= brand.brand_name %>
                             </option>
                             <% }) %>
                     </select>
@@ -45,11 +46,7 @@
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
                     <select class="form-select <%=locals.errors && errors.vehicleModel ? 'is-invalid': null %>" id="vehicleModel" aria-label="Select model" name="vehicleModel">
-                        <% models.forEach(model => {%>
-                            <option value='<%= model.modelID %>' <%= (locals.product && product.modelID === model.modelID) ? "selected" : "" %>>
-                                <%= model.modelName %>
-                            </option>
-                            <% }) %>
+                        
                     </select>
                     <label for="vehicleModel">Modelo</label>
                     <% if (locals.errors && errors.vechicleModel) { %>
@@ -79,11 +76,7 @@
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
                     <select class="form-select <%=locals.errors && errors.vehicleVersion ? 'is-invalid': null %>" id="vehicleVersion" aria-label="Select version" name="vehicleVersion">
-                        <% versions.forEach(version => {%>
-                            <option value='<%= version.versionID %>' <%= (locals.product && product.versionID === version.versionID) ? "selected" : "" %>>
-                                <%= version.versionName %>
-                            </option>
-                        <% }) %>
+                        
                     </select>
                     <label for="vehicleVersion">Versión</label>
                     <% if (locals.errors && errors.vehicleVersion) { %>
@@ -371,3 +364,39 @@
         </form>
     <% } %>
 </section>
+<script type="application/javascript">
+    function populateVersions() {
+        let brandID = document.getElementById("vehicleBrand").value;
+        alert(brandID);
+        let versionDropDown = document.getElementById("vehicleVersion");
+        //versionDropDown.find('option').not(':first').remove()
+        for(let i= 0; i < versionDropDown.childElementCount; i++){
+            versionDropDown.removeChild(i)
+        }            
+        //$("#droplist").empty();
+        fetch("/api/versions?brandID=" + brandID)
+        .then(  
+            function(response) {  
+                
+                if (response.status !== 200) {  
+                    console.warn('Looks like there was a problem. Status Code: ' + response.status);
+                    return;
+                }
+            // Examine the text in the response  
+                response.json().then(function(version) {
+                    let option;
+                    for (let i = 0; i < version.length; i++) {
+                        option = document.createElement('option');
+                        option.text = version[i].version_name;
+                        option.value = version[i].versionID;
+                        versionDropDown.
+                        versionDropDown.add(option);
+                    }
+                });
+            }
+        )
+        .catch(error => {
+            console.log(error);
+        });
+    }
+</script>

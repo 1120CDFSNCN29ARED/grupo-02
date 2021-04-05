@@ -63,21 +63,26 @@ const productsController = {
 			db.Brand.findAll({
 				where:{
 					[Op.or]: [{vehicle_type_car: true}, {vehicle_type_motorcycle: true}, {vehicle_type_pickup: true}, {vehicle_type_truck: true}]
-				},include: [{association: "models", include: ["versions"]}]
-			}).then(brand => {
-				brands = jsonReader(vehicleBrandsFilePath);
-				models = jsonReader(vehicleModelsFilePath);
-				versions = jsonReader(vehicleVersionsFilePath);
+				},
+				raw: true
+			}).then(brands => {
+				console.log(brands)
 				res.render("createProduct", {
-					brands,
-					models,
-					versions,
+					brands: brands,
+					//models,
+					//versions,
 					productType: req.params.productType,
 					product: {},
 				});
 			})
+			//const models = db.Model.findAll()
+			//const versions = db.Version.findAll();
+				//brands = jsonReader(vehicleBrandsFilePath);
+				//models = jsonReader(vehicleModelsFilePath);
+				//versions = jsonReader(vehicleVersionsFilePath);
+				
 		}
-
+		/*
 		let brands = "";
 		let models = "";
 		let versions = "";
@@ -97,7 +102,7 @@ const productsController = {
 			versions,
 			productType: req.params.productType,
 			product: {},
-		});
+		});*/
 	},
 	storeVehicle: (req, res) => {
 		const vehicles = Vehicle.findAll();

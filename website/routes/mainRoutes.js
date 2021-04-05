@@ -6,23 +6,27 @@ const productsRoutes = require("./productsRoutes");
 const adminRoutes = require("./adminRoutes");
 const cartRoutes = require("./cartRoutes")
 const usersRoutes = require('./usersRoutes');
+const apiRoutes = require('./apiRoutes');
 
-/* Controllers */
+//Controller
 const mainController = require("../controllers/mainController");
 
-
+//Main
 router.get("/", mainController.index);
 
-/* Admin */
+//Admin
 router.use("/admin", adminRoutes);
 
-/* Users */
+//Users
 router.use("/users", usersRoutes)
 
-/* Products */
+//Products
 router.use("/products", productsRoutes);
 
-/* Cart */
+//Cart
 router.use("/cart", cartRoutes)
+
+//api
+router.use("/api", apiRoutes);
 
 module.exports = router;
