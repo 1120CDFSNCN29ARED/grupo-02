@@ -66,7 +66,6 @@ const productsController = {
 				},
 				raw: true
 			}).then(brands => {
-				console.log(brands)
 				res.render("createProduct", {
 					brands: brands,
 					//models,
