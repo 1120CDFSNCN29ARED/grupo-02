@@ -5,7 +5,9 @@ const fuse = require("fuse.js");
 const { v4: uuidv4 } = require("uuid");
 const _ = require("lodash");
 const { Op } = require("sequelize");
+
 const db = require('../database/models');
+const brandsService = require("../services/brandsService");
 
 const Vehicle = require("../models/Vehicle");
 const Part = require("../models/Part");
@@ -59,27 +61,11 @@ const productsController = {
 	},
 	create: async (req, res) => {
 		let brands = [];
-		if(req.params.productType === "vehicle"){
-			brands = await db.Brand.findAll({
-				where:{
-					[Op.or]: [{vehicle_type_car: true}, {vehicle_type_motorcycle: true}, {vehicle_type_pickup: true}, {vehicle_type_truck: true}]
-				},
-				order: [["brand_name","ASC"]],
-				raw: true
-				}
-			);
-		}
-		else if(req.params.productType === "part") {
-			brands = await db.Brand.findAll({
-				where:{
-					makes_parts: true
-				},
-				raw: true
-				}
-			);
+		if(req.params.productType === "vehicle" || req.params.productType === "part"){
+			brands = await brandsService.findByProductType(req.params.productType);
 		}
 		return res.render("createProduct", {
-			brands: brands,
+			brands,
 			productType: req.params.productType,
 			product: {},
 		});
