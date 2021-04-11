@@ -9,7 +9,7 @@ const brands = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/vehic
 const models = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/vehicleModels_new.json"), "utf-8"));
 async function populateDB(db) {
     await db.Brand.bulkCreate(brands).catch(error => console.log(error));
-    await db.Model.bulkCreate(models).catch(error => console.log(error));/*
+    //await db.Model.bulkCreate(models).catch(error => console.log(error));
     await db.Province.bulkCreate(provinces).catch(error => console.log(error));
     await db.Locality.bulkCreate(localities).catch(error => console.log(error));
     await db.Role.create({role_name: "user", role_description: "standard user access"}).catch();
@@ -43,7 +43,7 @@ async function populateDB(db) {
             }).catch((error) => console.log("failed at user_access",error));
         }).catch((error) => console.log("failed at role",error));
         }).catch((error) => console.log("failed at user",error));
-    }).catch((error) => console.log("failed at role",error));*/
+    }).catch((error) => console.log("failed at role",error));
 }
 
 module.exports = populateDB;

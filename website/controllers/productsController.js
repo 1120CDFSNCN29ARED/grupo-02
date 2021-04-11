@@ -57,30 +57,37 @@ const productsController = {
 		db.Question.create(newQuestion).then(res.redirect(`/products/details/${req.params.postID}`))
 		.catch(error => res.redirect(`/products/details/${req.params.postID}`));
 	},
-	create: (req, res) => {
-
+	create: async (req, res) => {
+		let brands = [];
 		if(req.params.productType === "vehicle"){
-			db.Brand.findAll({
+			const brands = await db.Brand.findAll({
 				where:{
 					[Op.or]: [{vehicle_type_car: true}, {vehicle_type_motorcycle: true}, {vehicle_type_pickup: true}, {vehicle_type_truck: true}]
 				},
 				raw: true
-			}).then(brands => {
-				res.render("createProduct", {
-					brands: brands,
-					//models,
-					//versions,
-					productType: req.params.productType,
-					product: {},
-				});
-			})
+				}
+			);
+			
 			//const models = db.Model.findAll()
 			//const versions = db.Version.findAll();
 				//brands = jsonReader(vehicleBrandsFilePath);
 				//models = jsonReader(vehicleModelsFilePath);
 				//versions = jsonReader(vehicleVersionsFilePath);
-				
 		}
+		else if(req.params.productType === "part") {
+			const brands = await db.Brand.findAll({
+				where:{
+					makes_parts: true
+				},
+				raw: true
+				}
+			);
+		}
+		return res.render("createProduct", {
+			brands: brands,
+			productType: req.params.productType,
+			product: {},
+		});
 		/*
 		let brands = "";
 		let models = "";
