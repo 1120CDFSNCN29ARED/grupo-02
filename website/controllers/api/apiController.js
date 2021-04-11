@@ -1,6 +1,5 @@
 const { Op } = require("sequelize");
-const db = require('../database/models');
-
+const db = require('../../database/models');
 const apiController = {
     brands: (req, res) => {
         if(req.params.brandID){

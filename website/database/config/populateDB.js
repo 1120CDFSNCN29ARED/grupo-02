@@ -19,7 +19,7 @@ async function populateDB(db) {
         db.Role.findOne({where:{role_name: "user"}}).then((role) => {
         db.UserAccess.create({userName: user.userName, email: user.email, password: bcryptjs.hashSync("test", 10), roleID: role.roleID })
         .then(() => {
-            db.Brand.create({brand_name: "BMW", vehicle_type_car: true, vehicle_type_motorcycle: true, vehicle_type_pickup: true, vehicle_type_truck: false,})
+            db.Brand.create({brand_name: "BMW Test", vehicle_type_car: true, vehicle_type_motorcycle: true, vehicle_type_pickup: true, vehicle_type_truck: false,})
             .then(brand => {
             db.Model.create({model_name: "Serie 1", brandID: brand.brandID, vehicle_type_car: true})
             .then(model => {

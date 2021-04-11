@@ -60,22 +60,17 @@ const productsController = {
 	create: async (req, res) => {
 		let brands = [];
 		if(req.params.productType === "vehicle"){
-			const brands = await db.Brand.findAll({
+			brands = await db.Brand.findAll({
 				where:{
 					[Op.or]: [{vehicle_type_car: true}, {vehicle_type_motorcycle: true}, {vehicle_type_pickup: true}, {vehicle_type_truck: true}]
 				},
+				order: [["brand_name","ASC"]],
 				raw: true
 				}
 			);
-			
-			//const models = db.Model.findAll()
-			//const versions = db.Version.findAll();
-				//brands = jsonReader(vehicleBrandsFilePath);
-				//models = jsonReader(vehicleModelsFilePath);
-				//versions = jsonReader(vehicleVersionsFilePath);
 		}
 		else if(req.params.productType === "part") {
-			const brands = await db.Brand.findAll({
+			brands = await db.Brand.findAll({
 				where:{
 					makes_parts: true
 				},
@@ -88,27 +83,6 @@ const productsController = {
 			productType: req.params.productType,
 			product: {},
 		});
-		/*
-		let brands = "";
-		let models = "";
-		let versions = "";
-		const productType = req.params.productType;
-		if (productType === "vehicle") {
-			brands = jsonReader(vehicleBrandsFilePath);
-			models = jsonReader(vehicleModelsFilePath);
-			versions = jsonReader(vehicleVersionsFilePath);
-		} else if (productType === "part") {
-			brands = jsonReader(partBrandsFilePath);
-			models = jsonReader(partModelsFilePath);
-		}
-
-		res.render("createProduct", {
-			brands,
-			models,
-			versions,
-			productType: req.params.productType,
-			product: {},
-		});*/
 	},
 	storeVehicle: (req, res) => {
 		const vehicles = Vehicle.findAll();

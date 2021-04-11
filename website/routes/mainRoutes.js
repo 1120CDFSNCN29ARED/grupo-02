@@ -6,7 +6,7 @@ const productsRoutes = require("./productsRoutes");
 const adminRoutes = require("./adminRoutes");
 const cartRoutes = require("./cartRoutes")
 const usersRoutes = require('./usersRoutes');
-const apiRoutes = require('./apiRoutes');
+const apiRoutes = require('./api/apiRoutes');
 
 //Controller
 const mainController = require("../controllers/mainController");
