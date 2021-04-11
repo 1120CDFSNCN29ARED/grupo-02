@@ -29,7 +29,13 @@ const brandsService = {
         return await db.Brand.findByPk(id).catch(error => error);
     },
     findByName: async (name) => {
-        return await db.Brand.findAll({where: {brand_name: name}}).catch(error => error);
+        return await db.Brand.findAll({
+            where: {
+                brand_name:{
+                    [Op.substring]: name
+                }
+            }
+        }).catch(error => error);
     },
 }
 

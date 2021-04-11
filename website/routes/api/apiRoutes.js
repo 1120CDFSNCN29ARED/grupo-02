@@ -3,9 +3,10 @@ const router = express.Router();
 
 const apiController = require("../../controllers/api/apiController");
 
+const brandsRoutes = require("./brandsRoutes");
 const modelsRoutes = require("./modelsRoutes");
 
-router.get("/brands/:brandID?", apiController.brands);
+router.use("/brands", brandsRoutes);
 router.use("/models", modelsRoutes);
 router.get("/modelsByBrand/:brandID", apiController.modelsByBrand);
 router.get("/versions/:versionID?", apiController.versions);
