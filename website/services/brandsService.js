@@ -3,7 +3,7 @@ const { Op } = require("sequelize");
 
 const brandsService = {
     findAll: async () => {
-        return await db.Brand.findAll().catch(error => error);
+        return await db.Brand.findAll({order: [["brand_name","ASC"]]}).catch(error => error);
     },
     findByProductType: async (productType) => {
         if(productType === "vehicle"){
