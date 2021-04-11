@@ -7,4 +7,5 @@ router.get("/", brandsController.all);
 router.get("/id/:brandID", brandsController.byID);
 router.get("/byName/:brandName", brandsController.byName);
 router.get("/byProductType", brandsController.byProductType);
+router.get("/:id/models/", brandsController.byIDIncludeModels);
 module.exports = router;

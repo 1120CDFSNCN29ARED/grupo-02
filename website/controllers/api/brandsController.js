@@ -16,6 +16,10 @@ const modelsController = {
     byName: async (req, res) => {
         const brands = await brandsService.findByName(req.params.brandName);
         return res.status(200).json(brands);
+    },
+    byIDIncludeModels: async (req, res) => {
+        const brand = await brandsService.findBrandModels(req.params.id);
+        return res.status(200).json(brand);
     }
 }
 

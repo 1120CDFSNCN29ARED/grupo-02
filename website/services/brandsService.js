@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const { Op } = require("sequelize");
+const modelsService = require('./modelsService');
 
 const brandsService = {
     findAll: async () => {
@@ -37,6 +38,18 @@ const brandsService = {
             }
         }).catch(error => error);
     },
+    findBrandModels: async (id) => {
+        const brand = await brandsService.findByPk(id);
+        const models = await modelsService.findByBrandID(id);
+        const result = {
+            brand,
+            data: {
+                count: models.length,
+                models
+            }
+        }
+        return result;
+    }
 }
 
 module.exports = brandsService;

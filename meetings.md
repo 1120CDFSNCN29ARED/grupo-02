@@ -236,3 +236,21 @@ Progreso:
                 - Crear modelos de products, vehicles, parts, questions, brands, models, vehicle_versions, image_urls - *Simon*
                 - Crear relaciones entre los modelos - *Simon*
             - Refactorizar: refactorizar los controladores, middlewares y views que corresponden para cada modelo que se crea. - *Todos*
+
+
+## 28-Marzo
+
+### División de tareas
+
+Participantes: Simon, Santi
+
+División de tareas:
+
+    * Simon:
+        - Revisar brands.json, models.json, vehicleVersion.json para que no haya elementos repetidos
+        - Crear services, api controllers y routes para users, carts, favourites, roles, user_access,
+    * Santi:
+        - Crear services, api controllers y routes para posts, products, parts, vehicles, questions, localities, provinces,
+        brands, models, versions
+    * Cuando se termine lo anterior:
+        - Ver de implementar la search
