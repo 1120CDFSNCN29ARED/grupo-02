@@ -24,6 +24,11 @@ const UserAccess = (sequelize, DataTypes) => {
         roleID: {
             type: DataTypes.TINYINT,
             allowNull: false,
+        },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
         }
     }
     const config = {

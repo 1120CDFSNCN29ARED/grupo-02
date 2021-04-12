@@ -71,6 +71,11 @@ const Post = (sequelize, DataTypes) => {
             type: DataTypes.UUID,
             allowNull: false,
         },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+        }
     };
     const config = {
         tableName: "posts",

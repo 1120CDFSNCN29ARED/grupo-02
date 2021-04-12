@@ -27,6 +27,11 @@ const Part = (sequelize, DataTypes) => {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
 		},
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+        }
 	};
   const config = {
 		tableName: "parts",

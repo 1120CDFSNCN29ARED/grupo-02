@@ -15,6 +15,11 @@ const Role = (sequelize, DataTypes) => {
         role_description: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
         }
     };
     const config = {

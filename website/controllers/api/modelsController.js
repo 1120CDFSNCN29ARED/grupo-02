@@ -47,6 +47,9 @@ const modelsController = {
         if(req.body.modelName !== undefined){
             newData.model_name = req.body.modelName;
         }
+        if(req.body.brandID !== undefined){
+            newData.brandID = req.body.brandID;
+        }
         if(req.body.makes){
             if(req.body.makes.car !== undefined){
                 newData.vehicle_type_car = req.body.makes.car;

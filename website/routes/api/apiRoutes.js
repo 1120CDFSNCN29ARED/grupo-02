@@ -5,11 +5,13 @@ const apiController = require("../../controllers/api/apiController");
 
 const brandsRoutes = require("./brandsRoutes");
 const modelsRoutes = require("./modelsRoutes");
+const versionsRoutes = require("./versionsRoutes");
 
 router.use("/brands", brandsRoutes);
 router.use("/models", modelsRoutes);
+router.use("/versions", versionsRoutes);/*
 router.get("/modelsByBrand/:brandID", apiController.modelsByBrand);
 router.get("/versions/:versionID?", apiController.versions);
-router.get("/versionsByModel/:modelID", apiController.versionsByModel);
+router.get("/versionsByModel/:modelID", apiController.versionsByModel);*/
 
 module.exports = router;
