@@ -16,9 +16,14 @@ const VehicleVersion = (sequelize, DataTypes) => {
 			allowNull: false,
 		},
 		version_name: {
-		type: DataTypes.STRING,
-		allowNull: false
+			type: DataTypes.STRING,
+			allowNull: false
 		},
+		active: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+			defaultValue: true
+		}
 	};
   const config = {
 		tableName: "vehicle_versions",
