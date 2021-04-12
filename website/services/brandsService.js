@@ -82,11 +82,11 @@ const brandsService = {
             errors.data.products.push(products);
         }
         if((models.length > 0 || products.length > 0) && confirm === true){
-            brand.update({active: false});
+            await brand.update({active: false});
             return await brand.save().catch(error => error);
         }
         else if((models.length == 0 && products.length == 0)){
-            brand.update({active: false});
+            await brand.update({active: false});
             return await brand.save().catch(error => error);
         }
         else{
