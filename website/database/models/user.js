@@ -50,6 +50,11 @@ const User = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+        }
     }
     const config = {
         tableName: "users",
@@ -62,7 +67,7 @@ const User = (sequelize, DataTypes) => {
         user.hasMany(models.Post, {foreignKey: "sellerID", targetKey: "userID", as: "posts"});
         user.hasMany(models.Question, {foreignKey: "userID", as: "questions"});
         user.belongsTo(models.Locality, { foreignKey: "locationID", targetKey: "localityID", as: "locality" });
-        user.hasOne(models.UserAccess);
+        user.hasOne(models.UserAccess, { foreignKey: 'userName', sourceKey: 'userName'});
     }
     return user;
 }

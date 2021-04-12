@@ -5,11 +5,13 @@ const bcryptjs = require('bcryptjs');
 //JSON data
 const localities = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/localities.json"), "utf-8"));
 const provinces = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/provinces.json"), "utf-8"));
-const brands = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/vehicleBrands_new.json"), "utf-8"));
-const models = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/vehicleModels_new.json"), "utf-8"));
+const brands = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_brands__202104111952.json"), "utf-8"));
+const models = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_models__202104112044.json"), "utf-8"));
+const versions = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_versions_part1.json"), "utf-8"));
 async function populateDB(db) {
     await db.Brand.bulkCreate(brands).catch(error => console.log(error));
-    //await db.Model.bulkCreate(models).catch(error => console.log(error));
+    await db.Model.bulkCreate(models).catch(error => console.log(error));
+    //await db.VehicleVersion.bulkCreate(versions).catch(error => console.log(error.message,error.values));
     await db.Province.bulkCreate(provinces).catch(error => console.log(error));
     await db.Locality.bulkCreate(localities).catch(error => console.log(error));
     await db.Role.create({role_name: "user", role_description: "standard user access"}).catch();
@@ -17,7 +19,7 @@ async function populateDB(db) {
                     telephone: 12345678,address:"calle falsa 123", postal_code: 1234, image: "no-image-found.jpeg", locationID: 1})
     .then(user => {
         db.Role.findOne({where:{role_name: "user"}}).then((role) => {
-        db.UserAccess.create({userName: user.userName, email: user.email, password: bcryptjs.hashSync("test", 10), roleID: role.roleID })
+        user.createUserAccess({email: user.email, password: bcryptjs.hashSync("test", 10), roleID: role.roleID })
         .then(() => {
             db.Brand.create({brand_name: "BMW Test", vehicle_type_car: true, vehicle_type_motorcycle: true, vehicle_type_pickup: true, vehicle_type_truck: false,})
             .then(brand => {

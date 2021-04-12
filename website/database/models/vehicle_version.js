@@ -16,9 +16,14 @@ const VehicleVersion = (sequelize, DataTypes) => {
 			allowNull: false,
 		},
 		version_name: {
-		type: DataTypes.STRING,
-		allowNull: false
+			type: DataTypes.STRING,
+			allowNull: false
 		},
+		active: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+			defaultValue: true
+		}
 	};
   const config = {
 		tableName: "vehicle_versions",
@@ -29,6 +34,7 @@ const VehicleVersion = (sequelize, DataTypes) => {
 		vehicleVersion.hasMany(models.Vehicle, {foreignKey: "versionID", as: "vehicles"});
 		vehicleVersion.belongsTo(models.Brand, {foreignKey: "brandID", as: "brand"});
 		vehicleVersion.belongsTo(models.Model, {foreignKey: "modelID", as: "model"});
+		vehicleVersion.hasMany(models.Product, {foreignKey: "versionID", as: "products"});
 	}
 	return vehicleVersion
 

@@ -24,6 +24,11 @@ const UserAccess = (sequelize, DataTypes) => {
         roleID: {
             type: DataTypes.TINYINT,
             allowNull: false,
+        },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
         }
     }
     const config = {
@@ -33,7 +38,7 @@ const UserAccess = (sequelize, DataTypes) => {
     let userAccess = sequelize.define(alias, cols, config);
     userAccess.associate = models => {
         userAccess.belongsTo(models.Role, {foreignKey: "roleID", as: "role"});
-        userAccess.belongsTo(models.User, {foreignKey: "userName", targetKey: "userName", as: "user"});
+        userAccess.belongsTo(models.User, {foreignKey: "userName", targetKey: 'userName', as:'user'});
     }
     return userAccess
 }

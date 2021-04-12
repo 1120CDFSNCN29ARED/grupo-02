@@ -1,6 +1,6 @@
 const db = require("../database/models");
 const { Op } = require("sequelize");
-const rolesService = require("./rolesService");
+
 
 const userAccessService = {
   findAll: async () => {
@@ -9,13 +9,16 @@ const userAccessService = {
   findByPk: async (id) => {
     return await db.UserAccess.findByPk(id).catch(error => error);
   },
-  findByRole: async (roleID) => {
+  findAllByRole: async (roleID) => {
     return await db.UserAccess.findAll({
 			where: {
 				roleID: roleID,
 			},
 		}).catch((error) => error);
   },
+  create: async (data) => {
+    return await db.UserAccess.create(data).check(error => error);
+  }
 };
 
 module.exports = userAccessService;
