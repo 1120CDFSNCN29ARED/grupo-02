@@ -7,11 +7,11 @@ const localities = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/l
 const provinces = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/provinces.json"), "utf-8"));
 const brands = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_brands__202104111952.json"), "utf-8"));
 const models = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_models__202104112044.json"), "utf-8"));
-const versions = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_versions__202104112047.json"), "utf-8"));
+const versions = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_versions_part1.json"), "utf-8"));
 async function populateDB(db) {
     await db.Brand.bulkCreate(brands).catch(error => console.log(error));
     await db.Model.bulkCreate(models).catch(error => console.log(error));
-    await db.VehicleVersion.bulkCreate(versions).catch(error => console.log(error));/*
+    //await db.VehicleVersion.bulkCreate(versions).catch(error => console.log(error.message,error.values));
     await db.Province.bulkCreate(provinces).catch(error => console.log(error));
     await db.Locality.bulkCreate(localities).catch(error => console.log(error));
     await db.Role.create({role_name: "user", role_description: "standard user access"}).catch();
@@ -45,7 +45,7 @@ async function populateDB(db) {
             }).catch((error) => console.log("failed at user_access",error));
         }).catch((error) => console.log("failed at role",error));
         }).catch((error) => console.log("failed at user",error));
-    }).catch((error) => console.log("failed at role",error));*/
+    }).catch((error) => console.log("failed at role",error));
 }
 
 module.exports = populateDB;
