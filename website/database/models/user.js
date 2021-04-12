@@ -61,7 +61,8 @@ const User = (sequelize, DataTypes) => {
         user.hasMany(models.Cart, {foreignKey: "userID", as: "cart"});
         user.hasMany(models.Post, {foreignKey: "sellerID", targetKey: "userID", as: "posts"});
         user.hasMany(models.Question, {foreignKey: "userID", as: "questions"});
-        user.belongsTo(models.Locality, {foreignKey: "locationID", targetKey: "localityID", as: "locality"})
+        user.belongsTo(models.Locality, { foreignKey: "locationID", targetKey: "localityID", as: "locality" });
+        user.hasOne(models.UserAccess);
     }
     return user;
 }

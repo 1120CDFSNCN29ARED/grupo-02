@@ -34,7 +34,6 @@ const UserAccess = (sequelize, DataTypes) => {
     userAccess.associate = models => {
         userAccess.belongsTo(models.Role, {foreignKey: "roleID", as: "role"});
         userAccess.belongsTo(models.User, {foreignKey: "userName", targetKey: "userName", as: "user"});
-        //userAccess.belongsTo(models.User, {foreignKey: "email", targetKey: "email", as: "user"});
     }
     return userAccess
 }
