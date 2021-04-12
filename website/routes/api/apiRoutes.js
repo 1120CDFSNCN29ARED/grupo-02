@@ -10,12 +10,10 @@ const usersRoutes = require("./usersRoutes");
 
 router.use("/brands", brandsRoutes);
 router.use("/models", modelsRoutes);
+router.use("/versions", versionsRoutes);
 router.use("/users", usersRoutes);
 
-
-router.use("/brands", brandsRoutes);
-router.use("/models", modelsRoutes);
-router.use("/versions", versionsRoutes);/*
+/*
 router.get("/modelsByBrand/:brandID", apiController.modelsByBrand);
 router.get("/versions/:versionID?", apiController.versions);
 router.get("/versionsByModel/:modelID", apiController.versionsByModel);*/
