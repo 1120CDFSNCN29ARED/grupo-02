@@ -18,6 +18,17 @@ const userAccessService = {
   },
   create: async (data) => {
     return await db.UserAccess.create(data).check(error => error);
+  },
+  update: async (userName, newAccessData) => {
+    console.log(newAccessData);
+    const userAccess = await db.UserAccess.findOne({
+      where: {
+        userName: userName
+      }
+    }).catch(error => error);
+    console.log(userAccess);
+    
+    return await userAccess.update(newAccessData).catch(error => error);
   }
 };
 

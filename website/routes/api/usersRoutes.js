@@ -11,7 +11,7 @@ router.get("/roles/:role", usersController.byRole); //No funciona bien!
 router.post('/create', usersController.create);
 
 //Update User
-//router.put('/:userID'/update, usersController.update);
+router.put('/:userID/update', usersController.update);
 //Delete User
 //router.delete('/:userID/delete,usersController.delete);
 

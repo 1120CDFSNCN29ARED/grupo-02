@@ -37,7 +37,10 @@ const usersService = {
     return newUser;
   },
   update: async (id, data) => {
-
+    const user = await usersService.findByPk(id);
+    await user.update(data).catch(error => error);
+    await user.save().catch((error) => error);
+    return user;
   }
 };
 
