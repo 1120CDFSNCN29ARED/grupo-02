@@ -22,7 +22,7 @@ const Province = (sequelize, DataTypes) => {
     };
     let province = sequelize.define(alias, cols, config);
     province.associate = models => {
-        province.hasMany(models.Locality, {foreignKey: "provinceID", as: "locality"});
+        province.hasMany(models.Locality, {foreignKey: "provinceID", as: "localities"});
     }
     return province;
 }

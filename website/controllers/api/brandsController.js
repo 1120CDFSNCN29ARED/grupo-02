@@ -74,7 +74,7 @@ const modelsController = {
         return res.status(202).json(result);
     },
     delete: async (req, res) => {
-        const result = await brandsService.delete(req.params.brandID, req.params.confirm);
+        const result = await brandsService.delete(req.params.brandID, req.query.confirm);
         return res.status(202).json(result);
     }
 }
