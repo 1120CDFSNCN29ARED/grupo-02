@@ -5,21 +5,7 @@ const modelsService = {
     findAll: async () => {
         return await db.Model.findAll({order: [["model_name","ASC"]]}).catch(error => error);
     },
-    findByProductType: async (productTypes) => {
-        let conditions = [];
-        if(productTypes.includes("car")){
-            conditions.push({vehicle_type_car: true})
-        }
-        if(productTypes.includes("motorcycle")){
-            conditions.push({vehicle_type_motorcycle: true})
-        }
-        if(productTypes.includes("pickup")){
-            conditions.push({vehicle_type_pickup: true})
-        }
-        if(productTypes.includes("truck")){
-            conditions.push({vehicle_type_truck: true})
-        }
-        console.log(conditions)
+    findByProductType: async (conditions) => {
         return await db.Model.findAll({
             where:{
                 [Op.or]: conditions
