@@ -17,6 +17,13 @@ const localitiesService = {
             }
         }).catch(error => error);
     },
+    findOneByName: async (name) => {
+        return await db.Locality.findAll({
+            where: {
+                locality_name: name
+            }
+        }).catch(error => error);
+    },
     create: async (data) => {
         const locality = await db.Locality.create(data).catch(error => error);
         return locality;
@@ -30,25 +37,25 @@ const localitiesService = {
     delete: async (id, confirm) => {
         const locality = await localitiesService.findByPk(id).catch(error => error);
         const users = await brand.getUsers().catch(error => error);
-        const products = await brand.getProducts().catch(error => error);
+        const posts = await brand.getPosts().catch(error => error);
         let errors = {
             message: "This brand has associated ",
             status: 409,
             data: {}
         };
-        if(models.length > 0){
-            errors.message += "models";
-            errors.data.models.push(models);
+        if(users.length > 0){
+            errors.message += "users";
+            errors.data.models.push(users);
         }
-        if(products.length > 0 && models.length > 0){
+        if(posts.length > 0 && models.length > 0){
             errors.message += " and products";
-            errors.data.products.push(products);
+            errors.data.posts.push(posts);
         }
-        else if(products.length > 0){
-            errors.message += "products";
-            errors.data.products.push(products);
+        else if(posts.length > 0){
+            errors.message += "posts";
+            errors.data.posts.push(posts);
         }
-        if((models.length > 0 || products.length > 0) && confirm === true){
+        if((models.length > 0 || posts.length > 0) && confirm === true){
             await brand.update({active: false});
             return await brand.save().catch(error => error);
         }

@@ -1,19 +1,19 @@
-const provincesServices = require("./../../services/provincesService");
+const localitiesService = require("./../../services/localitiesService");
 
-const provincesController = {
+const localitiesController = {
     findAll: async (req, res) => {
-        const provinces = await provincesServices.findAll();
+        const localities = await localitiesService.findAll();
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(provinces){
+        if(localities){
             result.data = {
-                provinces
+                localities
             }
             result.meta.status = 200;
-            result.meta.count = provinces.length;
+            result.meta.count = localities.length;
         }
         else{
             result.meta.status = 409;
@@ -26,15 +26,15 @@ const provincesController = {
         return res.status(result.meta.status).json(result);
     },
     findByID: async (req, res) => {
-        const province = await provincesServices.findByPk(req.params.provinceID);
+        const locality = await localitiesService.findByPk(req.params.localityID);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(province){
+        if(locality){
             result.data = {
-                province
+                locality
             }
             result.meta.status = 200;
             result.meta.count = 1;
@@ -44,45 +44,45 @@ const provincesController = {
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No provinces were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
     findByName: async (req, res) => {
-        const provinces = await provincesServices.findByName(req.params.provinceName);
+        const localities = await localitiesService.findByName(req.params.localityName);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(provinces){
+        if(localities){
             result.data = {
-                provinces
+                localities
             }
             result.meta.status = 200;
-            result.meta.count = provinces.length;
+            result.meta.count = localities.length;
         }
         else{
             result.meta.status = 409;
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No provinces were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
     findOneByName: async (req, res) => {
-        const province = await provincesServices.findOneByName(req.params.provinceName);
+        const locality = await localitiesService.findOneByName(req.params.localityName);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(province){
+        if(locality){
             result.data = {
-                province
+                locality
             }
             result.meta.status = 200;
             result.meta.count = 1;
@@ -92,25 +92,25 @@ const provincesController = {
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No provinces were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
     create: async (req, res) => {
-        const newProvince = {
+        const newLocality = {
             provinceID: req.body.provinceID,
-            province_name: req.body.provinceName,
+            locality_name: req.body.localityName,
         }
-        const province = await provincesServices.create(newProvince);
+        const locality = await localitiesService.create(newLocality);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(province){
+        if(locality){
             result.data = {
-                province
+                locality
             }
             result.meta.status = 201;
             result.meta.count = 1;
@@ -120,28 +120,28 @@ const provincesController = {
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No provinces were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
     update: async (req, res) => {
-        const newProvince = {}
-        if(req.body.provinceName !== undefined){
-            newProvince.province_name = req.body.provinceName;
+        const newLocality = {}
+        if(req.body.localityName !== undefined){
+            newLocality.locality_name = req.body.localityName;
         }
-        if(req.body.localityID !== undefined){
-            newProvince.localityID = req.body.localityID;
+        if(req.body.provinceID !== undefined){
+            newLocality.provinceID = req.body.provinceID;
         }
-        const province = await provincesServices.update(req.params.provinceID, newProvince);
+        const locality = await localitiesService.update(req.params.localityID, newLocality);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(province){
+        if(locality){
             result.data = {
-                province
+                locality
             }
             result.meta.status = 200;
             result.meta.count = 1;
@@ -151,15 +151,15 @@ const provincesController = {
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No provinces were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
     delete: async (req, res) => {
-        const result = await provincesServices.delete(req.params.provinceID, req.query.confirm);
+        const result = await localitiesService.delete(req.params.localityID, req.query.confirm);
         return res.status(202).json(result);
     }
 }
 
-module.exports = provincesController;
+module.exports = localitiesController;
