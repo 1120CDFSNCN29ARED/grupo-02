@@ -1,6 +1,5 @@
 const db = require('../database/models');
 const { Op } = require("sequelize");
-const modelsService = require('./modelsService');
 
 const provincesServices = {
     findAll: async () => {
