@@ -24,10 +24,6 @@ const Post = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             allowNull: true,
         },
-        price: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
         onSale: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

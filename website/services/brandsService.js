@@ -1,30 +1,18 @@
 const db = require('../database/models');
 const { Op } = require("sequelize");
-const modelsService = require('./modelsService');
 
 const brandsService = {
     findAll: async () => {
         return await db.Brand.findAll({order: [["brand_name","ASC"]]}).catch(error => error);
     },
-    findByProductType: async (productType) => {
-        if(productType === "vehicle"){
+    findByProductType: async (conditions) => {
             return await db.Brand.findAll({
                 where:{
-                    [Op.or]: [{vehicle_type_car: true}, {vehicle_type_motorcycle: true}, {vehicle_type_pickup: true}, {vehicle_type_truck: true}]
+                    [Op.or]: conditions
                 },
                 order: [["brand_name","ASC"]],
             })
             .catch(error => error);
-        }
-        else if(req.params.productType === "part") {
-			brands = await db.Brand.findAll({
-				where:{
-					makes_parts: true
-				},
-                order: [["brand_name","ASC"]],
-            })
-            .catch(error => error);
-		}
     },
     findByPk: async (id) => {
         return await db.Brand.findByPk(id).catch(error => error);
@@ -37,18 +25,6 @@ const brandsService = {
                 }
             }
         }).catch(error => error);
-    },
-    findBrandModels: async (id) => {
-        const brand = await brandsService.findByPk(id);
-        const models = await modelsService.findByBrandID(id);
-        const result = {
-            brand,
-            data: {
-                count: models.length,
-                models
-            }
-        }
-        return result;
     },
     create: async (data) => {
         const brand = await db.Brand.create(data).catch(error => error);

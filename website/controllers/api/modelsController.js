@@ -1,21 +1,117 @@
+const brandsService = require("../../services/brandsService");
 const modelsService = require("../../services/modelsService");
 
 const modelsController = {
     all: async (req, res) => {
         const models = await modelsService.findAll();
-        return res.status(200).json(models);
+        const result = {
+            meta: {
+                url: req.originalUrl
+            }
+        };
+        if(models){
+            result.data = {
+                models
+            }
+            result.meta.status = 200;
+            result.meta.count = models.length;
+        }
+        else{
+            result.meta.status = 409;
+            result.meta.count = 0;
+            result.error= {
+                status: "409",
+                message: `No models were found`
+            }
+        }
+        return res.status(result.meta.status).json(result);
     },
     byID: async (req, res) => {
         const model = await modelsService.findByPk(req.params.modelID);
-        return res.status(200).json(model);
+        const result = {
+            meta: {
+                url: req.originalUrl
+            }
+        };
+        if(model){
+            result.data = {
+                model
+            }
+            result.meta.status = 200;
+            result.meta.count = 1;
+        }
+        else{
+            result.meta.status = 409;
+            result.meta.count = 0;
+            result.error= {
+                status: "409",
+                message: `No model was found`
+            }
+        }
+        return res.status(result.meta.status).json(result);
     },
     byProductType: async (req, res) => {
-        const models = await modelsService.findByProductType(req.query.productTypes);
-        return res.status(200).json(models);
+        let conditions = [];
+        if(req.query.productTypes.includes("car")){
+            conditions.push({vehicle_type_car: true})
+        }
+        if(req.query.productTypes.includes("motorcycle")){
+            conditions.push({vehicle_type_motorcycle: true})
+        }
+        if(req.query.productTypes.includes("pickup")){
+            conditions.push({vehicle_type_pickup: true})
+        }
+        if(req.query.productTypes.includes("truck")){
+            conditions.push({vehicle_type_truck: true})
+        }
+        const models = await modelsService.findByProductType(conditions);
+        const result = {
+            meta: {
+                url: req.originalUrl
+            }
+        };
+        if(models){
+            result.data = {
+                models
+            }
+            result.meta.status = 200;
+            result.meta.count = models.length;
+        }
+        else{
+            result.meta.status = 409;
+            result.meta.count = 0;
+            result.error= {
+                status: "409",
+                message: `No model were found`
+            }
+        }
+        return res.status(result.meta.status).json(result);
     },
     byBrandID: async (req, res) => {
         const models = await modelsService.findByBrandID(req.params.brandID);
-        return res.status(200).json(models);
+        const brand = await brandsService.findByPk(req.params.brandID);
+        const result = {
+            meta: {
+                url: req.originalUrl
+            }
+        };
+        if(models){
+            result.data = {
+                brand,
+                models
+            }
+            result.meta.status = 200;
+            result.meta.count = models.length;
+        }
+        else{
+            result.meta.status = 409;
+            result.meta.count = 0;
+            result.error= {
+                status: "409",
+                message: `No models were found`
+            }
+        }
+        return res.status(result.meta.status).json(result);
     },
     create: async (req, res) => {
         const newData = {
@@ -39,8 +135,28 @@ const modelsController = {
                 newData.makes_parts = req.body.makes.part;
             }
         }
-        const result = await modelsService.create(newData);
-        return res.status(201).json(result);
+        const model = await modelsService.create(newData);
+        const result = {
+            meta: {
+                url: req.originalUrl
+            }
+        };
+        if(model){
+            result.data = {
+                model
+            }
+            result.meta.status = 201;
+            result.meta.count = model.length;
+        }
+        else{
+            result.meta.status = 409;
+            result.meta.count = 0;
+            result.error= {
+                status: "409",
+                message: `No models were found`
+            }
+        }
+        return res.status(result.meta.status).json(result);
     },
     update: async (req, res) => {
         const newData = {};
@@ -67,11 +183,31 @@ const modelsController = {
                 newData.makes_parts = req.body.makes.part;
             }
         }
-        const result = await modelsService.update(req.params.modelID, newData);
-        return res.status(202).json(result);
+        const model = await modelsService.update(req.params.modelID, newData);
+        const result = {
+            meta: {
+                url: req.originalUrl
+            }
+        };
+        if(model){
+            result.data = {
+                model
+            }
+            result.meta.status = 200;
+            result.meta.count = model.length;
+        }
+        else{
+            result.meta.status = 409;
+            result.meta.count = 0;
+            result.error= {
+                status: "409",
+                message: `No model were found`
+            }
+        }
+        return res.status(result.meta.status).json(result);
     },
     delete: async (req, res) => {
-        const result = await modelsService.delete(req.params.modelID, req.params.confirm);
+        const result = await modelsService.delete(req.params.modelID, req.query.confirm);
         return res.status(202).json(result);
     }
 }

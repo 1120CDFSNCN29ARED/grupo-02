@@ -1,40 +1,40 @@
-const versionsService = require("../../services/versionsService");
+const localitiesService = require("./../../services/localitiesService");
 
-const versionsController = {
-    all: async (req, res) => {
-        const versions = await versionsService.findAll();
+const localitiesController = {
+    findAll: async (req, res) => {
+        const localities = await localitiesService.findAll();
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(versions){
+        if(localities){
             result.data = {
-                versions
+                localities
             }
             result.meta.status = 200;
-            result.meta.count = versions.length;
+            result.meta.count = localities.length;
         }
         else{
             result.meta.status = 409;
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No versions were found`
+                message: `No provinces were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
-    byID: async (req, res) => {
-        const version = await versionsService.findByPk(req.params.versionID);
+    findByID: async (req, res) => {
+        const locality = await localitiesService.findByPk(req.params.localityID);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(version){
+        if(locality){
             result.data = {
-                version
+                locality
             }
             result.meta.status = 200;
             result.meta.count = 1;
@@ -44,74 +44,73 @@ const versionsController = {
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No versions were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
-    byBrandID: async (req, res) => {
-        const versions = await versionsService.findByBrandID(req.params.brandID);
+    findByName: async (req, res) => {
+        const localities = await localitiesService.findByName(req.params.localityName);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(versions){
+        if(localities){
             result.data = {
-                versions
+                localities
             }
             result.meta.status = 200;
-            result.meta.count = versions.length;
+            result.meta.count = localities.length;
         }
         else{
             result.meta.status = 409;
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No versions were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
-    byModelID: async (req, res) => {
-        const versions = await versionsService.findByModelID(req.params.modelID);
+    findOneByName: async (req, res) => {
+        const locality = await localitiesService.findOneByName(req.params.localityName);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(versions){
+        if(locality){
             result.data = {
-                versions
+                locality
             }
             result.meta.status = 200;
-            result.meta.count = versions.length;
+            result.meta.count = 1;
         }
         else{
             result.meta.status = 409;
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No versions were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
     create: async (req, res) => {
-        const newData = {
-            version_name: req.body.versionName,
-            brandID: req.body.brandID,
-            modelID: req.body.modelID
+        const newLocality = {
+            provinceID: req.body.provinceID,
+            locality_name: req.body.localityName,
         }
-        const version = await versionsService.create(newData);
+        const locality = await localitiesService.create(newLocality);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(version){
+        if(locality){
             result.data = {
-                version
+                locality
             }
             result.meta.status = 201;
             result.meta.count = 1;
@@ -121,33 +120,30 @@ const versionsController = {
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No versions were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
     update: async (req, res) => {
-        const newData = {};
-        if(req.body.versionName !== undefined){
-            newData.version_name = req.body.versionName;
+        const newLocality = {}
+        if(req.body.localityName !== undefined){
+            newLocality.locality_name = req.body.localityName;
         }
-        if(req.body.modelID !== undefined){
-            newData.modelID = req.body.modelID;
+        if(req.body.provinceID !== undefined){
+            newLocality.provinceID = req.body.provinceID;
         }
-        if(req.body.brandID !== undefined){
-            newData.brandID = req.body.brandID;
-        }
-        const version = await versionsService.update(req.params.versionID, newData);
+        const locality = await localitiesService.update(req.params.localityID, newLocality);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(version){
+        if(locality){
             result.data = {
-                version
+                locality
             }
-            result.meta.status = 201;
+            result.meta.status = 200;
             result.meta.count = 1;
         }
         else{
@@ -155,15 +151,15 @@ const versionsController = {
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No versions were found`
+                message: `No localities were found`
             }
         }
         return res.status(result.meta.status).json(result);
     },
     delete: async (req, res) => {
-        const result = await versionsService.delete(req.params.versionID, req.params.confirm);
+        const result = await localitiesService.delete(req.params.localityID, req.query.confirm);
         return res.status(202).json(result);
     }
 }
 
-module.exports = versionsController;
+module.exports = localitiesController;
