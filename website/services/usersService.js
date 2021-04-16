@@ -1,3 +1,4 @@
+//REFACTOR so as not to cross services!!!!
 const db = require("../database/models");
 const { Op } = require("sequelize");
 const rolesService = require("./rolesService");
@@ -11,33 +12,22 @@ const usersService = {
     return await db.User.findByPk(id).catch(error => error);
   },
   findAllByRoleName: async (roleName) => {
-    //Ask Pablo how granular and isolated we should make our services. Can we use sequlieze includes here?
     const role = await rolesService.findOneByRoleName(roleName);
     const roleID = role.roleID;
-    const usersWithRole = await userAccessService.findAllByRole(roleID);
-    const users = usersWithRole;
-    return users;
+    return await userAccessService.findAllByRole(roleID);
   },
-  create: async (data, roleName, password) => {
-    const newUser = await db.User.create(data).catch(error => error);
-    const { email, active } = newUser;
-    const role = await rolesService.findOneByRoleName(roleName);
-    console.log(role);
-    const roleID = role.roleID;
-    console.log(roleID);
-    const newUserAccess = {
-      email,
-      active,
-      roleID,
-      password
-    }
-    console.log(newUser);
-    const newUserAccessCreated = await newUser.createUserAccess(newUserAccess).catch(error => error);
-    console.log(newUserAccessCreated);
-    return newUser;
+  create: async (data) => {
+    const result = await db.User.create(data).catch(error => error);
+    return result;
   },
   update: async (id, data) => {
-
+    const result = await usersService.findByPk(id);
+    await result.update(data).catch(error => error);
+    return await result.save().catch((error) => error);
+  },
+  delete: async (userID) => {
+    const data = { active: false };
+    return await usersService.update(userID, data);
   }
 };
 

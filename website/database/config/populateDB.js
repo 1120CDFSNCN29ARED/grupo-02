@@ -35,7 +35,10 @@ async function populateDB(db) {
                                     onSale: true, discount: 20, stock: 1, rating: 4, state: "Nuevo", featured: true, sellerID: user.userID, locationID: 1,
                                     productID: product.productID})
                     .then(post => {
-                        db.ImageUrl.create({imageURL: "no-image-found.jpeg", postID: post.postID})
+                        db.ImageUrl.create({ imageURL: "no-image-found.jpeg", postID: post.postID })
+                            .then(() => {
+                                db.Favourite.create({userID:user.userID, postID:post.postID})
+                            }).catch(error => console.log("FAILED AT FAVOURITE"));
                     })
                     .catch((error) => console.log("failed at product",error));
                     }).catch((error) => console.log("failed at vehicle",error));

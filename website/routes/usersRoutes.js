@@ -1,6 +1,5 @@
 const express = require("express");
 const multer = require('multer');
-const { body, validationResult } = require('express-validator');
 const path = require('path');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
