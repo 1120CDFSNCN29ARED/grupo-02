@@ -8,6 +8,7 @@ const modelsRoutes = require("./modelsRoutes");
 const versionsRoutes = require("./versionsRoutes");
 
 const vehiclesRoutes = require("./vehiclesRoutes");
+const partsRoutes = require("./partsRoutes");
 
 const usersRoutes = require("./usersRoutes");
 
@@ -20,6 +21,7 @@ router.use("/versions", versionsRoutes);
 router.use("/users", usersRoutes);
 
 router.use("/vehicles", vehiclesRoutes);
+router.use("/parts", partsRoutes);
 
 router.use("/provinces", provincesRoutes);
 router.use("/localities", localitiesRoutes);
