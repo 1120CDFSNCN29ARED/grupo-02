@@ -7,39 +7,45 @@ const Brand = (sequelize, DataTypes) => {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		brand_name: {
+		brandName: {
 			type: DataTypes.STRING,
 			allowNull: false,
+			field: "brand_name"
 		},
 		active: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
 			defaultValue: true
 		},
-		vehicle_type_car: {
+		car: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			defaultValue: false
+			defaultValue: false,
+			field: "vehicle_type_car"
 		},
-		vehicle_type_motorcycle: {
+		motorcycle: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			defaultValue: false
+			defaultValue: false,
+			field: "vehicle_type_motorcycle"
 		},
-		vehicle_type_pickup: {
+		pickup: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			defaultValue: false
+			defaultValue: false,
+			field: "vehicle_type_pickup"
 		},
-		vehicle_type_truck: {
+		truck: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			defaultValue: false
+			defaultValue: false,
+			field: "vehicle_type_truck"
 		},
-		makes_parts: {
+		makesParts: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			defaultValue: false
+			defaultValue: false,
+			field: "makes_parts"
 		}
 	};
 	const config = {

@@ -20,25 +20,29 @@ const Model = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
-		vehicle_type_car: {
+		car: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			defaultValue: false
+			defaultValue: false,
+			field: "vehicle_type_car"
 		},
-		vehicle_type_motorcycle: {
+		motorcycle: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			defaultValue: false
+			defaultValue: false,
+			field: "vehicle_type_motorcycle"
 		},
-		vehicle_type_pickup: {
+		pickup: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			defaultValue: false
+			defaultValue: false,
+			field: "vehicle_type_pickup"
 		},
-		vehicle_type_truck: {
+		truck: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			defaultValue: false
+			defaultValue: false,
+			field: "vehicle_type_truck"
 		},
 	};
   const config = {

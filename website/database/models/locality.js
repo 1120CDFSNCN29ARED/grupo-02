@@ -7,9 +7,10 @@ const Locality = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        locality_name: {
+        localityName: {
             type: DataTypes.STRING,
             allowNull: false,
+			field: "locality_name"
         },
         provinceID: {
             type: DataTypes.INTEGER,

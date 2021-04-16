@@ -15,9 +15,10 @@ const VehicleVersion = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
-		version_name: {
+		versionName: {
 			type: DataTypes.STRING,
-			allowNull: false
+			allowNull: false,
+			field: "version_name"
 		},
 		active: {
 			type: DataTypes.BOOLEAN,

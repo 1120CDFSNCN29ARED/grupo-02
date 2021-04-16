@@ -19,17 +19,19 @@ const Question = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		question_date: {
+		questionDate: {
 			type: DataTypes.DATE,
 			allowNull: false,
+			field: "question_date"
 		},
 		answer: {
 			type: DataTypes.STRING,
 			allowNull: true
 		},
-		answer_date: {
+		answerDate: {
 			type: DataTypes.DATE,
 			allowNull: true,
+			field: "answer_date"
 		},
 	};
   const config = {
