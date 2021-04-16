@@ -6,7 +6,11 @@ const apiController = require("../../controllers/api/apiController");
 const brandsRoutes = require("./brandsRoutes");
 const modelsRoutes = require("./modelsRoutes");
 const versionsRoutes = require("./versionsRoutes");
+
+const vehiclesRoutes = require("./vehiclesRoutes");
+
 const usersRoutes = require("./usersRoutes");
+
 const provincesRoutes = require("./provincesRoutes");
 const localitiesRoutes = require("./localitiesRoutes");
 
@@ -14,6 +18,8 @@ router.use("/brands", brandsRoutes);
 router.use("/models", modelsRoutes);
 router.use("/versions", versionsRoutes);
 router.use("/users", usersRoutes);
+
+router.use("/vehicles", vehiclesRoutes);
 
 router.use("/provinces", provincesRoutes);
 router.use("/localities", localitiesRoutes);

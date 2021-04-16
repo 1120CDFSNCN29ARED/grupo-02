@@ -9,7 +9,7 @@ const versionsService = {
         return await db.VehicleVersion.findByPk(id).catch(error => error);
     },
     findByName: async (name) => {
-        return await db.VehicleVersion.findAll({where: {model_name: name}}).catch(error => error);
+        return await db.VehicleVersion.findAll({where: {version_name: name}}).catch(error => error);
     },
     findByBrandID: async (id) => {
         return await db.VehicleVersion.findAll({where: {brandID: id}}).catch(error => error);
