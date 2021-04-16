@@ -7,9 +7,10 @@ const Model = (sequelize, DataTypes) => {
 			primaryKey: true,
 			autoIncrement: true,
 		},
-		model_name: {
+		modelName: {
 			type: DataTypes.STRING,
 			allowNull: false,
+			field: "model_name"
 		},
 		active:  {
 			type: DataTypes.BOOLEAN,
