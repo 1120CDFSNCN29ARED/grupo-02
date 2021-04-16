@@ -14,36 +14,20 @@ const usersService = {
   findAllByRoleName: async (roleName) => {
     const role = await rolesService.findOneByRoleName(roleName);
     const roleID = role.roleID;
-    const usersWithRole = await userAccessService.findAllByRole(roleID);
-    const users = usersWithRole;
-    return users;
+    return await userAccessService.findAllByRole(roleID);
   },
-  create: async (data, roleName, password) => {
-    const newUser = await db.User.create(data).catch(error => error);
-    const { userName, email, active } = newUser;
-    const role = await rolesService.findOneByRoleName(roleName);
-    const roleID = role.roleID;
-    const newUserAccess = {
-      userName,
-      email,
-      active,
-      roleID,
-      password
-    }
-    const newUserAccessCreated = await userAccessService.create(newUserAccess);
-    const created = { newUser, newUserAccessCreated };
-    return created;
+  create: async (data) => {
+    const result = await db.User.create(data).catch(error => error);
+    return result;
   },
   update: async (id, data) => {
     const result = await usersService.findByPk(id);
     await result.update(data).catch(error => error);
-    await result.save().catch((error) => error);
-    return result;
+    return await result.save().catch((error) => error);
   },
   delete: async (userID) => {
     const data = { active: false };
-    const result = await usersService.update(userID, data);
-    return result;
+    return await usersService.update(userID, data);
   }
 };
 
