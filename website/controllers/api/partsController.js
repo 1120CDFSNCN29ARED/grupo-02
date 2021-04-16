@@ -53,23 +53,20 @@ const partsController = {
     create: async (req, res) => {
         const result = {}
         const newData = {
-            part_serial_number: req.body.partSerialNumber,
+            partSerialNumber: req.body.partSerialNumber,
         }
         if(req.body.makes){
             if(req.body.makes.car !== undefined){
-                newData.vehicle_type_car = req.body.makes.car;
+                newData.car = req.body.makes.car;
             }
             if(req.body.makes.motorcycle !== undefined){
-                newData.vehicle_type_motorcycle = req.body.makes.motorcycle;
+                newData.car = req.body.makes.motorcycle;
             }
             if(req.body.makes.pickup !== undefined){
-                newData.vehicle_type_pickup = req.body.makes.pickup;
+                newData.car = req.body.makes.pickup;
             }
             if(req.body.makes.truck !== undefined){
-                newData.vehicle_type_truck = req.body.makes.truck;
-            }
-            if(req.body.makes.part !== undefined){
-                newData.makes_parts = req.body.makes.part;
+                newData.car = req.body.makes.truck;
             }
         }
         const part = await partsService.create(newData);
@@ -95,24 +92,21 @@ const partsController = {
     },
     update: async (req, res) => {
         const newData = {};
-        if(req.body.makes.car !== undefined){
-            newData.part_serial_number = req.body.partSerialNumber;
+        if(req.body.partSerialNumber !== undefined){
+            newData.partSerialNumber = req.body.partSerialNumber;
         }        
         if(req.body.makes){
             if(req.body.makes.car !== undefined){
-                newData.vehicle_type_car = req.body.makes.car;
+                newData.car = req.body.makes.car;
             }
             if(req.body.makes.motorcycle !== undefined){
-                newData.vehicle_type_motorcycle = req.body.makes.motorcycle;
+                newData.motorcycle = req.body.makes.motorcycle;
             }
             if(req.body.makes.pickup !== undefined){
-                newData.vehicle_type_pickup = req.body.makes.pickup;
+                newData.pickup = req.body.makes.pickup;
             }
             if(req.body.makes.truck !== undefined){
-                newData.vehicle_type_truck = req.body.makes.truck;
-            }
-            if(req.body.makes.part !== undefined){
-                newData.makes_parts = req.body.makes.part;
+                newData.truck = req.body.makes.truck;
             }
         }
         const part = await partsService.update(req.params.partID, newData);
