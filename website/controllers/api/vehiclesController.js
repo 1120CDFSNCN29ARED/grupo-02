@@ -80,7 +80,8 @@ const vehiclesController = {
         if(version){
             const newData = {
                 versionID: req.body.versionID,
-                gear_type: req.body.gearType,
+                versionName: req.body.versionName,
+                gearType: req.body.gearType,
                 year: req.body.year,
                 kilometers: req.body.kilometers,
                 color: req.body.color,
@@ -139,7 +140,7 @@ const vehiclesController = {
             }
         }
         if(req.body.gearType !== undefined){
-            newData.gear_type = req.body.gearType;
+            newData.gearType = req.body.gearType;
         }
         if(req.body.year !== undefined){
             newData.year = req.body.year;

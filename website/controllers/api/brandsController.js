@@ -53,16 +53,16 @@ const brandsController = {
     byProductType: async (req, res) => {
         let conditions = [];
         if(req.query.productTypes.includes("car")){
-            conditions.push({vehicle_type_car: true})
+            conditions.push({car: true})
         }
         if(req.query.productTypes.includes("motorcycle")){
-            conditions.push({vehicle_type_motorcycle: true})
+            conditions.push({motorcycle: true})
         }
         if(req.query.productTypes.includes("pickup")){
-            conditions.push({vehicle_type_pickup: true})
+            conditions.push({pickup: true})
         }
         if(req.query.productTypes.includes("truck")){
-            conditions.push({vehicle_type_truck: true})
+            conditions.push({truck: true})
         }
         const brands = await brandsService.findByProductType(conditions);
         const result = {
@@ -143,23 +143,23 @@ const brandsController = {
             brand_name: req.body.brandName,
         }
         if(req.body.brandName !== undefined){
-            newData.vehicle_type_car = req.body.brandName;
+            newData.brandName = req.body.brandName;
         }
         if(req.body.makes){
             if(req.body.makes.car !== undefined){
-                newData.vehicle_type_car = req.body.makes.car;
+                newData.car = req.body.makes.car;
             }
             if(req.body.makes.motorcycle !== undefined){
-                newData.vehicle_type_motorcycle = req.body.makes.motorcycle;
+                newData.motorcycle = req.body.makes.motorcycle;
             }
             if(req.body.makes.pickup !== undefined){
-                newData.vehicle_type_pickup = req.body.makes.pickup;
+                newData.pickup = req.body.makes.pickup;
             }
             if(req.body.makes.truck !== undefined){
-                newData.vehicle_type_truck = req.body.makes.truck;
+                newData.truck = req.body.makes.truck;
             }
             if(req.body.makes.part !== undefined){
-                newData.makes_parts = req.body.makes.part;
+                newData.makesParts = req.body.makes.part;
             }
         }
         const brand = await brandsService.create(newData);
@@ -168,7 +168,7 @@ const brandsController = {
                 url: req.originalUrl
             }
         };
-        if(brands){
+        if(brand){
             result.data = {
                 brand
             }
@@ -188,32 +188,33 @@ const brandsController = {
     update: async (req, res) => {
         const newData = {};
         if(req.body.brandName !== undefined){
-            newData.brand_name = req.body.brandName;
+            newData.brandName = req.body.brandName;
         }
         if(req.body.makes){
             if(req.body.makes.car !== undefined){
-                newData.vehicle_type_car = req.body.makes.car;
+                newData.car = req.body.makes.car;
             }
             if(req.body.makes.motorcycle !== undefined){
-                newData.vehicle_type_motorcycle = req.body.makes.motorcycle;
+                newData.motorcycle = req.body.makes.motorcycle;
             }
             if(req.body.makes.pickup !== undefined){
-                newData.vehicle_type_pickup = req.body.makes.pickup;
+                newData.pickup = req.body.makes.pickup;
             }
             if(req.body.makes.truck !== undefined){
-                newData.vehicle_type_truck = req.body.makes.truck;
+                newData.truck = req.body.makes.truck;
             }
             if(req.body.makes.part !== undefined){
-                newData.makes_parts = req.body.makes.part;
+                newData.makesParts = req.body.makes.part;
             }
         }
-        const brand = await brandsService.update(req.params.brandID, newData);
+        let brand = await brandsService.findByPk(req.params.brandID);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
-        if(brands){
+        if(brand){
+            brand = await brandsService.update(req.params.brandID, newData);
             result.data = {
                 brand
             }

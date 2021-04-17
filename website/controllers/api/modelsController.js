@@ -115,24 +115,24 @@ const modelsController = {
     },
     create: async (req, res) => {
         const newData = {
-            model_name: req.body.modelName,
+            modelName: req.body.modelName,
             brandID: req.body.brandID,
         }
         if(req.body.makes){
             if(req.body.makes.car !== undefined){
-                newData.vehicle_type_car = req.body.makes.car;
+                newData.car = req.body.makes.car;
             }
             if(req.body.makes.motorcycle !== undefined){
-                newData.vehicle_type_motorcycle = req.body.makes.motorcycle;
+                newData.motorcycle = req.body.makes.motorcycle;
             }
             if(req.body.makes.pickup !== undefined){
-                newData.vehicle_type_pickup = req.body.makes.pickup;
+                newData.pickup = req.body.makes.pickup;
             }
             if(req.body.makes.truck !== undefined){
-                newData.vehicle_type_truck = req.body.makes.truck;
+                newData.truck = req.body.makes.truck;
             }
             if(req.body.makes.part !== undefined){
-                newData.makes_parts = req.body.makes.part;
+                newData.makesParts = req.body.part;
             }
         }
         const model = await modelsService.create(newData);

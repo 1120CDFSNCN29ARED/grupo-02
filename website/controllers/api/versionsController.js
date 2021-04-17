@@ -99,7 +99,7 @@ const versionsController = {
     },
     create: async (req, res) => {
         const newData = {
-            version_name: req.body.versionName,
+            versionName: req.body.versionName,
             brandID: req.body.brandID,
             modelID: req.body.modelID
         }
@@ -129,7 +129,7 @@ const versionsController = {
     update: async (req, res) => {
         const newData = {};
         if(req.body.versionName !== undefined){
-            newData.version_name = req.body.versionName;
+            newData.versionName = req.body.versionName;
         }
         if(req.body.modelID !== undefined){
             newData.modelID = req.body.modelID;
@@ -137,20 +137,31 @@ const versionsController = {
         if(req.body.brandID !== undefined){
             newData.brandID = req.body.brandID;
         }
-        const version = await versionsService.update(req.params.versionID, newData);
+        let version = await versionsService.findByPk(req.params.versionID);
         const result = {
             meta: {
                 url: req.originalUrl
             }
         };
         if(version){
-            result.data = {
-                version
+            version = await versionsService.update(req.params.versionID, newData);
+            if(version){
+                result.data = {
+                    version
+                }
+                result.meta.status = 201;
+                result.meta.count = 1;
             }
-            result.meta.status = 201;
-            result.meta.count = 1;
+            else{
+                result.meta.status = 409;
+                result.meta.count = 0;
+                result.error= {
+                    status: "409",
+                    message: `No versions were found`
+                }
+            }
         }
-        else{
+        else {
             result.meta.status = 409;
             result.meta.count = 0;
             result.error= {

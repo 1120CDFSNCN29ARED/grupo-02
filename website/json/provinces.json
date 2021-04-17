@@ -1,98 +1,98 @@
 [
     {
     "provinceID": "54",
-    "province_name": "Misiones"
+    "provinceName": "Misiones"
     },
     {
     "provinceID": "74",
-    "province_name": "San Luis"
+    "provinceName": "San Luis"
     },
     {
     "provinceID": "70",
-    "province_name": "San Juan"
+    "provinceName": "San Juan"
     },
     {
     "provinceID": "30",
-    "province_name": "Entre Ríos"
+    "provinceName": "Entre Ríos"
     },
     {
     "provinceID": "78",
-    "province_name": "Santa Cruz"
+    "provinceName": "Santa Cruz"
     },
     {
     "provinceID": "62",
-    "province_name": "Río Negro"
+    "provinceName": "Río Negro"
     },
     {
     "provinceID": "26",
-    "province_name": "Chubut"
+    "provinceName": "Chubut"
     },
     {
     "provinceID": "14",
-    "province_name": "Córdoba"
+    "provinceName": "Córdoba"
     },
     {
     "provinceID": "50",
-    "province_name": "Mendoza"
+    "provinceName": "Mendoza"
     },
     {
     "provinceID": "46",
-    "province_name": "La Rioja"
+    "provinceName": "La Rioja"
     },
     {
     "provinceID": "10",
-    "province_name": "Catamarca"
+    "provinceName": "Catamarca"
     },
     {
     "provinceID": "42",
-    "province_name": "La Pampa"
+    "provinceName": "La Pampa"
     },
     {
     "provinceID": "86",
-    "province_name": "Santiago del Estero"
+    "provinceName": "Santiago del Estero"
     },
     {
     "provinceID": "18",
-    "province_name": "Corrientes"
+    "provinceName": "Corrientes"
     },
     {
     "provinceID": "82",
-    "province_name": "Santa Fe"
+    "provinceName": "Santa Fe"
     },
     {
     "provinceID": "90",
-    "province_name": "Tucumán"
+    "provinceName": "Tucumán"
     },
     {
     "provinceID": "58",
-    "province_name": "Neuquén"
+    "provinceName": "Neuquén"
     },
     {
     "provinceID": "66",
-    "province_name": "Salta"
+    "provinceName": "Salta"
     },
     {
     "provinceID": "22",
-    "province_name": "Chaco"
+    "provinceName": "Chaco"
     },
     {
     "provinceID": "34",
-    "province_name": "Formosa"
+    "provinceName": "Formosa"
     },
     {
     "provinceID": "38",
-    "province_name": "Jujuy"
+    "provinceName": "Jujuy"
     },
     {
     "provinceID": "2",
-    "province_name": "Ciudad Autónoma de Buenos Aires"
+    "provinceName": "Ciudad Autónoma de Buenos Aires"
     },
     {
     "provinceID": "6",
-    "province_name": "Buenos Aires"
+    "provinceName": "Buenos Aires"
     },
     {
     "provinceID": "94",
-    "province_name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur"
+    "provinceName": "Tierra del Fuego, Antártida e Islas del Atlántico Sur"
     }
 ]

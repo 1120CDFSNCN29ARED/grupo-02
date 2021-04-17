@@ -100,7 +100,7 @@ const localitiesController = {
     create: async (req, res) => {
         const newLocality = {
             provinceID: req.body.provinceID,
-            locality_name: req.body.localityName,
+            localityName: req.body.localityName,
         }
         const locality = await localitiesService.create(newLocality);
         const result = {
@@ -128,7 +128,7 @@ const localitiesController = {
     update: async (req, res) => {
         const newLocality = {}
         if(req.body.localityName !== undefined){
-            newLocality.locality_name = req.body.localityName;
+            newLocality.localityName = req.body.localityName;
         }
         if(req.body.provinceID !== undefined){
             newLocality.provinceID = req.body.provinceID;
