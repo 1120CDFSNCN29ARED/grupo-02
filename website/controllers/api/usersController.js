@@ -5,6 +5,30 @@ const favouritesService = require("../../services/favouritesService");
 const rolesService = require("../../services/rolesService");
 
 const usersController = {
+	loginProcess: async (req, res) => {
+		const userID = req.session.userID
+		const user = await usersService.findByPk(userID);
+		const result = {
+			meta: {
+				url: req.originalUrl,
+			},
+		};
+		if (user) {
+			result.data = {
+				user,
+			};
+			result.meta.status = 200;
+			result.meta.count = 1;
+		} else {
+			result.meta.status = 409;
+			result.meta.count = 0;
+			result.error = {
+				status: "409",
+				message: `No user was found`,
+			};
+		}
+		return res.status(result.meta.status).json(result);
+	},
 	all: async (req, res) => {
 		const users = await usersService.findAll();
 		const result = {
@@ -171,7 +195,7 @@ const usersController = {
 		};
 		if (favourites) {
 			result.data = {
-				favourites
+				favourites,
 			};
 			result.meta.status = 200;
 			result.meta.count = favourites.length;
@@ -195,7 +219,10 @@ const usersController = {
 			},
 		};
 		if (event == "add") {
-			const addFavourites = await favouritesService.addFavourite(userID, postID);
+			const addFavourites = await favouritesService.addFavourite(
+				userID,
+				postID
+			);
 			if (addFavourites) {
 				result.data = {
 					addFavourites,
@@ -213,7 +240,10 @@ const usersController = {
 			return res.status(result.meta.status).json(result);
 		}
 		if (event == "delete") {
-			const deleteFavourites = await favouritesService.deleteFavourite(userID, postID);
+			const deleteFavourites = await favouritesService.deleteFavourite(
+				userID,
+				postID
+			);
 			if (deleteFavourites) {
 				result.data = {
 					deleteFavourites,
