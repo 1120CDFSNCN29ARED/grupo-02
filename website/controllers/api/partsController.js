@@ -1,5 +1,4 @@
 const partsService = require("../../services/partsService");
-const versionsService = require("../../services/versionsService");
 
 const partsController = {
     all: async (req, res) => {
