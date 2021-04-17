@@ -7,14 +7,16 @@ const Role = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        role_name: {
+        roleName: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
+			field: "role_name"
         },
-        role_description: {
+        roleDescription: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+			field: "role_description"
         },
         active: {
             type: DataTypes.BOOLEAN,

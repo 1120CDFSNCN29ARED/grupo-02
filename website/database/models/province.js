@@ -6,9 +6,10 @@ const Province = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true,
         },
-        province_name: {
+        provinceName: {
             type: DataTypes.STRING,
             allowNull: false,
+			field: "province_name"
         },
         active: {
             type: DataTypes.BOOLEAN,

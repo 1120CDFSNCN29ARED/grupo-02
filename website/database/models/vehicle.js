@@ -11,9 +11,10 @@ const Vehicle = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull:false
     },
-    gear_type: {
+    gearType: {
       type: DataTypes.STRING,
       allowNull: false,
+			field: "gear_type"
     },
     year: {
       type: DataTypes.INTEGER,

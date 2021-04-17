@@ -1,11 +1,12 @@
 const CartItem = (sequelize, DataTypes) => {
     const alias = "CartItem";
     const cols = {
-        cart_itemID: {
+        cartItemID: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+			field: "cart_itemID"
         },
         cartID: {
             type: DataTypes.INTEGER,

@@ -14,22 +14,22 @@ async function populateDB(db) {
     //await db.VehicleVersion.bulkCreate(versions).catch(error => console.log(error.message,error.values));
     await db.Province.bulkCreate(provinces).catch(error => console.log(error));
     await db.Locality.bulkCreate(localities).catch(error => console.log(error));
-    await db.Role.create({role_name: "user", role_description: "standard user access"}).catch();
+    await db.Role.create({roleName: "user", roleDescription: "standard user access"}).catch();
     await db.User.create({first_name: "test", last_name: "test", userName: "test", dni: 12345678, email: "test@test.com",
                     telephone: 12345678,address:"calle falsa 123", postal_code: 1234, image: "no-image-found.jpeg", locationID: 1})
     .then(user => {
-        db.Role.findOne({where:{role_name: "user"}}).then((role) => {
+        db.Role.findOne({where:{roleName: "user"}}).then((role) => {
         user.createUserAccess({email: user.email, password: bcryptjs.hashSync("test", 10), roleID: role.roleID })
         .then(() => {
-            db.Brand.create({brand_name: "BMW Test", vehicle_type_car: true, vehicle_type_motorcycle: true, vehicle_type_pickup: true, vehicle_type_truck: false,})
+            db.Brand.create({brandName: "BMW Test", car: true, motorcycle: true, pickup: true, truck: false,})
             .then(brand => {
-            db.Model.create({model_name: "Serie 1", brandID: brand.brandID, vehicle_type_car: true})
+            db.Model.create({modelName: "Serie 1", brandID: brand.brandID, car: true})
             .then(model => {
-                db.VehicleVersion.create({brandID: brand.brandID, modelID: model.modelID, version_name: "118i Advantage 5P"})
+                db.VehicleVersion.create({brandID: brand.brandID, modelID: model.modelID, versionName: "118i Advantage 5P"})
                 .then(vehicleVersion => {
-                db.Vehicle.create({versionID: vehicleVersion.versionID, gear_type: "automática", year: 2021, kilometers: 0, color: "black"})
+                db.Vehicle.create({versionID: vehicleVersion.versionID, gearType: "automática", year: 2021, kilometers: 0, color: "black"})
                 .then(vehicle => {
-                    db.Product.create({product_type: "vehicle", vehicleID: vehicle.vehicleID, brandID: brand.brandID, modelID: model.modelID})
+                    db.Product.create({productType: "vehicle", vehicleID: vehicle.vehicleID, brandID: brand.brandID, modelID: model.modelID})
                     .then(product => {
                     db.Post.create({title: "Test Title", description: "Test Description", published: true, publishedDate: new Date(), price: 123456,
                                     onSale: true, discount: 20, stock: 1, rating: 4, state: "Nuevo", featured: true, sellerID: user.userID, locationID: 1,
