@@ -2,7 +2,6 @@ const { body, validationResult } = require('express-validator');
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models");
 const path = require('path');
-const { EDESTADDRREQ } = require('constants');
 
 const registrationValidationRules = () => {
 	return [

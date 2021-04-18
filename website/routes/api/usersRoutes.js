@@ -3,18 +3,6 @@ const router = express.Router();
 
 const usersController = require('../../controllers/api/usersController');
 
-/* const guestMiddleware = require("../../middlewares/guestMiddleware");
-const authMiddleware = require("../../middlewares/authMiddleware");
-const adminAuthMiddleware = require("../../middlewares/adminAuthMiddleware");
-const {
-	registrationValidationRules,
-	registrationValidation,
-} = require("../../middlewares/registrationValidator");
-const {
-	loginValidationRules,
-	loginValidation,
-} = require("../../middlewares/loginValidator"); */
-
 
 //Login
 //router.get('/login', guestMiddleware, usersController.login);
@@ -39,7 +27,8 @@ router.put('/:userID/update', usersController.update);
 
 //Routes for Favourites
 router.get('/:userID/favourites', usersController.getFavourites)
-router.put("/:userID/favourites/:event/:postID", usersController.updateFavourites);
+router.put("/:userID/favourites/add/:postID", usersController.addFavourites);
+router.put("/:userID/favourites/delete/:postID", usersController.deleteFavourites);
 
 
 

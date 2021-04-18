@@ -3,7 +3,6 @@ const path = require('path');
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const User = require('../models/User');
-const { reset } = require('nodemon');
 const { Op } = require("sequelize");
 
 const db = require("../database/models");
@@ -16,11 +15,11 @@ const controller = {
 		res.render("login", {});
 	},
 	loginProcess: (req, res) => {
-		let userId = req.session.userId;
+		let userID = req.session.userId;
 		if(req.session.userType==='admin'){
 			return res.redirect('/admin/');
 		}
-		return res.redirect(`/users/profile/${userId}`);		
+		return res.redirect(`/users/profile/${userID}`);		
 	},
 	index: (req, res, next) => {
 		const users = User.findAll();
@@ -44,8 +43,8 @@ const controller = {
 		res.render("register", {});
 	},
 	edit: (req, res, next) => {
-		let userId = req.params.userId;
-		let userToEdit = User.findUserByPk(userId);
+		let userID = req.params.userId;
+		let userToEdit = User.findUserByPk(userID);
 		res.render("userProfile", { user: userToEdit, action: 'edit' });
 	},
 	update: (req, res, next) => {
@@ -55,11 +54,11 @@ const controller = {
 	destroy: (req, res, next) => {
 		//No tengo la pantalla de usuarios ni admin armado
 		const users = User.findAll();
-		let userId = req.params.userId;
+		let userID = req.params.userId;
 		//let user = findUser(users, userId);
-		let user = Users.findUserByPk(userId);
+		let user = Users.findUserByPk(userID);
 		const userToDelete = users.findIndex((user) => {
-			user.userID = userId;
+			user.userID = userID;
 		});
 		users.pop(userToDelete, 1);
 		saveUsers(users);

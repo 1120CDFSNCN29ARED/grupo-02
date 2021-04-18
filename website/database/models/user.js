@@ -7,18 +7,21 @@ const User = (sequelize, DataTypes) => {
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4
         },
-        first_name: {
+        firstName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            field:"first_name"
         },
-        last_name: {
+        lastName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            field:"last_name"
         },
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
+            field: "user_name"
         },
         email: {
             type: DataTypes.STRING,
@@ -46,9 +49,10 @@ const User = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        postal_code: {
+        postalCode: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            field:"postal_code"
         },
         active: {
             type: DataTypes.BOOLEAN,

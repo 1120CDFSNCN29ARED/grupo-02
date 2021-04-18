@@ -6,7 +6,7 @@ const rolesService = require("../../services/rolesService");
 
 const usersController = {
 	loginProcess: async (req, res) => {
-		const userID = req.session.userID
+		const userID = req.session.userID;
 		const user = await usersService.findByPk(userID);
 		const result = {
 			meta: {
@@ -79,7 +79,12 @@ const usersController = {
 		return res.status(result.meta.status).json(result);
 	},
 	byRole: async (req, res) => {
-		const users = await usersService.findAllByRoleName(req.params.role);
+		const role = await rolesService.findOneByRoleName(req.params.role);
+		let roleID = null;
+		if (role) {
+			roleID = role.roleID;
+		}
+		const users = await usersAccessService.findAllbyRole(roleID);
 		const result = {
 			meta: {
 				url: req.originalUrl,
@@ -118,6 +123,7 @@ const usersController = {
 
 		if (user) {
 			const role = await rolesService.findOneByRoleName(roleName);
+			//Add check if role exists.
 			const roleID = role.roleID;
 			let newUserAccess = {
 				userName: user.userName,
@@ -137,7 +143,6 @@ const usersController = {
 		if (user && userAccess) {
 			result.data = {
 				user: user,
-				userAccess: userAccess,
 			};
 			result.meta.status = 201;
 			result.meta.count = 1;
@@ -187,38 +192,47 @@ const usersController = {
 	},
 	getFavourites: async (req, res) => {
 		const userID = req.params.userID;
-		const favourites = await favouritesService.findAll(userID);
+		const user = await usersService.findByPk(userID);
 		const result = {
 			meta: {
 				url: req.originalUrl,
 			},
 		};
-		if (favourites) {
-			result.data = {
-				favourites,
-			};
+		if (user) {
+			const favourites = await favouritesService.findAll(userID);
+			if (favourites) {
+				result.data = {
+					favourites,
+				};
+				result.meta.count = favourites.length;
+			}
 			result.meta.status = 200;
-			result.meta.count = favourites.length;
+			result.meta.count = 0;
 		} else {
 			result.meta.status = 409;
 			result.meta.count = 0;
 			result.error = {
 				status: "409",
-				message: `No favourites found`,
+				message: `User not found`,
 			};
 		}
+
 		return res.status(result.meta.status).json(result);
 	},
-	updateFavourites: async (req, res) => {
-		const event = req.params.event;
-		const postID = req.params.postID;
-		const userID = req.params.userID;
+	addFavourites: async (req, res) => {
 		const result = {
 			meta: {
 				url: req.originalUrl,
 			},
 		};
-		if (event == "add") {
+		const postID = req.params.postID;
+		const userID = req.params.userID;
+
+		const user = await usersService.findByPk(userID);
+		//const post = await postsService.findByPk(postID);
+
+		if (user) {
+			//add && post to condition check
 			const addFavourites = await favouritesService.addFavourite(
 				userID,
 				postID
@@ -237,9 +251,31 @@ const usersController = {
 					message: `No favourites added`,
 				};
 			}
-			return res.status(result.meta.status).json(result);
+		} else {
+			result.meta.status = 400;
+			result.meta.count = 0;
+			result.error = {
+				status: "409",
+				message: `No favourites added`,
+			};
 		}
-		if (event == "delete") {
+
+		return res.status(result.meta.status).json(result);
+	},
+	deleteFavourites: async (req, res) => {
+		const result = {
+			meta: {
+				url: req.originalUrl,
+			},
+		};
+		const postID = req.params.postID;
+		const userID = req.params.userID;
+		//add user check && post check
+		const user = await usersService.findByPk(userID);
+		//const post = await postsService.findByPk(postID);
+
+		if (user) {
+			//ADD &&post to condition
 			const deleteFavourites = await favouritesService.deleteFavourite(
 				userID,
 				postID
@@ -258,8 +294,15 @@ const usersController = {
 					message: `No favourites deleted`,
 				};
 			}
-			return res.status(result.meta.status).json(result);
+		} else {
+			result.meta.status = 400;
+			result.meta.count = 0;
+			result.error = {
+				status: "400",
+				message: `No favourites deleted`,
+			};
 		}
+		return res.status(result.meta.status).json(result);
 	},
 };
 
