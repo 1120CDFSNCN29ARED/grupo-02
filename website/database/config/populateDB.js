@@ -34,11 +34,12 @@ async function populateDB(db) {
                     db.Post.create({title: "Test Title", description: "Test Description", published: true, publishedDate: new Date(), price: 123456,
                                     onSale: true, discount: 20, stock: 1, rating: 4, state: "Nuevo", featured: true, sellerID: user.userID, locationID: 1,
                                     productID: product.productID})
-                    .then(post => {
-                        db.ImageUrl.create({ imageURL: "no-image-found.jpeg", postID: post.postID })
+                    .then(async post => {
+                        await db.ImageUrl.create({ imageURL: "no-image-found.jpeg", postID: post.postID })
                             .then(() => {
                                 db.Favourite.create({userID:user.userID, postID:post.postID})
                             }).catch(error => console.log("FAILED AT FAVOURITE"));
+                        await db.Question.create({postID: post.postID, userID: user.userID, question: "test question"})
                     })
                     .catch((error) => console.log("failed at product",error));
                     }).catch((error) => console.log("failed at vehicle",error));

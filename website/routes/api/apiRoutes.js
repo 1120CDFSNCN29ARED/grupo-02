@@ -11,6 +11,8 @@ const productsRoutes = require("./productsRoutes");
 const vehiclesRoutes = require("./vehiclesRoutes");
 const partsRoutes = require("./partsRoutes");
 
+const questionsRoutes = require("./questionsRoutes");
+
 const usersRoutes = require("./usersRoutes");
 
 const provincesRoutes = require("./provincesRoutes");
@@ -24,6 +26,8 @@ router.use("/users", usersRoutes);
 router.use("/products", productsRoutes);
 router.use("/vehicles", vehiclesRoutes);
 router.use("/parts", partsRoutes);
+
+router.use("/questions", questionsRoutes);
 
 router.use("/provinces", provincesRoutes);
 router.use("/localities", localitiesRoutes);
