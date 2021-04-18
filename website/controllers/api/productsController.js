@@ -1,3 +1,9 @@
+const _ = require("lodash");
+
+const partsService = require("../../services/partsService");
+const vehiclesService = require("../../services/vehiclesService");
+const brandsService = require("../../services/brandsService");
+const modelsService = require("../../services/modelsService");
 const productsService = require("../../services/productsService");
 
 const productsController = {
@@ -171,28 +177,63 @@ const productsController = {
         return res.status(result.meta.status).json(result);
     },
     create: async (req, res) => {
-        const result = {}
-        const newData = {
-            productSerialNumber: req.body.productSerialNumber,
-        }
-        if(req.body.makes){
-            if(req.body.makes.car !== undefined){
-                newData.car = req.body.makes.car;
-            }
-            if(req.body.makes.motorcycle !== undefined){
-                newData.car = req.body.makes.motorcycle;
-            }
-            if(req.body.makes.pickup !== undefined){
-                newData.car = req.body.makes.pickup;
-            }
-            if(req.body.makes.truck !== undefined){
-                newData.car = req.body.makes.truck;
-            }
-        }
-        const product = await productsService.create(newData);
-        result.meta = {
-            url: req.originalUrl
+        const result = {
+            meta: {}
         };
+        const errors = {};
+        const newData = {};
+        //const productTypes = await productsService.findProductTypes();
+        const productTypes = ["vehicle","part"];
+        if(!productTypes.includes(req.body.productType)){
+            errors.productType = "Invalid product type, please enter: " + productTypes.join(", ");
+        }
+        else{
+            if(req.body.partID){
+                const partID = await partsService.findByPk(req.body.partID);
+                if(!partID){
+                    errors.partID = "Part ID not found";
+                }
+                else{
+                    newData.partID = req.body.partID;
+                }
+            }
+            else if(req.body.vehicleID){
+                const vehicleID = await vehiclesService.findByPk(req.body.vehicleID);
+                if(!vehicleID){
+                    errors.vehicleID = "Vehicle ID not found";
+                }
+                else{
+                    newData.vehicleID = req.body.vehicleID;
+                }
+            }
+            else{
+                errors.productTypeID = "Please enter a partID or a vehicleID"
+            }
+        }
+        const brand = await brandsService.findByPk(req.body.brandID);
+        if(!brand){
+            errors.brandID = "Invalid brand ID";
+        }
+        const model = await modelsService.findByPk(req.body.modelID);
+        if(!model){
+            errors.modelID = "Invalid model ID";
+        }
+        else{
+            if(model.brandID !== req.body.brandID){
+                errors.modelID = "The selected modelID is not part of the selected brandID";
+            }
+        }
+        let product = null;
+        if(_.isEmpty(errors)){
+            console.log("new data: ",newData);
+            newData.productType = req.body.productType;
+            newData.brandID = req.body.brandID;
+            newData.modelID = req.body.modelID;
+            product = await productsService.create(newData);
+            result.meta = {
+                url: req.originalUrl
+            };
+        }        
         if(product){
             result.data = {
                 product
@@ -205,9 +246,10 @@ const productsController = {
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No products were found`
+                message: "Product not created",
+                errors
             }
-        }
+        }       
         return res.status(result.meta.status).json(result);
     },
     update: async (req, res) => {
