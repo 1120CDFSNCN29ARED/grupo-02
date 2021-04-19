@@ -1,4 +1,5 @@
 //REFACTOR so as not to cross services!!!!
+const { Op } = require("sequelize");
 const db = require("../database/models");
 
 const usersService = {
@@ -7,6 +8,13 @@ const usersService = {
   },
   findByPk: async (id) => {
     return await db.User.findByPk(id).catch(error => error);
+  },
+  findOne: async (email) => {
+    return await db.User.findOne({
+			where: {
+				[Op.or]: [{ userName: email }, { email: email }]
+			},
+    }).catch(error => error);
   },
   /* findAllByRoleName: async (roleName) => {
     const role = await rolesService.findOneByRoleName(roleName);

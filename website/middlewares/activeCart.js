@@ -3,8 +3,8 @@ const Cart = require('../models/Cart');
 const activeCart = (req, res, next) => {
   res.locals.activeCart = false;
   let userID;
-  if (req.session.userId) {
-    userID = req.session.userId;
+  if (req.session.userID) {
+    userID = req.session.userID;
   } else {
     // Need to think this through carefully.
     userID = "guest";

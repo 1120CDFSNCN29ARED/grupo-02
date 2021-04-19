@@ -126,18 +126,18 @@ const registrationValidationRules = () => {
 const registrationValidation = (req, res, next) => {
 	const errors = validationResult(req);
 	if (errors.isEmpty()) {
-		db.Role.findOne({where: {role_name: "user"}})
+		db.Role.findOne({where: {roleName: "user"}})
 		.then((role) => {
 			let userToCreate = {
-				first_name: req.body.first_name,
-				last_name: req.body.last_name,
+				firstName: req.body.first_name,
+				lastName: req.body.last_name,
 				userName: req.body.userName,
 				email: req.body.email,
 				telephone: req.body.telephone,
 				dni: req.body.dni,
 				locationID: 1,
 				address: req.body.address,
-				postal_code: req.body.postal_code,
+				postalCode: req.body.postal_code,
 				image: req.file ? req.file.filename : "no-image-found.jpeg",
 			};
 			db.User.create(userToCreate)
@@ -153,7 +153,7 @@ const registrationValidation = (req, res, next) => {
 					db.User.findOne({where: {userName: userAccessData.userName}}).then((user) => {
 						req.session.assertUserLogged = user.dataValues;
 						req.session.userType = role.role_name;
-						req.session.userId = user.userID;
+						req.session.userID = user.userID;
 						console.log("session: ",req.session);
 					}).then(() => {return next()})					
 				}))
