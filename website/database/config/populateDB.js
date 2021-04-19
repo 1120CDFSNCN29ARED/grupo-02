@@ -5,13 +5,34 @@ const bcryptjs = require('bcryptjs');
 //JSON data
 const localities = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/localities.json"), "utf-8"));
 const provinces = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/provinces.json"), "utf-8"));
-const brands = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_brands__202104111952.json"), "utf-8"));
-const models = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_models__202104112044.json"), "utf-8"));
-const versions = JSON.parse(fs.readFileSync(path.join(__dirname, "../../json/real_cars_versions_part1.json"), "utf-8"));
+const brands = JSON.parse(
+	fs.readFileSync(
+		path.join(__dirname, "../../json/_real_cars_1_brands__202104181951.json"),
+		"utf-8"
+	)
+);
+const models = JSON.parse(
+	fs.readFileSync(
+		path.join(
+			__dirname,
+			"../../json/_real_cars_01_models__202104181955.json"
+		),
+		"utf-8"
+	)
+);
+const versions = JSON.parse(
+	fs.readFileSync(
+		path.join(
+			__dirname,
+			"../../json/_real_cars_01_vehicle_versions_noYear__202104190004.json"
+		),
+		"utf-8"
+	)
+);
 async function populateDB(db) {
     await db.Brand.bulkCreate(brands).catch(error => console.log(error));
     await db.Model.bulkCreate(models).catch(error => console.log(error));
-    //await db.VehicleVersion.bulkCreate(versions).catch(error => console.log(error.message,error.values));
+    await db.VehicleVersion.bulkCreate(versions).catch(error => console.log(error.message,error.values));
     await db.Province.bulkCreate(provinces).catch(error => console.log(error));
     await db.Locality.bulkCreate(localities).catch(error => console.log(error));
     await db.Role.create({roleName: "user", roleDescription: "standard user access"}).catch();
