@@ -163,24 +163,50 @@ const usersController = {
 		delete newData.password;
 		delete newData.roleID;
 		//delete {password, roleID} newData
-
+		const result = {
+			meta: {
+				url: req.originalUrl,
+			},
+		};
 		const newAccessData = {};
+
 		req.body.password
 			? (newAccessData.password = bcryptjs.hashSync(req.body.password, 10))
 			: null;
 		req.body.roleID ? (newAccessData.roleID = req.body.roleID) : null;
 
-		const result = await usersService
+		const updatedUser = await usersService
 			.update(req.params.userID, newData)
 			.catch((error) => error);
 
-		const newUserName = result.userName;
+		const newUserName = updatedUser.userName;
 		if (newAccessData != {}) {
 			console.log("Updating the UserAcess Logs");
 			const updateUserAccess = await userAccessService.update(
 				newUserName,
 				newAccessData
 			);
+			if (updateUserAccess) {
+				result.data = {
+					updatedUser,
+					updateUserAccess,
+				};
+				result.meta.count = 1;
+			} else {
+				result.meta.status = 400;
+				result.meta.count = 0;
+				result.error = {
+					status: "409",
+					message: `No users Updated`,
+				};
+			}
+		} else {
+			result.meta.status = 400;
+			result.meta.count = 0;
+			result.error = {
+				status: "409",
+				message: `No users Updated`,
+			};
 		}
 		return res.status(202).json(result);
 	},

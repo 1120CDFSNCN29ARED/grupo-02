@@ -1,4 +1,3 @@
-//REFACTOR so as not to cross services!!!!
 const { Op } = require("sequelize");
 const db = require("../database/models");
 
