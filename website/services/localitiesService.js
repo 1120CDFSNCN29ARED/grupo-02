@@ -24,6 +24,10 @@ const localitiesService = {
             }
         }).catch(error => error);
     },
+    findByProvinceID: async (provinceID) => {
+        return await db.Locality.findAll({where: {provinceID}
+        }).catch(error => error);
+    },
     create: async (data) => {
         const locality = await db.Locality.create(data).catch(error => error);
         return locality;

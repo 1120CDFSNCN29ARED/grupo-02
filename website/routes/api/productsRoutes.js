@@ -10,7 +10,6 @@ router.get("/brand/:brandID", productsController.byBrandID);
 router.get("/model/:modelID", productsController.byModelID);
 router.get("/vehicle/:vehicleID", productsController.byVehicleID);
 router.get("/part/:partID", productsController.byPartID);
-router.get("/types", productsController.create);
 
 router.post("/create", productsController.create);
 

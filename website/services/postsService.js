@@ -8,17 +8,17 @@ const postsService = {
     findByPk: async (id) => {
         return await db.Post.findByPk(id).catch(error => error);
     },
-    findByBrandID: async (brandID) => {
-        return await db.Post.findAll({where: {brandID}});
+    published: async () => {
+        return await db.Post.findAll({where: {published: true}});
     },
-    findByModelID: async (modelID) => {
-        return await db.Post.findAll({where: {modelID}});
+    onSale: async () => {
+        return await db.Post.findAll({where: {onSale: true}});
     },
-    findByVehicleID: async (vehicleID) => {
-        return await db.Post.findAll({where: {vehicleID}});
+    findBySellerID: async (sellerID) => {
+        return await db.Post.findAll({where: {sellerID}});
     },
-    findByPostID: async (partID) => {
-        return await db.Post.findAll({where: {partID}});
+    findByLocalityID: async (localityID) => {
+        return await db.Post.findAll({where: {locationID: localityID}});
     },
     create: async (data) => {
         return await db.Post.create(data).catch(error => error);
