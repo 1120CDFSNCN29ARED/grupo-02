@@ -13,6 +13,9 @@ const vehiclesService = require("../../services/vehiclesService");
 const questionsService = require("../../services/questionsService");
 const imagesService = require("../../services/imagesService");
 
+const getPostData = require("../../middlewares/getPostData");
+
+
 const postsController = {
     all: async (req, res) => {
         const posts = await postsService.findAll();
@@ -22,75 +25,13 @@ const postsController = {
                 url: req.originalUrl
             }
         };
-        if(posts){
+        if(!_.isEmpty(posts)){
             result.data = [];
             for(post of posts) {
-                const locality = await localitiesService.findByPk(post.locationID);
-                const province = await provincesService.findByPk(locality.provinceID);
-                const product = await productsService.findByPk(post.productID);
-                const brand = await brandsService.findByPk(product.brandID);
-                const model = await modelsService.findByPk(product.modelID);
-                const questions = await questionsService.findByPostID(post.postID);
-                const images = await imagesService.findByPostID(post.postID);
-                const seller = await usersService.findByPk(post.sellerID);
-                let part = null;
-                let vehicle = null;
-                let version = null;
-                const postData = {
-                    post: {
-                        title: post.title,
-                        description: post.description,
-                        published: post.published,
-                        publishedDate: post.publishedDate,
-                        onSale: post.onSale,
-                        price: post.price,
-                        discount: post.discount,
-                        stock: post.stock,
-                        rating: post.rating,
-                        state: post.state,
-                        featured: post.featured,
-                        brandID: brand.brandID,
-                        brandName: brand.brandName,
-                        modelID: model.modelID,
-                        modelName: model.modelName,
-                        active: post.active,
-                    },
-                    seller: {
-                        sellerID: seller.sellerID,
-                        userName: seller.userName,
-                        firstName: seller.firstName,
-                        lastName: seller.lastName,
-                    },
-                    location: {
-                        locationID: locality.localityID,
-                        localityName: locality.localityName,
-                        provinceID: province.provinceID,
-                        provinceName: province.provinceName,
-                    },
-                    questions,
-                    images,
-                }
-                if(product.productType === "vehicle"){
-                    vehicle = await vehiclesService.findByPk(product.vehicleID);
-                    version = await versionsService.findByPk(vehicle.versionID);
-                    postData.post.versionID = version.versionID;
-                    postData.post.versionName = version.versionName;
-                    postData.post.gearType = version.gearType;
-                    postData.post.year = version.year;
-                    postData.post.kilometers = version.kilometers;
-                    postData.post.color = version.color;
-                }
-                else if(product.productType === "part"){
-                    part = await partsService.findByPk(product.partID);
-                    postData.post.versionID = version.versionID;
-                    postData.post.partSerialNumber = version.partSerialNumber;
-                    postData.post.car = version.car;
-                    postData.post.motorcycle = version.motorcycle;
-                    postData.post.pickup = version.pickup;
-                    postData.post.truck = version.truck;
-                }
+                //
+                const postData = await getPostData(post);
                 result.data.push(postData);
-            };            
+            };
             result.meta.status = 200;
             result.meta.count = posts.length;
         }
@@ -112,8 +53,9 @@ const postsController = {
             }
         };
         if(post){
+            const postData = await getPostData(post);
             result.data = {
-                post
+                postData
             }
             result.meta.status = 200;
             result.meta.count = 1;
@@ -135,12 +77,14 @@ const postsController = {
                 url: req.originalUrl
             }
         };
-        if(posts){
-            result.data = {
-                posts
+        if(!_.isEmpty(posts)){
+            result.data = [];
+            for(post of posts){
+                const postData = await getPostData(post);
+                result.data.push(postData);
             }
             result.meta.status = 200;
-            result.meta.count = 1;
+            result.meta.count = posts.length;
         }
         else{
             result.meta.status = 409;
@@ -159,12 +103,14 @@ const postsController = {
                 url: req.originalUrl
             }
         };
-        if(posts){
-            result.data = {
-                posts
+        if(!_.isEmpty(posts)){
+            result.data = [];
+            for(post of posts){
+                const postData = await getPostData(post);
+                result.data.push(postData);
             }
             result.meta.status = 200;
-            result.meta.count = 1;
+            result.meta.count = posts.length;
         }
         else{
             result.meta.status = 409;
@@ -188,12 +134,14 @@ const postsController = {
                 url: req.originalUrl
             }
         };
-        if(posts){
-            result.data = {
-                posts
+        if(!_.isEmpty(posts)){
+            result.data = [];
+            for(post of posts){
+                const postData = await getPostData(post);
+                result.data.push(postData);
             }
             result.meta.status = 200;
-            result.meta.count = 1;
+            result.meta.count = posts.length;
         }
         else{
             result.meta.status = 409;
@@ -224,8 +172,13 @@ const postsController = {
             for(locality of localities){
                 const localityName = locality.localityName;
                 const posts = await postsService.findByLocalityID(locality.localityID);
+                const postDataArray = []
                 if(!_.isEmpty(posts)){
-                    result.data[localityName] = posts;
+                    for(post of posts){
+                        const postData = await getPostData(post);
+                        postDataArray.push(postData);
+                    }
+                    result.data[localityName] = postDataArray;
                     count += posts.length
                 }
             }
@@ -256,8 +209,10 @@ const postsController = {
         }
         const posts = await postsService.findByLocalityID(req.params.localityID);
         if(!_.isEmpty(posts)){
-            result.data = {
-                posts
+            result.data = [];
+            for(post of posts){
+                const postData = await getPostData(post);
+                result.data.push(postData);
             }
             result.meta.status = 200;
             result.meta.count = posts.length;
@@ -357,11 +312,11 @@ const postsController = {
         }
         if(_.isEmpty(errors)){
             newProduct.productType = req.body.productType;
-            if(req.body.partID){
-                newProduct.partID = req.body.partID;
+            if(req.body.productType === "part"){
+                newProduct.partID = part.partID;
             }
-            if(req.body.vehicleID){
-                newProduct.vehicleID = req.body.vehicleID;
+            if(req.body.productType === "vehicle"){
+                newProduct.vehicleID = vehicle.vehicleID;
             }
             newProduct.brandID = req.body.brandID;
             newProduct.modelID = req.body.modelID;
@@ -392,36 +347,9 @@ const postsController = {
             result.meta = {
                 url: req.originalUrl
             };
-            post = post.dataValues;
-            delete post.productID;
             if(post){
-                result.data = {
-                    post: {
-                        ...post,
-                        userName: seller.userName,
-                        location: `${locality.localityName}, ${province.provinceName}`,
-                        brand: brand.brandName,
-                        model: model.modelName
-                    },
-                    seller: {
-                        firstName: seller.firstName,
-                        lastName: seller.lastName,
-                        userName: seller.userName,
-                    }
-                }
-                if(req.params.productType === "vehicle"){
-                    result.data.post.version = version.versionName;
-                    result.data.post.gearType = vehicle.gearType;
-                    result.data.post.kilometers = vehicle.kilometers;
-                    result.data.post.color = vehicle.color;
-                }
-                if(req.params.productType === "part"){
-                    result.data.post.partSerialNumber = part.partSerialNumber;
-                    part.car ? result.data.post.partSerialNumber = part.car : "";
-                    part.motorcycle ? result.data.post.partSerialNumber = part.motorcycle : "";
-                    part.pickup ? result.data.post.partSerialNumber = part.pickup : "";
-                    part.truck ? result.data.post.partSerialNumber = part.truck : "";
-                }
+                const postData = await getPostData(post);
+                result.data = postData;
                 result.meta.status = 201;
                 result.meta.count = 1;
             }
