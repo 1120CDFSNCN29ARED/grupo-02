@@ -283,6 +283,10 @@ const postsController = {
         else{
             province = await provincesService.findByPk(locality.provinceID);
         }
+        let seller = await usersService.findByPk(req.body.sellerID);
+        if(!seller){
+            errors.sellerID = "Invalid sellerID";
+        }
         if(_.isEmpty(errors)){
             newProduct.productType = req.body.productType;
             if(req.body.partID){
@@ -326,9 +330,15 @@ const postsController = {
                 result.data = {
                     post: {
                         ...post,
+                        userName: seller.userName,
                         location: `${locality.localityName}, ${province.provinceName}`,
                         brand: brand.brandName,
                         model: model.modelName
+                    },
+                    seller: {
+                        firstName: seller.firstName,
+                        lastName: seller.lastName,
+                        userName: seller.userName,
                     }
                 }
                 if(req.params.productType === "vehicle"){
