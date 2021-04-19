@@ -1,6 +1,4 @@
 const db = require("../database/models");
-const { Op } = require("sequelize");
-
 
 const userAccessService = {
 	findAll: async () => {
