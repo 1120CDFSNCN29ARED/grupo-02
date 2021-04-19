@@ -15,11 +15,6 @@ const usersService = {
 			},
     }).catch(error => error);
   },
-  /* findAllByRoleName: async (roleName) => {
-    const role = await rolesService.findOneByRoleName(roleName);
-    const roleID = role.roleID;
-    return await userAccessService.findAllByRole(roleID);
-  }, */
   create: async (data) => {
     const result = await db.User.create(data).catch(error => error);
     return result;

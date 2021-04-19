@@ -1,8 +1,10 @@
-const usersService = require("../../services/usersService");
 const bcryptjs = require("bcryptjs");
+const usersService = require("../../services/usersService");
 const userAccessService = require("../../services/userAccessService");
 const favouritesService = require("../../services/favouritesService");
 const rolesService = require("../../services/rolesService");
+const localitiesService = require("../../services/localitiesService");
+const provincesServices = require("../../services/provincesService");
 
 const usersController = {
 	loginProcess: async (req, res) => {
@@ -61,13 +63,25 @@ const usersController = {
 				url: req.originalUrl,
 			},
 		};
-
+	
 		if (user) {
+			const location = await localitiesService.findByPk(user.locationID);
+			
+			if (location) {
+				user.dataValues.city = location.localityName;
+				const province = await provincesServices.findByPk(location.provinceID);
+				if (province) {
+					user.dataValues.province = province.provinceName;
+				}
+			};
+
 			result.data = {
 				user,
 			};
+			
 			result.meta.status = 200;
 			result.meta.count = 1;
+
 		} else {
 			result.meta.status = 409;
 			result.meta.count = 0;
@@ -76,6 +90,7 @@ const usersController = {
 				message: `No user was found`,
 			};
 		}
+		
 		return res.status(result.meta.status).json(result);
 	},
 	byRole: async (req, res) => {
