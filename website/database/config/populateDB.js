@@ -36,6 +36,7 @@ async function populateDB(db) {
     await db.Province.bulkCreate(provinces).catch(error => console.log(error));
     await db.Locality.bulkCreate(localities).catch(error => console.log(error));
     await db.Role.create({roleName: "user", roleDescription: "standard user access"}).catch();
+    
     await db.User.create({firstName: "test", lastName: "test", userName: "test", dni: 12345678, email: "test@test.com",
                     telephone: 12345678,address:"calle falsa 123", postalCode: 1234, image: "no-image-found.jpeg", locationID: 1})
     .then(user => {
