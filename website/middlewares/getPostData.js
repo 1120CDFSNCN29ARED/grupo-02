@@ -60,25 +60,23 @@ const getPostData = async post => {
     }
     if(product.productType === "vehicle"){
         vehicle = await vehiclesService.findByPk(product.vehicleID);
-        console.log("vehicle: ",vehicle)
         version = await versionsService.findByPk(vehicle.versionID);
-        postData.post.versionID = version.versionID;
+        postData.post.versionID = vehicle.versionID;
         postData.post.versionName = version.versionName;
-        postData.post.gearType = version.gearType;
-        postData.post.year = version.year;
-        postData.post.kilometers = version.kilometers;
-        postData.post.color = version.color;
+        postData.post.gearType = vehicle.gearType;
+        postData.post.year = vehicle.year;
+        postData.post.kilometers = vehicle.kilometers;
+        postData.post.color = vehicle.color;
     }
     else if(product.productType === "part"){
         part = await partsService.findByPk(product.partID);
-        postData.post.versionID = version.versionID;
-        postData.post.partSerialNumber = version.partSerialNumber;
-        postData.post.car = version.car;
-        postData.post.motorcycle = version.motorcycle;
-        postData.post.pickup = version.pickup;
-        postData.post.truck = version.truck;
+        postData.post.partSerialNumber = part.partSerialNumber;
+        postData.post.car = part.car;
+        postData.post.motorcycle = part.motorcycle;
+        postData.post.pickup = part.pickup;
+        postData.post.truck = part.truck;
     }
-    //console.log(postData)
+    
     return postData;
 }
 

@@ -167,7 +167,6 @@ const postsController = {
         }
         if(_.isEmpty(errors)){
             const localities = await localitiesService.findByProvinceID(req.params.provinceID);
-            console.log(localities);
             result.data = {};
             for(locality of localities){
                 const localityName = locality.localityName;
@@ -354,7 +353,6 @@ const postsController = {
                 result.meta.count = 1;
             }
         }
-        
         else{
             result.meta.status = 409;
             result.meta.count = 0;
@@ -363,49 +361,195 @@ const postsController = {
                 message: "Post not created",
                 errors
             }
-        }       
+        }
         return res.status(result.meta.status).json(result);
     },
     update: async (req, res) => {
-        const newData = {};
-        if(req.body.postSerialNumber !== undefined){
-            newData.postSerialNumber = req.body.postSerialNumber;
-        }        
-        if(req.body.makes){
-            if(req.body.makes.car !== undefined){
-                newData.car = req.body.makes.car;
+        const errors = {};
+        const result = {meta: {}}
+        let post = await postsService.findByPk(req.params.postID);
+        let newPost = {};
+        let product = null;
+        let newProduct = {};
+        let brand = null;
+        let newBrand = null;
+        let model = null;
+        let newModel = null;
+        let version = null;
+        let newVersion = null;
+        let vehicle = null;
+        let newVehicle = {};
+        let part = null;
+        let newPart = {};
+        if(!post){
+            errors.postID = "Invalid postID";
+        }
+        else{
+            product = await productsService.findByPk(post.productID);
+            if(product.productType === "vehicle"){
+                if(req.body.brandID){
+                    newBrand = await brandsService.findByPk(req.body.brandID);
+                    if(!newBrand || (newBrand.car === false && newBrand.motorcycle === false && newBrand.pickup === false && newBrand.truck === false)){
+                        errors.brandID = "Invalid brandID";
+                    }
+                    else{
+                        if(!req.body.modelID){
+                            errors.modelID = "Please provide a modelID when changing the brandID";
+                        }
+                        else{
+                            newModel = await modelsService.findByPk(req.body.modelID);
+                            if(!newModel || newModel.brandID !== newBrand.brandID || (newBrand.car === false && newBrand.motorcycle === false && newBrand.pickup === false && newBrand.truck === false)){
+                                errors.modelID = "Invalid modelID";
+                            }
+                            else{
+                                if(req.body.versionID){
+                                    newVersion = await versionsService.versionID;
+                                    if(!newVersion || newVersion.modelID !== model.modelID){
+                                        errors.versionID = "Invalid versionID"
+                                    }
+                                }
+                                else{
+                                    errors.versionID = "Please provide a versionID when changing the modelID";
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(req.body.modelID || req.body.versionID){
+                    errors.brandID = "Please provide a brandID, modelID and versionID";
+                }
             }
-            if(req.body.makes.motorcycle !== undefined){
-                newData.motorcycle = req.body.makes.motorcycle;
+            else if(product.productType === "part"){
+                if(req.body.brandID){
+                    newBrand = await brandsService.findByPk(req.body.brandID);
+                    if(!newBrand || newBrand.makesParts === false){
+                        errors.brandID = "Invalid brandID";
+                    }
+                    else{
+                        if(!req.body.modelID){
+                            errors.modelID = "Please provide a modelID when changing the brandID";
+                        }
+                        else{
+                            newModel = await modelsService.findByPk(req.body.modelID);
+                            if(!newModel || newModel.brandID !== newBrand.brandID || newBrand.idPart === false){
+                                errors.modelID = "Invalid modelID";
+                            }
+                        }
+                    }
+                }
+                else if(req.body.modelID || req.body.versionID){
+                    errors.brandID = "Please provide a brandID, modelID and versionID";
+                }
             }
-            if(req.body.makes.pickup !== undefined){
-                newData.pickup = req.body.makes.pickup;
-            }
-            if(req.body.makes.truck !== undefined){
-                newData.truck = req.body.makes.truck;
+            if(req.body.locationID){
+                locality = localitiesService.findByPk(req.body.locationID);
+                if(!locality){
+                    errors.locationID = "Invalid location ID";
+                }
             }
         }
-        const post = await postsService.update(req.params.postID, newData);
-        const result = {
-            meta: {
-                url: req.originalUrl
+        if(_.isEmpty(errors)){
+            if(product.productType === "vehicle"){
+                if(req.body.gearType && (req.body.gearType === "automática" || req.body.gearType === "manual")){
+                    newVehicle.gearType = req.body.gearType;
+                }
+                if(req.body.year){
+                    newVehicle.year = req.body.year;
+                }
+                if(req.body.kilometers){
+                    newVehicle.kilometers = req.body.kilometers;
+                }
+                if(req.body.color){
+                    newVehicle.color = req.body.color;
+                }
+                if(req.body.versionID){
+                    newVehicle.versionID = req.body.versionID;
+                }
+                if(!_.isEmpty(newVehicle)){
+                    vehicle = await vehiclesService.update(product.vehicleID,newVehicle);
+                }
             }
-        };
-        if(post){
-            result.data = {
-                post
+            else if(product.productType === "part"){
+                if(req.body.partSerialNumber){
+                    newPart.partSerialNumber = req.body.partSerialNumber;
+                }
+                if(req.body.car){
+                    newPart.car = req.body.car;
+                }
+                if(req.body.motorcycle){
+                    newPart.motorcycle = req.body.motorcycle;
+                }
+                if(req.body.pickup){
+                    newPart.pickup = req.body.pickup;
+                }
+                if(req.body.truck){
+                    newPart.truck = req.body.truck;
+                }
+                if(!_.isEmpty(newPart)){
+                    part = await partsService.update(product.partID,newPart);
+                }
             }
-            result.meta.status = 201;
-            result.meta.count = 1;
+
+            if(req.body.brandID){
+                newProduct.brandID = req.body.brandID;
+            }
+            if(req.body.modelID){
+                newProduct.modelID = req.body.modelID;
+            }
+            if(!_.isEmpty(newProduct)){
+                product = await productsService.update(product.productID,newProduct);
+            }
+
+            if(req.body.title){
+                newPost.title = req.body.title;
+            }
+            if(req.body.description){
+                newPost.description = req.body.description;
+            }
+            if(req.body.published){
+                newPost.published = req.body.published;
+                newPost.publishedDate = new Date();
+            }
+            if(req.body.onSale){
+                newPost.onSale = req.body.onSale;
+            }
+            if(req.body.discount){
+                newPost.discount = req.body.discount;
+            }
+            if(req.body.price){
+                newPost.price = req.body.price;
+            }
+            if(req.body.stock){
+                newPost.stock = req.body.stock;
+            }
+            if(req.body.rating){
+                newPost.rating = req.body.rating;
+            }
+            if(req.body.locationID){
+                newPost.locationID = req.body.locationID;
+            }
+            console.log("newPost: ",newPost);
+            if(!_.isEmpty(newPost)){
+                post = await postsService.update(post.postID,newPost);
+            }
+            console.log("post: ",post)
+            if(post){
+                const postData = await getPostData(post);
+                result.data = postData;
+                result.meta.status = 201;
+                result.meta.count = 1;
+            }
         }
         else{
             result.meta.status = 409;
             result.meta.count = 0;
             result.error= {
                 status: "409",
-                message: `No posts were found`
+                message: "Post not created",
+                errors
             }
         }
+
         return res.status(result.meta.status).json(result);
     },
     delete: async (req, res) => {
