@@ -11,9 +11,9 @@ const userAccessService = {
 	findOne: async (email) => {
 		return await db.UserAccess.findOne({
 			where: {
-				[Op.or]: [{ userName: email }, { email: email }]
+				[Op.or]: [{ userName: email }, { email: email }],
 			},
-		}).catch(error => error);
+		}).catch((error) => error);
 	},
 	findAllByRole: async (roleID) => {
 		return await db.UserAccess.findAll({
@@ -26,15 +26,13 @@ const userAccessService = {
 		return await db.UserAccess.create(data).catch((error) => error);
 	},
 	update: async (userName, newAccessData) => {
-		console.log(newAccessData);
-		const userAccess = await db.UserAccess.findOne({
+		const result = await db.UserAccess.findOne({
 			where: {
 				userName: userName,
 			},
 		}).catch((error) => error);
-		console.log(userAccess);
-
-		return await userAccess.update(newAccessData).catch((error) => error);
+		
+		return await result.update(newAccessData, {where:{userName:userName}}).catch((error) => error);
 	},
 	delete: async (userName) => {
 		const data = { active: false };

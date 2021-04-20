@@ -51,6 +51,16 @@ const controller = {
 	edit: async (req, res, next) => {
 		let userID = req.params.userID;
 		let userToEdit = await usersService.findByPk(userID);
+		if (userToEdit) {
+			const location = await localitiesService.findByPk(userToEdit.locationID);
+			if (location) {
+				userToEdit.city = location.localityName;				
+				const province = await provincesServices.findByPk(location.provinceID);
+				if (province) {
+					userToEdit.province = province.provinceName;
+				}
+			}
+		}
 		res.render("userProfile", { user: userToEdit, action: "edit" });
 	},
 	update: (req, res, next) => {
@@ -59,14 +69,12 @@ const controller = {
 	},
 	destroy: async (req, res, next) => {
 		//No tengo la pantalla de usuarios ni admin armado
-		const users = await usersService.findAll();
 		const userID = req.params.userID;
 		const user = await usersService.findByPk(userID);
-		const userToDelete = users.findIndex((user) => {
-			user.userID = userID;
-		});
-		users.pop(userToDelete, 1);
-		saveUsers(users);
+		let result = null;
+		if (user) {
+			result = userService.delete(userID);
+		}
 		//need to add in the deleting of the picture if we implement it!
 		res.render("/users", { users });
 	},
