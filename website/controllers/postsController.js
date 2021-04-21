@@ -20,6 +20,7 @@ const postsController = {
     create: async (req, res) => {
         let brands = [];
         let conditions = [];
+        let provinces = [];
         if(req.params.productType === "vehicle"){
             conditions.push({car: true},{motorcycle: true},{pickup: true},{truck: true})
         }
@@ -28,9 +29,11 @@ const postsController = {
         }
         if(req.params.productType === "vehicle" || req.params.productType === "part"){
 			brands = await brandsService.findByProductType(conditions);
+            provinces = await provincesService.findAll();
 		}
 		return res.render("createPost", {
 			brands,
+            provinces,
 			productType: req.params.productType,
 			post: {},
 		});

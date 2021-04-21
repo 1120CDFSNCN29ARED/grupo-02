@@ -7,6 +7,7 @@ router.get("/", localitiesController.findAll);
 router.get("/id/:localityID", localitiesController.findByID);
 router.get("/byName/:localityName", localitiesController.findOneByName);
 router.get("/nameLike/:localityName", localitiesController.findByName);
+router.get("/byProvinceID/:provinceID", localitiesController.findByProvinceID);
 
 router.post("/create", localitiesController.create);
 

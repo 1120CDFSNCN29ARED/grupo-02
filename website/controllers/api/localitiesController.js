@@ -97,6 +97,30 @@ const localitiesController = {
         }
         return res.status(result.meta.status).json(result);
     },
+    findByProvinceID: async (req, res) => {
+        const localities = await localitiesService.findByProvinceID(req.params.provinceID);
+        const result = {
+            meta: {
+                url: req.originalUrl
+            }
+        };
+        if(localities){
+            result.data = {
+                localities
+            }
+            result.meta.status = 200;
+            result.meta.count = localities.length;
+        }
+        else{
+            result.meta.status = 409;
+            result.meta.count = 0;
+            result.error= {
+                status: "409",
+                message: `No localities were found`
+            }
+        }
+        return res.status(result.meta.status).json(result);
+    },
     create: async (req, res) => {
         const newLocality = {
             provinceID: req.body.provinceID,
