@@ -123,7 +123,6 @@ const usersController = {
 		return res.status(result.meta.status).json(result);
 	},
 	create: async (req, res) => {
-		//The localityID must come via API with preprocessing in the validation middleware.
 		const newUser = {
 			...req.body,
 		};
@@ -133,9 +132,8 @@ const usersController = {
 		let userAccess = {};
 		const password = bcryptjs.hashSync(req.body.password, 10);
 		const roleName = req.body.role;
-
 		const user = await usersService.create(newUser);
-		console.log(user);
+
 		if (!user.errors) {
 			const role = await rolesService.findOneByRoleName(roleName);
 			//Add check if role exists.

@@ -1,9 +1,7 @@
 const { body, validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-const db = require("../database/models");
 const usersService = require('../services/usersService.js');
 const userAccessService = require('../services/userAccessService.js');
-const { Op } = require("sequelize");
 
 const loginValidationRules = () => {
 	return [

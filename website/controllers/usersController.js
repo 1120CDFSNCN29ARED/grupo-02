@@ -1,6 +1,10 @@
+const bcryptjs = require("bcryptjs");
+
 const localitiesService = require("../services/localitiesService");
 const provincesServices = require("../services/provincesService");
 const usersService = require("../services/usersService");
+const userAccessService = require("../services/userAccessService");
+const rolesService = require("../services/rolesService");
 
 const controller = {
 	login: (req, res) => {
@@ -28,8 +32,10 @@ const controller = {
 				if (location) {
 					user.city = location.localityName;
 					console.log(`Getting the location: ${user.city}`);
-					const province = await provincesServices.findByPk(location.provinceID);
-					if(province){
+					const province = await provincesServices.findByPk(
+						location.provinceID
+					);
+					if (province) {
 						user.province = province.provinceName;
 						console.log(user.province);
 					}
@@ -48,13 +54,57 @@ const controller = {
 	create: (req, res, next) => {
 		res.render("register", {});
 	},
+	createProcess: async (req, res, next) => {
+		let role = null;
+		const userType = req.body.role ? req.body.role : "user";
+		let newUser = {
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			userName: req.body.userName,
+			email: req.body.email,
+			telephone: req.body.telephone,
+			dni: req.body.dni,
+			locationID: 1,
+			address: req.body.address,
+			postalCode: req.body.postalCode,
+			image: req.file ? req.file.filename : "no-image-found.jpeg",
+		};
+		let userAccess = {};
+		const password = bcryptjs.hashSync(req.body.password, 10);
+		const roleName = userType;
+		const user = await usersService.create(newUser);
+
+
+		if (!user.errors) {
+			role = await rolesService.findOneByRoleName(roleName);
+			//Add check if role exists.
+			const roleID = role.dataValues.roleID;
+			let newUserAccess = {
+				userName: user.userName,
+				email: user.email,
+				active: user.active,
+				roleID,
+				password,
+			};
+			userAccess = await userAccessService.create(newUserAccess);
+		}
+
+		if (!user.errors && !userAccess.errors) {
+			req.session.assertUserLogged = user.dataValues;
+			req.session.userType = role.dataValues.roleName;
+			req.session.userID = user.userID;
+			console.log("session: ", req.session);
+		}
+
+		res.render("userProfile", { user: user, action: "view" });
+	},
 	edit: async (req, res, next) => {
 		let userID = req.params.userID;
 		let userToEdit = await usersService.findByPk(userID);
 		if (userToEdit) {
 			const location = await localitiesService.findByPk(userToEdit.locationID);
 			if (location) {
-				userToEdit.city = location.localityName;				
+				userToEdit.city = location.localityName;
 				const province = await provincesServices.findByPk(location.provinceID);
 				if (province) {
 					userToEdit.province = province.provinceName;
