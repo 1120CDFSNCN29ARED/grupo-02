@@ -39,18 +39,18 @@ router.post(
 	"/register",
 	uploadFile.single("image"),registrationValidationRules(),
 	registrationValidation,
-	usersController.loginProcess
+	usersController.createProcess
 );
 
 router.get('/', adminAuthMiddleware, usersController.index);
-//router.get('/details/:userId',authMiddleware, usersController.details);
-router.get("/profile/:userId", authMiddleware, usersController.profile);
+//router.get('/details/:userID',authMiddleware, usersController.details);
+router.get("/profile/:userID", authMiddleware, usersController.profile);
 
-router.get('/edit/:userId', authMiddleware, usersController.edit);
-router.put('/edit/:userId',uploadFile.single("image"), usersController.update);
+router.get('/edit/:userID', authMiddleware, usersController.edit);
+router.put('/edit/:userID',uploadFile.single("image"), usersController.update);
 
 router.get('/logout/', usersController.logout);
 
-router.delete("/delete/:userId", usersController.destroy);
+router.delete("/delete/:userID", usersController.destroy);
 
 module.exports = router;

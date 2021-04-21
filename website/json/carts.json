@@ -97,5 +97,17 @@
         "price": 23456
       }
     ]
+  },
+  {
+    "cartID": "041ca6e4-1122-40dd-b837-dffbc6288b4b",
+    "userID": "2061aa85-919e-46fc-a0f4-6fec18bdf238",
+    "status": "pending",
+    "items": []
+  },
+  {
+    "cartID": "08be79b0-c148-4d89-9811-b6837be7cea3",
+    "userID": "0b19c180-7a9b-4e97-a56e-09a1850b7635",
+    "status": "pending",
+    "items": []
   }
 ]

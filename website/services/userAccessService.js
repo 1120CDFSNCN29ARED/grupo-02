@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const db = require("../database/models");
 
 const userAccessService = {
@@ -6,6 +7,13 @@ const userAccessService = {
 	},
 	findByPk: async (id) => {
 		return await db.UserAccess.findByPk(id).catch((error) => error);
+	},
+	findOne: async (email) => {
+		return await db.UserAccess.findOne({
+			where: {
+				[Op.or]: [{ userName: email }, { email: email }],
+			},
+		}).catch((error) => error);
 	},
 	findAllByRole: async (roleID) => {
 		return await db.UserAccess.findAll({
@@ -18,15 +26,13 @@ const userAccessService = {
 		return await db.UserAccess.create(data).catch((error) => error);
 	},
 	update: async (userName, newAccessData) => {
-		console.log(newAccessData);
-		const userAccess = await db.UserAccess.findOne({
+		const result = await db.UserAccess.findOne({
 			where: {
 				userName: userName,
 			},
 		}).catch((error) => error);
-		console.log(userAccess);
-
-		return await userAccess.update(newAccessData).catch((error) => error);
+		
+		return await result.update(newAccessData, {where:{userName:userName}}).catch((error) => error);
 	},
 	delete: async (userName) => {
 		const data = { active: false };

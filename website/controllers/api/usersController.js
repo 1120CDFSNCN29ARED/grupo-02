@@ -1,8 +1,10 @@
-const usersService = require("../../services/usersService");
 const bcryptjs = require("bcryptjs");
+const usersService = require("../../services/usersService");
 const userAccessService = require("../../services/userAccessService");
 const favouritesService = require("../../services/favouritesService");
 const rolesService = require("../../services/rolesService");
+const localitiesService = require("../../services/localitiesService");
+const provincesServices = require("../../services/provincesService");
 
 const usersController = {
 	loginProcess: async (req, res) => {
@@ -62,10 +64,21 @@ const usersController = {
 			},
 		};
 
-		if (user) {
+		if (!user.errors) {
+			const location = await localitiesService.findByPk(user.locationID);
+
+			if (!location.errors) {
+				user.dataValues.city = location.localityName;
+				const province = await provincesServices.findByPk(location.provinceID);
+				if (!province.errors) {
+					user.dataValues.province = province.provinceName;
+				}
+			}
+
 			result.data = {
 				user,
 			};
+
 			result.meta.status = 200;
 			result.meta.count = 1;
 		} else {
@@ -76,12 +89,13 @@ const usersController = {
 				message: `No user was found`,
 			};
 		}
+
 		return res.status(result.meta.status).json(result);
 	},
 	byRole: async (req, res) => {
 		const role = await rolesService.findOneByRoleName(req.params.role);
 		let roleID = null;
-		if (role) {
+		if (!role.errors) {
 			roleID = role.roleID;
 		}
 		const users = await usersAccessService.findAllbyRole(roleID);
@@ -91,7 +105,7 @@ const usersController = {
 			},
 		};
 
-		if (users) {
+		if (!users.errors) {
 			result.data = {
 				users,
 			};
@@ -118,10 +132,9 @@ const usersController = {
 		let userAccess = {};
 		const password = bcryptjs.hashSync(req.body.password, 10);
 		const roleName = req.body.role;
-
 		const user = await usersService.create(newUser);
 
-		if (user) {
+		if (!user.errors) {
 			const role = await rolesService.findOneByRoleName(roleName);
 			//Add check if role exists.
 			const roleID = role.roleID;
@@ -140,7 +153,7 @@ const usersController = {
 			},
 		};
 
-		if (user && userAccess) {
+		if (!user.errors && !userAccess.errors) {
 			result.data = {
 				user: user,
 			};
@@ -160,29 +173,69 @@ const usersController = {
 		const newData = {
 			...req.body,
 		};
-		delete newData.password;
-		delete newData.roleID;
+		req.body.password
+			? delete newData.password : '';
+		req.body.roleID
+			? delete newData.roleID : '';
 		//delete {password, roleID} newData
-
+		const result = {
+			meta: {
+				url: req.originalUrl,
+			},
+		};
 		const newAccessData = {};
+
 		req.body.password
 			? (newAccessData.password = bcryptjs.hashSync(req.body.password, 10))
 			: null;
 		req.body.roleID ? (newAccessData.roleID = req.body.roleID) : null;
 
-		const result = await usersService
-			.update(req.params.userID, newData)
-			.catch((error) => error);
+		const user = await usersService.findByPk(req.params.userID);
+		if (user != null) {
+			const updatedUser = await usersService
+				.update(req.params.userID, newData)
+				.catch((error) => error);
 
-		const newUserName = result.userName;
-		if (newAccessData != {}) {
-			console.log("Updating the UserAcess Logs");
-			const updateUserAccess = await userAccessService.update(
-				newUserName,
-				newAccessData
-			);
+			const newUserName = updatedUser.userName;
+			
+			if (newAccessData != {}) {
+				const updateUserAccess = await userAccessService.update(
+					newUserName,
+					newAccessData
+				).catch(error => error);
+				
+				if (!updateUserAccess.errors) {
+					result.data = {
+						updatedUser,
+						updateUserAccess,
+					};
+					result.meta.status = 202;
+					result.meta.count = 1;
+				} else {
+					result.meta.status = 400;
+					result.meta.count = 0;
+					result.error = {
+						status: "409",
+						message: `No users Updated`,
+					};
+				}
+			} else {
+				result.meta.status = 400;
+				result.meta.count = 0;
+				result.error = {
+					status: "409",
+					message: `No users Updated`,
+				};
+			}
+		}else {
+			result.meta.status = 400;
+			result.meta.count = 0;
+			result.error = {
+				status: "409",
+				message: `No users Updated`,
+			};
 		}
-		return res.status(202).json(result);
+		return res.status(result.meta.status).json(result);
 	},
 	delete: async (req, res) => {
 		const userID = req.params.userID;
@@ -198,7 +251,7 @@ const usersController = {
 				url: req.originalUrl,
 			},
 		};
-		if (user) {
+		if (!user.errors) {
 			const favourites = await favouritesService.findAll(userID);
 			if (favourites) {
 				result.data = {
@@ -231,13 +284,13 @@ const usersController = {
 		const user = await usersService.findByPk(userID);
 		//const post = await postsService.findByPk(postID);
 
-		if (user) {
+		if (!user.errors) {
 			//add && post to condition check
 			const addFavourites = await favouritesService.addFavourite(
 				userID,
 				postID
 			);
-			if (addFavourites) {
+			if (!addFavourites.errors) {
 				result.data = {
 					addFavourites,
 				};
@@ -274,13 +327,13 @@ const usersController = {
 		const user = await usersService.findByPk(userID);
 		//const post = await postsService.findByPk(postID);
 
-		if (user) {
+		if (!user.errors) {
 			//ADD &&post to condition
 			const deleteFavourites = await favouritesService.deleteFavourite(
 				userID,
 				postID
 			);
-			if (deleteFavourites) {
+			if (!deleteFavourites.errors) {
 				result.data = {
 					deleteFavourites,
 				};

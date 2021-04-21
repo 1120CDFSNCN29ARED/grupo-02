@@ -1,7 +1,6 @@
 const { body, validationResult } = require('express-validator');
-const bcryptjs = require("bcryptjs");
-const db = require("../database/models");
 const path = require('path');
+const usersService = require('../services/usersService');
 
 const registrationValidationRules = () => {
 	return [
@@ -9,14 +8,15 @@ const registrationValidationRules = () => {
 			.notEmpty()
 			.withMessage("Por favor elige un nomber de usaurio")
 			.bail()
-			.custom((value, { req }) => {
-				return db.User.findOne({where:{userName: value}}).then(user => {
-					if (user) {
-					  return Promise.reject('El usuario ingresado se encuentra en uso');
-					}
-				})
+			.custom(async (value, { req }) => {
+				const user = await usersService.findOneByUserName(value).catch(error => error);
+				console.log("UserName Testing", user);
+				if (user!==null) {
+					return Promise.reject("El usuario ingresado se encuentra en uso");
+				}
+				return user;
 			}),
-		body("first_name")
+		body("firstName")
 			.notEmpty()
 			.withMessage("Por favor ingrese su nombre")
 			.bail()
@@ -25,7 +25,7 @@ const registrationValidationRules = () => {
 			.bail()
 			.isLength({ min: 2, max: undefined })
 			.withMessage("Por favor ingrese un nombre con mas de 2 caracteres"),
-		body("last_name")
+		body("lastName")
 			.notEmpty()
 			.withMessage("Por favor ingrese su apellido")
 			.bail()
@@ -36,7 +36,7 @@ const registrationValidationRules = () => {
 			.withMessage("Por favor ingrese un apellido con mas de 2 caracteres"),
 		body(
 			"dni",
-			"Por favor ingrese su DNI valido de 8 números sin punots ni espacios"
+			"Por favor ingrese su DNI valido de 8 números sin puntos ni espacios"
 		)
 			.notEmpty()
 			.withMessage()
@@ -53,12 +53,13 @@ const registrationValidationRules = () => {
 			.isEmail()
 			.withMessage("Por favor ingrese un email válido")
 			.bail()
-			.custom((value, { req }) => {
-				return db.User.findOne({where:{email: value}}).then(user => {
-					if (user) {
-					  return Promise.reject('El email ingresado se encuentra en uso');
-					}
-				})
+			.custom(async (value, { req }) => {
+				const user = await usersService.findOne(value).catch(error => error);
+				console.log("Email Error Testing: ", user);
+				if (user!==null) {
+					return Promise.reject("El email ingresado se encuentra en uso");
+				}
+				return user;
 			}),
 		body("telephone")
 			.notEmpty()
@@ -78,14 +79,14 @@ const registrationValidationRules = () => {
 			.bail()
 			.isAlpha("es-ES")
 			.withMessage("Por favor ingrese una ciudad válida"),
-		body("neighbourhood")
+		/* body("neighbourhood")
 			.notEmpty()
 			.withMessage("Por favor ingrese su barrio")
 			.bail()
 			.isAlphanumeric()
-			.withMessage("Por favor ingrese un barrio válido"),
+			.withMessage("Por favor ingrese un barrio válido"), */
 		body(
-			"postal_code",
+			"postalCode",
 			"Por favor ingrese un Código Postal válido de 4 dígitos"
 		)
 			.notEmpty()
@@ -123,48 +124,15 @@ const registrationValidationRules = () => {
 	];
 };
 
-const registrationValidation = (req, res, next) => {
+const registrationValidation = async (req, res, next) => {
 	const errors = validationResult(req);
+
 	if (errors.isEmpty()) {
-		db.Role.findOne({where: {role_name: "user"}})
-		.then((role) => {
-			let userToCreate = {
-				first_name: req.body.first_name,
-				last_name: req.body.last_name,
-				userName: req.body.userName,
-				email: req.body.email,
-				telephone: req.body.telephone,
-				dni: req.body.dni,
-				locationID: 1,
-				address: req.body.address,
-				postal_code: req.body.postal_code,
-				image: req.file ? req.file.filename : "no-image-found.jpeg",
-			};
-			db.User.create(userToCreate)
-			.then((user) => {
-				console.log(user);
-				let userAccess = {
-					userName: user.userName,
-					email: user.email,
-					password: bcryptjs.hashSync(req.body.password, 10),
-					roleID: role.roleID,
-				}
-				db.UserAccess.create(userAccess).then((userAccessData => {
-					db.User.findOne({where: {userName: userAccessData.userName}}).then((user) => {
-						req.session.assertUserLogged = user.dataValues;
-						req.session.userType = role.role_name;
-						req.session.userId = user.userID;
-						console.log("session: ",req.session);
-					}).then(() => {return next()})					
-				}))
-			})
-		})
-		.catch((error) => res.json("error, try again bitch!",error));		
-	}
-	else{
+		return next();
+	} else {
 		const validationErrors = errors.mapped();
-		return res.render("register", { errors: validationErrors, old: req.body});
-	}	
+		return res.render("register", { errors: validationErrors, old: req.body });
+	}
 };
 
 module.exports = { registrationValidationRules, registrationValidation };

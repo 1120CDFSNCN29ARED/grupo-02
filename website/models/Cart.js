@@ -91,12 +91,12 @@ const Cart = {
 		});
 		return foundInCart;
 	},
-	create: function (userId) {
+	create: function (userID) {
 		let carts = this.findAll();
-		console.log(userId);
+		console.log(userID);
 		let newCart = {
 			cartID: this.generateId(),
-			userID: userId,
+			userID: userID,
 			status: "pending",
 			items:[]
 		};
