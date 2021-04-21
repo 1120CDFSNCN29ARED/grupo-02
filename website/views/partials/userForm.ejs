@@ -1,4 +1,3 @@
-//Change province and city to autocomplete. Location depends on Province selected and the value behind location is the locationID for editign and creation!
 <div class="container-fluid container-registration-form text-center">
   <form action="/users/<%= action %>/<%= action =='edit' ? `${user.userID}?_method=PUT`: '' %>" method="POST" class="form-registration" enctype="multipart/form-data">
     <div class="row">

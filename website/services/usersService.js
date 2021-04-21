@@ -15,6 +15,13 @@ const usersService = {
 			},
     }).catch(error => error);
   },
+  findOneByUserName: async (userName) => {
+    return await db.User.findOne({
+      where: {
+        userName: userName
+      }
+    }).catch(error => error);
+  },
   create: async (data) => {
     const result = await db.User.create(data).catch(error => error);
     return result;

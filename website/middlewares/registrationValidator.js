@@ -1,5 +1,202 @@
 const { body, validationResult } = require('express-validator');
 const bcryptjs = require("bcryptjs");
+//const db = require("../database/models");
+const path = require('path');
+const usersService = require('../services/usersService');
+const rolesService = require("../services/rolesService");
+const userAccessService = require("../services/userAccessService");
+
+const registrationValidationRules = () => {
+	return [
+		body("userName")
+			.notEmpty()
+			.withMessage("Por favor elige un nomber de usaurio")
+			.bail()
+			.custom(async (value, { req }) => {
+				const user = await usersService.findOneByUserName(value).catch(error => error);
+				console.log("UserName Testing", user);
+				if (user!==null) {
+					return Promise.reject("El usuario ingresado se encuentra en uso");
+				}
+				return user;
+				/* return db.User.findOne({ where: { userName: value } }).then(user => {
+					if (user) {
+					  return Promise.reject('El usuario ingresado se encuentra en uso');
+					}
+				}) */
+			}),
+		body("firstName")
+			.notEmpty()
+			.withMessage("Por favor ingrese su nombre")
+			.bail()
+			.isAlpha("es-ES")
+			.withMessage("Por favor solo ingrese letras")
+			.bail()
+			.isLength({ min: 2, max: undefined })
+			.withMessage("Por favor ingrese un nombre con mas de 2 caracteres"),
+		body("lastName")
+			.notEmpty()
+			.withMessage("Por favor ingrese su apellido")
+			.bail()
+			.isAlpha("es-ES")
+			.withMessage("Por favor solo ingrese letras")
+			.bail()
+			.isLength({ min: 2, max: undefined })
+			.withMessage("Por favor ingrese un apellido con mas de 2 caracteres"),
+		body(
+			"dni",
+			"Por favor ingrese su DNI valido de 8 números sin puntos ni espacios"
+		)
+			.notEmpty()
+			.withMessage()
+			.bail()
+			.isNumeric()
+			.withMessage()
+			.bail()
+			.isLength({ min: 8, max: 8 })
+			.withMessage(),
+		body("email")
+			.notEmpty()
+			.withMessage("Por favor ingrese un email")
+			.bail()
+			.isEmail()
+			.withMessage("Por favor ingrese un email válido")
+			.bail()
+			.custom(async (value, { req }) => {
+				const user = await usersService.findOne(value).catch(error => error);
+				console.log("Email Error Testing: ", user);
+				if (user!==null) {
+					return Promise.reject("El email ingresado se encuentra en uso");
+				}
+				return user;
+				/* return db.User.findOne({ where: { email: value } }).then(user => {
+					if (user) {
+					  return Promise.reject('El email ingresado se encuentra en uso');
+					}
+				}) */
+			}),
+		body("telephone")
+			.notEmpty()
+			.withMessage("Por favor ingrese su numero de teléfono")
+			.bail()
+			.isNumeric()
+			.withMessage("Por favor ingrese un número de teléfono válido."),
+		body("province")
+			.notEmpty()
+			.withMessage("Por favor ingrese su provincia")
+			.bail()
+			.isAlpha("es-ES")
+			.withMessage("Por favor ingrese una provincia válida"),
+		body("city")
+			.notEmpty()
+			.withMessage("Por favor ingrese su ciudad")
+			.bail()
+			.isAlpha("es-ES")
+			.withMessage("Por favor ingrese una ciudad válida"),
+		/* body("neighbourhood")
+			.notEmpty()
+			.withMessage("Por favor ingrese su barrio")
+			.bail()
+			.isAlphanumeric()
+			.withMessage("Por favor ingrese un barrio válido"), */
+		body(
+			"postalCode",
+			"Por favor ingrese un Código Postal válido de 4 dígitos"
+		)
+			.notEmpty()
+			.withMessage("Por favor ingrese su código postal")
+			.bail()
+			.isInt()
+			.withMessage()
+			.bail()
+			.isLength({ min: 4, max: 4 })
+			.withMessage(),
+		body("address")
+			.notEmpty()
+			.escape()
+			.withMessage("Por favor ingrese su dirección")
+			.bail(),
+		body("password").notEmpty().withMessage("Por favor ingrese una contraseña"),
+		body("confirmPassword", "Las contraseñas ingresadas no coinciden.").custom(
+			(value, { req }) => value === req.body.password
+		),
+		body("image").custom((value, { req }) => {
+			let file = req.file;
+			let acceptedExtensions = [".jpg", ".jpeg", "png", ".gif"];
+			if (file) {
+				let fileExtension = path.extname(file.originalname);
+				if (!acceptedExtensions.includes(fileExtension)) {
+					throw new Error(
+						`Puede subir los siguientes tipos de imagenes: ${acceptedExtensions.join(
+							", "
+						)}`
+					);
+				}
+			}
+			return true;
+		}),
+	];
+};
+
+const registrationValidation = async (req, res, next) => {
+	console.log("In the registration Validation Section");
+	const userType = req.body.role ? req.body.role : 'user';
+	const errors = validationResult(req);
+	let role = null;
+	console.log("ERRORS:  ", errors);
+	if (errors.isEmpty()) {
+		console.log("ERRORS ARE EMPTY");
+		let newUser = {
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			userName: req.body.userName,
+			email: req.body.email,
+			telephone: req.body.telephone,
+			dni: req.body.dni,
+			locationID: 1,
+			address: req.body.address,
+			postalCode: req.body.postalCode,
+			image: req.file ? req.file.filename : "no-image-found.jpeg",				
+		};
+		let userAccess = {};
+		const password = bcryptjs.hashSync(req.body.password, 10);
+		const roleName = userType;
+
+		const user = await usersService.create(newUser);
+		console.log(user);
+		if (!user.errors) {
+			console.log("USER WAS CREATED BU USERSSERVICE");
+			role = await rolesService.findOneByRoleName(roleName);
+			console.log("ROLE: ", role);
+			//Add check if role exists.
+			const roleID = role.dataValues.roleID;
+			let newUserAccess = {
+				userName: user.userName,
+				email: user.email,
+				active: user.active,
+				roleID,
+				password,
+			};
+			userAccess = await userAccessService.create(newUserAccess);
+		}
+		if (!user.errors && !userAccess.errors) {
+			req.session.assertUserLogged = user.dataValues;
+			req.session.userType = role.dataValues.roleName;
+			req.session.userID = user.userID;
+			console.log("session: ", req.session);
+		}
+		return next();	
+	}
+	else{
+		const validationErrors = errors.mapped();
+		return res.render("register", { errors: validationErrors, old: req.body});
+	}	
+};
+
+module.exports = { registrationValidationRules, registrationValidation };
+
+/* const { body, validationResult } = require('express-validator');
+const bcryptjs = require("bcryptjs");
 const db = require("../database/models");
 const path = require('path');
 
@@ -167,4 +364,4 @@ const registrationValidation = (req, res, next) => {
 	}	
 };
 
-module.exports = { registrationValidationRules, registrationValidation };
+module.exports = { registrationValidationRules, registrationValidation }; */
