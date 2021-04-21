@@ -63,6 +63,7 @@ const getPostData = async post => {
         version = await versionsService.findByPk(vehicle.versionID);
         postData.post.versionID = vehicle.versionID;
         postData.post.versionName = version.versionName;
+        postData.post.type = vehicle.type;
         postData.post.gearType = vehicle.gearType;
         postData.post.year = vehicle.year;
         postData.post.kilometers = vehicle.kilometers;
