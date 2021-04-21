@@ -11,6 +11,10 @@ const Vehicle = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull:false
     },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     gearType: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,15 +22,15 @@ const Vehicle = (sequelize, DataTypes) => {
     },
     year: {
       type: DataTypes.INTEGER,
-      allowNull:false
+      allowNull: false
     },
     kilometers: {
       type: DataTypes.INTEGER,
-      allowNull:false
+      allowNull: false
     },
     color: {
       type: DataTypes.STRING,
-      allowNull:false
+      allowNull: false
     },
     active: {
         type: DataTypes.BOOLEAN,

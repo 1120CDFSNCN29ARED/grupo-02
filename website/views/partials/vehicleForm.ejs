@@ -220,7 +220,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md col-lg-6">
+            <div class="col-md-3">
                 <div class="form-floating mb-1">
                     <select class="form-select" id="vehicleColor" aria-label="Select Color" name="vehicleColor">
                         <option value="Blanco">Blanco</option>
@@ -235,23 +235,6 @@
                     <% } %>
                 </div>
             </div>
-            <div class="col-md col-lg-6">
-                <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleColorInterior ? 'is-invalid': null %>" id="vehicleColorInterior" aria-label="Select Color"
-                        name="vehicleColorInterior">
-                        <option value="white">Blanco</option>
-                        <option value="black">Negro</option>
-                    </select>
-                    <label for="VehicleColorInterior">Color Interior</label>
-                    <% if (locals.errors && errors.vehicleColorInterior) { %>
-                        <div class="invalid-feedback">
-                          <%= errors.vehicleColorInterior.msg %>
-                        </div>
-                    <% } %>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-3">
                 <div class="form-floating mb-1">
                     <select class="form-select <%=locals.errors && errors.vehicleBrand ? 'is-invalid': null %>" id="province" aria-label="Select brand" name="province">
@@ -278,17 +261,6 @@
                     <% if (locals.errors && errors.location) { %>
                         <div class="invalid-feedback">
                           <%= errors.location.msg %>
-                        </div>
-                    <% } %>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-floating mb-1">
-                    <input type="text" class="form-control  <%=locals.errors && errors.vehicleNeighbourhood ? 'is-invalid': null %>" name="vehicleNeighbourhood" id="vehicleNeighbourhood" value="<%= (locals.post && post.location) ? post.location.neighbourhood : "" %>">
-                    <label for="vehicleNeighbourhood">Barrio</label>
-                    <% if (locals.errors && errors.vehicleNeighbourhood) { %>
-                        <div class="invalid-feedback">
-                          <%= errors.vehicleNeighbourhood.msg %>
                         </div>
                     <% } %>
                 </div>
