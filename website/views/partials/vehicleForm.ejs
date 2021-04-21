@@ -27,13 +27,13 @@
         <div class="row">
             <div class="col-md col-lg-2">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleBrand ? 'is-invalid': null %>" id="vehicleBrand" aria-label="Select brand" name="vehicleBrand" onchange="populateModels()">
+                    <select class="form-select <%=locals.errors && errors.vehicleBrand ? 'is-invalid': null %>" id="brand" aria-label="Select brand" name="brand">
                         <option value=""></option>
-                        <% brands.forEach(brand => { %>
+                        <% for(brand of brands){ %>
                             <option value='<%=brand.brandID%>' <%= (locals.product && product.brandID === brand.brandID)?"selected":"" %>>
-                                <%= brand.brand_name %>
+                                <%= brand.brandName %>
                             </option>
-                            <% }) %>
+                            <% } %>
                     </select>
                     <label for="vehicleBrand">Marca</label>
                     <% if (locals.errors && errors.userName) { %>
@@ -45,7 +45,7 @@
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleModel ? 'is-invalid': null %>" id="vehicleModel" aria-label="Select model" name="vehicleModel" onchange="populateVersions()">
+                    <select class="form-select <%=locals.errors && errors.vehicleModel ? 'is-invalid': null %>" id="model" aria-label="Select model" name="model">
                         
                     </select>
                     <label for="vehicleModel">Modelo</label>
@@ -75,10 +75,10 @@
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleVersion ? 'is-invalid': null %>" id="vehicleVersion" aria-label="Select version" name="vehicleVersion">
+                    <select class="form-select <%=locals.errors && errors.vehicleVersion ? 'is-invalid': null %>" id="version" aria-label="Select version" name="version">
                         
                     </select>
-                    <label for="vehicleVersion">Versión</label>
+                    <label for="version">Versión</label>
                     <% if (locals.errors && errors.vehicleVersion) { %>
                         <div class="invalid-feedback">
                           <%= errors.vehicleVersion.msg %>
@@ -364,68 +364,5 @@
         </form>
     <% } %>
 </section>
-<script type="application/javascript">
-    function populateModels() {
-        let brandID = document.getElementById("vehicleBrand").value;
-        let modelDropDown = document.getElementById("vehicleModel");
-        let options = document.querySelectorAll('#vehicleModel option');
-        options.forEach(o => o.remove());
-        let option;
-        option = document.createElement('option');
-        modelDropDown.add(option);
-        if(brandID !== ""){
-            fetch("/api/modelsByBrand/" + brandID)
-            .then(  
-                function(response) {
-                    if (response.status !== 200) {  
-                        console.warn('Looks like there was a problem. Status Code: ' + response.status);
-                        return;
-                    }
-                    response.json().then(function(model) {
-                        for (let i = 0; i < model.length; i++) {
-                            option = document.createElement('option');
-                            option.text = model[i].model_name;
-                            option.value = model[i].modelID;
-                            modelDropDown.add(option);
-                        }
-                    });
-                }
-            )
-            .catch(error => {
-                console.log(error);
-            });
-        }
-    }
-    function populateVersions() {
-        let modelID = document.getElementById("vehicleModel").value;
-        let versionDropDown = document.getElementById("vehicleVersion");
-        let options = document.querySelectorAll('#vehicleVersion option');
-        options.forEach(o => o.remove());
-        let option;
-        option = document.createElement('option');
-        versionDropDown.add(option);
-        if(modelID !== ""){
-            fetch("/api/versionsByModel/" + modelID)
-            .then(  
-                function(response) {  
-                    
-                    if (response.status !== 200) {  
-                        console.warn('Looks like there was a problem. Status Code: ' + response.status);
-                        return;
-                    }
-                    response.json().then(function(version) {
-                        for (let i = 0; i < version.length; i++) {
-                            option = document.createElement('option');
-                            option.text = version[i].version_name;
-                            option.value = version[i].versionID;
-                            versionDropDown.add(option);
-                        }
-                    });
-                }
-            )
-            .catch(error => {
-                console.log(error);
-            });
-        }
-    }
-</script>
+<script src="/js/getModels.js"></script>
+<script src="/js/getVersions.js"></script>

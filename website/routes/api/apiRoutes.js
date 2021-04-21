@@ -7,9 +7,12 @@ const brandsRoutes = require("./brandsRoutes");
 const modelsRoutes = require("./modelsRoutes");
 const versionsRoutes = require("./versionsRoutes");
 
+const postsRoutes = require("./postsRoutes");
 const productsRoutes = require("./productsRoutes");
 const vehiclesRoutes = require("./vehiclesRoutes");
 const partsRoutes = require("./partsRoutes");
+
+const questionsRoutes = require("./questionsRoutes");
 
 const usersRoutes = require("./usersRoutes");
 
@@ -21,9 +24,12 @@ router.use("/models", modelsRoutes);
 router.use("/versions", versionsRoutes);
 router.use("/users", usersRoutes);
 
+router.use("/posts", postsRoutes);
 router.use("/products", productsRoutes);
 router.use("/vehicles", vehiclesRoutes);
 router.use("/parts", partsRoutes);
+
+router.use("/questions", questionsRoutes);
 
 router.use("/provinces", provincesRoutes);
 router.use("/localities", localitiesRoutes);

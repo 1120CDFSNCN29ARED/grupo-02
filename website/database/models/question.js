@@ -22,7 +22,8 @@ const Question = (sequelize, DataTypes) => {
 		questionDate: {
 			type: DataTypes.DATE,
 			allowNull: false,
-			field: "question_date"
+			field: "question_date",
+			defaultValue: new Date()
 		},
 		answer: {
 			type: DataTypes.STRING,

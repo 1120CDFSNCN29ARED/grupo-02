@@ -8,6 +8,9 @@ const productsService = {
     findByPk: async (id) => {
         return await db.Product.findByPk(id).catch(error => error);
     },
+    findProductTypes: async () => {
+        return await db.Product.findAll({attributes: ["product_type"], distinct: true});
+    },
     findByProductType: async (productType) => {
         return await db.Product.findAll({where: {productType}});
     },

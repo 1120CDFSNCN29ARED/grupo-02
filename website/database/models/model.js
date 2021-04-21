@@ -45,6 +45,12 @@ const Model = (sequelize, DataTypes) => {
 			defaultValue: false,
 			field: "vehicle_type_truck"
 		},
+		part: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+			defaultValue: false,
+			field: "is_part"
+		}
 	};
   const config = {
 		tableName: "models",
