@@ -9,16 +9,16 @@
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleType ? 'is-invalid': null %>" id="vehicleType" aria-label="Select category" name="vehicleType">
-                        <option value="car" <%= (locals.post && post.type === "car")?"selected":"" %> >Auto</option>
-                        <option value="pickup" <%= (locals.post && post.type === "camioneta")?"pickup":"" %> >Camioneta</option>
-                        <option value="motorcycle" <%= (locals.post && post.type === "moto")?"motorcycle":"" %> >Moto</option>
-                        <option value="truck" <%= (locals.post && post.type === "camion")?"truck":"" %> >Camion</option>
+                    <select class="form-select <%=locals.errors && errors.type ? 'is-invalid': null %>" id="type" aria-label="Select vehicle type" name="type">
+                        <option value="car" <%= (locals.post && post.type === "car") ? "selected" : "" %> >Auto</option>
+                        <option value="pickup" <%= (locals.post && post.type === "pickup") ? "pickup" : "" %> >Camioneta</option>
+                        <option value="motorcycle" <%= (locals.post && post.type === "motorcycle") ? "motorcycle" : "" %> >Moto</option>
+                        <option value="truck" <%= (locals.post && post.type === "truck") ? "truck" : "" %> >Camion</option>
                     </select>
-                    <label for="vehicleType">Tipo de Vehiculo</label>
-                    <% if (locals.errors && errors.vehicleType) { %>
+                    <label for="type">Tipo de Vehículo</label>
+                    <% if (locals.errors && errors.type) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehicleType.msg %>
+                          <%= errors.type.msg %>
                         </div>
                     <% } %>
                 </div>                
@@ -27,60 +27,59 @@
         <div class="row">
             <div class="col-md col-lg-2">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleBrand ? 'is-invalid': null %>" id="brand" aria-label="Select brand" name="brand">
+                    <select class="form-select <%=locals.errors && errors.brand ? 'is-invalid': null %>" id="brand" aria-label="Select brand" name="brand">
                         <option value=""></option>
                         <% for(brand of brands){ %>
-                            <option value='<%=brand.brandID%>' <%= (locals.post && post.brandID === brand.brandID)?"selected":"" %>>
+                            <option value='<%= brand.brandID %>' <%= (locals.post && post.brandID === brand.brandID) ? "selected" : "" %>>
                                 <%= brand.brandName %>
                             </option>
                             <% } %>
                     </select>
-                    <label for="vehicleBrand">Marca</label>
-                    <% if (locals.errors && errors.userName) { %>
+                    <label for="brand">Marca</label>
+                    <% if (locals.errors && errors.brand) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehicleBrand.msg %>
+                          <%= errors.brand.msg %>
                         </div>
                     <% } %>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleModel ? 'is-invalid': null %>" id="model" aria-label="Select model" name="model">
+                    <select class="form-select <%=locals.errors && errors.model ? 'is-invalid': null %>" id="model" aria-label="Select model" name="model">
                     </select>
-                    <label for="vehicleModel">Modelo</label>
-                    <% if (locals.errors && errors.vechicleModel) { %>
+                    <label for="model">Modelo</label>
+                    <% if (locals.errors && errors.model) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vechicleModel.msg %>
+                          <%= errors.model.msg %>
                         </div>
                     <% } %>
                 </div>
             </div>
             <div class="col-md col-lg-2">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleYear ? 'is-invalid': null %>" id="vehicleYear" aria-label="Select Year" name="vehicleYear">
+                    <select class="form-select <%=locals.errors && errors.year ? 'is-invalid': null %>" id="year" aria-label="Select Year" name="year">
                         <% for(let i=2021;i>=1900;i--){%>
                             <option value='<%=i%>' <%= (locals.post && post.year === i) ? "selected" : "" %>>
                                 <%=i%>
                             </option>
                             <% } %>
                     </select>
-                    <label for="vehicleYear">Año</label>
-                    <% if (locals.errors && errors.vehicleYear) { %>
+                    <label for="year">Año</label>
+                    <% if (locals.errors && errors.year) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehicleYear.msg %>
+                          <%= errors.year.msg %>
                         </div>
                     <% } %>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleVersion ? 'is-invalid': null %>" id="version" aria-label="Select version" name="version">
-                        
+                    <select class="form-select <%=locals.errors && errors.version ? 'is-invalid': null %>" id="version" aria-label="Select version" name="version">
                     </select>
                     <label for="version">Versión</label>
-                    <% if (locals.errors && errors.vehicleVersion) { %>
+                    <% if (locals.errors && errors.version) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehicleVersion.msg %>
+                          <%= errors.version.msg %>
                         </div>
                     <% } %>
                 </div>
@@ -88,20 +87,20 @@
         </div>
         <div class="row">
             <div class="col-md col-lg-6">
-                <div class="form-floating mb-1 <%=locals.errors && errors.vehicleState ? 'is-invalid': null %>" id="vehicleState" aria-label="Select Part State">
+                <div class="form-floating mb-1 <%=locals.errors && errors.state ? 'is-invalid': null %>" id="state" aria-label="Select Part State">
                     <p>Estado</p>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="vehicleState" id="vehicleStateNew" value="Nuevo" <%= (locals.post && post.state === "Nuevo") ? "checked" : "" %>>
-                        <label for="vehicleStateNew">Nuevo</label>
+                        <input type="radio" name="state" id="stateNew" value="Nuevo" <%= (locals.post && post.state === "Nuevo") ? "checked" : "" %>>
+                        <label for="stateNew">Nuevo</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="vehicleState" id="vehicleStateUsed" value="Usado" <%= (locals.post && post.state === "Usado") ? "checked" : "" %>>
-                        <label for="vehicleStateUsed">Usado</label>
+                        <input type="radio" name="state" id="stateUsed" value="Usado" <%= (locals.post && post.state === "Usado") ? "checked" : "" %>>
+                        <label for="stateUsed">Usado</label>
                     </div>
                 </div>
-                <% if (locals.errors && errors.vehicleState) { %>
+                <% if (locals.errors && errors.state) { %>
                     <div class="invalid-feedback">
-                      <%= errors.vehicleState.msg %>
+                      <%= errors.state.msg %>
                     </div>
                 <% } %>
             </div>
@@ -173,47 +172,47 @@
         <div class="row">
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleGearType ? 'is-invalid': null %>" id="vehicleGearType" aria-label="Select Year" name="vehicleGearType">
+                    <select class="form-select <%=locals.errors && errors.gearType ? 'is-invalid': null %>" id="gearType" aria-label="Select Year" name="gearType">
                         <option value="automática" <%= (locals.post && post.gearType === "automática") ? "selected" : "" %>>Automática</option>
                         <option value="manual" <%= (locals.post && post.gearType === "manual") ? "selected" : "" %>>Manual</option>
                     </select>
-                    <label for="vehicleGearType">Caja de cambios</label>
-                    <% if (locals.errors && errors.vehicleGearType) { %>
+                    <label for="gearType">Caja de cambios</label>
+                    <% if (locals.errors && errors.gearType) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehicleGearType.msg %>
+                          <%= errors.gearType.msg %>
                         </div>
                     <% } %>
                 </div>
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control <%=locals.errors && errors.vehicleKMs ? 'is-invalid': null %>" placeholder="" id="vehicleKMs" name="vehicleKMs" value="<%= locals.post && post.kilometers %>"></input>
-                    <label for="vehicleKMs">Kilometros</label>
-                    <% if (locals.errors && errors.vehicleKMs) { %>
+                    <input type="number" class="form-control <%=locals.errors && errors.kilometers ? 'is-invalid': null %>" placeholder="" id="kilometers" name="kilometers" value="<%= locals.post && post.kilometers %>"></input>
+                    <label for="kilometers">Kilometros</label>
+                    <% if (locals.errors && errors.kilometers) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehicleKMs.msg %>
+                          <%= errors.kilometers.msg %>
                         </div>
                     <% } %>
                 </div>
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control <%=locals.errors && errors.vehiclePrice ? 'is-invalid': null %>" placeholder="" id="vehiclePrice" name="vehiclePrice" value="<%= locals.post && post.price %>"></input>
-                    <label for="vehiclePrice">Precio</label>
-                    <% if (locals.errors && errors.vehiclePrice) { %>
+                    <input type="number" class="form-control <%=locals.errors && errors.price ? 'is-invalid': null %>" placeholder="" id="price" name="price" value="<%= locals.post && post.price %>"></input>
+                    <label for="price">Precio</label>
+                    <% if (locals.errors && errors.price) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehiclePrice.msg %>
+                          <%= errors.price.msg %>
                         </div>
                     <% } %>
                 </div>
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" name="discount" id="vehicleDiscount" class="form-control <%=locals.errors && errors.discount ? 'is-invalid': null %>" value="<%= (locals.post && post.onSale) ? post.onSale.discount : 0 %>">
+                    <input type="number" name="discount" id="discount" class="form-control <%=locals.errors && errors.discount ? 'is-invalid': null %>" value="<%= (locals.post && post.discount) ? post.discount : 0 %>">
                     <label for="discount">Descuento %</label>
-                    <% if (locals.errors && errors.vehicleDiscount) { %>
+                    <% if (locals.errors && errors.discount) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehicleDiscount.msg %>
+                          <%= errors.discount.msg %>
                         </div>
                     <% } %>
                 </div>
@@ -222,25 +221,25 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <select class="form-select" id="vehicleColor" aria-label="Select Color" name="vehicleColor">
+                    <select class="form-select" id="color" aria-label="Select Color" name="color">
                         <option value="Blanco">Blanco</option>
                         <option value="Negro">Negro</option>
                         <option value="Gris">Gris</option>
                     </select>
                     <label for="VehicleColor">Color Exterior</label>
-                    <% if (locals.errors && errors.vehicleColor) { %>
+                    <% if (locals.errors && errors.color) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehicleColor.msg %>
+                          <%= errors.color.msg %>
                         </div>
                     <% } %>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.vehicleBrand ? 'is-invalid': null %>" id="province" aria-label="Select brand" name="province">
+                    <select class="form-select <%=locals.errors && errors.province ? 'is-invalid': null %>" id="province" aria-label="Select province" name="province">
                         <option value=""></option>
                         <% for(province of provinces){ %>
-                            <option value='<%=province.provinceID%>' <%= (locals.post && post.provinceID === province.provinceID)?"selected":"" %>>
+                            <option value='<%=province.provinceID%>' <%= (locals.post && post.provinceID === province.provinceID) ? "selected" : "" %>>
                                 <%= province.provinceName %>
                             </option>
                             <% } %>
@@ -267,11 +266,11 @@
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control <%=locals.errors && errors.vehiclePostalCode ? 'is-invalid': null %>" name="vehiclePostalCode" id="vehiclePostalCode" value="<%= (locals.post && post.location) ? post.location.postalCode : "" %>">
-                    <label for="vehiclePostalCode">Código Postal</label>
-                    <% if (locals.errors && errors.vehiclePostalCode) { %>
+                    <input type="text" class="form-control <%=locals.errors && errors.postalCode ? 'is-invalid': null %>" name="postalCode" id="postalCode" value="<%= (locals.post && post.postalCode) ? post.postalCode : "" %>">
+                    <label for="postalCode">Código Postal</label>
+                    <% if (locals.errors && errors.postalCode) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehiclePostalCode.msg %>
+                          <%= errors.postalCode.msg %>
                         </div>
                     <% } %>
                 </div>                
@@ -291,11 +290,11 @@
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
-                    <textarea class="form-control <%=locals.errors && errors.vehicleDescription? 'is-invalid': null %>" name="vehicleDescription" id="vehicleDescription"><%= (locals.post && post.description) ? post.description : "" %></textarea>
-                    <label for="vehicleDescription">Descripción</label>
-                    <% if (locals.errors && errors.vehicleDescription) { %>
+                    <textarea class="form-control <%=locals.errors && errors.description ? 'is-invalid': null %>" name="description" id="description"><%= (locals.post && post.description) ? post.description : "" %></textarea>
+                    <label for="description">Descripción</label>
+                    <% if (locals.errors && errors.description) { %>
                         <div class="invalid-feedback">
-                          <%= errors.vehicleDescription.msg %>
+                          <%= errors.description.msg %>
                         </div>
                     <% } %>
                 </div>
@@ -305,11 +304,11 @@
             <div class="row">
                 <div class="col-md">
                     <div class="form-floating mb-1">
-                        <input type="file" name="productImages" id="productImages" class="form-control input-file" multiple>
-                        <label for="productImages">Seleccione hasta 5 imágenes para su producto</label>
-                        <% if (locals.errors && errors.productImages) { %>
+                        <input type="file" name="images" id="images" class="form-control input-file" multiple>
+                        <label for="images">Seleccione hasta 5 imágenes para su producto</label>
+                        <% if (locals.errors && errors.images) { %>
                             <div class="invalid-feedback">
-                              <%= errors.productImages.msg %>
+                              <%= errors.images.msg %>
                             </div>
                         <% } %>
                     </div>
@@ -318,8 +317,8 @@
         <% } else if (action === "edit" && locals.post && post.imageURLs[0] && post.imageURLs[0] !== "no-image-found.jpeg") { %>
             <div class="row">
                 <div class="form-floating mb-1">
-                    <input type="file" name="productImages" id="productImages" class="form-control input-file <%=locals.errors && errors.vehicleState ? 'is-invalid': null %>" multiple>
-                    <label for="productImages">Seleccione imágenes (hasta 5 en total) para su producto</label>
+                    <input type="file" name="images" id="images" class="form-control input-file <%=locals.errors && errors.images ? 'is-invalid': null %>" multiple>
+                    <label for="images">Seleccione imágenes (hasta 5 en total) para su producto</label>
                 </div>
                 <div class="current-product-images">
                     <p>Imagenes actuales</p>
@@ -327,9 +326,9 @@
                     <div class="current-product-image-container">
                         <ul>
                             <li>
-                                <% if (locals.post && post.imageURLs[i] && post.imageURLs[i] !== "no-image-found.jpeg") { %>
-                                    <img src="<%= post.imageURLs.length && (post.imageURLs)[i].includes("http") ? post.imageURLs[i] : `/img/products/${post.imageURLs[i]}` %>" alt="image-product-<%= i %>" class="edit-product-img">
-                                    <a class="btn btn-danger" href="<%- `/products/deleteImage/${productType}/${productID}?image=${post.imageURLs[i]}` %>">
+                                <% if (locals.post && post.images[i] && post.images[i] !== "no-image-found.jpeg") { %>
+                                    <img src="<%= post.images.length && (post.images)[i].includes("http") ? post.images[i] : `/img/products/${post.images[i]}` %>" alt="image-product-<%= i %>" class="edit-product-img">
+                                    <a class="btn btn-danger" href="<%- `/products/deleteImage/${productType}/${post.postID}?image=${post.images[i]}` %>">
                                         Borrar
                                     </a>
                                 <% } %>
