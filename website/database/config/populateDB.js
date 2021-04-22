@@ -51,6 +51,7 @@ async function populateDB(db) {
 		discount: 20, stock: 1, rating: 4, state: "Nuevo", featured: true, sellerID: user.userID, locationID: 1, productID: product.productID})
 	const image = await db.ImageUrl.create({imageURL: "no-image-found.jpeg", postID: post.postID})
 	const favourite = await db.Favourite.create({userID: user.userID, postID: post.postID});
+	const question = await db.Question.create({question: "Test question", questionDate: new Date(), userID: user.userID, postID: post.postID})
 	try {
 		await db.Role.create({
 			roleName: "admin",

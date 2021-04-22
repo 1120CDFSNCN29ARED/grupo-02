@@ -20,6 +20,26 @@ const getPostData = async post => {
     const questions = await questionsService.findByPostID(post.postID);
     const images = await imagesService.findByPostID(post.postID);
     const seller = await usersService.findByPk(post.sellerID);
+    const plainImages = [];
+    for(image of images){
+        plainImages.push({
+            imageID: image.imageID,
+            imageURL: image.imageURL
+        })
+    }
+    const plainQuestions = [];
+    for(question of questions){
+        const user = await usersService.findByPk(question.userID);
+        plainQuestions.push({
+            questionID: question.questionID,
+            question: question.question,
+            userID: user.userID,
+            userName: user.userName,
+            questionDate: question.questionDate,
+            answer: question.answer,
+            answerDate: question.answerDate,
+        })
+    }
     let part = null;
     let vehicle = null;
     let version = null;
@@ -55,8 +75,8 @@ const getPostData = async post => {
             provinceID: province.provinceID,
             provinceName: province.provinceName,
         },
-        questions,
-        images,
+        questions: plainQuestions,
+        images: plainImages,
     }
     if(product.productType === "vehicle"){
         vehicle = await vehiclesService.findByPk(product.vehicleID);

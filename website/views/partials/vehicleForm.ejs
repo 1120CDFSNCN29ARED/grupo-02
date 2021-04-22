@@ -5,7 +5,7 @@
 <% } %>
 
 <section class="section-add-product" id="add-product-vehicle">
-    <form action="/products/<%= action %>/<%= productType %><%= (action === "edit") ? `/${post.postID}?_method=PUT` : "" %> " method="POST" class="add-product" enctype="multipart/form-data">
+    <form action="/posts/<%= action %>/<%= productType %><%= (action === "edit") ? `/${post.postID}?_method=PUT` : "" %> " method="POST" class="add-product" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md col-lg-2">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.brand ? 'is-invalid': null %>" id="brand" aria-label="Select brand" name="brand">
+                    <select class="form-select <%=locals.errors && errors.brand ? 'is-invalid': null %>" id="brand" aria-label="Select brand" name="brandID">
                         <option value=""></option>
                         <% for(brand of brands){ %>
                             <option value='<%= brand.brandID %>' <%= (locals.post && post.brandID === brand.brandID) ? "selected" : "" %>>
@@ -45,7 +45,7 @@
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.model ? 'is-invalid': null %>" id="model" aria-label="Select model" name="model">
+                    <select class="form-select <%=locals.errors && errors.model ? 'is-invalid': null %>" id="model" aria-label="Select model" name="modelID">
                     </select>
                     <label for="model">Modelo</label>
                     <% if (locals.errors && errors.model) { %>
@@ -74,7 +74,7 @@
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.version ? 'is-invalid': null %>" id="version" aria-label="Select version" name="version">
+                    <select class="form-select <%=locals.errors && errors.version ? 'is-invalid': null %>" id="version" aria-label="Select version" name="versionID">
                     </select>
                     <label for="version">Versión</label>
                     <% if (locals.errors && errors.version) { %>
@@ -236,7 +236,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.province ? 'is-invalid': null %>" id="province" aria-label="Select province" name="province">
+                    <select class="form-select <%=locals.errors && errors.province ? 'is-invalid': null %>" id="province" aria-label="Select province">
                         <option value=""></option>
                         <% for(province of provinces){ %>
                             <option value='<%=province.provinceID%>' <%= (locals.post && post.provinceID === province.provinceID) ? "selected" : "" %>>
@@ -327,8 +327,8 @@
                         <ul>
                             <li>
                                 <% if (locals.post && post.images[i] && post.images[i] !== "no-image-found.jpeg") { %>
-                                    <img src="<%= post.images.length && (post.images)[i].includes("http") ? post.images[i] : `/img/products/${post.images[i]}` %>" alt="image-product-<%= i %>" class="edit-product-img">
-                                    <a class="btn btn-danger" href="<%- `/products/deleteImage/${productType}/${post.postID}?image=${post.images[i]}` %>">
+                                    <img src="<%= post.images.length && (post.images)[i].includes("http") ? post.images[i] : `/img/posts/${post.images[i]}` %>" alt="image-product-<%= i %>" class="edit-product-img">
+                                    <a class="btn btn-danger" href="<%- `/posts/deleteImage/${productType}/${post.postID}?image=${post.images[i]}` %>">
                                         Borrar
                                     </a>
                                 <% } %>
@@ -348,7 +348,7 @@
         </div>
     </form>
     <% if (action === "edit") { %>
-        <form action="/products/delete/<%= productType %>/<%= post.postID %>?_method=DELETE" method="POST">
+        <form action="/posts/delete/<%= productType %>/<%= post.postID %>?_method=DELETE" method="POST">
             <div class="add-product-cta"><button class="add-product-delete btn-lg" type="submit" name="delete">Borrar</button></div>
         </form>
     <% } %>

@@ -22,7 +22,7 @@ router.use("/admin", adminRoutes);
 router.use("/users", usersRoutes)
 
 //Products
-router.use("/products", productsRoutes);
+//router.use("/products", productsRoutes);
 
 //Posts
 router.use("/posts",postsRoutes);

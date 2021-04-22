@@ -37,6 +37,22 @@ const postsController = {
 			productType: req.params.productType,
 			post: {},
 		});
+    },
+    storePost: async (req, res) => {
+        const postData = {};
+        return res.json(req.body);
+        //return res.redirect("/posts/" + postData.postID);
+    },
+    details: async (req, res) => {
+        const post = await postsService.findByPk(req.params.postID)
+        if(post){
+            const fullPost = await getPostData(post);
+            return res.render("postDetails", {fullPost});
+
+        }
+        else{
+            return res.redirect("/");
+        }
     }
 };
 

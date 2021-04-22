@@ -5,7 +5,7 @@ const path = require('path');
 //Middlewares
 const authMiddleware = require('../middlewares/authMiddleware');
 const postsController = require("../controllers/postsController");
-const {vehicleCreationValidator, vehicleCreationValidation, partCreationValidator, partCreationValidation} = require("../middlewares/productCreationMiddleware");
+const {postCreationValidator, postCreationValidation} = require("../middlewares/postCreationMiddleware");
 const productOwner = require("../middlewares/productOwnerMiddleware");
 const urlClearner = require("../middlewares/urlCleaner");
 
@@ -13,22 +13,21 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) { 
-      cb(null, path.join(__dirname, '../public/img/products'));
+      cb(null, path.join(__dirname, '../public/img/posts'));
       
     },
     filename: function (req, file, cb) { 
-      const newFileName = `product-image-${Date.now()}${path.extname(file.originalname)}`;
+      const newFileName = `post-image-${Date.now()}${path.extname(file.originalname)}`;
       cb(null, newFileName);
     },
   });
   
 const uploadFile = multer({ storage });
 
-router.get("/create/:productType?", authMiddleware, postsController.create);/*
-router.post("/create/vehicle", authMiddleware, uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator, vehicleCreationValidation, postsController.storeVehicle);
-router.post("/create/part", authMiddleware, uploadFile.fields([{ name: 'productImages' }]), partCreationValidator, partCreationValidation, postsController.storePart);
+router.get("/create/:productType?", authMiddleware, postsController.create);
+router.post("/create/:productType", authMiddleware, uploadFile.fields([{ name: 'images' }]), postCreationValidator, postCreationValidation, postsController.storePost);
 
-router.get("/details/:postID", postsController.details);
+router.get("/details/:postID", postsController.details);/*
 
 router.get("/edit/:productType/:postID", authMiddleware, productOwner, postsController.edit);
 router.put("/edit/vehicle/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator,
