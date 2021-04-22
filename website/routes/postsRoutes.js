@@ -32,17 +32,12 @@ router.get("/details/:postID", postsController.details);
 router.get("/edit/:productType/:postID", authMiddleware, productOwner, postsController.edit);
 router.put("/edit/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'images' }]), postCreationValidator,
 postCreationValidation, postsController.update);
-/*
-router.get("/edit/:productType/:postID", authMiddleware, productOwner, postsController.edit);
-router.put("/edit/vehicle/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator,
-vehicleCreationValidation, postsController.updateVehicle);
-router.put("/edit/part/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'productImages' }]), partCreationValidator,
-partCreationValidation, postsController.updatePart);
+
 
 router.post("/question/:postID", authMiddleware, postsController.question);
 
-router.get("/deleteImage/:productType/:postID", authMiddleware, productOwner, postsController.deleteImage);
-router.delete("/delete/:productType/:postID", authMiddleware, productOwner, postsController.delete);
+router.get("/deleteImage/:postID", authMiddleware, productOwner, postsController.deleteImage);
+/*router.delete("/delete/postID", authMiddleware, productOwner, postsController.delete);
 
 router.get("/search", urlClearner, postsController.search);
 router.get("/searchBar/:searchValue?", urlClearner, postsController.searchBar);

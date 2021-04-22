@@ -215,7 +215,26 @@ const postsController = {
                 const postData = await getPostData(post);
                 return res.json(postData);
             }
-    }
+    },
+    question: async (req, res) => {
+		const newQuestion = {
+			postID: req.params.postID,
+			userID: req.session.assertUserLogged.userID,
+			question: req.body.question,
+			questionDate: new Date()
+		}
+        const question = await questionsService.create(newQuestion);
+		return res.redirect(`/posts/details/${req.params.postID}`);
+	},
+    deleteImage: async (req, res) => {
+		const images = await imagesService.findByPostID(req.params.postID);
+        for(image of images){
+            if(image.imageURL === req.query.image){
+                await imagesService.delete(image.imageID)
+            }
+        }
+		res.redirect(`/posts/edit/${postID}`);
+	},
 };
 
 module.exports = postsController
