@@ -1,7 +1,6 @@
 <% let styles = ['<link rel="stylesheet" href="/css/styles-header.css"/>', '<link rel="stylesheet" href="/css/styles-footer.css"/>', '<link rel="stylesheet" href="/css/styles-mediaquery-medium-large.css" media="(min-width: 768px"/>', '<link rel="stylesheet" href="/css/productStyles.css"/>', '<link rel="stylesheet" href="/css/productStyles-mediaQuery.css" media="(min-width: 768px"/>'] %> 
 <%- include("./partials/head", {"styles": styles}) %> 
 <%- include("./partials/header") %>
-<% console.log(fullPost) %> 
 <main>
     <section id="top">
         <div id="productPhotoCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -166,7 +165,6 @@
             <h2>Preguntas</h2>
             <% if (fullPost.questions && fullPost.questions.length > 0) { %>
                 <% fullPost.questions.forEach(e => { %>
-                    <%= console.log(e) %> 
                     <p class="question"><%= e.question %> - <span class="question-user"><%= e.userName.toUpperCase() %> - <%= e.questionDate.toLocaleString("es-AR") %></span> <%- e.answer ? '<i class="fas fa-level-down-alt question-arrow"></i>' : "" %> </p>
                     <%- e.answer ? `<p class="answer"> ${e.answer} - ${e.answerDate.toLocaleString("es-AR")} </p>` : "" %> 
                     

@@ -27,8 +27,12 @@ const uploadFile = multer({ storage });
 router.get("/create/:productType?", authMiddleware, postsController.create);
 router.post("/create/:productType", authMiddleware, uploadFile.fields([{ name: 'images' }]), postCreationValidator, postCreationValidation, postsController.storePost);
 
-router.get("/details/:postID", postsController.details);/*
+router.get("/details/:postID", postsController.details);
 
+router.get("/edit/:productType/:postID", authMiddleware, productOwner, postsController.edit);
+router.put("/edit/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'images' }]), postCreationValidator,
+postCreationValidation, postsController.update);
+/*
 router.get("/edit/:productType/:postID", authMiddleware, productOwner, postsController.edit);
 router.put("/edit/vehicle/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'productImages' }]), vehicleCreationValidator,
 vehicleCreationValidation, postsController.updateVehicle);

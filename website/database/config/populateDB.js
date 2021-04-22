@@ -33,9 +33,7 @@ const versions = JSON.parse(
 async function populateDB(db) {
 	await db.Brand.bulkCreate(brands).catch((error) => console.log(error));
 	await db.Model.bulkCreate(models).catch((error) => console.log(error));
-	await db.VehicleVersion.bulkCreate(versions).catch((error) =>
-		console.log(error.message, error.values)
-	);
+	await db.VehicleVersion.bulkCreate(versions).catch((error) => console.log(error.message, error.values));
 	await db.Province.bulkCreate(provinces).catch((error) => console.log(error));
 	await db.Locality.bulkCreate(localities).catch((error) => console.log(error));
 	const role = await db.Role.create({roleName: "user", roleDescription: "standard user access",}).catch((error) => console.log(error));
