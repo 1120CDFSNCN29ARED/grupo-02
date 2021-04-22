@@ -72,13 +72,13 @@ const registrationValidationRules = () => {
 			.notEmpty()
 			.withMessage("Por favor ingrese su provincia")
 			.bail()
-			.isAlpha("es-ES")
+			.isNumeric()
 			.withMessage("Por favor ingrese una provincia válida"),
-		body("city")
+		body("location")
 			.notEmpty()
 			.withMessage("Por favor ingrese su ciudad")
 			.bail()
-			.isAlpha("es-ES")
+			.isNumeric()
 			.withMessage("Por favor ingrese una ciudad válida"),
 		/* body("neighbourhood")
 			.notEmpty()
@@ -127,7 +127,7 @@ const registrationValidationRules = () => {
 
 const registrationValidation = async (req, res, next) => {
 	const errors = validationResult(req);
-
+	console.log(errors)
 	if (errors.isEmpty()) {
 		return next();
 	} else {

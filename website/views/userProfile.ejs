@@ -27,9 +27,9 @@
               <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Preguntas</strong></span> 37</li>
             </ul>
           </div>
-          <!--/col-3-->
+          <!--/col-3 eso lo deberías cambiar para que use el fullUser, sí, en todos lados -->
           <div class="col-sm-9">                        
-            <%- include("./partials/userForm",{ action: action, provinces: provinces}) %>            
+            <%- include("./partials/userForm",{ action, provinces}) %>            
           </div>
         </div>
       </div>

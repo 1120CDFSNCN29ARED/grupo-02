@@ -49,6 +49,7 @@ const controller = {
 		}
 		const user = req.session.assertUserLogged;
 		res.render("userProfile", { user, action: "view", provinces });
+		
 	},
 	details: async (req, res, next) => {
 		let userID = req.params.userID;
@@ -63,6 +64,7 @@ const controller = {
 		res.render("register", {provinces});
 	},
 	createProcess: async (req, res, next) => {
+		console.log("aca")
 		let role = null;
 		const userType = req.body.role ? req.body.role : "user";
 		let newUser = {
@@ -81,7 +83,7 @@ const controller = {
 		const password = bcryptjs.hashSync(req.body.password, 10);
 		const roleName = userType;
 		const user = await usersService.create(newUser);
-
+		console.log(user)
 
 		if (!user.errors) {
 			role = await rolesService.findOneByRoleName(roleName);
@@ -105,7 +107,9 @@ const controller = {
 		}
 		let provinces = await provincesServices.findAll();
 		let localities = await localitiesService.findAll();
-		res.render("userProfile", { user: user, province:provinces, localities:localities, action: "view" });
+		res.render("userProfile", { user: user, provinces, localities, action: "view" });
+		//debería ser un redirect esto ^
+		//le pasás el userID o directamente con assertUserLogged y creas un método nuevo para eso
 	},
 	edit: async (req, res, next) => {
 		let provinces = [];
