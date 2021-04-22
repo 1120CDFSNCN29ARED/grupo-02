@@ -1,6 +1,7 @@
 let provinceDropdown = document.getElementById("province");
 
 provinceDropdown.addEventListener("change", (e) => {
+    console.log("THE PROVINCE HAS CHANGED");
     let provinceID = provinceDropdown.value;
     let locationDropDown = document.getElementById("location");
     let options = document.querySelectorAll('#location option');

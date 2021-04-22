@@ -23,6 +23,8 @@ const controller = {
 		res.render("users", { users });
 	},
 	profile: async (req, res, next) => {
+		let provinces = [];
+		let localities = [];
 		if (req.params.userID) {
 			const userID = req.params.userID;
 			const user = await usersService.findByPk(userID);
@@ -30,29 +32,35 @@ const controller = {
 				const location = await localitiesService.findByPk(user.locationID);
 				console.log(location);
 				if (location) {
-					user.city = location.localityName;
-					console.log(`Getting the location: ${user.city}`);
+					user.location = location.localityName;
+					console.log(`Getting the location: ${user.location}`);
 					const province = await provincesServices.findByPk(
 						location.provinceID
 					);
 					if (province) {
-						user.province = province.provinceName;
+						user.province = province.provinceID;
 						console.log(user.province);
 					}
+					provinces = await provincesServices.findAll();
+					localities = await localitiesService.findAll();
 				}
 			}
-			return res.render("userProfile", { user, action: "view" });
+			return res.render("userProfile", { user, provinces,localities, action: "view" });
 		}
 		const user = req.session.assertUserLogged;
-		res.render("userProfile", { user, action: "view" });
+		res.render("userProfile", { user, action: "view", provinces });
 	},
 	details: async (req, res, next) => {
 		let userID = req.params.userID;
 		const user = await usersService.findByPk(userID);
-		res.render("userProfile", { user, action: "view" });
+		let provinces = await provincesServices.findAll();
+		let localities = await localitiesService.findAll();
+		res.render("userProfile", { user,provinces, localities, action: "view" });
 	},
-	create: (req, res, next) => {
-		res.render("register", {});
+	create: async (req, res, next) => {
+		let provinces = await provincesServices.findAll();
+
+		res.render("register", {provinces});
 	},
 	createProcess: async (req, res, next) => {
 		let role = null;
@@ -64,7 +72,7 @@ const controller = {
 			email: req.body.email,
 			telephone: req.body.telephone,
 			dni: req.body.dni,
-			locationID: 1,
+			locationID: req.body.location,
 			address: req.body.address,
 			postalCode: req.body.postalCode,
 			image: req.file ? req.file.filename : "no-image-found.jpeg",
@@ -95,23 +103,28 @@ const controller = {
 			req.session.userID = user.userID;
 			console.log("session: ", req.session);
 		}
-
-		res.render("userProfile", { user: user, action: "view" });
+		let provinces = await provincesServices.findAll();
+		let localities = await localitiesService.findAll();
+		res.render("userProfile", { user: user, province:provinces, localities:localities, action: "view" });
 	},
 	edit: async (req, res, next) => {
+		let provinces = [];
+		let localities = [];
 		let userID = req.params.userID;
 		let userToEdit = await usersService.findByPk(userID);
-		if (userToEdit) {
+		/* if (userToEdit) {
 			const location = await localitiesService.findByPk(userToEdit.locationID);
 			if (location) {
-				userToEdit.city = location.localityName;
+				userToEdit.location = location.localityName;
 				const province = await provincesServices.findByPk(location.provinceID);
 				if (province) {
-					userToEdit.province = province.provinceName;
+					userToEdit.province = province.provinceID;
 				}
 			}
-		}
-		res.render("userProfile", { user: userToEdit, action: "edit" });
+		} */
+		provinces = await provincesServices.findAll();
+		localities = await localitiesService.findAll();
+		res.render("userProfile", { user: userToEdit, provinces:provinces, localities:localities, action: "edit" });
 	},
 	update: (req, res, next) => {
 		///no tengo la pantalla de Edicion armada

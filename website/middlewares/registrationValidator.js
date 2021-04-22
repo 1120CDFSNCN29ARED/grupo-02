@@ -1,5 +1,6 @@
 const { body, validationResult } = require('express-validator');
 const path = require('path');
+const provincesServices = require('../services/provincesService');
 const usersService = require('../services/usersService');
 
 const registrationValidationRules = () => {
@@ -130,8 +131,9 @@ const registrationValidation = async (req, res, next) => {
 	if (errors.isEmpty()) {
 		return next();
 	} else {
+		let provinces = await provincesServices.findAll();
 		const validationErrors = errors.mapped();
-		return res.render("register", { errors: validationErrors, old: req.body });
+		return res.render("register", { errors: validationErrors, old: req.body, provinces });
 	}
 };
 
