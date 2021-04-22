@@ -69,6 +69,38 @@
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
+          <select type="form-select" class="form-control registration-field <%=locals.errors && errors.province ? 'is-invalid':null %> " aria-label="Select province" id="province" name="province" placeholder="provincia" <%=action==='view'? "disabled" :''%>>
+            <option value=""></option>
+            <% for( province of provinces) { %>
+              <option value='<%=province.provinceID%>' <%=(locals.user && user.province===province.provinceID) ? "selected" : "" %>>
+                <%= province.provinceName %>
+              </option>
+            <% } %>
+          </select>
+          <label for="province">Provincia</label>
+          <% if (locals.errors && errors.province) { %>
+            <div class="invalid-feedback">
+              <%= errors.province.msg %>
+            </div>
+            <% } %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-floating mb-1">
+          <select type ="form-select" class = "form-control registration-field <%=locals.errors &&  errors.location ? 'is-invalid':null%>" aria-label="Select City" id="location" name="location" placeholder="cíudad"
+          <%=action==='view'? "disabled" :''%>>
+          <option value= '<%=(locals.user && user.locationID) ? user.locationID: null%>'> <%=(locals.user && user.location) ? user.location :""%></option>          
+        </select>  
+          <label for="location">Ciudad</label>
+          <% if (locals.errors && errors.location) { %>
+            <div class="invalid-feedback">
+              <%= errors.location.msg %>
+            </div>
+            <% } %>
+        </div>
+      </div>
+      <!-- <div class="col-xs-12 col-sm-6">
+        <div class="form-floating mb-1">
           <input type="text" class="form-control registration-field <%=locals.errors && errors.province ? 'is-invalid':null %> " id="province" name="province" placeholder="province" value="<%= locals.old && old.province ? old.province : action == 'edit' || action=='view' ? user.province :null %>" <%=action==='view'? "disabled":''%>/>
           <label for="province">Provincia</label>
           <% if (locals.errors && errors.province) { %>
@@ -88,7 +120,7 @@
             </div>
             <% } %>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
           <input type="text" class="form-control registration-field <%=locals.errors && errors.neighbourhood ? 'is-invalid':null %> " id="neighbourhood" name="neighbourhood" placeholder="barrio" value="<%= locals.old && old.neighbourhood ? old.neighbourhood : action == 'edit' || action=='view' ? user.neighbourhood :null %>" <%=action==='view'? "disabled":''%>/>
@@ -175,3 +207,4 @@
     </div>
   </form>
 </div>
+<script src="/js/getLocalities.js"></script>
