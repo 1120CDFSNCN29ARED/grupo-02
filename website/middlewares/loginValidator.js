@@ -2,6 +2,7 @@ const { body, validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const usersService = require('../services/usersService.js');
 const userAccessService = require('../services/userAccessService.js');
+const getFullUser = require("./getFullUser.js");
 
 const loginValidationRules = () => {
 	return [
@@ -23,16 +24,20 @@ const loginValidation = async (req, res, next) => {
 			console.log(email);
 			const result = await userAccessService.findOne(email);
 			const userAccess = result.dataValues;
+			let fullUser = {};
 			if(bcryptjs.compareSync(req.body.password, userAccess.password)){
-				req.session.assertUserLogged = userAccess;
-				req.session.userType = userAccess.roleName;
 				const user = await usersService.findOne(email);
-				req.session.userID = user.dataValues.userID;
+				fullUser = await getFullUser(user);
+				req.session.assertUserLogged = fullUser;
+				req.session.userType = fullUser.roleName;
+				req.session.userID = fullUser.userID;
+				console.log(fullUser)
+
 				if (req.body.keepLogged != undefined) {
 					res.cookie("userEmail", user.email, { maxAge: (1000 * 60) * 2 });
 				}
 				return next();
-		}
+			}
 			else {
 				const validationErrors = {
 					email: {
