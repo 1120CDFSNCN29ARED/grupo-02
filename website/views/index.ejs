@@ -335,35 +335,29 @@
 									<div
 										class="form-group col-2 advanced-filter"
 									>
-										<label for="partBrand" class=""
+										<label for="brand" class=""
 											>Marca</label
 										>
-										<select	id="partBrand" class="form-control" name="partBrand">										
+										<select	id="brand" class="form-control" name="brand">										
 											<option value="" style="display: none;">...</option>
 											<option value=""></option>
-											<% partBrands.forEach(brand => { %>
+											<% for(brand of partBrands) { %>
 											<option value='<%= brand.brandID %>'>
 												<%= brand.brandName %>
 											</option>
-											<% }) %>										
+											<% } %>										
 										</select>
 									</div>
 									<div
 										class="form-group col-2 advanced-filter"
 									>
-										<label for="partModel">Modelo</label>
+										<label for="model">Modelo</label>
 										<select
-											id="partModel"
+											id="model"
 											class="form-control"
-											name="partModel"
+											name="model"
 										>
 											<option value="" style="display: none;">...</option>
-											<option value=""></option>
-											<% partModels.forEach(model => { %>
-											<option value='<%= model.modelID %>'>
-												<%= model.modelName %>
-											</option>
-											<% }) %>
 										</select>
 									</div>
 									<div
@@ -434,12 +428,8 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-				<% for(let i = 0; i < 4; i++) { %>
-					<% let brand = vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicles[i].brandID) %>
-					<% let model = vehicleModels.find(vehicleModel => vehicleModel.modelID === vehicles[i].modelID) %>
-					<% let version = vehicleVersions.find(vehicleVersion => vehicleVersion.versionID === vehicles[i].versionID) %>
-					<% let seller = users.find(user => user.userID === vehicles[i].userID) %> 
-					<%- include("./partials/vehicleCard", {vehicle: vehicles[i], brand, model, version, seller}) %> 
+				<% for(let i = 0; i < vehicles.length; i++) { %>
+					<%- include("./partials/vehicleCard", {vehicle: vehicles[i]}) %> 
 				<% } %>
 				</div>
 			</div>
@@ -448,20 +438,13 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-					<% let featuredVehicles = vehicles.filter(vehicle => vehicle.featured === true) %>
-					<% let featuredParts = parts.filter(part => part.featured === true) %>
+					<% let featuredVehicles = vehicles.filter(vehicle => vehicle.post.featured === true) %>
+					<% let featuredParts = parts.filter(part => part.post.featured === true) %>
 					<% featuredVehicles.forEach(vehicle => { %>
-						<% let brand = vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicle.brandID) %>
-						<% let model = vehicleModels.find(vehicleModel => vehicleModel.modelID === vehicle.modelID) %>
-						<% let version = vehicleVersions.find(vehicleVersion => vehicleVersion.versionID === vehicle.versionID) %>
-						<% let seller = users.find(user => user.userID === vehicle.userID) %> 
-						<%- include("./partials/vehicleCard", {vehicle, brand, model, version, seller}) %> 
+						<%- include("./partials/vehicleCard", {vehicle}) %> 
 					<% }) %>
 					<% featuredParts.forEach(part => { %>
-						<% let brand = partBrands.find(partBrand => partBrand.brandID === part.brandID) %>
-						<% let model = partModels.find(partModel => partModel.modelID === part.modelID) %>
-						<% let seller = users.find(user => user.userID === part.userID) %>
-						<%- include("./partials/partCard", {part, brand, model, seller}) %> 
+						<%- include("./partials/partCard", {part}) %> 
 					<% }) %>				
 				</div>
 				</div>
@@ -471,20 +454,13 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
-					<% let onSaleVehicles = vehicles.filter(vehicle => vehicle.onSale.status === true) %>
-					<% let onSaleParts = parts.filter(part => part.onSale.status === true) %>
+					<% let onSaleVehicles = vehicles.filter(vehicle => vehicle.post.onSale === true) %>
+					<% let onSaleParts = parts.filter(part => part.post.onSale.status === true) %>
 					<% onSaleVehicles.forEach(vehicle => { %>
-						<% let brand = vehicleBrands.find(vehicleBrand => vehicleBrand.brandID === vehicle.brandID) %>
-						<% let model = vehicleModels.find(vehicleModel => vehicleModel.modelID === vehicle.modelID) %>
-						<% let version = vehicleVersions.find(vehicleVersion => vehicleVersion.versionID === vehicle.versionID) %> 
-						<% let seller = users.find(user => user.userID === vehicle.userID) %>
-						<%- include("./partials/vehicleCard", {vehicle, brand, model, version, seller}) %> 
+						<%- include("./partials/vehicleCard", {vehicle}) %> 
 					<% }) %>
 					<% onSaleParts.forEach(part => { %>
-						<% let brand = partBrands.find(partBrand => partBrand.brandID === part.brandID) %>
-						<% let model = partModels.find(partModel => partModel.modelID === part.modelID) %>
-						<% let seller = users.find(user => user.userID === part.userID) %>
-						<%- include("./partials/partCard", {part, brand, model, seller}) %> 
+						<%- include("./partials/partCard", {part}) %> 
 					<% }) %>				
 				</div>
 			</div>
@@ -496,5 +472,7 @@
 			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 			crossorigin="anonymous"
 		></script>
+		<script src="/js/getModels.js"></script>
+		<script src="/js/getVersions.js"></script>
 	</body>
 </html>

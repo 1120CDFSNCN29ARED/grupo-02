@@ -48,6 +48,7 @@ const getPostData = async post => {
             postID: post.postID,
             title: post.title,
             description: post.description,
+            productType: product.productType,
             published: post.published,
             publishedDate: post.publishedDate,
             onSale: post.onSale,

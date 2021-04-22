@@ -72,6 +72,7 @@ const postsController = {
     },
     published: async (req, res) => {
         const posts = await postsService.published();
+        console.log(posts)
         const result = {
             meta: {
                 url: req.originalUrl

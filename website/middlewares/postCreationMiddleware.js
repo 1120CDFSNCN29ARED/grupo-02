@@ -4,6 +4,7 @@ const modelsService = require('../services/modelsService');
 const localitiesService = require('../services/localitiesService');
 const versionsService = require('../services/versionsService');
 const getPostData = require('./getPostData');
+const { registrationValidation } = require('./registrationValidator');
 
 const postCreationValidator = (req, res, next) => {
     console.log(req.body)
@@ -68,6 +69,7 @@ const postCreationValidator = (req, res, next) => {
             body("vehicleType").isEmpty().withMessage("Debe seleccionar al menos un tipo de vehículo al que corresponde la parte"),
         );
     }
+    return postCreationValidator;
     next();
 }
 
