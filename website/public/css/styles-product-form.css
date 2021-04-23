@@ -77,7 +77,6 @@ input[type="radio"]:checked + label > .fa-star:before {
 }
 #partPrice,
 #rating,
-#discount,
 #stock {
   height: 65px;
 }

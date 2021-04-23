@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md col-lg-2">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.brand ? 'is-invalid': null %>" id="brand" aria-label="Select brand" name="brandID">
+                    <select class="form-select <%=locals.errors && errors.brandID ? 'is-invalid': null %>" id="brand" aria-label="Select brand" name="brandID">
                         <option value=""></option>
                         <% for(brand of brands){ %>
                             <option value='<%= brand.brandID %>' <%= (locals.post && post.brandID === brand.brandID) ? "selected" : "" %>>
@@ -36,21 +36,21 @@
                             <% } %>
                     </select>
                     <label for="brand">Marca</label>
-                    <% if (locals.errors && errors.brand) { %>
+                    <% if (locals.errors && errors.brandID) { %>
                         <div class="invalid-feedback">
-                          <%= errors.brand.msg %>
+                          <%= errors.brandID.msg %>
                         </div>
                     <% } %>
                 </div>
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.model ? 'is-invalid': null %>" id="model" aria-label="Select model" name="modelID">
+                    <select class="form-select <%=locals.errors && errors.modelID ? 'is-invalid': null %>" id="model" aria-label="Select model" name="modelID">
                     </select>
                     <label for="model">Modelo</label>
-                    <% if (locals.errors && errors.model) { %>
+                    <% if (locals.errors && errors.modelID) { %>
                         <div class="invalid-feedback">
-                          <%= errors.model.msg %>
+                          <%= errors.modelID.msg %>
                         </div>
                     <% } %>
                 </div>
@@ -74,12 +74,12 @@
             </div>
             <div class="col-md col-lg-4">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.version ? 'is-invalid': null %>" id="version" aria-label="Select version" name="versionID">
+                    <select class="form-select <%=locals.errors && errors.versionID ? 'is-invalid': null %>" id="version" aria-label="Select version" name="versionID">
                     </select>
                     <label for="version">Versión</label>
-                    <% if (locals.errors && errors.version) { %>
+                    <% if (locals.errors && errors.versionID) { %>
                         <div class="invalid-feedback">
-                          <%= errors.version.msg %>
+                          <%= errors.versionID.msg %>
                         </div>
                     <% } %>
                 </div>
@@ -139,7 +139,18 @@
                 </div>
             </div>
             -->
-            <div class="col-md col-lg-6">
+            <div class="col-md col-lg-3">
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control <%=locals.errors && errors.stock ? 'is-invalid': null %>" placeholder="" id="stock" name="stock" value="<%= locals.post && post.stock %>"></input>
+                    <label for="stock">Stock</label>
+                    <% if (locals.errors && errors.stock) { %>
+                        <div class="invalid-feedback">
+                          <%= errors.stock.msg %>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
                     <input type="number" class="form-control <%=locals.errors && errors.rating ? 'is-invalid': null %>" placeholder="" id="rating" name="rating"
                     value="<%= (locals.post && post.rating) ? post.rating : "" %>"></input>
@@ -236,7 +247,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.province ? 'is-invalid': null %>" id="province" aria-label="Select province">
+                    <select class="form-select <%=locals.errors && errors.provinceID ? 'is-invalid': null %>" id="province" aria-label="Select province" name="provinceID">
                         <option value=""></option>
                         <% for(province of provinces){ %>
                             <option value='<%=province.provinceID%>' <%= (locals.post && post.provinceID === province.provinceID) ? "selected" : "" %>>
@@ -245,21 +256,21 @@
                             <% } %>
                     </select>
                     <label for="province">Provincia</label>
-                    <% if (locals.errors && errors.province) { %>
+                    <% if (locals.errors && errors.provinceID) { %>
                         <div class="invalid-feedback">
-                          <%= errors.province.msg %>
+                          <%= errors.provinceID.msg %>
                         </div>
                     <% } %>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <select class="form-select <%=locals.errors && errors.location ? 'is-invalid': null %>" id="location" aria-label="Select city" name="location">
+                    <select class="form-select <%=locals.errors && errors.locationID ? 'is-invalid': null %>" id="location" aria-label="Select city" name="locationID">
                     </select>
                     <label for="location">Ciudad</label>
-                    <% if (locals.errors && errors.location) { %>
+                    <% if (locals.errors && errors.locationID) { %>
                         <div class="invalid-feedback">
-                          <%= errors.location.msg %>
+                          <%= errors.locationID.msg %>
                         </div>
                     <% } %>
                 </div>

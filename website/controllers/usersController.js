@@ -30,16 +30,13 @@ const controller = {
 			const user = await usersService.findByPk(userID);
 			if (user) {
 				const location = await localitiesService.findByPk(user.locationID);
-				console.log(location);
 				if (location) {
 					user.location = location.localityName;
-					console.log(`Getting the location: ${user.location}`);
 					const province = await provincesServices.findByPk(
 						location.provinceID
 					);
 					if (province) {
 						user.province = province.provinceID;
-						console.log(user.province);
 					}
 					provinces = await provincesServices.findAll();
 					localities = await localitiesService.findAll();
