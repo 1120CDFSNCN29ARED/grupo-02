@@ -77,8 +77,9 @@ const postsController = {
         product = await productsService.create(newProduct);
 
         newPost.title = req.body.title;
-        newPost.description = req.body.description;            
-        if(req.body.submit === "published"){
+        newPost.description = req.body.description; 
+        console.log(req.body)           
+        if(req.body.submit === "publish"){
             newPost.published = true;
             newPost.publishedDate = new Date();
         }
@@ -118,7 +119,7 @@ const postsController = {
     edit: async (req, res) => {
         const post = await postsService.findByPk(req.params.id);
         const postData = await getPostData(post);
-        
+
     },
     update: async (req, res) => {
         let post = await postsService.findByPk(req.params.postID);

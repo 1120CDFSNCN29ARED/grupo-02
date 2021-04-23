@@ -21,10 +21,12 @@ brandDropdown.addEventListener("change", (e) => {
                     console.log("models: ",models);
                     console.log("result: ",result);
                     for (let i = 0; i < models.length; i++) {
-                        option = document.createElement('option');
-                        option.text = models[i].modelName;
-                        option.value = models[i].modelID;
-                        modelDropDown.add(option);
+                        if(!models[i].part){
+                            option = document.createElement('option');
+                            option.text = models[i].modelName;
+                            option.value = models[i].modelID;
+                            modelDropDown.add(option);
+                        }
                     }
                 });
             }

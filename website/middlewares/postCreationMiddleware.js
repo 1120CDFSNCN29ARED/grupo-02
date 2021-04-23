@@ -95,9 +95,9 @@ const partPostCreationValidator = () => {
                 return brand;
         }),
         body("modelID").notEmpty().withMessage("Debe seleccionar un modelo").bail()
-            .custom(async (value, { req }) => {
+            .custom(async (value) => {
                 const model = await modelsService.findByPk(value).catch(error => error);
-                if (!model || model.brandID !== req.body.brandID) {
+                if (!model) {
                     return Promise.reject("El modelo es inválido");
                 }
                 return model;
@@ -109,9 +109,9 @@ const partPostCreationValidator = () => {
         body("price").notEmpty().withMessage("Debe ingresar el precio").bail()
         .isNumeric().withMessage("Debe ingresar un número").bail().isInt({ gt: 0 }).withMessage("Debe ingresar un número mayor a cero"),
         body("discount").notEmpty().withMessage("Debe ingresar el descuento. Si no desea aplicar un descuento, ingrese 0").bail()
-        .isNumeric().withMessage("Debe ingresar un número").bail().isFloat({ gt: 0, lt: 100 }).withMessage("Debe ingresar un número entre 0 y 100"),
+        .isNumeric().withMessage("Debe ingresar un número").bail().isFloat({ gt: -1, lt: 100 }).withMessage("Debe ingresar un número entre 0 y 100"),
         body("locationID").notEmpty().withMessage("Debe ingresar la ciudad").bail()
-            .custom(async (value, { req }) => {
+            .custom(async (value) => {
                 const locality = await localitiesService.findByPk(value).catch(error => error);
                 if (!locality) {
                     return Promise.reject("La ciudad ingresada es inválida");
@@ -120,7 +120,7 @@ const partPostCreationValidator = () => {
         }).bail(),
         body("postalCode").notEmpty().withMessage("Debe ingresar el código postal"),
         body("partSerialNumber").notEmpty().withMessage("Debe ingresar un número de parte"),
-        body("vehicleType").notEmpty().withMessage("Debe seleccionar al menos un tipo de vehículo al que corresponde la parte"),
+        //body("vehicleType").notEmpty().withMessage("Debe seleccionar al menos un tipo de vehículo al que corresponde la parte"),
     ];
     return postCreationValidator;
 }
@@ -128,12 +128,12 @@ const partPostCreationValidator = () => {
 const partPostCreationValidation = async (req, res, next) => {
     const errors = validationResult(req);
     console.log(errors)
-    if (errors.notEmpty()) {
+    if (errors.isEmpty()) {
 		return next();
 	}
     else{
         if(req.url.includes("create")){
-            const brands = await brandsService.findByProductType({car: true},{motorcycle: true},{pickup: true},{truck: true});
+            const brands = await brandsService.findByProductType({makesParts: true});
             return res.render("createPost", { brands, productType: "part", errors: validationErrors, old: req.body});
         }
         else if(req.url.includes("edit")){

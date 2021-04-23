@@ -40,8 +40,9 @@ async function populateDB(db) {
 	const user = await db.User.create({firstName: "test", lastName: "test", userName: "test", dni: 12345678, email: "test@test.com", telephone: 12345678,
 		address: "calle falsa 123",	postalCode: 1234, image: "no-image-found.jpeg",	locationID: 1,}).catch((error) => console.log(error));
 	const userAccess = user.createUserAccess({email: user.email, password: bcryptjs.hashSync("test", 10), roleID: role.roleID}).catch((error) => console.log(error));
-	const brand = await db.Brand.create({brandName: "BMW Test", car: true, motorcycle: true, pickup: true, truck: false,})
+	const brand = await db.Brand.create({brandName: "BMW Test", car: true, motorcycle: true, pickup: true, truck: false, makesParts: true})
 	const model = await db.Model.create({modelName: "Serie 1", brandID: brand.brandID, car: true,})
+	await db.Model.create({modelName: "Test Part Model", brandID: brand.brandID, car: true, part: true,})
 	const version = await db.VehicleVersion.create({brandID: brand.brandID, modelID: model.modelID, versionName: "118i Advantage 5P",})
 	const vehicle = await db.Vehicle.create({versionID: version.versionID, gearType: "automática", type: "car", year: 2021, kilometers: 0, color: "black"})
 	const product = await db.Product.create({productType: "vehicle", vehicleID: vehicle.vehicleID, brandID: brand.brandID, modelID: model.modelID})											

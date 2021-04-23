@@ -26,6 +26,7 @@ const uploadFile = multer({ storage });
 
 router.get("/create/:productType?", authMiddleware, postsController.create);
 router.post("/create/vehicle", authMiddleware, uploadFile.fields([{ name: 'images' }]), vehiclePostCreationValidator(), vehiclePostCreationValidation, postsController.storePost);
+router.post("/create/part", authMiddleware, uploadFile.fields([{ name: 'images' }]), partPostCreationValidator(), partPostCreationValidation, postsController.storePost);
 
 router.get("/details/:postID", postsController.details);
 
