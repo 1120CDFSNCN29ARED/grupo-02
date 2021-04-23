@@ -1,10 +1,10 @@
 const bcryptjs = require("bcryptjs");
-
 const localitiesService = require("../services/localitiesService");
 const provincesServices = require("../services/provincesService");
 const usersService = require("../services/usersService");
 const userAccessService = require("../services/userAccessService");
 const rolesService = require("../services/rolesService");
+const favouritesService = require('../services/favouritesService');
 
 const controller = {
 	login: (req, res) => {
@@ -12,6 +12,7 @@ const controller = {
 	},
 	loginProcess: (req, res) => {
 		let userID = req.session.userID;
+
 		if (req.session.userType === "admin") {
 			return res.redirect("/admin/");
 		}
@@ -25,35 +26,26 @@ const controller = {
 	profile: async (req, res, next) => {
 		let provinces = [];
 		let localities = [];
-		if (req.params.userID) {
-			const userID = req.params.userID;
-			const user = await usersService.findByPk(userID);
-			if (user) {
-				const location = await localitiesService.findByPk(user.locationID);
-				console.log(location);
-				if (location) {
-					user.location = location.localityName;
-					console.log(`Getting the location: ${user.location}`);
-					const province = await provincesServices.findByPk(
-						location.provinceID
-					);
-					if (province) {
-						user.province = province.provinceID;
-						console.log(user.province);
-					}
-					provinces = await provincesServices.findAll();
-					localities = await localitiesService.findAll();
-				}
+
+		if (req.session.assertUserLogged) {
+			let user = req.session.assertUserLogged;
+			try {
+				provinces = await provincesServices.findAll();
+				localities = await localitiesService.findAll();
+			} catch (error) {
+				console.error(error);
 			}
-			return res.render("userProfile", { user, provinces,localities, action: "view" });
+			return res.render("userProfile", {
+				user,
+				provinces,
+				localities,
+				action: "view",
+			});
 		}
-		const user = req.session.assertUserLogged;
-		res.render("userProfile", { user, action: "view", provinces });
-		
 	},
 	details: async (req, res, next) => {
 		let userID = req.params.userID;
-		const user = await usersService.findByPk(userID);
+		const user = getFullUser(userID);
 		let provinces = await provincesServices.findAll();
 		let localities = await localitiesService.findAll();
 		res.render("userProfile", { user,provinces, localities, action: "view" });
@@ -108,6 +100,7 @@ const controller = {
 		let provinces = await provincesServices.findAll();
 		let localities = await localitiesService.findAll();
 		res.render("userProfile", { user: user, provinces, localities, action: "view" });
+		res.redirect(`/users/profile/${user.userID}`);
 		//debería ser un redirect esto ^
 		//le pasás el userID o directamente con assertUserLogged y creas un método nuevo para eso
 	},
@@ -115,17 +108,7 @@ const controller = {
 		let provinces = [];
 		let localities = [];
 		let userID = req.params.userID;
-		let userToEdit = await usersService.findByPk(userID);
-		/* if (userToEdit) {
-			const location = await localitiesService.findByPk(userToEdit.locationID);
-			if (location) {
-				userToEdit.location = location.localityName;
-				const province = await provincesServices.findByPk(location.provinceID);
-				if (province) {
-					userToEdit.province = province.provinceID;
-				}
-			}
-		} */
+		let userToEdit = await getFullUser(userID);
 		provinces = await provincesServices.findAll();
 		localities = await localitiesService.findAll();
 		res.render("userProfile", { user: userToEdit, provinces:provinces, localities:localities, action: "edit" });
@@ -152,4 +135,24 @@ const controller = {
 	},
 };
 
+//Helper Functions
+const getFullUser = async (userID) => {
+	const user = await usersService.findByPk(userID);
+	const userAccess = await userAccessService.findOne(user.email);
+	const role = await rolesService.findByPk(userAccess.roleID);
+	const favourites = await favouritesService.findAll(user.userID);
+	const locality = await localitiesService.findByPk(user.locationID);
+	const province = await provincesServices.findByPk(locality.provinceID);
+
+	const fullUser = {
+		...user.dataValues,
+		role: role.roleName,
+		favourites,
+		provinceID: province.provinceID,
+		provinceName: province.provinceName,
+		localityID: locality.localityID,
+		localityName: locality.localityName,
+	};
+	return fullUser;
+};
 module.exports = controller;

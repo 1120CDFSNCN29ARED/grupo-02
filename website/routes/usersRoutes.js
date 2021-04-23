@@ -1,17 +1,25 @@
 const express = require("express");
 const multer = require('multer');
 const path = require('path');
-const guestMiddleware = require('../middlewares/guestMiddleware');
-const authMiddleware = require('../middlewares/authMiddleware');
-const adminAuthMiddleware = require("../middlewares/adminAuthMiddleware");
-const { registrationValidationRules, registrationValidation } = require('../middlewares/registrationValidator');
-const { loginValidationRules, loginValidation } = require('../middlewares/loginValidator');
 const router = express.Router();
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
 
 //************** MIDDLEWARES ************************
+const guestMiddleware = require("../middlewares/guestMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
+const adminAuthMiddleware = require("../middlewares/adminAuthMiddleware");
+const getFullUser = require("../middlewares/getFullUser");
+const {
+	registrationValidationRules,
+	registrationValidation,
+} = require("../middlewares/registrationValidator");
+const {
+	loginValidationRules,
+	loginValidation,
+} = require("../middlewares/loginValidator");
+
 //************** MULTER ************************
 const storage = multer.diskStorage({
   destination: function (req, file, cb) { 

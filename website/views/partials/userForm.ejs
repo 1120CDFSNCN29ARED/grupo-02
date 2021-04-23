@@ -72,7 +72,7 @@
           <select type="form-select" class="form-control registration-field <%=locals.errors && errors.province ? 'is-invalid':null %> " aria-label="Select province" id="province" name="province" placeholder="provincia" <%=action==='view'? "disabled" :''%>>
             <option value=""></option>
             <% for( province of provinces) { %>
-              <option value='<%=province.provinceID%>' <%=(locals.user && user.province===province.provinceID) ? "selected" : "" %>>
+              <option value='<%=province.provinceID%>' <%=(locals.user && user.provinceID===province.provinceID) ? "selected" : "" %>>
                 <%= province.provinceName %>
               </option>
             <% } %>
@@ -89,7 +89,12 @@
         <div class="form-floating mb-1">
           <select type ="form-select" class = "form-control registration-field <%=locals.errors &&  errors.location ? 'is-invalid':null%>" aria-label="Select City" id="location" name="location" placeholder="cíudad"
           <%=action==='view'? "disabled" :''%>>
-          <option value= '<%=(locals.user && user.locationID) ? user.locationID: null%>'> <%=(locals.user && user.location) ? user.location :""%></option>          
+          <option value=""></option>
+          <% for( locality of localities) { %>
+            <option value='<%=localities.locationID%>' <%=(locals.user && user.locationID===locality.localityID) ? "selected" : "" %>>
+              <%= locality.localityName %>
+            </option>
+            <% } %>
         </select>  
           <label for="location">Ciudad</label>
           <% if (locals.errors && errors.location) { %>

@@ -109,5 +109,11 @@
     "userID": "0b19c180-7a9b-4e97-a56e-09a1850b7635",
     "status": "pending",
     "items": []
+  },
+  {
+    "cartID": "492fb6a7-ab48-49ae-bfa8-1c59fa904d1a",
+    "userID": "337a673b-fa84-479a-a8e7-a95e9d96cc41",
+    "status": "pending",
+    "items": []
   }
 ]

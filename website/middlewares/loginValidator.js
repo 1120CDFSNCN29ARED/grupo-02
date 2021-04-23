@@ -21,7 +21,7 @@ const loginValidation = async (req, res, next) => {
 	if (errors.isEmpty()) {
 		try {
 			const email = req.body.email;
-			console.log(email);
+			console.log("User Email: ",email);
 			const result = await userAccessService.findOne(email);
 			const userAccess = result.dataValues;
 			let fullUser = {};
@@ -31,7 +31,11 @@ const loginValidation = async (req, res, next) => {
 				req.session.assertUserLogged = fullUser;
 				req.session.userType = fullUser.roleName;
 				req.session.userID = fullUser.userID;
-				console.log(fullUser)
+				console.log(
+					"<--------fullUser-------->",
+					fullUser,
+					"<-------------------------------->"
+				);
 
 				if (req.body.keepLogged != undefined) {
 					res.cookie("userEmail", user.email, { maxAge: (1000 * 60) * 2 });
