@@ -3,7 +3,7 @@
         <div class="card h-100">
             <div class="card-img-container">
                 <span class="helper">
-                    <img src="/img/posts/<%=vehicle.images[0].imageURL %>" class="" alt="..."/>
+                    <img src="/img/posts/<%= vehicle.images.length > 0 ? vehicle.images[0].imageURL : "no-image-found.jpeg"%>" class="" alt="..."/>
                 </span>
                 
             </div>            
