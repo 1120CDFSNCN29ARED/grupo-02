@@ -99,14 +99,30 @@ const postsController = {
         
         if(post){
             if(req.files.images){
+                if (req.files.images.length < 5) {
+                    for (let i = 0; i < req.files.images.length; i++) {
+                        const newImage = {
+                            postID: post.postID,
+                            imageURL: req.files.images[i].filename
+                        }
+                        await imagesService.create(newImage);
+                    }
+                } else {
+                    for (let i = 0; i < 5; i++) {
+                        const newImage = {
+                            postID: post.postID,
+                            imageURL: req.files.images[i].filename
+                        }
+                        await imagesService.create(newImage);
+                    }
+                }/*
                 for(image of req.files.images){
                     const newImage = {
                         postID: post.postID,
                         imageURL: image.filename
                     }
-                    console.log()
                     await imagesService.create(newImage);
-                }
+                }*/
             }
             const postData = await getPostData(post);
             return res.redirect("/posts/details/" + postData.post.postID);
@@ -194,7 +210,6 @@ const postsController = {
                 }
                 if(!_.isEmpty(newPart)){
                     part = await partsService.update(product.partID,newPart);
-                    console.log(part)
                 }
             }
 
@@ -206,7 +221,6 @@ const postsController = {
             }
             if(!_.isEmpty(newProduct)){
                 product = await productsService.update(product.productID,newProduct);
-                console.log(product)
             }
 
             if(req.body.title){
@@ -242,6 +256,36 @@ const postsController = {
                 post = await postsService.update(post.postID,newPost);
             }
             if(post){
+                if(req.files.images){
+                    const images = await imagesService.findByPostID(post.postID);
+                    if(images.length === 0 &&  req.files.images.length < 5){
+                        for (let i = 0; i < req.files.images.length; i++) {
+                            const newImage = {
+                                postID: post.postID,
+                                imageURL: req.files.images[i].filename
+                            }
+                            await imagesService.create(newImage);
+                        }
+                    }else if (images.length > 0) {
+                        for (let i = 0; i <= 5 - images.length; i++) {
+                            if(req.files.images[i]){
+                                const newImage = {
+                                    postID: post.postID,
+                                    imageURL: req.files.images[i].filename
+                                }
+                                await imagesService.create(newImage);
+                            }
+                        }
+                    } else if (images.length === 0 && req.files.images.length > 5) {
+                        for (let i = 0; i < 5; i++) {
+                            const newImage = {
+                                postID: post.postID,
+                                imageURL: req.files.images[i].filename
+                            }
+                            await imagesService.create(newImage);
+                        }
+                    }
+                }
                 return res.redirect(`/posts/details/${post.postID}`)
             }
     },
@@ -262,7 +306,7 @@ const postsController = {
                 await imagesService.delete(image.imageID)
             }
         }
-		res.redirect(`/posts/edit/${postID}`);
+		res.redirect(`/posts/edit/${req.params.productType}/${req.params.postID}`);
 	},
 };
 
