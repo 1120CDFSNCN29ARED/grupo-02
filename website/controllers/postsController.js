@@ -1,4 +1,6 @@
 const _ = require("lodash");
+const fs = require("fs");
+const path = require("path");
 
 const usersService = require("../services/usersService");
 const provincesService = require("../services/provincesService");
@@ -115,14 +117,7 @@ const postsController = {
                         }
                         await imagesService.create(newImage);
                     }
-                }/*
-                for(image of req.files.images){
-                    const newImage = {
-                        postID: post.postID,
-                        imageURL: image.filename
-                    }
-                    await imagesService.create(newImage);
-                }*/
+                }
             }
             const postData = await getPostData(post);
             return res.redirect("/posts/details/" + postData.post.postID);
@@ -304,6 +299,11 @@ const postsController = {
         for(image of images){
             if(image.imageURL === req.query.image){
                 await imagesService.delete(image.imageID)
+                if(image.imageURL !== "no-image-found.jpeg"){
+                    fs.unlinkSync(
+                        path.join(__dirname, `../public/img/posts/${req.query.image}`)
+                    );
+                }
             }
         }
 		res.redirect(`/posts/edit/${req.params.productType}/${req.params.postID}`);
