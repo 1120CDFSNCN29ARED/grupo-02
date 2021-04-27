@@ -438,16 +438,21 @@
 				<div
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
+				<% if (vehicles.length > 0) { %>
 					<% let featuredVehicles = vehicles.filter(vehicle => vehicle.post.featured === true) %>
-					<% let featuredParts = parts.filter(part => part.post.featured === true) %>
+					
 					<% featuredVehicles.forEach(vehicle => { %>
 						<%- include("./partials/vehicleCard", {vehicle}) %> 
 					<% }) %>
+				<% } %>
+				<% if (parts.length > 0) { %>
+					<% let featuredParts = parts.filter(part => part.post.featured === true) %>
 					<% featuredParts.forEach(part => { %>
 						<%- include("./partials/partCard", {part}) %> 
-					<% }) %>				
+					<% }) %>
+				<% } %>	
 				</div>
-				</div>
+			</div>
 				
 			<div class="container-fluid">
 				<h2>Ofertas</h2>
@@ -455,7 +460,7 @@
 					class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10"
 				>
 					<% let onSaleVehicles = vehicles.filter(vehicle => vehicle.post.onSale === true) %>
-					<% let onSaleParts = parts.filter(part => part.post.onSale.status === true) %>
+					<% let onSaleParts = parts.filter(part => part.post.onSale === true) %>
 					<% onSaleVehicles.forEach(vehicle => { %>
 						<%- include("./partials/vehicleCard", {vehicle}) %> 
 					<% }) %>

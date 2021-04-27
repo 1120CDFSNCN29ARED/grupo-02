@@ -17,7 +17,7 @@ const mainController = {
                 vehicles.push(postData);
             }
             else if(postData.post.productType === "part"){
-                parts.push(getPostData(publishedPost));
+                parts.push(postData);
             }
         }
 

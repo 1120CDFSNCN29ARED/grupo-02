@@ -1,20 +1,14 @@
-const Vehicle = require('../models/Vehicle');
-const Part = require('../models/Part');
+const getPostData = require('./getPostData');
+const postsService = require('../services/postsService');
 
 
-const productOwner = (req, res, next) => {
-    if(req.params.productType === "vehicle"){
-        product = Vehicle.findVehicleByPk(parseInt(req.params.productID, 10))
-    }
-    else if(req.params.productType === "part"){
-        product = Part.findPartByPk(parseInt(req.params.productID, 10))
-    }
-    if(req.session.assertUserLogged.userID !== product.userID){
+const productOwner = async (req, res, next) => {
+    const post = await postsService.findByPk(req.params.postID);
+    const postData = await getPostData(post);
+    if(req.session.assertUserLogged.userID !== postData.seller.sellerID){
         return res.redirect("/users/register");
     }
-    console.log(req.session.assertUserLogged.userID)
-    console.log(product.userID)
-    next();
+    return next();
 }
 
 module.exports = productOwner;

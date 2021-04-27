@@ -92,7 +92,7 @@
                     <a data-bs-toggle="modal" data-bs-target="#paymentMethodsModal"><i class="fas fa-credit-card"></i> Medios de pago</a>
                 </div>
             <% } %>
-            <% if (locals.assertUserLogged && assertUserLogged.userID === fullPost.post.sellerID) { %>
+            <% if (locals.assertUserLogged && assertUserLogged.userID === fullPost.seller.sellerID) { %>
                 <div class="btn-edit-container">
                     <a href="/posts/edit/<%= fullPost.post.productType %>/<%= fullPost.post.postID %>">
                         <button type="button" class="btn btn-warning btn-edit">Editar</button>

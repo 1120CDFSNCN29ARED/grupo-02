@@ -5,7 +5,7 @@ const path = require('path');
 //Middlewares
 const authMiddleware = require('../middlewares/authMiddleware');
 const postsController = require("../controllers/postsController");
-const {postCreationValidator, postCreationValidation} = require("../middlewares/postCreationMiddleware");
+const {vehiclePostCreationValidator, vehiclePostCreationValidation, partPostCreationValidator, partPostCreationValidation} = require("../middlewares/postCreationMiddleware");
 const productOwner = require("../middlewares/productOwnerMiddleware");
 const urlClearner = require("../middlewares/urlCleaner");
 
@@ -25,14 +25,16 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 
 router.get("/create/:productType?", authMiddleware, postsController.create);
-router.post("/create/:productType", authMiddleware, uploadFile.fields([{ name: 'images' }]), postCreationValidator, postCreationValidation, postsController.storePost);
+router.post("/create/vehicle", authMiddleware, uploadFile.fields([{ name: 'images' }]), vehiclePostCreationValidator(), vehiclePostCreationValidation, postsController.storePost);
+router.post("/create/part", authMiddleware, uploadFile.fields([{ name: 'images' }]), partPostCreationValidator(), partPostCreationValidation, postsController.storePost);
 
 router.get("/details/:postID", postsController.details);
 
 router.get("/edit/:productType/:postID", authMiddleware, productOwner, postsController.edit);
-router.put("/edit/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'images' }]), postCreationValidator,
-postCreationValidation, postsController.update);
-
+router.put("/edit/vehicle/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'images' }]), vehiclePostCreationValidator,
+vehiclePostCreationValidation, postsController.update);
+router.put("/edit/part/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'images' }]), partPostCreationValidator,
+partPostCreationValidation, postsController.update);
 
 router.post("/question/:postID", authMiddleware, postsController.question);
 

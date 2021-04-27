@@ -75,6 +75,7 @@ const getPostData = async post => {
             localityName: locality.localityName,
             provinceID: province.provinceID,
             provinceName: province.provinceName,
+            postalCode: post.postalCode
         },
         questions: plainQuestions,
         images: plainImages,
