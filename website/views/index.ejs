@@ -58,19 +58,19 @@
 				class="d-flex justify-content-center text-weight-bold my-2"
 				id="category-bar"
 			>
-				<a class="mx-3 mx-xs-4 mx-md-5" href="/products/search?productType=vehicle&vehicleType=auto">
+				<a class="mx-3 mx-xs-4 mx-md-5" href="/posts/search?productType=vehicle&type=car">
 					<i class="fas fa-car text-danger"></i
 				></a>
-				<a class="mx-3 mx-xs-4 mx-md-5" href="/products/search?productType=vehicle&vehicleType=camioneta"
+				<a class="mx-3 mx-xs-4 mx-md-5" href="/posts/search?productType=vehicle&type=pickup"
 					><i class="fas fa-truck-pickup text-danger"></i
 				></a>
-				<a class="mx-3 mx-xs-4 mx-md-5" href="/products/search?productType=vehicle&vehicleType=moto"
+				<a class="mx-3 mx-xs-4 mx-md-5" href="/posts/search?productType=vehicle&type=motorcycle"
 					><i class="fas fa-motorcycle text-danger"></i
 				></a>
-				<a class="mx-3 mx-xs-4 mx-md-5" href="/products/search?productType=vehicle&vehicleType=camion"
+				<a class="mx-3 mx-xs-4 mx-md-5" href="/posts/search?productType=vehicle&type=truck"
 					><i class="fas fa-truck text-danger"></i
 				></a>
-				<a class="mx-3 mx-xs-4 mx-md-5" href="/products/search?productType=part"
+				<a class="mx-3 mx-xs-4 mx-md-5" href="/posts/search?productType=part"
 					><i class="fas fa-wrench text-danger"></i
 				></a>
 			</div>
@@ -110,7 +110,7 @@
 						role="tabpanel"
 						aria-labelledby="search-vehicles-tab"
 					>
-						<form action="/products/search" method="GET" class="search-products">
+						<form action="/posts/search" method="GET" class="search-products">
 							<div class="container">
 								<label
 									for="productSearchList"
@@ -118,13 +118,13 @@
 									>Buscador</label
 								>
 								<div class="input-group mb-3">
-									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01" name="vehicleType">
+									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01" name="type">
 										<option value="" style="display: none;">Tipo</option>
 										<option value=""></option>
-										<option value="auto">Autos</option>
-										<option value="camioneta">Camionetas</option>
-										<option value="moto">Motos</option>
-										<option value="camion">Camiones</option>
+										<option value="car">Autos</option>
+										<option value="pickup">Camionetas</option>
+										<option value="motorcycle">Motos</option>
+										<option value="truck">Camiones</option>
 									</select>
 									<input
 										class="form-control"
@@ -281,7 +281,7 @@
 						role="tabpanel"
 						aria-labelledby="search-parts-tab"
 					>
-						<form action="/products/search?productType=part" method="get" class="search-products">
+						<form action="/posts/search?productType=part" method="get" class="search-products">
 							<div class="container-fluid">
 								<label
 									for="partSearchList"
@@ -289,13 +289,13 @@
 									>Buscador</label
 								>
 								<div class="input-group mb-3">
-									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01" name="vehicleType">
+									<select class="btn btn-outline-secondary col-2" id="inputGroupSelect01" name="type">
 										<option value="" style="display: none;">Tipo</option>
 										<option value=""></option>
-										<option value="auto">Autos</option>
-										<option value="camioneta">Camionetas</option>
-										<option value="moto">Motos</option>
-										<option value="camion">Camiones</option>
+										<option value="car">Autos</option>
+										<option value="pickup">Camionetas</option>
+										<option value="motorcycle">Motos</option>
+										<option value="truck">Camiones</option>
 									</select>									
 									<input
 										class="form-control"
@@ -406,7 +406,7 @@
 										<select
 											id="partState"
 											class="form-control"
-											name="partState"
+											name="state"
 										>
 											<option value="" style="display: none;">...</option>
 											<option value=""></option>
@@ -477,7 +477,7 @@
 			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 			crossorigin="anonymous"
 		></script>
-		<script src="/js/getModels.js"></script>
+		<script src="/js/getPartModels.js"></script>
 		<script src="/js/getVersions.js"></script>
 	</body>
 </html>

@@ -16,6 +16,9 @@ const questionsService = require("../services/questionsService");
 const imagesService = require("../services/imagesService");
 
 const getPostData = require("../middlewares/getPostData");
+const provincesServices = require("../services/provincesService");
+const cartsService = require("../services/cartsService");
+const cartItemsService = require("../services/cartItemsService");
 
 
 const postsController = {
@@ -284,6 +287,33 @@ const postsController = {
                 return res.redirect(`/posts/details/${post.postID}`)
             }
     },
+    delete: async (req, res) => {
+        const post = await postsService.findByPk(req.params.postID);
+        if(!post){
+            return res.redirect("/");
+        }
+        await postsService.update(req.params.postID, {active: false, published: false});
+        const product = await productsService.update(post.productID, {active: false});
+        let vehicle = null;
+        let part = null;
+        if(product.productType === "part"){
+            part = await partsService.findByPk(product.partID, {active: false});
+        }
+        else if(product.productType === "vehicle"){
+            vehicle = await vehiclesService.update(product.vehicleID, {active: false});
+        }
+        const carts = cartsService.active();
+        if(carts.length > 0){
+            for(cart of carts){
+                for(cartItem of cart.cartItems){
+                    if(cartItem.postID === req.params.postID){
+                        await cartItemsService.delete(cartItem.cartItemID);
+                    }
+                }
+            }
+        }        
+        return res.redirect("/");
+    },
     question: async (req, res) => {
 		const newQuestion = {
 			postID: req.params.postID,
@@ -308,6 +338,66 @@ const postsController = {
         }
 		res.redirect(`/posts/edit/${req.params.productType}/${req.params.postID}`);
 	},
+    search: async (req, res) => {
+        const publishedPosts = await postsService.published();
+        const fullPostsData = [];
+        const brands = await brandsService.findAll();
+        const provinces = await provincesServices.findAll();
+        let matchedPosts = [];
+        for(post of publishedPosts){
+            const fullData = await getPostData(post);
+            fullPostsData.push(fullData);
+        }
+        if(req.query){
+            /*const queryParameters = Object.getOwnPropertyNames(req.query);
+            queryParameters.forEach(parameter => {
+                matchedPosts.push(fullPostsData.filter(post => post[parameter] === req.query[parameter]));
+            });*/
+            if(req.query.productType){
+                matchedPosts = fullPostsData.filter(post => post.post.productType === req.query.productType);
+                if(req.query.productType === "vehicle"){
+                    if(req.query.inputKMFrom){
+                        matchedPosts = fullPostsData.filter(post => post.post.kilometers >= req.query.inputKMFrom);
+                    }
+                    if(req.query.inputKMTo){
+                        matchedPosts = fullPostsData.filter(post => post.post.kilometers <= req.query.inputKMTo);
+                    }
+                    if(req.query.inputYearFrom){
+                        matchedPosts = fullPostsData.filter(post => post.post.year >= req.query.inputYearFrom);
+                    }
+                    if(req.query.inputYearTo){
+                        matchedPosts = fullPostsData.filter(post => post.post.year <= req.query.inputYearTo);
+                    }
+                    if(req.query.type){
+                        matchedPosts = fullPostsData.filter(post => post.post.type === req.query.type);
+                    }
+                }
+            }
+            if(req.query.type){
+                matchedPosts = fullPostsData.filter(post => post.post.type === req.query.type);
+            }
+            if(req.query.inputPriceFrom){
+                matchedPosts = fullPostsData.filter(post => post.post.price >= req.query.inputPriceFrom);
+            }
+            if(req.query.inputPriceTo){
+                matchedPosts = fullPostsData.filter(post => post.post.price <= req.query.inputPriceTo);
+            }
+            if(req.query.brand){
+                matchedPosts = fullPostsData.filter(post => post.post.brandID == req.query.brand);
+            }            
+            if(req.query.model){
+                matchedPosts = fullPostsData.filter(post => post.post.modelID == req.query.model);
+            }
+            if(req.query.state){
+                matchedPosts = fullPostsData.filter(post => post.post.state == req.query.state);
+            }
+        }
+        else{
+            matchedPosts = fullPostsData;
+        }
+        return res.render("search", {posts: matchedPosts, brands, provinces});
+        
+    },
 };
 
 module.exports = postsController
