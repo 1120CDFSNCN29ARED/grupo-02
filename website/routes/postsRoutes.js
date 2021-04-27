@@ -24,6 +24,7 @@ const storage = multer.diskStorage({
   
 const uploadFile = multer({ storage });
 
+
 router.get("/create/:productType?", authMiddleware, postsController.create);
 router.post("/create/vehicle", authMiddleware, uploadFile.fields([{ name: 'images' }]), vehiclePostCreationValidator(), vehiclePostCreationValidation, postsController.storePost);
 router.post("/create/part", authMiddleware, uploadFile.fields([{ name: 'images' }]), partPostCreationValidator(), partPostCreationValidation, postsController.storePost);
@@ -38,7 +39,7 @@ partPostCreationValidation, postsController.update);
 
 router.post("/question/:postID", authMiddleware, postsController.question);
 
-router.get("/deleteImage/:postID", authMiddleware, productOwner, postsController.deleteImage);
+router.get("/deleteImage/:productType/:postID", authMiddleware, productOwner, postsController.deleteImage);
 /*router.delete("/delete/postID", authMiddleware, productOwner, postsController.delete);
 
 router.get("/search", urlClearner, postsController.search);
