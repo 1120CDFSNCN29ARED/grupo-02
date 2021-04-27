@@ -18,8 +18,7 @@ const getFullUser = async (user) => {
         favourites,
         provinceID: province.provinceID,
         provinceName: province.provinceName,
-        localityID: locality.localityID,
-        localityName: locality.localityName
+        locationName: locality.localityName
     }
     return fullUser;
 }

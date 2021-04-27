@@ -24,21 +24,11 @@ const controller = {
 		res.render("users", { users });
 	},
 	profile: async (req, res, next) => {
-		let provinces = [];
-		let localities = [];
 
 		if (req.session.assertUserLogged) {
 			let user = req.session.assertUserLogged;
-			try {
-				provinces = await provincesServices.findAll();
-				localities = await localitiesService.findAll();
-			} catch (error) {
-				console.error(error);
-			}
 			return res.render("userProfile", {
 				user,
-				provinces,
-				localities,
 				action: "view",
 			});
 		}
@@ -97,12 +87,7 @@ const controller = {
 			req.session.userID = user.userID;
 			console.log("session: ", req.session);
 		}
-		let provinces = await provincesServices.findAll();
-		let localities = await localitiesService.findAll();
-		res.render("userProfile", { user: user, provinces, localities, action: "view" });
 		res.redirect(`/users/profile/${user.userID}`);
-		//debería ser un redirect esto ^
-		//le pasás el userID o directamente con assertUserLogged y creas un método nuevo para eso
 	},
 	edit: async (req, res, next) => {
 		let provinces = [];
@@ -110,11 +95,15 @@ const controller = {
 		let userID = req.params.userID;
 		let userToEdit = await getFullUser(userID);
 		provinces = await provincesServices.findAll();
-		localities = await localitiesService.findAll();
+		localities = await localitiesService.findByProvinceID(userToEdit.provinceID);
 		res.render("userProfile", { user: userToEdit, provinces:provinces, localities:localities, action: "edit" });
 	},
-	update: (req, res, next) => {
-		///no tengo la pantalla de Edicion armada
+	update: async(req, res, next) => {
+		const userID = req.params.userID;
+		const userToEdit = await getFullUser(userID);
+		provinces = await provincesServices.findAll();
+		localities = await localitiesService.findAll();
+		console.log(req.body);
 		res.send(`Edit USERS Not Implemented Yet.`);
 	},
 	destroy: async (req, res, next) => {
@@ -150,8 +139,7 @@ const getFullUser = async (userID) => {
 		favourites,
 		provinceID: province.provinceID,
 		provinceName: province.provinceName,
-		localityID: locality.localityID,
-		localityName: locality.localityName,
+		locationName: locality.localityName,
 	};
 	return fullUser;
 };

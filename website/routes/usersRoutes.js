@@ -19,7 +19,7 @@ const {
 	loginValidationRules,
 	loginValidation,
 } = require("../middlewares/loginValidator");
-
+const { userUpdateValidationRules, userUpdateValidation } = require('../middlewares/userUpdateValidation');
 //************** MULTER ************************
 const storage = multer.diskStorage({
   destination: function (req, file, cb) { 
@@ -55,7 +55,7 @@ router.get('/', adminAuthMiddleware, usersController.index);
 router.get("/profile/:userID", authMiddleware, usersController.profile);
 
 router.get('/edit/:userID', authMiddleware, usersController.edit);
-router.put('/edit/:userID',uploadFile.single("image"), usersController.update);
+router.put('/edit/:userID',uploadFile.single("image"),userUpdateValidationRules(),userUpdateValidation, usersController.update);
 
 router.get('/logout/', usersController.logout);
 

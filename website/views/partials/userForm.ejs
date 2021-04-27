@@ -69,12 +69,17 @@
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
-          <select type="form-select" class="form-control registration-field <%=locals.errors && errors.province ? 'is-invalid':null %> " aria-label="Select province" id="province" name="province" placeholder="provincia" <%=action==='view'? "disabled" :''%>>
-            <option value=""></option>
-            <% for( province of provinces) { %>
-              <option value='<%=province.provinceID%>' <%=(locals.user && user.provinceID===province.provinceID) ? "selected" : "" %>>
-                <%= province.provinceName %>
-              </option>
+          <select type="form-select" class="form-control registration-field <%=locals.errors && errors.province ? 'is-invalid':null %> " 
+            aria-label="Select province" id="province" name="province" placeholder="provincia" <%=action==='view'? "disabled" :''%>>
+            <% if (action=='view') { %>
+            <option value="<%=user.provinceID%>"><%= user.provinceName%> </option> 
+            <% } else if(action =='edit' || action =='register') { %>
+              <option value=""></option>
+              <% for( province of provinces) { %>
+                <option value='<%=province.provinceID%>' <%=(locals.user && user.provinceID===province.provinceID) ? "selected" : "" %>>
+                  <%= province.provinceName%>
+                </option>
+              <% } %>
             <% } %>
           </select>
           <label for="province">Provincia</label>
@@ -89,12 +94,17 @@
         <div class="form-floating mb-1">
           <select type ="form-select" class = "form-control registration-field <%=locals.errors &&  errors.location ? 'is-invalid':null%>" aria-label="Select City" id="location" name="location" placeholder="cíudad"
           <%=action==='view'? "disabled" :''%>>
-          <option value=""></option>
+          <% if (action =='view') { %>
+            <option value="<%=user.locationID%>"><%=user.locationName%></option>
+            <% console.log(user) %> 
+          <% } else if (action=='edit'||action=='register') { %>
+             <option value=""></option>
           <% for( locality of localities) { %>
-            <option value='<%=localities.locationID%>' <%=(locals.user && user.locationID===locality.localityID) ? "selected" : "" %>>
+            <option value='<%=locality.localityID%>' <%=(locals.user && user.locationID===locality.localityID) ? "selected" : "" %>>
               <%= locality.localityName %>
             </option>
             <% } %>
+          <% } %>
         </select>  
           <label for="location">Ciudad</label>
           <% if (locals.errors && errors.location) { %>
