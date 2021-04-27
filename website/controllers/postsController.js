@@ -135,7 +135,6 @@ const postsController = {
         }
     },
     update: async (req, res) => {
-        console.log("llegué al controller")
         let post = await postsService.findByPk(req.params.postID);
         let newPost = {};
         let newProduct = {};
@@ -185,6 +184,7 @@ const postsController = {
                 }
                 if(!_.isEmpty(newPart)){
                     part = await partsService.update(product.partID,newPart);
+                    console.log(part)
                 }
             }
 
@@ -196,6 +196,7 @@ const postsController = {
             }
             if(!_.isEmpty(newProduct)){
                 product = await productsService.update(product.productID,newProduct);
+                console.log(product)
             }
 
             if(req.body.title){
@@ -204,15 +205,16 @@ const postsController = {
             if(req.body.description){
                 newPost.description = req.body.description;
             }
+            if(req.body.state){
+                newPost.state = req.body.state;
+            }
             if(req.body.published){
                 newPost.published = req.body.published;
                 newPost.publishedDate = new Date();
             }
-            if(req.body.onSale){
-                newPost.onSale = req.body.onSale;
-            }
-            if(req.body.discount){
-                newPost.discount = req.body.discount;
+            newPost.discount = req.body.discount;
+            if(req.body.discount > 0){
+                newPost.onSale = true;
             }
             if(req.body.price){
                 newPost.price = req.body.price;
@@ -230,8 +232,7 @@ const postsController = {
                 post = await postsService.update(post.postID,newPost);
             }
             if(post){
-                const postData = await getPostData(post);
-                return res.json(postData);
+                return res.redirect(`/posts/details/${post.postID}`)
             }
     },
     question: async (req, res) => {
