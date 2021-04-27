@@ -127,7 +127,6 @@ const partPostCreationValidator = () => {
 
 const partPostCreationValidation = async (req, res, next) => {
     const errors = validationResult(req);
-    console.log(errors)
     if (errors.isEmpty()) {
 		return next();
 	}

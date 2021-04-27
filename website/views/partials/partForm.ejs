@@ -20,7 +20,7 @@
                     <select class="form-select <%=locals.errors && errors.brand ? 'is-invalid': null %>" id="brand" aria-label="Select brand" name="brandID">
                         <% brands.forEach(brand => { %>
                             <option value=""></option>
-                            <option value='<%=brand.brandID%>' <%= (locals.post && post.brandID === brand.brandID)?"selected":"" %>>
+                            <option value='<%=brand.brandID%>' <%= (locals.post && post.post && post.post.brandID === brand.brandID)?"selected":"" %>>
                                 <%= brand.brandName %>
                             </option>
                         <% }) %>
@@ -52,7 +52,7 @@
             </div>
             <div class="col-md col-lg-6">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control <%=locals.errors && errors.partSerialNumber ? 'is-invalid': null %>" name="partSerialNumber" id="partSerialNumber" value="<%= (locals.post && post.partSerialNumber) ? post.post.partSerialNumber : "" %>">
+                    <input type="text" class="form-control <%=locals.errors && errors.partSerialNumber ? 'is-invalid': null %>" name="partSerialNumber" id="partSerialNumber" value="<%= (locals.post && post.post) ? post.post.partSerialNumber : "" %>">
                     <label for="partSerialNumber">Número de parte</label>
                     <% if (locals.errors && errors.partSerialNumber) { %>
                         <div class="invalid-feedback">
@@ -92,7 +92,7 @@
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control <%=locals.errors && errors.price ? 'is-invalid': null %>" name="price" id="partPrice" value="<%= (locals.post && post.price) ? post.post.price : "" %>">
+                    <input type="number" class="form-control <%=locals.errors && errors.price ? 'is-invalid': null %>" name="price" id="partPrice" value="<%= (locals.post && post.post) ? post.post.price : "" %>">
                     <label for="partPrice">Precio</label>
                     <% if (locals.errors && errors.price) { %>
                         <div class="invalid-feedback">
@@ -239,7 +239,7 @@
                                 <% } %>
                             <% } %>
                         <% } %>                        
-                        <% if (locals.post !== {}) { %>
+                        <% if (!locals.post.post) { %>
                             <% for( let i = 0; i < 5; i++ ) { %>
                                 <i class="far fa-star"></i>
                             <% } %>
