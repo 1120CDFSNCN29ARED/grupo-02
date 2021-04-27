@@ -445,7 +445,6 @@
 						<%- include("./partials/vehicleCard", {vehicle}) %> 
 					<% }) %>
 				<% } %>
-				<%= console.log(parts) %> 
 				<% if (parts.length > 0) { %>
 					<% let featuredParts = parts.filter(part => part.post.featured === true) %>
 					<% featuredParts.forEach(part => { %>

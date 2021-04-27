@@ -69,7 +69,6 @@ const postsController = {
             newVehicle.kilometers = req.body.kilometers;
             newVehicle.color = req.body.color;
             vehicle = await vehiclesService.create(newVehicle);
-            console.log(vehicle)
             newProduct.vehicleID = vehicle.vehicleID;
         }
         newProduct.brandID = req.body.brandID;
@@ -78,7 +77,6 @@ const postsController = {
 
         newPost.title = req.body.title;
         newPost.description = req.body.description; 
-        console.log(req.body)           
         if(req.body.submit === "publish"){
             newPost.published = true;
             newPost.publishedDate = new Date();
@@ -94,9 +92,8 @@ const postsController = {
         newPost.state = req.body.state;
         newPost.sellerID = req.session.assertUserLogged.userID;
         newPost.locationID = req.body.locationID;
+        newPost.postalCode = req.body.postalCode;
         newPost.productID = product.productID;
-
-        console.log(newPost);
 
         post = await postsService.create(newPost);
         
@@ -109,7 +106,6 @@ const postsController = {
         const post = await postsService.findByPk(req.params.postID)
         if(post){
             const fullPost = await getPostData(post);
-            console.log(req.session.assertUserLogged)
             return res.render("postDetails", {fullPost});
         }
         else{
@@ -117,11 +113,29 @@ const postsController = {
         }
     },
     edit: async (req, res) => {
-        const post = await postsService.findByPk(req.params.id);
-        const postData = await getPostData(post);
-
+        let brands = [];
+        let conditions = [];
+        let provinces = [];
+        if(req.params.productType === "vehicle"){
+            conditions.push({car: true},{motorcycle: true},{pickup: true},{truck: true})
+        }
+        else if(req.params.productType === "part"){
+            conditions.push({makesParts: true})
+        }
+        if(req.params.productType === "vehicle" || req.params.productType === "part"){
+			brands = await brandsService.findByProductType(conditions);
+            provinces = await provincesService.findAll();
+		}
+        const post = await postsService.findByPk(req.params.postID);
+        if(post){
+            const postData = await getPostData(post);
+            return res.render("editPost", {post: postData, productType: req.params.productType, brands, provinces})
+        }else{
+            return res.redirect("/");
+        }
     },
     update: async (req, res) => {
+        console.log("llegué al controller")
         let post = await postsService.findByPk(req.params.postID);
         let newPost = {};
         let newProduct = {};

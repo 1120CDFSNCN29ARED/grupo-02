@@ -36,11 +36,6 @@ const Part = (sequelize, DataTypes) => {
 			defaultValue: false,
 			field: "vehicle_type_truck"
 		},
-		modelID:
-		{
-			type: DataTypes.INTEGER,
-			allowNull: false
-		},
         active: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

@@ -63,6 +63,11 @@ const Post = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        postalCode: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            field:"postal_code"
+        },
         productID: {
             type: DataTypes.UUID,
             allowNull: false,

@@ -33,7 +33,8 @@ router.get("/details/:postID", postsController.details);
 router.get("/edit/:productType/:postID", authMiddleware, productOwner, postsController.edit);
 router.put("/edit/vehicle/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'images' }]), vehiclePostCreationValidator,
 vehiclePostCreationValidation, postsController.update);
-
+router.put("/edit/part/:postID", authMiddleware, productOwner, uploadFile.fields([{ name: 'images' }]), partPostCreationValidator,
+partPostCreationValidation, postsController.update);
 
 router.post("/question/:postID", authMiddleware, postsController.question);
 
