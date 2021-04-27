@@ -98,6 +98,16 @@ const postsController = {
         post = await postsService.create(newPost);
         
         if(post){
+            if(req.files.images){
+                for(image of req.files.images){
+                    const newImage = {
+                        postID: post.postID,
+                        imageURL: image.filename
+                    }
+                    console.log()
+                    await imagesService.create(newImage);
+                }
+            }
             const postData = await getPostData(post);
             return res.redirect("/posts/details/" + postData.post.postID);
         }
