@@ -120,10 +120,10 @@
                 <h2>Destacados</h2>
                 <div class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10">
                     <% featuredPosts.forEach(post => { %>
-                        <% if (post.post.productType === "part") { %>
+                        <% if (post.post.productType === "vehicle") { %>
                             <%- include("./partials/vehicleCard", {vehicle: post}) %>  
                         <% } else if (post.post.productType === "part") { %>
-                            <%- include("./partials/partCard", {post: post}) %> 
+                            <%- include("./partials/partCard", {part: post}) %> 
                         <% } %>
                     <% }) %>
                 </div>

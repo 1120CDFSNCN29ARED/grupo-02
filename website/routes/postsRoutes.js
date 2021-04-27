@@ -42,7 +42,7 @@ router.post("/question/:postID", authMiddleware, postsController.question);
 router.get("/deleteImage/:productType/:postID", authMiddleware, productOwner, postsController.deleteImage);
 router.delete("/delete/:postID", authMiddleware, productOwner, postsController.delete);
 
-router.get("/search", urlClearner, postsController.search);
+router.get("/search", /*urlClearner,*/ postsController.search);
 /*router.get("/searchBar/:searchValue?", urlClearner, postsController.searchBar);
 
 router.get("/favourites/add/:postID", authMiddleware, postsController.addFavourite)

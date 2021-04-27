@@ -355,9 +355,41 @@ const postsController = {
             });*/
             if(req.query.productType){
                 matchedPosts = fullPostsData.filter(post => post.post.productType === req.query.productType);
+                if(req.query.productType === "vehicle"){
+                    if(req.query.inputKMFrom){
+                        matchedPosts = fullPostsData.filter(post => post.post.kilometers >= req.query.inputKMFrom);
+                    }
+                    if(req.query.inputKMTo){
+                        matchedPosts = fullPostsData.filter(post => post.post.kilometers <= req.query.inputKMTo);
+                    }
+                    if(req.query.inputYearFrom){
+                        matchedPosts = fullPostsData.filter(post => post.post.year >= req.query.inputYearFrom);
+                    }
+                    if(req.query.inputYearTo){
+                        matchedPosts = fullPostsData.filter(post => post.post.year <= req.query.inputYearTo);
+                    }
+                    if(req.query.type){
+                        matchedPosts = fullPostsData.filter(post => post.post.type === req.query.type);
+                    }
+                }
             }
             if(req.query.type){
                 matchedPosts = fullPostsData.filter(post => post.post.type === req.query.type);
+            }
+            if(req.query.inputPriceFrom){
+                matchedPosts = fullPostsData.filter(post => post.post.price >= req.query.inputPriceFrom);
+            }
+            if(req.query.inputPriceTo){
+                matchedPosts = fullPostsData.filter(post => post.post.price <= req.query.inputPriceTo);
+            }
+            if(req.query.brand){
+                matchedPosts = fullPostsData.filter(post => post.post.brandID == req.query.brand);
+            }            
+            if(req.query.model){
+                matchedPosts = fullPostsData.filter(post => post.post.modelID == req.query.model);
+            }
+            if(req.query.state){
+                matchedPosts = fullPostsData.filter(post => post.post.state == req.query.state);
             }
         }
         else{
