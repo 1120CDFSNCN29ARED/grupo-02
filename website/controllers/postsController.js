@@ -1,6 +1,7 @@
 const _ = require("lodash");
 const fs = require("fs");
 const path = require("path");
+const Fuse = require('fuse.js')
 
 const usersService = require("../services/usersService");
 const provincesService = require("../services/provincesService");
@@ -343,53 +344,72 @@ const postsController = {
         const fullPostsData = [];
         const brands = await brandsService.findAll();
         const provinces = await provincesServices.findAll();
-        let matchedPosts = [];
+        
         for(post of publishedPosts){
             const fullData = await getPostData(post);
             fullPostsData.push(fullData);
         }
+        let matchedPosts = fullPostsData;
         if(req.query){
             /*const queryParameters = Object.getOwnPropertyNames(req.query);
             queryParameters.forEach(parameter => {
                 matchedPosts.push(fullPostsData.filter(post => post[parameter] === req.query[parameter]));
             });*/
             if(req.query.productType){
-                matchedPosts = fullPostsData.filter(post => post.post.productType === req.query.productType);
+                matchedPosts = matchedPosts.filter(post => post.post.productType === req.query.productType);
                 if(req.query.productType === "vehicle"){
                     if(req.query.inputKMFrom){
-                        matchedPosts = fullPostsData.filter(post => post.post.kilometers >= req.query.inputKMFrom);
+                        matchedPosts = matchedPosts.filter(post => post.post.kilometers >= req.query.inputKMFrom);
                     }
                     if(req.query.inputKMTo){
-                        matchedPosts = fullPostsData.filter(post => post.post.kilometers <= req.query.inputKMTo);
+                        matchedPosts = matchedPosts.filter(post => post.post.kilometers <= req.query.inputKMTo);
                     }
                     if(req.query.inputYearFrom){
-                        matchedPosts = fullPostsData.filter(post => post.post.year >= req.query.inputYearFrom);
+                        matchedPosts = matchedPosts.filter(post => post.post.year >= req.query.inputYearFrom);
                     }
                     if(req.query.inputYearTo){
-                        matchedPosts = fullPostsData.filter(post => post.post.year <= req.query.inputYearTo);
+                        matchedPosts = matchedPosts.filter(post => post.post.year <= req.query.inputYearTo);
                     }
                     if(req.query.type){
-                        matchedPosts = fullPostsData.filter(post => post.post.type === req.query.type);
+                        matchedPosts = matchedPosts.filter(post => post.post.type === req.query.type);
                     }
                 }
             }
             if(req.query.type){
-                matchedPosts = fullPostsData.filter(post => post.post.type === req.query.type);
+                matchedPosts = matchedPosts.filter(post => post.post.type === req.query.type);
             }
             if(req.query.inputPriceFrom){
-                matchedPosts = fullPostsData.filter(post => post.post.price >= req.query.inputPriceFrom);
+                matchedPosts = matchedPosts.filter(post => post.post.price >= req.query.inputPriceFrom);
             }
             if(req.query.inputPriceTo){
-                matchedPosts = fullPostsData.filter(post => post.post.price <= req.query.inputPriceTo);
+                matchedPosts = matchedPosts.filter(post => post.post.price <= req.query.inputPriceTo);
             }
             if(req.query.brand){
-                matchedPosts = fullPostsData.filter(post => post.post.brandID == req.query.brand);
+                matchedPosts = matchedPosts.filter(post => post.post.brandID == req.query.brand);
             }            
             if(req.query.model){
-                matchedPosts = fullPostsData.filter(post => post.post.modelID == req.query.model);
+                matchedPosts = matchedPosts.filter(post => post.post.modelID == req.query.model);
             }
             if(req.query.state){
-                matchedPosts = fullPostsData.filter(post => post.post.state == req.query.state);
+                matchedPosts = matchedPosts.filter(post => post.post.state == req.query.state);
+            }
+            let search = req.query.vehicleSearchList || req.query.partSearchList || req.query.searchValue
+            if(search){
+                console.log("aca");
+                const keys = ['post.title', 'post.description', 'post.brandName', 'post.modelName', 'location.localityName', 'location.provinceName'];
+                if(req.query.vehicleSearchList || req.query.searchValue){
+                    keys.push("post.versionName", "post.color", "post.gearType");
+                }
+                if(req.query.partSearchList || req.query.searchValue){
+                    keys.push("post.partSerialNumber");
+                }
+                //if()
+                const fuse = new Fuse(matchedPosts, {keys});
+                const searchResults = fuse.search(search);
+                matchedPosts = [];
+                for(searchResult of searchResults){
+                    matchedPosts.push(searchResult.item);
+                }
             }
         }
         else{
