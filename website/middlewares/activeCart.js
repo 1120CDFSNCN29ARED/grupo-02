@@ -1,15 +1,17 @@
 //@TODO: Create new cart if no active ("PENDING") cart is detected.
-const Cart = require('../models/Cart');
+const cartsService = require('../services/cartsService');
+
 const activeCart = (req, res, next) => {
   res.locals.activeCart = false;
   let userID;
-  if (req.session.userID) {
-    userID = req.session.userID;
+  if (req.session.assertUserLogged.userID) {
+    userID = req.session.assertUserLogged.userID;
   } else {
     // Need to think this through carefully.
     userID = "guest";
   }
-  let userCart = Cart.findCartByField('userID', userID);
+  //let userCart = Cart.findCartByField('userID', userID);
+  let userCart = cartsService.findByUserID(userID);
   if (userCart) {
     req.session.cartID = userCart.cartID;
   } else {

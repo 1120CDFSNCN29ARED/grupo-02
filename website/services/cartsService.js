@@ -2,15 +2,16 @@ const db = require("../database/models");
 
 const cartsService = {
 	findAll: async () => {
-		const result = db.Cart.findAll({include: ["cartItems"]}).catch((error) => error);
+		const result = await db.Cart.findAll({include: ["cartItems"]}).catch((error) => error);
 		return result;
 	},
     active: async () => {
-		const result = db.Cart.findAll({where: {active: true}, include: ["cartItems"]}).catch((error) => error);
+		const result = await db.Cart.findAll({where: {active: true}, include: ["cartItems"]}).catch((error) => error);
 		return result;
 	},
     findByPk: async (cartID) => {
-        const result = db.Cart.findByPk(cartID);
+        const result = await db.Cart.findByPk(cartID);
+        console.log("CART: ",result);
         return result;
     },
     findByUserID: async (userID) => {
@@ -24,7 +25,7 @@ const cartsService = {
         return result;
     },
 	delete: async (userID, postID) => {
-		const result = db.Cart.destroy({ where: { userID, postID } }).catch(
+		const result = await db.Cart.destroy({ where: { userID, postID } }).catch(
 			(error) => error
 		);
 		return result;

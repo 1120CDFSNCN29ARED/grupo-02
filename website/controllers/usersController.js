@@ -16,7 +16,6 @@ const controller = {
 		if (req.session.userType === "admin") {
 			return res.redirect("/admin/");
 		}
-		console.log(`Returning the ${userID}`);
 		return res.redirect(`/users/profile/${userID}`);
 	},
 	index: async (req, res, next) => {
@@ -24,6 +23,7 @@ const controller = {
 		res.render("users", { users });
 	},
 	profile: async (req, res, next) => {
+		
 		if (req.session.assertUserLogged) {
 			let user = req.session.assertUserLogged;
 			return res.render("userProfile", {
@@ -63,7 +63,6 @@ const controller = {
 		const password = bcryptjs.hashSync(req.body.password, 10);
 		const roleName = userType;
 		const user = await usersService.create(newUser);
-		console.log(user);
 
 		if (!user.errors) {
 			role = await rolesService.findOneByRoleName(roleName);
@@ -83,7 +82,6 @@ const controller = {
 			req.session.assertUserLogged = user.dataValues;
 			req.session.userType = role.dataValues.roleName;
 			req.session.userID = user.userID;
-			console.log("session: ", req.session);
 		}
 		res.redirect(`/users/profile/${user.userID}`);
 	},
@@ -146,9 +144,8 @@ const controller = {
 		//No tengo la pantalla de usuarios ni admin armado
 		const userID = req.params.userID;
 		const user = await usersService.findByPk(userID);
-		let result = null;
 		if (user) {
-			result = userService.delete(userID);
+			await userService.delete(userID);
 		}
 		//need to add in the deleting of the picture if we implement it!
 		res.render("/users", { users });
