@@ -11,7 +11,7 @@ const registrationValidationRules = () => {
 			.bail()
 			.custom(async (value, { req }) => {
 				const user = await usersService.findOneByUserName(value).catch(error => error);
-				console.log("UserName Testing", user);
+				console.log("UserName Testing (Null shows the user does not already exist):", user);
 				if (user!==null) {
 					return Promise.reject("El usuario ingresado se encuentra en uso");
 				}
@@ -80,12 +80,6 @@ const registrationValidationRules = () => {
 			.bail()
 			.isNumeric()
 			.withMessage("Por favor ingrese una ciudad válida"),
-		/* body("neighbourhood")
-			.notEmpty()
-			.withMessage("Por favor ingrese su barrio")
-			.bail()
-			.isAlphanumeric()
-			.withMessage("Por favor ingrese un barrio válido"), */
 		body(
 			"postalCode",
 			"Por favor ingrese un Código Postal válido de 4 dígitos"

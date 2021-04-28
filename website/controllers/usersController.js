@@ -1,10 +1,10 @@
 const bcryptjs = require("bcryptjs");
-
 const localitiesService = require("../services/localitiesService");
 const provincesServices = require("../services/provincesService");
 const usersService = require("../services/usersService");
 const userAccessService = require("../services/userAccessService");
 const rolesService = require("../services/rolesService");
+const favouritesService = require('../services/favouritesService');
 
 const controller = {
 	login: (req, res) => {
@@ -12,6 +12,7 @@ const controller = {
 	},
 	loginProcess: (req, res) => {
 		let userID = req.session.userID;
+
 		if (req.session.userType === "admin") {
 			return res.redirect("/admin/");
 		}
@@ -23,34 +24,18 @@ const controller = {
 		res.render("users", { users });
 	},
 	profile: async (req, res, next) => {
-		let provinces = [];
-		let localities = [];
-		if (req.params.userID) {
-			const userID = req.params.userID;
-			const user = await usersService.findByPk(userID);
-			if (user) {
-				const location = await localitiesService.findByPk(user.locationID);
-				if (location) {
-					user.location = location.localityName;
-					const province = await provincesServices.findByPk(
-						location.provinceID
-					);
-					if (province) {
-						user.province = province.provinceID;
-					}
-					provinces = await provincesServices.findAll();
-					localities = await localitiesService.findAll();
-				}
-			}
-			return res.render("userProfile", { user, provinces,localities, action: "view" });
+
+		if (req.session.assertUserLogged) {
+			let user = req.session.assertUserLogged;
+			return res.render("userProfile", {
+				user,
+				action: "view",
+			});
 		}
-		const user = req.session.assertUserLogged;
-		res.render("userProfile", { user, action: "view", provinces });
-		
 	},
 	details: async (req, res, next) => {
 		let userID = req.params.userID;
-		const user = await usersService.findByPk(userID);
+		const user = getFullUser(userID);
 		let provinces = await provincesServices.findAll();
 		let localities = await localitiesService.findAll();
 		res.render("userProfile", { user,provinces, localities, action: "view" });
@@ -102,33 +87,23 @@ const controller = {
 			req.session.userID = user.userID;
 			console.log("session: ", req.session);
 		}
-		let provinces = await provincesServices.findAll();
-		let localities = await localitiesService.findAll();
-		res.render("userProfile", { user: user, provinces, localities, action: "view" });
-		//debería ser un redirect esto ^
-		//le pasás el userID o directamente con assertUserLogged y creas un método nuevo para eso
+		res.redirect(`/users/profile/${user.userID}`);
 	},
 	edit: async (req, res, next) => {
 		let provinces = [];
 		let localities = [];
 		let userID = req.params.userID;
-		let userToEdit = await usersService.findByPk(userID);
-		/* if (userToEdit) {
-			const location = await localitiesService.findByPk(userToEdit.locationID);
-			if (location) {
-				userToEdit.location = location.localityName;
-				const province = await provincesServices.findByPk(location.provinceID);
-				if (province) {
-					userToEdit.province = province.provinceID;
-				}
-			}
-		} */
+		let userToEdit = await getFullUser(userID);
 		provinces = await provincesServices.findAll();
-		localities = await localitiesService.findAll();
+		localities = await localitiesService.findByProvinceID(userToEdit.provinceID);
 		res.render("userProfile", { user: userToEdit, provinces:provinces, localities:localities, action: "edit" });
 	},
-	update: (req, res, next) => {
-		///no tengo la pantalla de Edicion armada
+	update: async(req, res, next) => {
+		const userID = req.params.userID;
+		const userToEdit = await getFullUser(userID);
+		provinces = await provincesServices.findAll();
+		localities = await localitiesService.findAll();
+		console.log(req.body);
 		res.send(`Edit USERS Not Implemented Yet.`);
 	},
 	destroy: async (req, res, next) => {
@@ -149,4 +124,28 @@ const controller = {
 	},
 };
 
+//Helper Functions
+const getFullUser = async (userID) => {
+	const user = await usersService.findByPk(userID);
+	const userAccess = await userAccessService.findOne(user.email);
+	const role = await rolesService.findByPk(userAccess.roleID);
+	const favourites = await favouritesService.findAll(user.userID);
+	const locality = await localitiesService.findByPk(user.locationID);
+	const province = await provincesServices.findByPk(locality.provinceID);
+
+	const fullUser = {
+		...user.dataValues,
+		role: role.roleName,
+		favourites,
+		provinceID: province.provinceID,
+		provinceName: province.provinceName,
+		locationName: locality.localityName,
+	};
+	return fullUser;
+};
 module.exports = controller;
+
+//Finish updating user with password
+//IN the controller control for empty fields (NOT UDPATED) --Should onoy be password field and images
+//Implement carts functionality - DO NOT CHANGE variable names!!!!
+//Favourites (Is a nice to have for friday)
