@@ -144,3 +144,8 @@ const getFullUser = async (userID) => {
 	return fullUser;
 };
 module.exports = controller;
+
+//Finish updating user with password
+//IN the controller control for empty fields (NOT UDPATED) --Should onoy be password field and images
+//Implement carts functionality - DO NOT CHANGE variable names!!!!
+//Favourites (Is a nice to have for friday)

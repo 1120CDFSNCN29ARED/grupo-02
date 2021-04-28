@@ -9,7 +9,20 @@ const userUpdateValidationRules = () => {
 		body("userName")
 			.notEmpty()
 			.withMessage("Por favor elige un nomber de usaurio")
-			.bail(),
+			.bail()
+			.custom(async (value, { req }) => {
+				if (value !== req.session.assertUserLogged.userName) {
+					const user = await usersService
+						.findOneByUserName(value)
+						.catch((error) => error);
+					if (user !== null) {
+						return Promise.reject("El usuario ingresado se encuentra en uso");
+					}
+					return true;
+				} else {
+					return true;
+				}				
+			}),
 		body("firstName")
 			.notEmpty()
 			.withMessage("Por favor ingrese su nombre")
@@ -46,7 +59,20 @@ const userUpdateValidationRules = () => {
 			.bail()
 			.isEmail()
 			.withMessage("Por favor ingrese un email válido")
-			.bail(),
+			.bail()
+			.custom(async (value, { req }) => {
+				if (value !== req.session.assertUserLogged.email) {
+					const user = await usersService
+						.findOne(value)
+						.catch((error) => error);
+					if (user !== null) {
+						return Promise.reject("El email ingresado se encuentra en uso");
+					}
+					return true;
+				} else {
+					return true;
+				}
+			}),
 		body("telephone")
 			.notEmpty()
 			.withMessage("Por favor ingrese su numero de teléfono")
@@ -79,6 +105,10 @@ const userUpdateValidationRules = () => {
 			.escape()
 			.withMessage("Por favor ingrese su dirección")
 			.bail(),
+		body("password").optional(),
+		body("confirmPassword", "Las contraseñas ingresadas no coinciden.")
+			.optional()
+			.custom((value, { req }) => value === req.body.password),
 		body("image").custom((value, { req }) => {
 			let file = req.file;
 			let acceptedExtensions = [".jpg", ".jpeg", "png", ".gif"];
@@ -98,21 +128,26 @@ const userUpdateValidationRules = () => {
 };
 
 const userUpdateValidation = async (req, res, next) => {
-	const errors = validationResult(req);
+	let errors = validationResult(req);
 	console.log(errors);
 
 	if (errors.isEmpty()) {
-		let formUserName = req.body.userName;
-    let formEmail = req.body.email;
-		
-    if (req.session.assertUserLogged.userName !== formUserName) {
-      const userByUserName = await usersService
+		return next();
+		/* let formUserName = req.body.userName;
+		let formEmail = req.body.email;
+		let password = req.body.password !== "" ? req.body.password : null;
+		let confirmPassword =
+			req.body.confirmPassword !== "" ? req.body.confirmPassword : null; */
+
+		/* if (req.session.assertUserLogged.userName !== formUserName) {
+			const userByUserName = await usersService
 				.findOneByUserName(formUserName)
 				.catch((error) => error);
 			console.log(
 				"UserName Testing (Null shows the user does not already exist):",
 				userByUserName
 			);
+
 			if (userByUserName !== null) {
 				errors.push({
 					value: formUserName,
@@ -121,12 +156,13 @@ const userUpdateValidation = async (req, res, next) => {
 					location: "body",
 				});
 			}
-		}
-		if (req.session.assertUserLogged.email !== formEmail) {
+		} */
+
+		/* if (req.session.assertUserLogged.email !== formEmail) {
 			const userByEmail = await usersService
 				.findOne(formEmail)
 				.catch((error) => error);
-      console.log(
+			console.log(
 				"UserEmail Testing (Null shows the Email does not already exist):",
 				userByEmail
 			);
@@ -138,22 +174,33 @@ const userUpdateValidation = async (req, res, next) => {
 					location: "body",
 				});
 			}
-		}
-    if (errors.isEmpty()) {
-      return next();
-    } else {
-      const provinces = await provincesServices.findAll();
+		} */
+
+		/* if (password && confirmPassword) {
+			if (password !== confirmPassword) {
+				errors.push({
+					value: confirmPassword,
+					msg: "Las constraseñas ingresadas no coinciden",
+					param: "confirmPassword",
+					location: "body",
+				});
+			}
+		} */
+
+		/* if (errors.isEmpty()) {
+			return next();
+		} else {
+			const provinces = await provincesServices.findAll();
 			const localities = await localitiesService.findAll();
-			const validationErrors = errors.mapped();			
+			const validationErrors = errors.mapped();
 			return res.render("editUser", {
 				errors: validationErrors,
 				old: req.body,
 				provinces,
 				localities,
 				user: req.session.assertUserLogged,
-			});  
-    }
-		
+			});
+		} */
 	} else {
 		const provinces = await provincesServices.findAll();
 		const localities = await localitiesService.findAll();
