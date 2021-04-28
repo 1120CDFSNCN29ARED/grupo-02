@@ -1,20 +1,17 @@
-const fs = require('fs');
-const path = require('path');
+const cartsService = require('../services/cartsService');
 const Cart = require('../models/Cart');
 
-const parts = require("../json/parts.json");
-const vehicles = require("../json/vehicles.json");
-const carts = require("../json/carts.json");
-const { reset } = require('nodemon');
-
-const cartFilePath = path.join(__dirname, '../json/carts.json');
 const cartController = {
-    details: (req, res) => {       
+    details: async (req, res) => {       
         if (req.session.cartID == 'guest') {            
             return res.send("Guest Cart Functionality not yet implemented");
         }
-        let cart = Cart.findCartByPk(req.session.cartID);
-        let items = Cart.getCartItems(cart);
+        //let cart = Cart.findCartByPk(req.session.cartID);
+        //let items = Cart.getCartItems(cart);
+        console.log(req.session.cartID);
+        let cart = await cartsService.findByPk(req.session.cartID);
+        console.log(cart);
+        let items = cart.getCartItems(cart);
         res.render("cart",{cart, items})
     },
     addToCart: (req, res, next) => {
