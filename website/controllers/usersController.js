@@ -46,7 +46,6 @@ const controller = {
 		res.render("register", {provinces});
 	},
 	createProcess: async (req, res, next) => {
-		console.log("aca")
 		let role = null;
 		const userType = req.body.role ? req.body.role : "user";
 		let newUser = {
@@ -100,11 +99,50 @@ const controller = {
 	},
 	update: async(req, res, next) => {
 		const userID = req.params.userID;
-		const userToEdit = await getFullUser(userID);
-		provinces = await provincesServices.findAll();
-		localities = await localitiesService.findAll();
-		console.log(req.body);
-		res.send(`Edit USERS Not Implemented Yet.`);
+		let newData = {
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			userName: req.body.userName,
+			email: req.body.email,
+			telephone: req.body.telephone,
+			dni: req.body.dni,
+			locationID: req.body.location,
+			address: req.body.address,
+			postalCode: req.body.postalCode,
+			image: req.file ? req.file.filename : "no-image-found.jpeg",
+		};
+		
+		const newAccessData = {};
+		req.body.password!==""
+			? (newAccessData.password = bcryptjs.hashSync(req.body.password, 10))
+			: null;
+		req.body.email ? (newAccessData.email = req.body.email) : null;
+
+		const user = await usersService.findByPk(userID);
+		console.log(user);
+		console.log("<----------------------->");
+		console.log(newData);
+		if (!user.errors) {
+			const updatedUser = await usersService
+			.update(userID, newData)
+			.catch((error) => error);	
+			console.log("UpdatedUser: ", updatedUser);	
+			const newUserName = updatedUser.dataValues.userName;
+			console.log("<--------------------------->");
+			console.log("New UserName: ", newUserName);
+			if (newAccessData != {}) {
+				console.log("Updting access credentials");
+				await userAccessService
+					.update(newUserName, newAccessData)
+					.catch((error) => error);
+				console.log("ACCESS CREDENTIAL UPDATED");
+			}
+			console.log("TRYING TO EXIT THE IF");
+		}
+		console.log("GETTING THE FULL USER");
+		req.session.assertUserLogged = await getFullUser(userID);
+		console.log("GOT THE FULL USER: ",req.session.assertUserLogged);
+		res.redirect(`/users/profile/${userID}`);
 	},
 	destroy: async (req, res, next) => {
 		//No tengo la pantalla de usuarios ni admin armado

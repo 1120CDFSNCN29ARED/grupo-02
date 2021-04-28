@@ -189,7 +189,7 @@ const usersController = {
 			? (newAccessData.password = bcryptjs.hashSync(req.body.password, 10))
 			: null;
 		req.body.roleID ? (newAccessData.roleID = req.body.roleID) : null;
-
+		req.body.email ? (newAccessData.email = req.body.email) : null;
 		const user = await usersService.findByPk(req.params.userID);
 		if (user != null) {
 			const updatedUser = await usersService
