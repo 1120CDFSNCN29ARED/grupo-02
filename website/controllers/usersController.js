@@ -4,7 +4,7 @@ const provincesServices = require("../services/provincesService");
 const usersService = require("../services/usersService");
 const userAccessService = require("../services/userAccessService");
 const rolesService = require("../services/rolesService");
-const favouritesService = require('../services/favouritesService');
+const favouritesService = require("../services/favouritesService");
 
 const controller = {
 	login: (req, res) => {
@@ -24,7 +24,6 @@ const controller = {
 		res.render("users", { users });
 	},
 	profile: async (req, res, next) => {
-
 		if (req.session.assertUserLogged) {
 			let user = req.session.assertUserLogged;
 			return res.render("userProfile", {
@@ -38,12 +37,12 @@ const controller = {
 		const user = getFullUser(userID);
 		let provinces = await provincesServices.findAll();
 		let localities = await localitiesService.findAll();
-		res.render("userProfile", { user,provinces, localities, action: "view" });
+		res.render("userProfile", { user, provinces, localities, action: "view" });
 	},
 	create: async (req, res, next) => {
 		let provinces = await provincesServices.findAll();
 
-		res.render("register", {provinces});
+		res.render("register", { provinces });
 	},
 	createProcess: async (req, res, next) => {
 		let role = null;
@@ -64,7 +63,7 @@ const controller = {
 		const password = bcryptjs.hashSync(req.body.password, 10);
 		const roleName = userType;
 		const user = await usersService.create(newUser);
-		console.log(user)
+		console.log(user);
 
 		if (!user.errors) {
 			role = await rolesService.findOneByRoleName(roleName);
@@ -89,15 +88,20 @@ const controller = {
 		res.redirect(`/users/profile/${user.userID}`);
 	},
 	edit: async (req, res, next) => {
-		let provinces = [];
-		let localities = [];
 		let userID = req.params.userID;
 		let userToEdit = await getFullUser(userID);
-		provinces = await provincesServices.findAll();
-		localities = await localitiesService.findByProvinceID(userToEdit.provinceID);
-		res.render("userProfile", { user: userToEdit, provinces:provinces, localities:localities, action: "edit" });
+		let provinces = await provincesServices.findAll();
+		let localities = await localitiesService.findByProvinceID(
+			userToEdit.provinceID
+		);
+		res.render("userProfile", {
+			user: userToEdit,
+			provinces: provinces,
+			localities: localities,
+			action: "edit",
+		});
 	},
-	update: async(req, res, next) => {
+	update: async (req, res, next) => {
 		const userID = req.params.userID;
 		let newData = {
 			firstName: req.body.firstName,
@@ -109,39 +113,33 @@ const controller = {
 			locationID: req.body.location,
 			address: req.body.address,
 			postalCode: req.body.postalCode,
-			image: req.file ? req.file.filename : "no-image-found.jpeg",
 		};
+
+		if (req.file) {
+			newData.image = req.file.filename;
+		}
 		
 		const newAccessData = {};
-		req.body.password!==""
+		req.body.password !== ""
 			? (newAccessData.password = bcryptjs.hashSync(req.body.password, 10))
 			: null;
 		req.body.email ? (newAccessData.email = req.body.email) : null;
 
 		const user = await usersService.findByPk(userID);
-		console.log(user);
-		console.log("<----------------------->");
-		console.log(newData);
+
 		if (!user.errors) {
 			const updatedUser = await usersService
-			.update(userID, newData)
-			.catch((error) => error);	
-			console.log("UpdatedUser: ", updatedUser);	
+				.update(userID, newData)
+				.catch((error) => error);
 			const newUserName = updatedUser.dataValues.userName;
-			console.log("<--------------------------->");
-			console.log("New UserName: ", newUserName);
+
 			if (newAccessData != {}) {
-				console.log("Updting access credentials");
 				await userAccessService
 					.update(newUserName, newAccessData)
 					.catch((error) => error);
-				console.log("ACCESS CREDENTIAL UPDATED");
 			}
-			console.log("TRYING TO EXIT THE IF");
 		}
-		console.log("GETTING THE FULL USER");
 		req.session.assertUserLogged = await getFullUser(userID);
-		console.log("GOT THE FULL USER: ",req.session.assertUserLogged);
 		res.redirect(`/users/profile/${userID}`);
 	},
 	destroy: async (req, res, next) => {
@@ -183,7 +181,5 @@ const getFullUser = async (userID) => {
 };
 module.exports = controller;
 
-//Finish updating user with password
-//IN the controller control for empty fields (NOT UDPATED) --Should onoy be password field and images
 //Implement carts functionality - DO NOT CHANGE variable names!!!!
 //Favourites (Is a nice to have for friday)
