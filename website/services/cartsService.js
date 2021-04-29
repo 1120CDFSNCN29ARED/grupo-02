@@ -11,11 +11,19 @@ const cartsService = {
 	},
     findByPk: async (cartID) => {
         const result = await db.Cart.findByPk(cartID);
-        console.log("CART: ",result);
         return result;
     },
     findByUserID: async (userID) => {
         const result = db.Cart.findAll({where: {userID}, include: ["cartItems"]});
+        return result;
+    },
+    create: async (userID) => {
+        let newCartData = {
+            userID,
+            status: "open",
+            active:true
+        }
+        const result = await db.Cart.create(newCartData);
         return result;
     },
     update: async (cartID, data) => {
