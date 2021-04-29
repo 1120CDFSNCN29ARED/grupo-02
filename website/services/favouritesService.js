@@ -2,19 +2,23 @@ const db = require("../database/models");
 
 const favouritesService = {
 	findAll: async (userID) => {
-		const result = db.Favourite.findAll({
+		const result = await db.Favourite.findAll({
 			where: { userID },
 		}).catch((error) => error);
 
 		return result;
 	},
-	addFavourite: async (userID, postID) => {
-    const result = db.Favourite.create({ userID:userID, postID:postID }).catch((error) => error);
+	findByUserAndPost: async (userID, postID) => {
+		const result = await db.Favourite.findOne({where: {userID, postID}});
+		return result;
+	},
+	add: async (userID, postID) => {
+    const result = await db.Favourite.create({ userID:userID, postID:postID }).catch((error) => error);
 
 		return result;
 	},
-	deleteFavourite: async (userID, postID) => {
-		const result = db.Favourite.destroy({ where: { userID, postID } }).catch(
+	delete: async (favouriteID) => {
+		const result = await db.Favourite.destroy({ where: { favouriteID } }).catch(
 			(error) => error
 		);
 

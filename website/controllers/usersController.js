@@ -155,6 +155,19 @@ const controller = {
 		req.session.destroy();
 		return res.redirect("/");
 	},
+    alterFavourites: async (req, res) => {
+		const favourite = await favouritesService.findByUserAndPost(req.session.assertUserLogged.userID,req.params.postID);
+        if(!favourite && req.params.action === "add"){
+			const result =  await favouritesService.add(req.session.assertUserLogged.userID,req.params.postID);
+			return res.redirect(`/posts/details/${req.params.postID}`);
+		}
+		else if(req.params.action === "delete"){
+			const result =  await favouritesService.delete(favourite.favouriteID);
+		}
+		const user = await usersService.findByPk(req.session.assertUserLogged.userID);
+		req.session.assertUserLogged = await getFullUser(req.session.assertUserLogged.userID);
+		return res.redirect(`/posts/details/${req.params.postID}`);
+    }
 };
 
 //Helper Functions
