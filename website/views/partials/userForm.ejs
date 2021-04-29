@@ -96,14 +96,13 @@
           <%=action==='view'? "disabled" :''%>>
           <% if (action =='view') { %>
             <option value="<%=user.locationID%>"><%=user.locationName%></option>
-            <% console.log(user) %> 
-          <% } else if (action=='edit'||action=='register') { %>
-             <option value=""></option>
-          <% for( locality of localities) { %>
-            <option value='<%=locality.localityID%>' <%=(locals.user && user.locationID===locality.localityID) ? "selected" : "" %>>
-              <%= locality.localityName %>
-            </option>
-            <% } %>
+          <% } else if (action=='edit') { %>
+              <option value=""></option>
+            <% for( locality of localities) { %>
+              <option value='<%=locality.localityID%>' <%=(locals.user && user.locationID===locality.localityID) ? "selected" : "" %>>
+                <%= locality.localityName %>
+              </option>
+              <% } %>
           <% } %>
         </select>  
           <label for="location">Ciudad</label>
