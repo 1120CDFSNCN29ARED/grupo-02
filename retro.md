@@ -23,10 +23,12 @@
 #### [Retro](https://drive.google.com/file/d/1gPcfIKVtnYRiZZQsoPABR1Mp4ijllJKi/view?usp=sharing)
 
 #### Reflexiones Iniciales
+
      Logramos implementar la mayoria de las iniciativas que propusimos durante el retro 1.
      Todavia estamos aceitando la forma de trabajar en forma coordinada y distribuida pero vamos avanzando bien.
      Identificamos la necesidad de organizar los tiempos mejor, sobre todo las tareas mas complicadas como el merge previa a la entrega etc.
      Se decidió implementar peer-reviews de las secciones que va haciendo cada uno para así poder detectar errores o cosas faltantes de manera temprana. Se hará moviendo las tareas a la sección de review en lugar de a done en el tablero de Trello.
+
 ## Sprint 3
 
 #### [Retro](https://drive.google.com/file/d/1OlOxQvVrCro0yw2hvwYYIEaVfh6sh3s8/view?usp=sharing)
@@ -52,9 +54,13 @@
 
 ## Sprint 5
 
-#### [Retro]() :
+#### [Retro](https://drive.google.com/file/d/1Pb16wt3cwTETMFduEb_1lRIW1OoUxXK6/view?usp=sharing) :
 
 #### Reflexiones Iniciales
+
+     Se volvió a cumplir con todos los requerimientos y se adelantaron tareas del próximo sprint.
+     Hubo muy buena comunicación en el equipo, siempre ayudándonos para resolver bloqueos.
+     Se encontraron problemas al haber adelantado código anteriormente y no haber tenido la base de datos bien definida, lo que llevó a mayor trabajo por parte del equipo en refactorizar el código de json -> sequelize.
 
 ## Sprint 6
 

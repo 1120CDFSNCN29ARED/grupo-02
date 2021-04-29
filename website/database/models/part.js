@@ -49,7 +49,6 @@ const Part = (sequelize, DataTypes) => {
 	let part = sequelize.define(alias, cols, config);
 	part.associate = models => {
 		part.hasOne(models.Product, {foreignKey: "partID", as: "product"});
-		part.belongsTo(models.Model, {foreignKey: "modelID", as: "model"})
 	}
 
 	return part;

@@ -417,7 +417,7 @@ const postsController = {
         }
         return res.render("search", {posts: matchedPosts, brands, provinces});
         
-    },
+    }
 };
 
 module.exports = postsController

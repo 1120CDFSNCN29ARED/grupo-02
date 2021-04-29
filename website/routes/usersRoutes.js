@@ -67,6 +67,8 @@ router.put(
 	usersController.update
 );
 
+router.get("/favourites/:action/:postID", authMiddleware, usersController.alterFavourites);
+
 router.get("/logout/", usersController.logout);
 
 router.delete("/delete/:userID", usersController.destroy);
