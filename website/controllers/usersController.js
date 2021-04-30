@@ -5,6 +5,7 @@ const usersService = require("../services/usersService");
 const userAccessService = require("../services/userAccessService");
 const rolesService = require("../services/rolesService");
 const favouritesService = require("../services/favouritesService");
+const questionsService = require("../services/questionsService");
 
 const controller = {
 	login: (req, res) => {
@@ -25,7 +26,8 @@ const controller = {
 	profile: async (req, res, next) => {
 		
 		if (req.session.assertUserLogged) {
-			let user = req.session.assertUserLogged;
+			//let user = req.session.assertUserLogged.userID;
+			let user = await getFullUser(req.params.userID);
 			return res.render("userProfile", {
 				user,
 				action: "view",
@@ -175,10 +177,16 @@ const getFullUser = async (userID) => {
 	const user = await usersService.findByPk(userID);
 	const userAccess = await userAccessService.findOne(user.email);
 	const role = await rolesService.findByPk(userAccess.roleID);
-	const favourites = await favouritesService.findAll(user.userID);
+	const allFavourites = await favouritesService.findAll(user.userID);
 	const locality = await localitiesService.findByPk(user.locationID);
 	const province = await provincesServices.findByPk(locality.provinceID);
+	const questionCount = await questionsService.countQuestions(userID);
 
+	let favourites = [];
+	for (favourite of allFavourites) {
+			favourites.push(favourite.dataValues);
+		}
+	
 	const fullUser = {
 		...user.dataValues,
 		role: role.roleName,
@@ -186,6 +194,7 @@ const getFullUser = async (userID) => {
 		provinceID: province.provinceID,
 		provinceName: province.provinceName,
 		locationName: locality.localityName,
+		questionCount
 	};
 	return fullUser;
 };

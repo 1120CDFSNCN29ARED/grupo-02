@@ -26,6 +26,16 @@ const questionsService = {
     delete: async (questionID) => {
         const question = await db.Question.destroy({where: {questionID}}).catch(error => error);
         return question;        
+    },
+    countQuestions: async function(userID){
+        const result = await this.findByUserID(userID).catch(error => error);
+        if (!result.errors) {
+        let questionsCount = result.length;
+				return questionsCount;    
+        } else {
+            return 0;
+        }
+        
     }
 }
 
