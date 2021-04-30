@@ -51,7 +51,7 @@ async function populateDB(db) {
 		telephone: 12345678,
 		address: "calle falsa 123",
 		postalCode: 1234,
-		image: "no-image-found.jpeg",
+		image: "default-profile.png",
 		locationID: 1,
 	}).catch((error) => console.log(error));
 	const userAccess = user
@@ -151,20 +151,131 @@ async function populateDB(db) {
 	const cart = await db.Cart.create({
 		userID: user.userID,
 		status: "active",
-		active: true
-	}).catch(error => error);
+		active: true,
+	}).catch((error) => error);
 	const cartItem = await db.CartItem.create({
 		cartID: cart.cartID,
 		postID: post.postID,
 		quantity: 1,
 		price: 100,
-		active: true
-	}).catch(error=>error);
+		active: true,
+	}).catch((error) => error);
 	const question = await db.Question.create({
 		question: "Test question",
 		questionDate: new Date(),
 		userID: user.userID,
 		postID: post.postID,
+	});
+	/* Generar otro auto de prueba*/
+	const version2 = await db.VehicleVersion.create({
+		brandID: brand.brandID,
+		modelID: model.modelID,
+		versionName: "120D Advantage 5P",
+	});
+	const vehicle2 = await db.Vehicle.create({
+		versionID: version2.versionID,
+		gearType: "automática",
+		type: "car",
+		year: 2021,
+		kilometers: 0,
+		color: "black",
+	});
+	const product2 = await db.Product.create({
+		productType: "vehicle",
+		vehicleID: vehicle2.vehicleID,
+		brandID: brand.brandID,
+		modelID: model.modelID,
+	});
+	const post2 = await db.Post.create({
+		title: "Test Car 2",
+		description: "Nuevo Serie 1",
+		published: true,
+		publishedDate: new Date(),
+		price: 123456,
+		onSale: true,
+		discount: 20,
+		stock: 1,
+		rating: 4,
+		state: "nuevo",
+		featured: true,
+		sellerID: user.userID,
+		locationID: 1,
+		postalCode: 1234,
+		productID: product2.productID,
+	});
+	/* Generar otro auto de prueba*/
+	const version3 = await db.VehicleVersion.create({
+		brandID: brand.brandID,
+		modelID: model.modelID,
+		versionName: "330D Advantage 5P",
+	});
+	const vehicle3 = await db.Vehicle.create({
+		versionID: version3.versionID,
+		gearType: "automática",
+		type: "car",
+		year: 2021,
+		kilometers: 0,
+		color: "black",
+	});
+	const product3 = await db.Product.create({
+		productType: "vehicle",
+		vehicleID: vehicle3.vehicleID,
+		brandID: brand.brandID,
+		modelID: model.modelID,
+	});
+	const post3 = await db.Post.create({
+		title: "Test Car 3",
+		description: "Nuevo 330D advantage",
+		published: true,
+		publishedDate: new Date(),
+		price: 123456,
+		onSale: true,
+		discount: 20,
+		stock: 1,
+		rating: 4,
+		state: "nuevo",
+		featured: true,
+		sellerID: user.userID,
+		locationID: 1,
+		postalCode: 1234,
+		productID: product3.productID,
+	});
+	/* Generar otro auto de prueba*/
+	const version4 = await db.VehicleVersion.create({
+		brandID: brand.brandID,
+		modelID: model.modelID,
+		versionName: "440D Advantage 2P",
+	});
+	const vehicle4 = await db.Vehicle.create({
+		versionID: version4.versionID,
+		gearType: "automática",
+		type: "car",
+		year: 2021,
+		kilometers: 0,
+		color: "black",
+	});
+	const product4 = await db.Product.create({
+		productType: "vehicle",
+		vehicleID: vehicle4.vehicleID,
+		brandID: brand.brandID,
+		modelID: model.modelID,
+	});
+	const post4 = await db.Post.create({
+		title: "Brand New 440D",
+		description: "Un auto listo para la revolucióñ",
+		published: true,
+		publishedDate: new Date(),
+		price: 123456,
+		onSale: true,
+		discount: 20,
+		stock: 1,
+		rating: 4,
+		state: "nuevo",
+		featured: true,
+		sellerID: user.userID,
+		locationID: 1,
+		postalCode: 1234,
+		productID: product4.productID,
 	});
 	try {
 		await db.Role.create({
