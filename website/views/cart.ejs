@@ -2,27 +2,27 @@
 <%- include("./partials/head", {"styles": styles}) %> 
 <%- include("./partials/header") %>
 <main>
-    <section class="cart-container">
+    <section class="cart-container">        
         <% if (items.length>0) { %>
         <% items.forEach(item=> { %>
             <div class="cart-item-container">
-                <form action="/cart/updateItem/<%=item.product.adID%>?_method=PUT" method="POST">
+                <form action="/cart/updateItem/<%=item.postID%>?_method=PUT" method="POST">
                     <article class="cart-item">
                         <div class="cart-item-image">
-                            <img src="<%= (item.product.imageURLs)[0] %>" alt="" srcset="">
+                            <img src="<%=(item.postData.images[0] ? item.postData.images[0].imageURL: null)%>" alt="" srcset="">
                         </div>
                         <div class="cart-item-details-container">
                             <h2 class="cart-item-title">
-                                <%= item.product.title %>
+                                <%= item.postData.post.title %>
                             </h2>
                             <p class="cart-item-description">
-                                <%= item.product.description %>
+                                <%= item.postData.post.description %>
                             </p>
                             <div class="cart-item-shipping-container">
                                 <p class="cart-item-shipping-label">Costo de envío: <span class="cart-item-shipping-price">$200</span></p>
                             </div>
                             <p class="cart-item-seller">
-                                <%= item.product.seller.name %>
+                                <%= item.postData.seller.userName %>
                             </p>
                         </div>
                         <div class="cart-item-quantity-container">
@@ -31,10 +31,10 @@
                                 <input type="text" name="quantity" id="quantity" value="<%= item.quantity %>">
                                 <a href="#"><i class="fas fa-plus"></i></a>
                                 <p class="cart-item-available-quantity">
-                                    <%= item.product.stock %>
+                                    <%= item.postData.post.stock %>
                                 </p>
                             </div>
-                            <h2 class="cart-item-price">$ <%= item.product.price.toLocaleString("es-AR") %>
+                            <h2 class="cart-item-price">$ <%= item.price.toLocaleString("es-AR") %>
                             </h2>
                         </div>
                         <div class="cart-item-button-container">
@@ -42,15 +42,15 @@
                         </div>
                     </article>
                 </form>
-                <form action="/cart/removeItem/<%=item.product.adID%>" method="GET" class="cart-delete-button-container d-flex">
+                <form action="/cart/removeItem/<%=item.postID%>" method="GET" class="cart-delete-button-container d-flex">
                     <button class="cart-delete-button ms-auto btn btn-danger">Eliminar</button></a>
                 </form>
             </div>
             <% }) %>
             <% } else { %>
-             <div class="cart-item-container">
-                <div><h1>Aun no agregaste items a su carro. </h1><a href="/"><button class="btn - btn-danger">Mirar los productos</button></a></div>
-             </div>
+                <div class="cart-item-container">
+                    <div><h1>Aun no agregaste items a su carro. </h1><a href="/"><button class="btn - btn-danger">Mirar los productos</button></a></div>
+                </div>
             <% } %>
     </section>
 </main>

@@ -12,7 +12,7 @@
             </div>
           </div>
           <div class="col-sm-9">
-            <h1>Bienvenido <%=user.first_name + " " + user.last_name%>
+            <h1>Bienvenido <%=user.firstName + " " + user.lastName%>
             </h1>            
           </div>
         </div>
@@ -22,14 +22,14 @@
             </hr>
             <ul class="list-group text-center">
               <li class="list-group-item mb-1 text-muted">Historial <i class="fa fa-dashboard fa-1x"></i></li>
-              <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Compras</strong></span> 2</li>
-              <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Favoritos</strong></span> 13</li>
-              <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Preguntas</strong></span> 37</li>
+              <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Compras:</strong></span> 2 </li>
+              <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Favoritos:</strong></span> <%= user.favourites.length %></li>
+              <li class="list-group-item mb-1 text-right"><span class="pull-left"><strong>Preguntas:</strong></span>  <%= user.questionCount %></li>
             </ul>
           </div>
-          <!--/col-3-->
+          <!--/col-3 eso lo deberías cambiar para que use el fullUser, sí, en todos lados -->
           <div class="col-sm-9">                        
-            <%- include("./partials/userForm",{ action: action }) %>            
+            <%- include("./partials/userForm",{ action }) %>            
           </div>
         </div>
       </div>

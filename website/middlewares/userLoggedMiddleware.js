@@ -1,13 +1,16 @@
-const User = require('../models/User');
+
+const usersService = require('../services/usersService');
 
 function userLoggedMiddleware(req, res, next) {  
   res.locals.isLogged = false;
   
   let userEmailInCookie = req.cookies.userEmail;
-  let userFromCookie = User.findUserByField("email", userEmailInCookie);
+  
+  let userFromCookie = usersService.findOne(userEmailInCookie).datavalues;
   
   if (userFromCookie) {
-    req.session.assertUserLogged = userFromCookie;
+
+    req.session.assertUserLogged = getFullUser(userFromCookie);
   }
 
   if (req.session.assertUserLogged) {

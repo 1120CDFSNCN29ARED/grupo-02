@@ -23,7 +23,7 @@ app.use(session({
 	saveUninitialized: false
 }));
 app.use(cookies());
-app.use(userLoggedMiddleware);
+app.use(userLoggedMiddleware);//This implements userLogged on all calls in the website
 
 //View Engine
 app.set("view engine", "ejs");

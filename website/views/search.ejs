@@ -5,7 +5,7 @@
     <main>
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container-fluid">
-                <p class="search-result-quantity"><%= products.length %> resultado<%= products.length === 0 || products.length > 1 ? "s" : "" %></p>
+                <p class="search-result-quantity"><%= posts.length %> resultado<%= posts.length === 0 || posts.length > 1 ? "s" : "" %></p>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#searchNavbar" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -114,44 +114,32 @@
                 </div>
             </div>
         </nav>
-        <% let featuredProducts = products.filter(product => product.featured === true) %>
-        <% if (featuredProducts.length > 0) { %>
+        <% let featuredPosts = posts.filter(post => post.post.featured === true) %>
+        <% if (featuredPosts.length > 0) { %>
             <div class="container-fluid">
                 <h2>Destacados</h2>
                 <div class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10">
-                    <% featuredProducts.forEach(product => { %>
-                        <% if (product.productType === "vehicle") { %>
-                            <% let brand = vehicleBrands.find(e => e.brandID === product.brandID) %> 
-                            <% let model = vehicleModels.find(e => e.modelID === product.modelID) %>
-                            <% let version = vehicleVersions.find(e => e.versionID === product.versionID) %>
-                            <%- include("./partials/vehicleCard", {vehicle: product, brand, model, version}) %>  
-                        <% } else if (product.productType === "part") { %>
-                            <% let brand = partBrands.find(e => e.brandID === product.brandID) %> 
-                            <% let model = partModels.find(e => e.modelID === product.modelID) %>
-                            <%- include("./partials/partCard", {part: product, brand, model}) %> 
+                    <% featuredPosts.forEach(post => { %>
+                        <% if (post.post.productType === "vehicle") { %>
+                            <%- include("./partials/vehicleCard", {vehicle: post}) %>  
+                        <% } else if (post.post.productType === "part") { %>
+                            <%- include("./partials/partCard", {part: post}) %> 
                         <% } %>
-                        
                     <% }) %>
                 </div>
             </div> 
         <% } %>
         <section id="search-results">
             <h2>Resultados</h2>
-            <% if (products.length > 0) { %>
+            <% if (posts.length > 0) { %>
                 <div class="container-fluid">
                     <div class="row row-cols-1 row-cols-s-2 row-cols-md-4 row-cols-lg-8 row-cols-xl-10 pl-10">
-                    <% products.forEach(product => { %>
-                        <% if (product.productType === "vehicle") { %>
-                            <% let brand = vehicleBrands.find(e => e.brandID === product.brandID) %> 
-                            <% let model = vehicleModels.find(e => e.modelID === product.modelID) %>
-                            <% let version = vehicleVersions.find(e => e.versionID === product.versionID) %>
-                            <%- include("./partials/vehicleCard", {vehicle: product, brand, model, version}) %>  
-                        <% } else if (product.productType === "part") { %>
-                            <% let brand = partBrands.find(e => e.brandID === product.brandID) %> 
-                            <% let model = partModels.find(e => e.modelID === product.modelID) %>
-                            <%- include("./partials/partCard", {part: product, brand, model}) %> 
-                        <% } %>
-                        
+                    <% posts.forEach(post => { %>
+                        <% if (post.post.productType === "vehicle") { %>
+                            <%- include("./partials/vehicleCard", {vehicle: post}) %>  
+                        <% } else if (post.post.productType === "part") { %>
+                            <%- include("./partials/partCard", {part: post}) %> 
+                        <% } %>                        
                     <% }) %>
                     </div>
                 </div> 

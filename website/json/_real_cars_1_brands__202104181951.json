@@ -1,0 +1,1902 @@
+[
+	{
+		"brandID" : "1",
+		"brandName" : "ACURA",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "2",
+		"brandName" : "ALEKO",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "3",
+		"brandName" : "ALFA ROMEO",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "4",
+		"brandName" : "ARO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "5",
+		"brandName" : "ASIA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "6",
+		"brandName" : "AUDI",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "7",
+		"brandName" : "AUTOBIANCHI",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "8",
+		"brandName" : "BMW",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "9",
+		"brandName" : "BUIK",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "10",
+		"brandName" : "CADILLAC",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "11",
+		"brandName" : "CITROEN",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "12",
+		"brandName" : "CHEVROLET",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "13",
+		"brandName" : "CHRYSLER",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "14",
+		"brandName" : "JEEP",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "15",
+		"brandName" : "DODGE",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "16",
+		"brandName" : "DACIA",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "17",
+		"brandName" : "DAEWOO",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "18",
+		"brandName" : "DAIHATSU",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "19",
+		"brandName" : "FIAT",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "20",
+		"brandName" : "FORD",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "21",
+		"brandName" : "HONDA",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "22",
+		"brandName" : "HYUNDAI",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "23",
+		"brandName" : "AEOLUS",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "24",
+		"brandName" : "ISUZU",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "25",
+		"brandName" : "JAGUAR",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "26",
+		"brandName" : "KIA",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "27",
+		"brandName" : "LADA",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "28",
+		"brandName" : "MAZDA",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "29",
+		"brandName" : "MERCURY",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "30",
+		"brandName" : "MERCEDES BENZ",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "31",
+		"brandName" : "MITSUBISHI",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "32",
+		"brandName" : "NISSAN",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "33",
+		"brandName" : "OPEL",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "34",
+		"brandName" : "PEUGEOT",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "35",
+		"brandName" : "POLONEZ",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "36",
+		"brandName" : "PONTIAC",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "37",
+		"brandName" : "PORSCHE",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "38",
+		"brandName" : "RENAULT",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "39",
+		"brandName" : "ROVER-LAND ROV.",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "40",
+		"brandName" : "SAAB",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "41",
+		"brandName" : "SEAT",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "42",
+		"brandName" : "SKODA",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "43",
+		"brandName" : "IVECO",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "44",
+		"brandName" : "SUBARU",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "45",
+		"brandName" : "SUZUKI",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "46",
+		"brandName" : "TAVRIA",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "47",
+		"brandName" : "TOYOTA",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "48",
+		"brandName" : "LEXUS",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "49",
+		"brandName" : "VOLKSWAGEN",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "50",
+		"brandName" : "VOLVO",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "51",
+		"brandName" : "PROTON",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "52",
+		"brandName" : "HUMMER",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "53",
+		"brandName" : "SCANIA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "54",
+		"brandName" : "FERRARI",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "55",
+		"brandName" : "HAM-JIANG",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "56",
+		"brandName" : "LANCIA",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "57",
+		"brandName" : "ENIAK",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "58",
+		"brandName" : "MAHINDRA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "59",
+		"brandName" : "RASTROJERO",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "60",
+		"brandName" : "TATA",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "61",
+		"brandName" : "BLAC",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "62",
+		"brandName" : "I.K.A. RENAULT",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "63",
+		"brandName" : "AUSTIN",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "64",
+		"brandName" : "BERTONE",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "66",
+		"brandName" : "AGRALE",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "67",
+		"brandName" : "GROSSPAL",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "68",
+		"brandName" : "RANQUEL",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "69",
+		"brandName" : "MAESTRO",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "70",
+		"brandName" : "JINBEI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "71",
+		"brandName" : "F.E.R.E.S.A.",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "72",
+		"brandName" : "NAKAI (CHANGAN)",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "73",
+		"brandName" : "BELAVTOMAZ",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "74",
+		"brandName" : "G.A.Z.",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "75",
+		"brandName" : "HINO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "76",
+		"brandName" : "IZH",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "77",
+		"brandName" : "KAMAZ",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "78",
+		"brandName" : "KENWORTH",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "79",
+		"brandName" : "LIAZ",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "80",
+		"brandName" : "UAZ",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "81",
+		"brandName" : "YUEJIN",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "82",
+		"brandName" : "INTERNATIONAL",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "83",
+		"brandName" : "DIMEX",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "84",
+		"brandName" : "PIAGGIO",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "85",
+		"brandName" : "SANXING",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "86",
+		"brandName" : "STAR (3-STAR)",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "87",
+		"brandName" : "YANTAI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "88",
+		"brandName" : "JAC MOTORS",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "89",
+		"brandName" : "HEIBAO",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "90",
+		"brandName" : "WULING MOTORS",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "91",
+		"brandName" : "SPACE",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "92",
+		"brandName" : "MASERATI",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "93",
+		"brandName" : "SANTANA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "94",
+		"brandName" : "SIAM DI TELLA",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "95",
+		"brandName" : "PLYMOUTH",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "96",
+		"brandName" : "MINI COOPER",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "97",
+		"brandName" : "ROLLS ROYCE",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "98",
+		"brandName" : "CHERY",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "99",
+		"brandName" : "LINCOLN",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "100",
+		"brandName" : "SMART",
+		"car" : "true",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "101",
+		"brandName" : "MACK",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "102",
+		"brandName" : "DFM",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "103",
+		"brandName" : "JMC",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "104",
+		"brandName" : "LIFAN",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "true",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "105",
+		"brandName" : "FOTON",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "true",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "106",
+		"brandName" : "GEELY",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "107",
+		"brandName" : "DS AUTOMOBILES",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "108",
+		"brandName" : "BAIC",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "109",
+		"brandName" : "DFSK",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "110",
+		"brandName" : "SHINERAY",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "111",
+		"brandName" : "GREAT WALL",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "112",
+		"brandName" : "HAVAL",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "113",
+		"brandName" : "CHANGAN",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "114",
+		"brandName" : "ZANELLA",
+		"car" : "false",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "115",
+		"brandName" : "SERO ELECTRIC",
+		"car" : "true",
+		"pickup" : "true",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "116",
+		"brandName" : "PEUGEOT MOTOS",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "117",
+		"brandName" : "BLACKSTONE",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "118",
+		"brandName" : "TIBO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "119",
+		"brandName" : "GAMMA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "120",
+		"brandName" : "SKYGO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "121",
+		"brandName" : "LEGNANO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "122",
+		"brandName" : "IMSA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "123",
+		"brandName" : "RAFTER",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "124",
+		"brandName" : "DAYAMA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "125",
+		"brandName" : "POLARIS",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "126",
+		"brandName" : "HYOSUNG",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "127",
+		"brandName" : "KTM",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "128",
+		"brandName" : "GAS GAS",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "129",
+		"brandName" : "PIT BIKE",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "130",
+		"brandName" : "BLOOWER",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "131",
+		"brandName" : "SYM",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "132",
+		"brandName" : "TVS",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "133",
+		"brandName" : "HUSQVARNA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "134",
+		"brandName" : "KONISA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "135",
+		"brandName" : "BAJAJ",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "136",
+		"brandName" : "BABOON",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "137",
+		"brandName" : "JAWA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "138",
+		"brandName" : "CAGIVA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "139",
+		"brandName" : "JUKI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "140",
+		"brandName" : "OLMO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "141",
+		"brandName" : "BENELLI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "142",
+		"brandName" : "MONDIAL",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "143",
+		"brandName" : "YAMAHA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "144",
+		"brandName" : "JIANSHE",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "145",
+		"brandName" : "BETA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "146",
+		"brandName" : "CERRO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "147",
+		"brandName" : "FAMSA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "148",
+		"brandName" : "KIKAI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "149",
+		"brandName" : "MINARELLI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "150",
+		"brandName" : "MOTOMEL",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "151",
+		"brandName" : "PANTHER",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "152",
+		"brandName" : "VENTO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "153",
+		"brandName" : "JINCHENG",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "154",
+		"brandName" : "DAELIM",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "false",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "155",
+		"brandName" : "CHIRETTE",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "156",
+		"brandName" : "HARLEY DAVI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "157",
+		"brandName" : "XQUAD",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "158",
+		"brandName" : "BRAVA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "159",
+		"brandName" : "VELIMOTOR",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "160",
+		"brandName" : "GUERRERO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "161",
+		"brandName" : "HAMATSU",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "162",
+		"brandName" : "SUMO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "163",
+		"brandName" : "OKINOI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "164",
+		"brandName" : "DUCATI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "165",
+		"brandName" : "DAYANG",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "166",
+		"brandName" : "KELLER",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "167",
+		"brandName" : "CORVEN",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "168",
+		"brandName" : "GILERA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "169",
+		"brandName" : "GOES",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "170",
+		"brandName" : "APRILIA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "171",
+		"brandName" : "XSCREEMS",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "172",
+		"brandName" : "EUROMOT",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "173",
+		"brandName" : "CAN AM",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "174",
+		"brandName" : "KYMCO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "175",
+		"brandName" : "DYNAMIC",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "176",
+		"brandName" : "KAWASAKI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "177",
+		"brandName" : "HERO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "178",
+		"brandName" : "JIALING",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "179",
+		"brandName" : "MAVERICK",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "180",
+		"brandName" : "JINLING",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "181",
+		"brandName" : "DA DALT",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "182",
+		"brandName" : "APPIA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "183",
+		"brandName" : "MV AGUSTA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "184",
+		"brandName" : "ZANELLA MOTOS",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "185",
+		"brandName" : "ROYAL ENFIELD",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "186",
+		"brandName" : "TRIUMPH",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "187",
+		"brandName" : "VESPA",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "188",
+		"brandName" : "GUZZI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "189",
+		"brandName" : "CF MOTO",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "190",
+		"brandName" : "GHIGGERI",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	},
+	{
+		"brandID" : "191",
+		"brandName" : "JAGUAR ATV",
+		"car" : "false",
+		"pickup" : "false",
+		"motorcycle" : "true",
+		"truck" : "false",
+		"makesParts" : "false",
+		"active" : "true"
+	}
+]

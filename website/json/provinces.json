@@ -1,0 +1,98 @@
+[
+    {
+    "provinceID": "54",
+    "provinceName": "Misiones"
+    },
+    {
+    "provinceID": "74",
+    "provinceName": "San Luis"
+    },
+    {
+    "provinceID": "70",
+    "provinceName": "San Juan"
+    },
+    {
+    "provinceID": "30",
+    "provinceName": "Entre Ríos"
+    },
+    {
+    "provinceID": "78",
+    "provinceName": "Santa Cruz"
+    },
+    {
+    "provinceID": "62",
+    "provinceName": "Río Negro"
+    },
+    {
+    "provinceID": "26",
+    "provinceName": "Chubut"
+    },
+    {
+    "provinceID": "14",
+    "provinceName": "Córdoba"
+    },
+    {
+    "provinceID": "50",
+    "provinceName": "Mendoza"
+    },
+    {
+    "provinceID": "46",
+    "provinceName": "La Rioja"
+    },
+    {
+    "provinceID": "10",
+    "provinceName": "Catamarca"
+    },
+    {
+    "provinceID": "42",
+    "provinceName": "La Pampa"
+    },
+    {
+    "provinceID": "86",
+    "provinceName": "Santiago del Estero"
+    },
+    {
+    "provinceID": "18",
+    "provinceName": "Corrientes"
+    },
+    {
+    "provinceID": "82",
+    "provinceName": "Santa Fe"
+    },
+    {
+    "provinceID": "90",
+    "provinceName": "Tucumán"
+    },
+    {
+    "provinceID": "58",
+    "provinceName": "Neuquén"
+    },
+    {
+    "provinceID": "66",
+    "provinceName": "Salta"
+    },
+    {
+    "provinceID": "22",
+    "provinceName": "Chaco"
+    },
+    {
+    "provinceID": "34",
+    "provinceName": "Formosa"
+    },
+    {
+    "provinceID": "38",
+    "provinceName": "Jujuy"
+    },
+    {
+    "provinceID": "2",
+    "provinceName": "Ciudad Autónoma de Buenos Aires"
+    },
+    {
+    "provinceID": "6",
+    "provinceName": "Buenos Aires"
+    },
+    {
+    "provinceID": "94",
+    "provinceName": "Tierra del Fuego, Antártida e Islas del Atlántico Sur"
+    }
+]

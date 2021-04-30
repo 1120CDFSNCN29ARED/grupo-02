@@ -1,6 +1,8 @@
 const { body, validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-const User = require('../models/User');
+const usersService = require('../services/usersService.js');
+const userAccessService = require('../services/userAccessService.js');
+const getFullUser = require("./getFullUser.js");
 
 const loginValidationRules = () => {
 	return [
@@ -14,39 +16,55 @@ const loginValidationRules = () => {
 	];
 };
 
-const loginValidation = (req, res, next) => {
+const loginValidation = async (req, res, next) => {
 	const errors = validationResult(req);
 	if (errors.isEmpty()) {
-    let userToLogin = User.findUserByField('email', req.body.email);
-    if (userToLogin) {
-      if (bcryptjs.compareSync(req.body.password, userToLogin.password)) {
-        delete userToLogin.password;
-				req.session.assertUserLogged = userToLogin;
-				req.session.userType = userToLogin.category;
-				req.session.userId = userToLogin.userID;
-        if (req.body.keepLogged != undefined) {
-					res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 2 });
+		try {
+			const email = req.body.email;
+			const result = await userAccessService.findOne(email);
+			const userAccess = result.dataValues;
+			let fullUser = {};
+			if(bcryptjs.compareSync(req.body.password, userAccess.password)){
+				const user = await usersService.findOne(email);
+				fullUser = await getFullUser(user);
+				req.session.assertUserLogged = fullUser;
+				req.session.userType = fullUser.roleName;
+				req.session.userID = fullUser.userID;
+
+				if (req.body.keepLogged != undefined) {
+					res.cookie("userEmail", user.email, { maxAge: (1000 * 60) * 2 });
 				}
-        return next();
-      }
-      return res.render('login', {
-        errors: {
-          email: {
-            msg: "Las credenciales son inválidas."
-          }
-        }
-      });
-    }
-    return res.render("login", {
-			errors: {
+				return next();
+			}
+			else {
+				const validationErrors = {
+					email: {
+					value: "",
+					msg: 'El usuario y/o contraseña no son validos',
+					param: 'email',
+					location: 'body'
+					}
+				};
+				res.render("login", { errors: validationErrors, old: req.body })
+			}
+		} catch (error) {
+			const validationErrors = {
 				email: {
-					msg: "Las credenciales son inválidas.",
-				},
-			},
-		});
+					value: "",
+					msg: 'El usuario y/o contraseña no son validos',
+					param: 'email',
+					location: 'body'
+				}
+			  };
+			
+			res.render("login", { errors: validationErrors, old: req.body })
+		};
 	}
-	const validationErrors = errors.mapped();
-	return res.render("login", { errors: validationErrors, old: req.body });
+	else {
+		const validationErrors = errors.mapped();
+		console.log(validationErrors)
+		return res.render("login", { errors: validationErrors, old: req.body });
+	}	
 };
 
 module.exports = {
