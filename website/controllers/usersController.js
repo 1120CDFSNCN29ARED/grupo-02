@@ -36,7 +36,7 @@ const controller = {
 	},
 	details: async (req, res, next) => {
 		let userID = req.params.userID;
-		const user = getFullUser(userID);
+		const user = await getFullUser(userID);
 		let provinces = await provincesServices.findAll();
 		let localities = await localitiesService.findAll();
 		res.render("userProfile", { user, provinces, localities, action: "view" });
