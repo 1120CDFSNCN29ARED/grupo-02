@@ -8,10 +8,9 @@ const activeCart = async (req, res, next) => {
   if (req.session.assertUserLogged.userID) {
     userID = req.session.assertUserLogged.userID;
   } else {
-    // Need to think this through carefully.
     userID = "guest";
   }
-  //let userCart = Cart.findCartByField('userID', userID);
+  
   let userCart = await cartsService.findByUserID(userID);
   console.log("USER CART EXISTS OR THERE ARE ERRORS????", userCart);
   if (userCart.length>0) {

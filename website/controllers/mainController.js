@@ -25,7 +25,7 @@ const mainController = {
         const vehicleBrands = await brandsService.findByProductType({car: true, motorcycle: true, pickup: true, truck: true});
 
         res.render("index", { users, mmav, vehicleBrands, partBrands, vehicles, parts});
-     },    
+    },    
 };
 
 module.exports = mainController;
