@@ -1,20 +1,26 @@
 //@TODO: Create new cart if no active ("PENDING") cart is detected.
-const Cart = require('../models/Cart');
-const activeCart = (req, res, next) => {
+const cartsService = require('../services/cartsService');
+
+const activeCart = async (req, res, next) => {
   res.locals.activeCart = false;
   let userID;
-  if (req.session.userId) {
-    userID = req.session.userId;
+  
+  if (req.session.assertUserLogged.userID) {
+    userID = req.session.assertUserLogged.userID;
   } else {
-    // Need to think this through carefully.
     userID = "guest";
   }
-  let userCart = Cart.findCartByField('userID', userID);
-  if (userCart) {
-    req.session.cartID = userCart.cartID;
+  
+  let userCart = await cartsService.findByUserID(userID);
+  console.log("USER CART EXISTS OR THERE ARE ERRORS????", userCart);
+  if (userCart.length>0) {
+    req.session.cartID = userCart[0].dataValues.cartID;
   } else {
-    console.log("Creating a new cart");
-    Cart.create(userID);
+    console.log("No Cart Found --> Creating a new cart");
+    let result = await cartsService.create(userID);
+    if (!result.errors) {
+      req.session.cartID = result.cartID;
+    }
     return res.redirect('/cart/details');
   }
 

@@ -1,29 +1,38 @@
-const sequelize = require("sequelize");
-
 const Role = (sequelize, DataTypes) => {
     const alias = "Role";
     const cols = {
         roleID: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
+            type: DataTypes.TINYINT,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
-        role_name: {
+        roleName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true,
+			field: "role_name"
         },
-        role_description: {
+        roleDescription: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+			field: "role_description"
+        },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
         }
     };
     const config = {
         tableName: "roles",
-        timeStamps: true
+        timestamps: true
     };
-    return sequelize.define(alias, cols, config);
+    let role = sequelize.define(alias, cols, config);
+    role.associate = models => {
+        role.hasMany(models.UserAccess, {foreignKey: "roleID", as: "userAccesses"});
+    }
+    return role;
 }
-
 
 module.exports = Role

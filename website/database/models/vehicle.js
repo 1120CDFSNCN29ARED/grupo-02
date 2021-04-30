@@ -1,69 +1,54 @@
-const Role = require("./role")
-
 const Vehicle = (sequelize, DataTypes) => {
-    const alias = "Product";
-    const cols = {
-        adID: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            allowNull: false,
-            primaryKey: true
-        },
-        first_name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        last_name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        userName: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        dni: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        telephone: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        province: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        city: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        neighbourhood: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        postal_code: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        roleID: {
-            type: DataTypes.TINYINT,
-            allowNull: false,
-            references: {
-                model: Role,
-                key: 'roleID'
-            }
-        },
-        image: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
-    };
-    const config = {
-        tableName: "vehicles",
-        timeStamps: true
-    };
-    return sequelize.define(alias, cols, config);
+  const alias = "Vehicle";
+  const cols = {
+		vehicleID: {
+			type: DataTypes.UUID,
+			allowNull: false,
+			primaryKey: true,
+			defaultValue: DataTypes.UUIDV4,
+		},
+    versionID: {
+      type: DataTypes.INTEGER,
+      allowNull:false
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    gearType: {
+      type: DataTypes.STRING,
+      allowNull: false,
+			field: "gear_type"
+    },
+    year: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    kilometers: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    color: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    active: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+    }
+	};
+  const config = {
+		tableName: "vehicles",
+		timeStamps: true,
+	};
+  let vehicle = sequelize.define(alias, cols, config);
+  vehicle.associate = models => {
+    vehicle.hasOne(models.Product, {foreignKey: "vehicleID", as: "product"});
+    vehicle.belongsTo(models.VehicleVersion, {foreignKey: "versionID", as: "version"});
+  }
+	return vehicle;
+
 }
 
-
-module.exports = Vehicle
+module.exports = Vehicle;

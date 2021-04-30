@@ -1,35 +1,30 @@
 <article class="col col-md-4 col-lg-3 mb-4">
-    <a class="card-link" href="/products/details/<%= part.productType %>/<%= part.adID%>">
+    <a class="card-link" href="/posts/details/<%= part.post.postID%>">
         <div class="card h-100">
-            <img src="<%=part.imageURLs[0]%>" class="card-img-top" alt="..." />
+            <img src="/img/posts/<%= part.images.length > 0 ? part.images[0].imageURL : "no-image-found.jpeg"%>" class="card-img-top" alt="..." />
             <div class="card-body">
-                <h5 class="card-title">$ <%= part.price.toLocaleString("es-AR") %>
+                <h5 class="card-title">$ <%= part.post.price.toLocaleString("es-AR") %>
                 </h5>
                 <div class="card-details">
                     <div class="row">
-                        <p class="card-text bold"><%= part.title %></p>
+                        <p class="card-text bold"><%= part.post.title %></p>
                     </div>
                     <div class="row">
                         <div class="col">
                             <p class="card-text">
-                                <%= part.rating %>
+                                <%= part.post.rating %>
                             </p>
                         </div>
                         <div class="col">
                             <p class="card-text">
-                                <%= part.state %>
+                                <%= part.post.state %>
                             </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <p class="card-text">
-                                <%= part.location.neighbourhood %>, 
-                                <% if (part.location.city === part.location.province) { %>
-                                    <%= part.location.city %>
-                                <% } else { %>
-                                    <%= part.location.city %>,<%= part.location.province %>
-                                <% } %>
+                                <%= part.location.localityName %>, <%= part.location.provinceName %> 
                             </p>
                         </div>
                         <div class="col">
