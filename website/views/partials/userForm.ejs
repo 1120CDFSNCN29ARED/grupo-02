@@ -11,6 +11,7 @@
             </div>
             <% } %>
         </div>
+        <div class="d-none text-danger" id="error-userName"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -22,6 +23,7 @@
             </div>
             <% } %>
         </div>
+        <div class="d-none text-danger" id="error-email"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -33,6 +35,7 @@
             </div>
             <% } %>
         </div>
+        <div class="d-none text-danger" id="error-firstName"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -44,28 +47,30 @@
             </div>
             <% } %>
         </div>
+        <div class="d-none text-danger" id="error-lastName"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
-      <div class="form-floating mb-1">
-        <input type="text" class="form-control registration-field <%=locals.errors && errors.dni ? 'is-invalid':null %> " id="dni" name="dni" placeholder="DNI" value="<%= locals.old && old.dni ? old.dni : action == 'edit' || action=='view' ? user.dni : null %>" <%=action==='view'? "disabled":''%>/>
-        <label for="dni">DNI</label>
-        <% if (locals.errors && errors.dni) { %>
-          <div class="invalid-feedback">
-            <%= errors.dni.msg %>
-          </div>
-          <% } %>
-      </div>
+        <div class="form-floating mb-1">
+          <input type="text" class="form-control registration-field <%=locals.errors && errors.dni ? 'is-invalid':null %> " id="dni" name="dni" placeholder="DNI" value="<%= locals.old && old.dni ? old.dni : action == 'edit' || action=='view' ? user.dni : null %>" <%=action==='view'? "disabled":''%>/>
+          <label for="dni">DNI</label>
+          <% if (locals.errors && errors.dni) { %>
+            <div class="invalid-feedback">
+              <%= errors.dni.msg %>
+            </div>
+            <% } %>
+        </div>
       </div>
       <div class="col-xs-12 col-sm-6">
-      <div class="form-floating mb-1">
-        <input type="text" class="form-control registration-field <%=locals.errors && errors.telephone ? 'is-invalid':null %> " id="telephone" name="telephone" placeholder="+5491133048054" value="<%= locals.old && old.telephone ? old.telephone : action == 'edit' || action=='view' ? user.telephone :null %>" <%=action==='view'? "disabled":''%>/>
-        <label for="telephone">Teléfono</label>
-        <% if (locals.errors && errors.telephone) { %>
-          <div class="invalid-feedback">
-            <%= errors.telephone.msg %>
-          </div>
-          <% } %>
-      </div>
+        <div class="form-floating mb-1">
+          <input type="text" class="form-control registration-field <%=locals.errors && errors.telephone ? 'is-invalid':null %> " id="telephone" name="telephone" placeholder="+5491133048054" value="<%= locals.old && old.telephone ? old.telephone : action == 'edit' || action=='view' ? user.telephone :null %>" <%=action==='view'? "disabled":''%>/>
+          <label for="telephone">Teléfono</label>
+          <% if (locals.errors && errors.telephone) { %>
+            <div class="invalid-feedback">
+              <%= errors.telephone.msg %>
+            </div>
+            <% } %>
+        </div>
+        <div class="d-none text-danger" id="error-telephone"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -89,6 +94,7 @@
             </div>
             <% } %>
         </div>
+        <div class="d-none text-danger" id="error-province"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -112,40 +118,8 @@
             </div>
             <% } %>
         </div>
+        <div class="d-none text-danger" id="error-location"></div>
       </div>
-      <!-- <div class="col-xs-12 col-sm-6">
-        <div class="form-floating mb-1">
-          <input type="text" class="form-control registration-field <%=locals.errors && errors.province ? 'is-invalid':null %> " id="province" name="province" placeholder="province" value="<%= locals.old && old.province ? old.province : action == 'edit' || action=='view' ? user.province :null %>" <%=action==='view'? "disabled":''%>/>
-          <label for="province">Provincia</label>
-          <% if (locals.errors && errors.province) { %>
-            <div class="invalid-feedback">
-              <%= errors.province.msg %>
-            </div>
-            <% } %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="form-floating mb-1">
-          <input type="text" class="form-control registration-field <%=locals.errors && errors.city ? 'is-invalid':null %> " id="city" name="city" placeholder="ciudad" value="<%= locals.old && old.city ? old.city : action == 'edit' || action=='view' ? user.city :null %>" <%=action==='view'? "disabled":''%>/>
-          <label for="city">Ciudad</label>
-          <% if (locals.errors && errors.city) { %>
-            <div class="invalid-feedback">
-              <%= errors.city.msg %>
-            </div>
-            <% } %>
-        </div>
-      </div> -->
-      <!-- <div class="col-xs-12 col-sm-6">
-        <div class="form-floating mb-1">
-          <input type="text" class="form-control registration-field <%=locals.errors && errors.neighbourhood ? 'is-invalid':null %> " id="neighbourhood" name="neighbourhood" placeholder="barrio" value="<%= locals.old && old.neighbourhood ? old.neighbourhood : action == 'edit' || action=='view' ? user.neighbourhood :null %>" <%=action==='view'? "disabled":''%>/>
-          <label for="neighbourhood">Barrio</label>
-          <% if (locals.errors && errors.neighbourhood) { %>
-            <div class="invalid-feedback">
-              <%= errors.neighbourhood.msg %>
-            </div>
-            <% } %>
-        </div>
-      </div> -->
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
           <input type="number" class="form-control registration-field <%=locals.errors && errors.postalCode ? 'is-invalid':null %> " id="postalCode" name="postalCode" placeholder="Código Postal" value="<%= locals.old && old.postalCode ? old.postalCode : action == 'edit' || action=='view' ? user.postalCode :null %>" <%=action==='view'? "disabled":''%>/>
@@ -156,8 +130,9 @@
             </div>
             <% } %>
         </div>
+        <div class="d-none text-danger" id="error-postalCode"></div>
       </div>
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
           <input type="text" class="form-control registration-field <%=locals.errors && errors.address ? 'is-invalid':null %> " id="address" name="address" placeholder="Dirección" value="<%= locals.old && old.address ? old.address : action == 'edit' || action=='view' ? user.address :null %>" <%=action==='view'? "disabled":''%>/>
           <label for="postalCode">Dirección</label>
@@ -167,28 +142,31 @@
             </div>
             <% } %>
         </div>
+        <div class="d-none text-danger" id="error-address"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
-      <div class="form-floating mb-1">
-        <input type="password" class="form-control registration-field <%=locals.errors && errors.password ? 'is-invalid':null %>" id="password" name="password" placeholder="Password" value='' <%=action==='view'? "hidden disabled":''%>/>
-        <label for="password" <%=action==='view'? "hidden disabled":''%>>Contraseña</label>
-        <% if (locals.errors && errors.password) { %>
-          <div class="invalid-feedback">
-            <%= errors.password.msg %>
-          </div>
-          <% } %>
-      </div>
+        <div class="form-floating mb-1">
+          <input type="password" class="form-control registration-field <%=locals.errors && errors.password ? 'is-invalid':null %>" id="password" name="password" placeholder="Password" value='' <%=action==='view'? "hidden disabled":''%>/>
+          <label for="password" <%=action==='view'? "hidden disabled":''%>>Contraseña</label>
+          <% if (locals.errors && errors.password) { %>
+            <div class="invalid-feedback">
+              <%= errors.password.msg %>
+            </div>
+            <% } %>
+        </div>
+        <div class="d-none text-danger" id="error-password"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
-      <div class="form-floating mb-1">
-        <input type="password" class="form-control registration-field <%=locals.errors && errors.confirmPassword ? 'is-invalid': null %>" id="confirmPassword" name="confirmPassword" placeholder="Password" value='' <%=action==='view'? "hidden disabled":''%>/>
-        <label for="password" <%=action==='view'? "hidden disabled":''%>>Confirmar Contraseña</label>
-        <% if (locals.errors && errors.confirmPassword) { %>
-          <div class="invalid-feedback">
-            <%= errors.confirmPassword.msg %>
-          </div>
-          <% } %>
-      </div>
+        <div class="form-floating mb-1">
+          <input type="password" class="form-control registration-field <%=locals.errors && errors.confirmPassword ? 'is-invalid': null %>" id="confirmPassword" name="confirmPassword" placeholder="Password" value='' <%=action==='view'? "hidden disabled":''%>/>
+          <label for="password" <%=action==='view'? "hidden disabled":''%>>Confirmar Contraseña</label>
+          <% if (locals.errors && errors.confirmPassword) { %>
+            <div class="invalid-feedback">
+              <%= errors.confirmPassword.msg %>
+            </div>
+            <% } %>
+        </div>
+        <div class="d-none text-danger" id="error-confirmPassword"></div>
       </div>
       <div class="form-floating mb-1">
         <input type="file" class="form-control <%=locals.errors && errors.image ? 'is-invalid': null %>" id="image" name="image" single value="<%= locals.old && old.image ? old.image : action == 'edit' ? `/img/users/${user.image}` : null %>" <%=action==='view'? "hidden disabled":''%>/>
@@ -197,6 +175,7 @@
             <%= errors.image.msg %>
           </div>
           <% } %>
+          <div class="d-none text-danger" id="error-image"></div>
       </div>
     </div>
     <div class="container-fluid d-md-flex container-registration-cta mb-5">
