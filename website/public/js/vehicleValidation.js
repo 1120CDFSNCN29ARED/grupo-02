@@ -74,12 +74,56 @@ window.addEventListener("load",() => {
     stock.addEventListener("input",(e) => {
         if(stock.value < 1){
             stock.classList.add("is-invalid");
-            stock.insertAdjacentElement("afterend",divGenerator("El stock debe ser mayor a 0"));
+            if(rating.nextElementSibling.tagName !== "DIV"){
+                stock.insertAdjacentElement("afterend",divGenerator("El stock debe ser mayor a 0"));
+            }
         }
         else{
             stock.classList.remove("is-invalid");
-            if(stock.nextElementSibling.tagName === "div"){
+            if(stock.nextElementSibling.tagName === "DIV"){
                 stock.nextElementSibling.remove();
+            }
+        }
+    });
+    rating.addEventListener("input",(e) => {
+        if(rating.value < 0 || rating.value > 5){
+            rating.classList.add("is-invalid");
+            if(rating.nextElementSibling.tagName !== "DIV"){
+                rating.insertAdjacentElement("afterend",divGenerator("El rating debe ser entre 0 y 5"));
+            }
+        }
+        else{
+            rating.classList.remove("is-invalid");
+            if(rating.nextElementSibling.tagName === "DIV"){
+                rating.nextElementSibling.remove();
+            }
+        }
+    });
+    gearType.addEventListener("change",(e) => {
+        if(gearType.value !== "manual" && gearType.value !== "automática"){
+            gearType.classList.add("is-invalid");
+            if(gearType.nextElementSibling.tagName !== "DIV"){
+                gearType.insertAdjacentElement("afterend",divGenerator("La caja de cambios puede ser automática o manual"));
+            }
+        }
+        else{
+            gearType.classList.remove("is-invalid");
+            if(gearType.nextElementSibling.tagName === "DIV"){
+                gearType.nextElementSibling.remove();
+            }
+        }
+    });
+    kilometers.addEventListener("input",(e) => {
+        if(kilometers.value < 0){
+            kilometers.classList.add("is-invalid");
+            if(kilometers.nextElementSibling.tagName !== "DIV"){
+                kilometers.insertAdjacentElement("afterend",divGenerator("El kilometraje debe ser mayor o igual a cero"));
+            }
+        }
+        else{
+            kilometers.classList.remove("is-invalid");
+            if(kilometers.nextElementSibling.tagName === "DIV"){
+                kilometers.nextElementSibling.remove();
             }
         }
     });
