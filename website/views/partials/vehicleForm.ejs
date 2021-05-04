@@ -203,7 +203,7 @@
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control <%=locals.errors && errors.kilometers ? 'is-invalid': null %>" placeholder="" id="kilometers" name="kilometers" value="<%= locals.post && post.post && post.post.kilometers %>"></input>
+                    <input type="number" class="form-control <%=locals.errors && errors.kilometers ? 'is-invalid': null %>" placeholder="" id="kilometers" name="kilometers" value="<%= locals.post && post.post && post.post.kilometers ? post.post.kilometers : 0 %>"></input>
                     <label for="kilometers">Kilometros</label>
                     <% if (locals.errors && errors.kilometers) { %>
                         <div class="invalid-feedback">
@@ -371,4 +371,5 @@
 <script src="/js/getVehicleModels.js"></script>
 <script src="/js/getVersions.js"></script>
 <script src="/js/getLocalities.js"></script>
+<script type="text/javascript" src="https://unpkg.com/validator.js@latest/dist/validator.min.js"></script>
 <script src="/js/vehicleValidation.js"></script>
