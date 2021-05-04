@@ -15,7 +15,7 @@ const usersController = require('../../controllers/api/usersController');
 router.get('/', usersController.all);
 router.get('/:userID', usersController.byID);
 router.get("/roles/:role", usersController.byRole); //No funciona bien! Separar las funciones en el controler para no cruizar servicios.
-
+router.get("/byUserName/:userName", usersController.byUserName);
 //Create user
 router.post('/create', usersController.create);
 
