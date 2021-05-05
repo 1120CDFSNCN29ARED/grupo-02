@@ -93,17 +93,41 @@ const usersController = {
 		return res.status(result.meta.status).json(result);
 	},
 	byUserName: async (req, res) => {
-		console.log("In teh userByUserName usersService");
 		const user = await usersService.findOneByUserName(req.params.userName);
 		const result = {
 			meta: {
 				url: req.originalUrl,
 			},
 		};
-		console.log("USER RESULTS: ", user);
 		if (user) {
 			result.data = {
 				user
+			};
+
+			result.meta.status = 200;
+			result.meta.count = 1;
+		} else {
+			result.meta.status = 409;
+			result.meta.count = 0;
+			result.error = {
+				status: "409",
+				message: `No user was found`,
+			};
+		}
+
+		return res.status(result.meta.status).json(result);
+
+	},
+	byEmail: async (req, res) => {
+		const user = await usersService.findOne(req.params.email);
+		const result = {
+			meta: {
+				url: req.originalUrl,
+			},
+		};
+		if (user) {
+			result.data = {
+				user,
 			};
 
 			result.meta.status = 200;
