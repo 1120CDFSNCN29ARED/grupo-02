@@ -11,12 +11,18 @@ window.addEventListener("load", () => {
   const divChecker = (element, condition, msg) => {
     if (condition) {
       element.classList.add("is-invalid");
-      if (element.nextElementSibling.tagName !== "DIV") {
+      if (
+        element.nextElementSibling &&
+        element.nextElementSibling.tagName !== "DIV"
+      ) {
         element.insertAdjacentElement("afterend", divGenerator(msg));
       }
     } else {
       element.classList.remove("is-invalid");
-      if (element.nextElementSibling.tagName === "DIV") {
+      if (
+        element.nextElementSibling &&
+        element.nextElementSibling.tagName === "DIV"
+      ) {
         element.nextElementSibling.remove();
       }
     }
@@ -27,6 +33,7 @@ window.addEventListener("load", () => {
   const model = document.getElementById("model");
   const year = document.getElementById("year");
   const version = document.getElementById("version");
+  const state = document.getElementById("state");
   const stateNew = document.getElementById("stateNew");
   const stateOld = document.getElementById("stateOld");
   const stock = document.getElementById("stock");
@@ -42,143 +49,135 @@ window.addEventListener("load", () => {
   const description = document.getElementById("description");
   const images = document.getElementById("images");
 
-  brand.addEventListener("change", async (e) => {
+  const brandValidation = async () => {
     if (brand.value) {
       let res = await fetch(`${url}/brands/id/${brand.value}`);
       let brandTest = await res.json();
-      if (brandTest.error) {
-        brand.classList.add("is-invalid");
-        brand.insertAdjacentElement(
-          "afterend",
-          divGenerator("La marca elegida es inválida")
-        );
-      } else {
-        brand.classList.remove("is-invalid");
-      }
+      divChecker(brand, brandTest.error, "La marca elegida es inválida");
+    } else {
+      brand.classList.add("is-invalid");
+      brand.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe seleccionar una marca")
+      );
     }
-  });
-  model.addEventListener("change", async (e) => {
+  };
+  const modelValidation = async () => {
     if (model.value) {
       let res = await fetch(`${url}/models/id/${model.value}`);
       let modelTest = await res.json();
-      if (modelTest.error) {
-        model.classList.add("is-invalid");
-      } else {
-        model.classList.remove("is-invalid");
-      }
+      divChecker(model, modelTest.error, "El modelo elegido es inválido");
+    } else {
+      model.classList.add("is-invalid");
+      model.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe seleccionar un modelo")
+      );
     }
-  });
-  version.addEventListener("change", async (e) => {
+  };
+  const versionValidation = async () => {
     if (version.value) {
       let res = await fetch(`${url}/versions/id/${version.value}`);
       let versionTest = await res.json();
-      if (versionTest.error) {
-        version.classList.add("is-invalid");
-      } else {
-        version.classList.remove("is-invalid");
-      }
+      divChecker(version, versionTest.error, "La versión elegida es inválida");
+    } else {
+      version.classList.add("is-invalid");
+      version.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe seleccionar una versión")
+      );
     }
-  });
-  year.addEventListener("change", (e) => {
+  };
+  const yearValidation = () => {
     let condition = year.value < 1900 || year.value > new Date().getFullYear;
     divChecker(year, condition, "Debe seleccionar una fecha válida");
-  });
-  stock.addEventListener("input", (e) => {
+  };
+  const stockValidation = () => {
     divChecker(stock, stock.value < 1, "El stock debe ser entre mayor a 0");
-  });
-  rating.addEventListener("input", (e) => {
-    let condition = rating.value < 0 || rating.value > 5;
+  };
+  const stateValidation = () => {
+    let condition = !stateNew.value && !stateOld.value;
+    let message = "Debe elegir un estado del producto";
+    divChecker(state, condition, message);
+  };
+  const ratingValidation = () => {
+    let condition = !rating.value || rating.value < 0 || rating.value > 5;
     let message = "El rating debe ser entre 0 y 5";
     divChecker(rating, condition, message);
-  });
-  gearType.addEventListener("change", (e) => {
+  };
+  const gearTypeValidation = () => {
     let condition =
       gearType.value !== "manual" && gearType.value !== "automática";
     let message = "La caja de cambios puede ser automática o manual";
     divChecker(gearType, condition, message);
-  });
-  kilometers.addEventListener("input", (e) => {
+  };
+  const kilometersValidation = () => {
     let condition = kilometers.value < 0;
     let message = "El kilometraje debe ser mayor o igual a cero";
     divChecker(kilometers, condition, message);
-  });
-  price.addEventListener("input", (e) => {
+  };
+  const priceValidation = () => {
     let condition = price.value <= 0;
     let message = "El precio debe ser mayor a cero";
     divChecker(price, condition, message);
-  });
-  discount.addEventListener("input", (e) => {
+  };
+  const discountValidation = () => {
     let condition =
       discount.value < 0 ||
       discount.value > 99 ||
       !validator.isNumeric(discount.value);
     let message = "El descuento debe ser entre 0 y 99";
     divChecker(discount, condition, message);
-  });
-  color.addEventListener("change", (e) => {
-    let condition = !validator.isAlfa(color.value);
-    let message = "El kilometraje debe ser mayor o igual a cero";
-    divChecker(color, condition, message);
-  });
-  province.addEventListener("change", async (e) => {
+  };
+  const provinceValidation = async () => {
     if (province.value) {
       let res = await fetch(`${url}/provinces/id/${province.value}`);
       let provinceTest = await res.json();
-      if (provinceTest.error) {
-        province.classList.add("is-invalid");
-        if (province.nextElementSibling.tagName !== "DIV") {
-          province.insertAdjacentElement(
-            "afterend",
-            divGenerator("La provincia elegida es inválida")
-          );
-        }
-      } else {
-        province.classList.remove("is-invalid");
-        if (province.nextElementSibling.tagName === "DIV") {
-          province.nextElementSibling.remove();
-        }
-      }
+      divChecker(
+        province,
+        provinceTest.error,
+        "La provincia elegida es inválida"
+      );
+    } else {
+      province.classList.add("is-invalid");
+      province.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe elegir una provincia")
+      );
     }
-  });
-  location.addEventListener("change", async (e) => {
+  };
+  const locationValidation = async () => {
     if (location.value) {
       let res = await fetch(`${url}/localities/id/${location.value}`);
       let locationTest = await res.json();
-      if (locationTest.error) {
-        location.classList.add("is-invalid");
-        if (location.nextElementSibling.tagName !== "DIV") {
-          location.insertAdjacentElement(
-            "afterend",
-            divGenerator("La ciudad elegida es inválida")
-          );
-        }
-      } else {
-        location.classList.remove("is-invalid");
-        if (location.nextElementSibling.tagName === "DIV") {
-          location.nextElementSibling.remove();
-        }
-      }
+      divChecker(location, locationTest.error, "La ciudad elegida es inválida");
+    } else {
+      location.classList.add("is-invalid");
+      location.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe elegir una ciudad")
+      );
     }
-  });
-  postalCode.addEventListener("input", (e) => {
+  };
+  const postalCodeValidation = () => {
     let condition =
       !validator.isNumeric(postalCode.value) ||
-      validator.isLength(postalCode.value, { min: 4 });
+      postalCode.value.length < 1 ||
+      postalCode.value.length > 4;
     let message = "El código postal debe ser un número de cuatro dígitos";
     divChecker(postalCode, condition, message);
-  });
-  title.addEventListener("input", (e) => {
-    let condition = title.value.length < 15;
+  };
+  const titleValidation = () => {
+    let condition = !title.value || title.value.length < 15;
     let message = "El código postal debe ser un número de cuatro dígitos";
-    divChecker(color, condition, message);
-  });
-  description.addEventListener("input", (e) => {
-    let condition = description.value.length < 50;
+    divChecker(title, condition, message);
+  };
+  const descriptionValidation = () => {
+    let condition = !description.value || description.value.length < 50;
     let message = "La descripción debe ser un texto de al menos 50 caracteres";
-    divChecker(color, condition, message);
-  });
-
-  images.addEventListener("change", (e) => {
+    divChecker(description, condition, message);
+  };
+  const imagesValidation = () => {
     allowedExtensions = ["jpg", "jpeg", "png", "gif"];
     let imageError = 0;
     for (image of images.files) {
@@ -205,10 +204,85 @@ window.addEventListener("load", () => {
         images.nextElementSibling.remove();
       }
     }
+  };
+
+  brand.addEventListener("change", async (e) => {
+    await brandValidation();
+  });
+  model.addEventListener("change", async (e) => {
+    await modelValidation();
+  });
+  version.addEventListener("change", async (e) => {
+    await versionValidation();
+  });
+  year.addEventListener("change", (e) => {
+    yearValidation();
+  });
+  stock.addEventListener("input", (e) => {
+    stockValidation();
+  });
+  rating.addEventListener("input", (e) => {
+    ratingValidation();
+  });
+  gearType.addEventListener("change", (e) => {
+    gearTypeValidation();
+  });
+  kilometers.addEventListener("input", (e) => {
+    kilometersValidation();
+  });
+  price.addEventListener("input", (e) => {
+    priceValidation();
+  });
+  discount.addEventListener("input", (e) => {
+    discountValidation();
+  });
+  color.addEventListener("change", (e) => {
+    let condition = !validator.isAlfa(color.value);
+    let message = "El kilometraje debe ser mayor o igual a cero";
+    divChecker(color, condition, message);
+  });
+  province.addEventListener("change", async (e) => {
+    await provinceValidation();
+  });
+  location.addEventListener("change", async (e) => {
+    await locationValidation();
+  });
+  postalCode.addEventListener("input", (e) => {
+    postalCodeValidation();
+  });
+  title.addEventListener("input", (e) => {
+    titleValidation();
+  });
+  description.addEventListener("input", (e) => {
+    descriptionValidation();
   });
 
-  form.addEventListener("submit", (e) => {
+  images.addEventListener("change", (e) => {
+    imagesValidation();
+  });
+
+  form.addEventListener("submit", async (e) => {
+    await brandValidation();
+    await modelValidation();
+    await versionValidation();
+    yearValidation();
+    stateValidation();
+    stockValidation();
+    ratingValidation();
+    gearTypeValidation();
+    kilometersValidation();
+    priceValidation();
+    discountValidation();
+    await provinceValidation();
+    await locationValidation();
+    postalCodeValidation();
+    titleValidation();
+    descriptionValidation();
+    imagesValidation();
+
     const errors = document.getElementsByClassName("is-invalid");
+    console.log(errors);
+    e.preventDefault();
     if (errors.length > 0) {
       e.preventDefault();
       console.log("errors: ", errors);
