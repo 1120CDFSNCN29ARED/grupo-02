@@ -154,7 +154,7 @@ window.addEventListener("load", () => {
     }
   });
   discount.addEventListener("input", (e) => {
-    if (discount.value < 0 || !Validator.isNumeric(discount.value)) {
+    if (discount.value < 0 || !validator.isNumeric(discount.value)) {
       discount.classList.add("is-invalid");
       if (discount.nextElementSibling.tagName !== "DIV") {
         discount.insertAdjacentElement(
@@ -170,7 +170,7 @@ window.addEventListener("load", () => {
     }
   });
   color.addEventListener("change", (e) => {
-    if (!Validator.isAlfa(color.value)) {
+    if (!validator.isAlfa(color.value)) {
       color.classList.add("is-invalid");
       if (color.nextElementSibling.tagName !== "DIV") {
         color.insertAdjacentElement(
@@ -225,8 +225,11 @@ window.addEventListener("load", () => {
       }
     }
   });
-  postalCode.addEventListener("change", (e) => {
-    if (!Validator.isNumeric(postalCode.value) || postalCode.value.length > 4) {
+  postalCode.addEventListener("input", (e) => {
+    if (
+      !validator.isNumeric(postalCode.value) ||
+      validator.isLength(postalCode.value, { min: 4 })
+    ) {
       postalCode.classList.add("is-invalid");
       if (postalCode.nextElementSibling.tagName !== "DIV") {
         postalCode.insertAdjacentElement(
