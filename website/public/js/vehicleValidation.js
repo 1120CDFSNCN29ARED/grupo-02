@@ -8,6 +8,20 @@ window.addEventListener("load", () => {
     return div;
   };
 
+  const divChecker = (element, condition, msg) => {
+    if (condition) {
+      element.classList.add("is-invalid");
+      if (element.nextElementSibling.tagName !== "DIV") {
+        element.insertAdjacentElement("afterend", divGenerator(msg));
+      }
+    } else {
+      element.classList.remove("is-invalid");
+      if (element.nextElementSibling.tagName === "DIV") {
+        element.nextElementSibling.remove();
+      }
+    }
+  };
+
   const form = document.getElementById("form");
   const brand = document.getElementById("brand");
   const model = document.getElementById("model");
@@ -66,124 +80,45 @@ window.addEventListener("load", () => {
     }
   });
   year.addEventListener("change", (e) => {
-    if (year.value < 1900 || year.value > new Date().getFullYear) {
-      year.classList.add("is-invalid");
-    } else {
-      year.classList.remove("is-invalid");
-    }
+    let condition = year.value < 1900 || year.value > new Date().getFullYear;
+    divChecker(year, condition, "Debe seleccionar una fecha válida");
   });
-
   stock.addEventListener("input", (e) => {
-    if (stock.value < 1) {
-      stock.classList.add("is-invalid");
-      if (stock.nextElementSibling.tagName !== "DIV") {
-        stock.insertAdjacentElement(
-          "afterend",
-          divGenerator("El stock debe ser entre mayor a 0 ")
-        );
-      }
-    } else {
-      stock.classList.remove("is-invalid");
-      if (stock.nextElementSibling.tagName === "DIV") {
-        stock.nextElementSibling.remove();
-      }
-    }
+    divChecker(stock, stock.value < 1, "El stock debe ser entre mayor a 0");
   });
   rating.addEventListener("input", (e) => {
-    if (rating.value < 0 || rating.value > 5) {
-      rating.classList.add("is-invalid");
-      if (rating.nextElementSibling.tagName !== "DIV") {
-        rating.insertAdjacentElement(
-          "afterend",
-          divGenerator("El rating debe ser entre 0 y 5")
-        );
-      }
-    } else {
-      rating.classList.remove("is-invalid");
-      if (rating.nextElementSibling.tagName === "DIV") {
-        rating.nextElementSibling.remove();
-      }
-    }
+    let condition = rating.value < 0 || rating.value > 5;
+    let message = "El rating debe ser entre 0 y 5";
+    divChecker(rating, condition, message);
   });
   gearType.addEventListener("change", (e) => {
-    if (gearType.value !== "manual" && gearType.value !== "automática") {
-      gearType.classList.add("is-invalid");
-      if (gearType.nextElementSibling.tagName !== "DIV") {
-        gearType.insertAdjacentElement(
-          "afterend",
-          divGenerator("La caja de cambios puede ser automática o manual")
-        );
-      }
-    } else {
-      gearType.classList.remove("is-invalid");
-      if (gearType.nextElementSibling.tagName === "DIV") {
-        gearType.nextElementSibling.remove();
-      }
-    }
+    let condition =
+      gearType.value !== "manual" && gearType.value !== "automática";
+    let message = "La caja de cambios puede ser automática o manual";
+    divChecker(gearType, condition, message);
   });
   kilometers.addEventListener("input", (e) => {
-    if (kilometers.value < 0) {
-      kilometers.classList.add("is-invalid");
-      if (kilometers.nextElementSibling.tagName !== "DIV") {
-        kilometers.insertAdjacentElement(
-          "afterend",
-          divGenerator("El kilometraje debe ser mayor o igual a cero")
-        );
-      }
-    } else {
-      kilometers.classList.remove("is-invalid");
-      if (kilometers.nextElementSibling.tagName === "DIV") {
-        kilometers.nextElementSibling.remove();
-      }
-    }
+    let condition = kilometers.value < 0;
+    let message = "El kilometraje debe ser mayor o igual a cero";
+    divChecker(kilometers, condition, message);
   });
   price.addEventListener("input", (e) => {
-    if (price.value <= 0) {
-      price.classList.add("is-invalid");
-      if (price.nextElementSibling.tagName !== "DIV") {
-        price.insertAdjacentElement(
-          "afterend",
-          divGenerator("El precio debe ser mayor a cero")
-        );
-      }
-    } else {
-      price.classList.remove("is-invalid");
-      if (price.nextElementSibling.tagName === "DIV") {
-        price.nextElementSibling.remove();
-      }
-    }
+    let condition = price.value <= 0;
+    let message = "El precio debe ser mayor a cero";
+    divChecker(price, condition, message);
   });
   discount.addEventListener("input", (e) => {
-    if (discount.value < 0 || !validator.isNumeric(discount.value)) {
-      discount.classList.add("is-invalid");
-      if (discount.nextElementSibling.tagName !== "DIV") {
-        discount.insertAdjacentElement(
-          "afterend",
-          divGenerator("El descuento debe ser mayor o igual a cero")
-        );
-      }
-    } else {
-      discount.classList.remove("is-invalid");
-      if (discount.nextElementSibling.tagName === "DIV") {
-        discount.nextElementSibling.remove();
-      }
-    }
+    let condition =
+      discount.value < 0 ||
+      discount.value > 99 ||
+      !validator.isNumeric(discount.value);
+    let message = "El descuento debe ser entre 0 y 99";
+    divChecker(discount, condition, message);
   });
   color.addEventListener("change", (e) => {
-    if (!validator.isAlfa(color.value)) {
-      color.classList.add("is-invalid");
-      if (color.nextElementSibling.tagName !== "DIV") {
-        color.insertAdjacentElement(
-          "afterend",
-          divGenerator("El kilometraje debe ser mayor o igual a cero")
-        );
-      }
-    } else {
-      color.classList.remove("is-invalid");
-      if (color.nextElementSibling.tagName === "DIV") {
-        color.nextElementSibling.remove();
-      }
-    }
+    let condition = !validator.isAlfa(color.value);
+    let message = "El kilometraje debe ser mayor o igual a cero";
+    divChecker(color, condition, message);
   });
   province.addEventListener("change", async (e) => {
     if (province.value) {
@@ -226,57 +161,21 @@ window.addEventListener("load", () => {
     }
   });
   postalCode.addEventListener("input", (e) => {
-    if (
+    let condition =
       !validator.isNumeric(postalCode.value) ||
-      validator.isLength(postalCode.value, { min: 4 })
-    ) {
-      postalCode.classList.add("is-invalid");
-      if (postalCode.nextElementSibling.tagName !== "DIV") {
-        postalCode.insertAdjacentElement(
-          "afterend",
-          divGenerator("El código postal debe ser un número de cuatro dígitos")
-        );
-      }
-    } else {
-      postalCode.classList.remove("is-invalid");
-      if (postalCode.nextElementSibling.tagName === "DIV") {
-        postalCode.nextElementSibling.remove();
-      }
-    }
+      validator.isLength(postalCode.value, { min: 4 });
+    let message = "El código postal debe ser un número de cuatro dígitos";
+    divChecker(postalCode, condition, message);
   });
   title.addEventListener("input", (e) => {
-    if (title.value.length < 15) {
-      title.classList.add("is-invalid");
-      if (title.nextElementSibling.tagName !== "DIV") {
-        title.insertAdjacentElement(
-          "afterend",
-          divGenerator("El título debe ser un texto de al menos 15 caracteres")
-        );
-      }
-    } else {
-      title.classList.remove("is-invalid");
-      if (title.nextElementSibling.tagName === "DIV") {
-        title.nextElementSibling.remove();
-      }
-    }
+    let condition = title.value.length < 15;
+    let message = "El código postal debe ser un número de cuatro dígitos";
+    divChecker(color, condition, message);
   });
   description.addEventListener("input", (e) => {
-    if (description.value.length < 50) {
-      description.classList.add("is-invalid");
-      if (description.nextElementSibling.tagName !== "DIV") {
-        description.insertAdjacentElement(
-          "afterend",
-          divGenerator(
-            "La descripción debe ser un texto de al menos 50 caracteres"
-          )
-        );
-      }
-    } else {
-      description.classList.remove("is-invalid");
-      if (description.nextElementSibling.tagName === "DIV") {
-        description.nextElementSibling.remove();
-      }
-    }
+    let condition = description.value.length < 50;
+    let message = "La descripción debe ser un texto de al menos 50 caracteres";
+    divChecker(color, condition, message);
   });
 
   images.addEventListener("change", (e) => {
@@ -308,5 +207,30 @@ window.addEventListener("load", () => {
     }
   });
 
-  form.addEventListener("submit", (e) => {});
+  form.addEventListener("submit", (e) => {
+    const errors = document.getElementsByClassName("is-invalid");
+    if (errors.length > 0) {
+      e.preventDefault();
+      console.log("errors: ", errors);
+      if (form.nextElementSibling) {
+        form.insertAdjacentElement(
+          "afterend",
+          divGenerator(
+            "La descripción debe ser un texto de al menos 50 caracteres"
+          )
+        );
+        form.nextElementSibling.classList.add("alert-danger");
+      } else {
+        if (form.nextElementSibling) {
+          form.nextElementSibling.remove();
+        }
+      }
+      form.insertAdjacentElement(
+        "afterend",
+        divGenerator(
+          "Debe completar todos los campos correctamente para continuar"
+        )
+      );
+    }
+  });
 });

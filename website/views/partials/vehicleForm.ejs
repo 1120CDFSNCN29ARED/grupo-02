@@ -171,7 +171,7 @@
                                 <% } %>
                             <% } %>
                         <% } %>                        
-                        <% if (!locals.post.post) { %>
+                        <% if (locals.post && !locals.post.post) { %>
                             <% for( let i = 0; i < 5; i++ ) { %>
                                 <i class="far fa-star"></i>
                             <% } %>
