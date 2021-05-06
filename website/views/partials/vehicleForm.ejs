@@ -171,7 +171,7 @@
                                 <% } %>
                             <% } %>
                         <% } %>                        
-                        <% if (!locals.post.post) { %>
+                        <% if (locals.post && !locals.post.post) { %>
                             <% for( let i = 0; i < 5; i++ ) { %>
                                 <i class="far fa-star"></i>
                             <% } %>
@@ -286,7 +286,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control <%=locals.errors && errors.postalCode ? 'is-invalid': null %>" name="postalCode" id="postalCode" value="<%= (locals.post && post.post && post.location) ? post.location.postalCode : "" %>">
+                    <input type="number" class="form-control <%=locals.errors && errors.postalCode ? 'is-invalid': null %>" name="postalCode" id="postalCode" value="<%= (locals.post && post.post && post.location) ? post.location.postalCode : "" %>">
                     <label for="postalCode">Código Postal</label>
                     <% if (locals.errors && errors.postalCode) { %>
                         <div class="invalid-feedback">
@@ -371,5 +371,5 @@
 <script src="/js/getVehicleModels.js"></script>
 <script src="/js/getVersions.js"></script>
 <script src="/js/getLocalities.js"></script>
-<script type="text/javascript" src="https://unpkg.com/validator.js@latest/dist/validator.min.js"></script>
+<script type="text/javascript" src="/js/validator.min.js"></script>
 <script src="/js/vehicleValidation.js"></script>

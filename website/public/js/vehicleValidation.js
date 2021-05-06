@@ -8,11 +8,32 @@ window.addEventListener("load", () => {
     return div;
   };
 
+  const divChecker = (element, condition, msg) => {
+    if (condition) {
+      element.classList.add("is-invalid");
+      if (
+        element.nextElementSibling &&
+        element.nextElementSibling.tagName !== "DIV"
+      ) {
+        element.insertAdjacentElement("afterend", divGenerator(msg));
+      }
+    } else {
+      element.classList.remove("is-invalid");
+      if (
+        element.nextElementSibling &&
+        element.nextElementSibling.tagName === "DIV"
+      ) {
+        element.nextElementSibling.remove();
+      }
+    }
+  };
+
   const form = document.getElementById("form");
   const brand = document.getElementById("brand");
   const model = document.getElementById("model");
   const year = document.getElementById("year");
   const version = document.getElementById("version");
+  const state = document.getElementById("state");
   const stateNew = document.getElementById("stateNew");
   const stateOld = document.getElementById("stateOld");
   const stock = document.getElementById("stock");
@@ -28,255 +49,135 @@ window.addEventListener("load", () => {
   const description = document.getElementById("description");
   const images = document.getElementById("images");
 
-  brand.addEventListener("change", async (e) => {
+  const brandValidation = async () => {
     if (brand.value) {
       let res = await fetch(`${url}/brands/id/${brand.value}`);
       let brandTest = await res.json();
-      if (brandTest.error) {
-        brand.classList.add("is-invalid");
-        brand.insertAdjacentElement(
-          "afterend",
-          divGenerator("La marca elegida es inválida")
-        );
-      } else {
-        brand.classList.remove("is-invalid");
-      }
+      divChecker(brand, brandTest.error, "La marca elegida es inválida");
+    } else {
+      brand.classList.add("is-invalid");
+      brand.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe seleccionar una marca")
+      );
     }
-  });
-  model.addEventListener("change", async (e) => {
+  };
+  const modelValidation = async () => {
     if (model.value) {
       let res = await fetch(`${url}/models/id/${model.value}`);
       let modelTest = await res.json();
-      if (modelTest.error) {
-        model.classList.add("is-invalid");
-      } else {
-        model.classList.remove("is-invalid");
-      }
+      divChecker(model, modelTest.error, "El modelo elegido es inválido");
+    } else {
+      model.classList.add("is-invalid");
+      model.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe seleccionar un modelo")
+      );
     }
-  });
-  version.addEventListener("change", async (e) => {
+  };
+  const versionValidation = async () => {
     if (version.value) {
       let res = await fetch(`${url}/versions/id/${version.value}`);
       let versionTest = await res.json();
-      if (versionTest.error) {
-        version.classList.add("is-invalid");
-      } else {
-        version.classList.remove("is-invalid");
-      }
-    }
-  });
-  year.addEventListener("change", (e) => {
-    if (year.value < 1900 || year.value > new Date().getFullYear) {
-      year.classList.add("is-invalid");
+      divChecker(version, versionTest.error, "La versión elegida es inválida");
     } else {
-      year.classList.remove("is-invalid");
+      version.classList.add("is-invalid");
+      version.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe seleccionar una versión")
+      );
     }
-  });
-
-  stock.addEventListener("input", (e) => {
-    if (stock.value < 1) {
-      stock.classList.add("is-invalid");
-      if (stock.nextElementSibling.tagName !== "DIV") {
-        stock.insertAdjacentElement(
-          "afterend",
-          divGenerator("El stock debe ser entre mayor a 0 ")
-        );
-      }
-    } else {
-      stock.classList.remove("is-invalid");
-      if (stock.nextElementSibling.tagName === "DIV") {
-        stock.nextElementSibling.remove();
-      }
-    }
-  });
-  rating.addEventListener("input", (e) => {
-    if (rating.value < 0 || rating.value > 5) {
-      rating.classList.add("is-invalid");
-      if (rating.nextElementSibling.tagName !== "DIV") {
-        rating.insertAdjacentElement(
-          "afterend",
-          divGenerator("El rating debe ser entre 0 y 5")
-        );
-      }
-    } else {
-      rating.classList.remove("is-invalid");
-      if (rating.nextElementSibling.tagName === "DIV") {
-        rating.nextElementSibling.remove();
-      }
-    }
-  });
-  gearType.addEventListener("change", (e) => {
-    if (gearType.value !== "manual" && gearType.value !== "automática") {
-      gearType.classList.add("is-invalid");
-      if (gearType.nextElementSibling.tagName !== "DIV") {
-        gearType.insertAdjacentElement(
-          "afterend",
-          divGenerator("La caja de cambios puede ser automática o manual")
-        );
-      }
-    } else {
-      gearType.classList.remove("is-invalid");
-      if (gearType.nextElementSibling.tagName === "DIV") {
-        gearType.nextElementSibling.remove();
-      }
-    }
-  });
-  kilometers.addEventListener("input", (e) => {
-    if (kilometers.value < 0) {
-      kilometers.classList.add("is-invalid");
-      if (kilometers.nextElementSibling.tagName !== "DIV") {
-        kilometers.insertAdjacentElement(
-          "afterend",
-          divGenerator("El kilometraje debe ser mayor o igual a cero")
-        );
-      }
-    } else {
-      kilometers.classList.remove("is-invalid");
-      if (kilometers.nextElementSibling.tagName === "DIV") {
-        kilometers.nextElementSibling.remove();
-      }
-    }
-  });
-  price.addEventListener("input", (e) => {
-    if (price.value <= 0) {
-      price.classList.add("is-invalid");
-      if (price.nextElementSibling.tagName !== "DIV") {
-        price.insertAdjacentElement(
-          "afterend",
-          divGenerator("El precio debe ser mayor a cero")
-        );
-      }
-    } else {
-      price.classList.remove("is-invalid");
-      if (price.nextElementSibling.tagName === "DIV") {
-        price.nextElementSibling.remove();
-      }
-    }
-  });
-  discount.addEventListener("input", (e) => {
-    if (discount.value < 0 || !Validator.isNumeric(discount.value)) {
-      discount.classList.add("is-invalid");
-      if (discount.nextElementSibling.tagName !== "DIV") {
-        discount.insertAdjacentElement(
-          "afterend",
-          divGenerator("El descuento debe ser mayor o igual a cero")
-        );
-      }
-    } else {
-      discount.classList.remove("is-invalid");
-      if (discount.nextElementSibling.tagName === "DIV") {
-        discount.nextElementSibling.remove();
-      }
-    }
-  });
-  color.addEventListener("change", (e) => {
-    if (!Validator.isAlfa(color.value)) {
-      color.classList.add("is-invalid");
-      if (color.nextElementSibling.tagName !== "DIV") {
-        color.insertAdjacentElement(
-          "afterend",
-          divGenerator("El kilometraje debe ser mayor o igual a cero")
-        );
-      }
-    } else {
-      color.classList.remove("is-invalid");
-      if (color.nextElementSibling.tagName === "DIV") {
-        color.nextElementSibling.remove();
-      }
-    }
-  });
-  province.addEventListener("change", async (e) => {
+  };
+  const yearValidation = () => {
+    let condition = year.value < 1900 || year.value > new Date().getFullYear;
+    divChecker(year, condition, "Debe seleccionar una fecha válida");
+  };
+  const stockValidation = () => {
+    divChecker(stock, stock.value < 1, "El stock debe ser entre mayor a 0");
+  };
+  const stateValidation = () => {
+    let condition = !stateNew.value && !stateOld.value;
+    let message = "Debe elegir un estado del producto";
+    divChecker(state, condition, message);
+  };
+  const ratingValidation = () => {
+    let condition = !rating.value || rating.value < 0 || rating.value > 5;
+    let message = "El rating debe ser entre 0 y 5";
+    divChecker(rating, condition, message);
+  };
+  const gearTypeValidation = () => {
+    let condition =
+      gearType.value !== "manual" && gearType.value !== "automática";
+    let message = "La caja de cambios puede ser automática o manual";
+    divChecker(gearType, condition, message);
+  };
+  const kilometersValidation = () => {
+    let condition = kilometers.value < 0;
+    let message = "El kilometraje debe ser mayor o igual a cero";
+    divChecker(kilometers, condition, message);
+  };
+  const priceValidation = () => {
+    let condition = price.value <= 0;
+    let message = "El precio debe ser mayor a cero";
+    divChecker(price, condition, message);
+  };
+  const discountValidation = () => {
+    let condition =
+      discount.value < 0 ||
+      discount.value > 99 ||
+      !validator.isNumeric(discount.value);
+    let message = "El descuento debe ser entre 0 y 99";
+    divChecker(discount, condition, message);
+  };
+  const provinceValidation = async () => {
     if (province.value) {
       let res = await fetch(`${url}/provinces/id/${province.value}`);
       let provinceTest = await res.json();
-      if (provinceTest.error) {
-        province.classList.add("is-invalid");
-        if (province.nextElementSibling.tagName !== "DIV") {
-          province.insertAdjacentElement(
-            "afterend",
-            divGenerator("La provincia elegida es inválida")
-          );
-        }
-      } else {
-        province.classList.remove("is-invalid");
-        if (province.nextElementSibling.tagName === "DIV") {
-          province.nextElementSibling.remove();
-        }
-      }
+      divChecker(
+        province,
+        provinceTest.error,
+        "La provincia elegida es inválida"
+      );
+    } else {
+      province.classList.add("is-invalid");
+      province.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe elegir una provincia")
+      );
     }
-  });
-  location.addEventListener("change", async (e) => {
+  };
+  const locationValidation = async () => {
     if (location.value) {
       let res = await fetch(`${url}/localities/id/${location.value}`);
       let locationTest = await res.json();
-      if (locationTest.error) {
-        location.classList.add("is-invalid");
-        if (location.nextElementSibling.tagName !== "DIV") {
-          location.insertAdjacentElement(
-            "afterend",
-            divGenerator("La ciudad elegida es inválida")
-          );
-        }
-      } else {
-        location.classList.remove("is-invalid");
-        if (location.nextElementSibling.tagName === "DIV") {
-          location.nextElementSibling.remove();
-        }
-      }
-    }
-  });
-  postalCode.addEventListener("change", (e) => {
-    if (!Validator.isNumeric(postalCode.value) || postalCode.value.length > 4) {
-      postalCode.classList.add("is-invalid");
-      if (postalCode.nextElementSibling.tagName !== "DIV") {
-        postalCode.insertAdjacentElement(
-          "afterend",
-          divGenerator("El código postal debe ser un número de cuatro dígitos")
-        );
-      }
+      divChecker(location, locationTest.error, "La ciudad elegida es inválida");
     } else {
-      postalCode.classList.remove("is-invalid");
-      if (postalCode.nextElementSibling.tagName === "DIV") {
-        postalCode.nextElementSibling.remove();
-      }
+      location.classList.add("is-invalid");
+      location.insertAdjacentElement(
+        "afterend",
+        divGenerator("Debe elegir una ciudad")
+      );
     }
-  });
-  title.addEventListener("input", (e) => {
-    if (title.value.length < 15) {
-      title.classList.add("is-invalid");
-      if (title.nextElementSibling.tagName !== "DIV") {
-        title.insertAdjacentElement(
-          "afterend",
-          divGenerator("El título debe ser un texto de al menos 15 caracteres")
-        );
-      }
-    } else {
-      title.classList.remove("is-invalid");
-      if (title.nextElementSibling.tagName === "DIV") {
-        title.nextElementSibling.remove();
-      }
-    }
-  });
-  description.addEventListener("input", (e) => {
-    if (description.value.length < 50) {
-      description.classList.add("is-invalid");
-      if (description.nextElementSibling.tagName !== "DIV") {
-        description.insertAdjacentElement(
-          "afterend",
-          divGenerator(
-            "La descripción debe ser un texto de al menos 50 caracteres"
-          )
-        );
-      }
-    } else {
-      description.classList.remove("is-invalid");
-      if (description.nextElementSibling.tagName === "DIV") {
-        description.nextElementSibling.remove();
-      }
-    }
-  });
-
-  images.addEventListener("change", (e) => {
+  };
+  const postalCodeValidation = () => {
+    let condition =
+      !validator.isNumeric(postalCode.value) ||
+      postalCode.value.length < 1 ||
+      postalCode.value.length > 4;
+    let message = "El código postal debe ser un número de cuatro dígitos";
+    divChecker(postalCode, condition, message);
+  };
+  const titleValidation = () => {
+    let condition = !title.value || title.value.length < 15;
+    let message = "El código postal debe ser un número de cuatro dígitos";
+    divChecker(title, condition, message);
+  };
+  const descriptionValidation = () => {
+    let condition = !description.value || description.value.length < 50;
+    let message = "La descripción debe ser un texto de al menos 50 caracteres";
+    divChecker(description, condition, message);
+  };
+  const imagesValidation = () => {
     allowedExtensions = ["jpg", "jpeg", "png", "gif"];
     let imageError = 0;
     for (image of images.files) {
@@ -303,7 +204,107 @@ window.addEventListener("load", () => {
         images.nextElementSibling.remove();
       }
     }
+  };
+
+  brand.addEventListener("change", async (e) => {
+    await brandValidation();
+  });
+  model.addEventListener("change", async (e) => {
+    await modelValidation();
+  });
+  version.addEventListener("change", async (e) => {
+    await versionValidation();
+  });
+  year.addEventListener("change", (e) => {
+    yearValidation();
+  });
+  stock.addEventListener("input", (e) => {
+    stockValidation();
+  });
+  rating.addEventListener("input", (e) => {
+    ratingValidation();
+  });
+  gearType.addEventListener("change", (e) => {
+    gearTypeValidation();
+  });
+  kilometers.addEventListener("input", (e) => {
+    kilometersValidation();
+  });
+  price.addEventListener("input", (e) => {
+    priceValidation();
+  });
+  discount.addEventListener("input", (e) => {
+    discountValidation();
+  });
+  color.addEventListener("change", (e) => {
+    let condition = !validator.isAlfa(color.value);
+    let message = "El kilometraje debe ser mayor o igual a cero";
+    divChecker(color, condition, message);
+  });
+  province.addEventListener("change", async (e) => {
+    await provinceValidation();
+  });
+  location.addEventListener("change", async (e) => {
+    await locationValidation();
+  });
+  postalCode.addEventListener("input", (e) => {
+    postalCodeValidation();
+  });
+  title.addEventListener("input", (e) => {
+    titleValidation();
+  });
+  description.addEventListener("input", (e) => {
+    descriptionValidation();
   });
 
-  form.addEventListener("submit", (e) => {});
+  images.addEventListener("change", (e) => {
+    imagesValidation();
+  });
+
+  form.addEventListener("submit", async (e) => {
+    await brandValidation();
+    await modelValidation();
+    await versionValidation();
+    yearValidation();
+    stateValidation();
+    stockValidation();
+    ratingValidation();
+    gearTypeValidation();
+    kilometersValidation();
+    priceValidation();
+    discountValidation();
+    await provinceValidation();
+    await locationValidation();
+    postalCodeValidation();
+    titleValidation();
+    descriptionValidation();
+    imagesValidation();
+
+    const errors = document.getElementsByClassName("is-invalid");
+    console.log(errors);
+    e.preventDefault();
+    if (errors.length > 0) {
+      e.preventDefault();
+      console.log("errors: ", errors);
+      if (form.nextElementSibling) {
+        form.insertAdjacentElement(
+          "afterend",
+          divGenerator(
+            "La descripción debe ser un texto de al menos 50 caracteres"
+          )
+        );
+        form.nextElementSibling.classList.add("alert-danger");
+      } else {
+        if (form.nextElementSibling) {
+          form.nextElementSibling.remove();
+        }
+      }
+      form.insertAdjacentElement(
+        "afterend",
+        divGenerator(
+          "Debe completar todos los campos correctamente para continuar"
+        )
+      );
+    }
+  });
 });
