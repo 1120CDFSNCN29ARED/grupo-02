@@ -31,15 +31,11 @@ window.addEventListener("load", () => {
   const form = document.getElementById("form");
   const brand = document.getElementById("brand");
   const model = document.getElementById("model");
-  const year = document.getElementById("year");
-  const version = document.getElementById("version");
   const state = document.getElementById("state");
   const stateNew = document.getElementById("stateNew");
   const stateOld = document.getElementById("stateOld");
   const stock = document.getElementById("stock");
   const rating = document.getElementById("rating");
-  const gearType = document.getElementById("gearType");
-  const kilometers = document.getElementById("kilometers");
   const price = document.getElementById("price");
   const discount = document.getElementById("discount");
   const province = document.getElementById("province");
@@ -49,17 +45,37 @@ window.addEventListener("load", () => {
   const description = document.getElementById("description");
   const images = document.getElementById("images");
 
+  let year;
+  let version;
+  let gearType;
+  let kilometers;
+
+  let partSerialNumber;
+  let 
+
+  if (window.location.pathname.includes("vehicle")) {
+    year = document.getElementById("year");
+    version = document.getElementById("version");
+    gearType = document.getElementById("gearType");
+    kilometers = document.getElementById("kilometers");
+  }
+
   const brandValidation = async () => {
     if (brand.value) {
       let res = await fetch(`${url}/brands/id/${brand.value}`);
       let brandTest = await res.json();
       divChecker(brand, brandTest.error, "La marca elegida es inválida");
     } else {
-      brand.classList.add("is-invalid");
-      brand.insertAdjacentElement(
-        "afterend",
-        divGenerator("Debe seleccionar una marca")
-      );
+      if (
+        brand.nextElementSibling &&
+        brand.nextElementSibling.tagName !== "DIV"
+      ) {
+        brand.classList.add("is-invalid");
+        brand.insertAdjacentElement(
+          "afterend",
+          divGenerator("Debe seleccionar una marca")
+        );
+      }
     }
   };
   const modelValidation = async () => {
@@ -68,11 +84,16 @@ window.addEventListener("load", () => {
       let modelTest = await res.json();
       divChecker(model, modelTest.error, "El modelo elegido es inválido");
     } else {
-      model.classList.add("is-invalid");
-      model.insertAdjacentElement(
-        "afterend",
-        divGenerator("Debe seleccionar un modelo")
-      );
+      if (
+        model.nextElementSibling &&
+        model.nextElementSibling.tagName !== "DIV"
+      ) {
+        model.classList.add("is-invalid");
+        model.insertAdjacentElement(
+          "afterend",
+          divGenerator("Debe seleccionar un modelo")
+        );
+      }
     }
   };
   const versionValidation = async () => {
@@ -81,11 +102,16 @@ window.addEventListener("load", () => {
       let versionTest = await res.json();
       divChecker(version, versionTest.error, "La versión elegida es inválida");
     } else {
-      version.classList.add("is-invalid");
-      version.insertAdjacentElement(
-        "afterend",
-        divGenerator("Debe seleccionar una versión")
-      );
+      if (
+        version.nextElementSibling &&
+        version.nextElementSibling.tagName !== "DIV"
+      ) {
+        version.classList.add("is-invalid");
+        version.insertAdjacentElement(
+          "afterend",
+          divGenerator("Debe seleccionar una versión")
+        );
+      }
     }
   };
   const yearValidation = () => {
@@ -139,11 +165,16 @@ window.addEventListener("load", () => {
         "La provincia elegida es inválida"
       );
     } else {
-      province.classList.add("is-invalid");
-      province.insertAdjacentElement(
-        "afterend",
-        divGenerator("Debe elegir una provincia")
-      );
+      if (
+        province.nextElementSibling &&
+        province.nextElementSibling.tagName !== "DIV"
+      ) {
+        province.classList.add("is-invalid");
+        province.insertAdjacentElement(
+          "afterend",
+          divGenerator("Debe seleccionar una provincia")
+        );
+      }
     }
   };
   const locationValidation = async () => {
@@ -152,11 +183,16 @@ window.addEventListener("load", () => {
       let locationTest = await res.json();
       divChecker(location, locationTest.error, "La ciudad elegida es inválida");
     } else {
-      location.classList.add("is-invalid");
-      location.insertAdjacentElement(
-        "afterend",
-        divGenerator("Debe elegir una ciudad")
-      );
+      if (
+        location.nextElementSibling &&
+        location.nextElementSibling.tagName !== "DIV"
+      ) {
+        location.classList.add("is-invalid");
+        location.insertAdjacentElement(
+          "afterend",
+          divGenerator("Debe seleccionar una ciudad")
+        );
+      }
     }
   };
   const postalCodeValidation = () => {
@@ -264,13 +300,9 @@ window.addEventListener("load", () => {
   form.addEventListener("submit", async (e) => {
     await brandValidation();
     await modelValidation();
-    await versionValidation();
-    yearValidation();
     stateValidation();
     stockValidation();
     ratingValidation();
-    gearTypeValidation();
-    kilometersValidation();
     priceValidation();
     discountValidation();
     await provinceValidation();
@@ -279,6 +311,13 @@ window.addEventListener("load", () => {
     titleValidation();
     descriptionValidation();
     imagesValidation();
+
+    if (window.location.pathname.includes("vehicle")) {
+      await versionValidation();
+      yearValidation();
+      gearTypeValidation();
+      kilometersValidation();
+    }
 
     const errors = document.getElementsByClassName("is-invalid");
     if (errors.length > 0) {
