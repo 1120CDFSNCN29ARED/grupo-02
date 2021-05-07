@@ -10,6 +10,7 @@ window.addEventListener("load", () => {
 
   const divChecker = (element, condition, msg) => {
     if (condition) {
+      element.classList.remove("is-valid");
       element.classList.add("is-invalid");
       if (
         element.nextElementSibling &&
@@ -19,6 +20,7 @@ window.addEventListener("load", () => {
       }
     } else {
       element.classList.remove("is-invalid");
+      element.classList.add("is-valid");
       if (
         element.nextElementSibling &&
         element.nextElementSibling.tagName === "DIV"
@@ -177,9 +179,7 @@ window.addEventListener("load", () => {
   };
   const postalCodeValidation = () => {
     let condition =
-      !validator.isNumeric(postalCode.value) ||
-      postalCode.value.length < 1 ||
-      postalCode.value.length > 4;
+      !validator.isNumeric(postalCode.value) || postalCode.value.length !== 4;
     let message = "El código postal debe ser un número de cuatro dígitos";
     divChecker(postalCode, condition, message);
   };
