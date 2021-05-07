@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
   const model = document.getElementById("model");
   const state = document.getElementById("state");
   const stateNew = document.getElementById("stateNew");
-  const stateOld = document.getElementById("stateOld");
+  const stateUsed = document.getElementById("stateUsed");
   const stock = document.getElementById("stock");
   const rating = document.getElementById("rating");
   const price = document.getElementById("price");
@@ -49,15 +49,28 @@ window.addEventListener("load", () => {
   let version;
   let gearType;
   let kilometers;
+  let color;
 
   let partSerialNumber;
-  let 
+  let vehicleType;
+  let car;
+  let pickup;
+  let motorcycle;
+  let truck;
 
   if (window.location.pathname.includes("vehicle")) {
     year = document.getElementById("year");
     version = document.getElementById("version");
     gearType = document.getElementById("gearType");
     kilometers = document.getElementById("kilometers");
+    color = document.getElementById("color");
+  } else if (window.location.pathname.includes("part")) {
+    partSerialNumber = document.getElementById("partSerialNumber");
+    vehicleType = document.getElementById("vehicleType");
+    car = document.getElementById("car");
+    pickup = document.getElementById("pickup");
+    motorcycle = document.getElementById("motorcycle");
+    truck = document.getElementById("truck");
   }
 
   const brandValidation = async () => {
@@ -96,33 +109,11 @@ window.addEventListener("load", () => {
       }
     }
   };
-  const versionValidation = async () => {
-    if (version.value) {
-      let res = await fetch(`${url}/versions/id/${version.value}`);
-      let versionTest = await res.json();
-      divChecker(version, versionTest.error, "La versión elegida es inválida");
-    } else {
-      if (
-        version.nextElementSibling &&
-        version.nextElementSibling.tagName !== "DIV"
-      ) {
-        version.classList.add("is-invalid");
-        version.insertAdjacentElement(
-          "afterend",
-          divGenerator("Debe seleccionar una versión")
-        );
-      }
-    }
-  };
-  const yearValidation = () => {
-    let condition = year.value < 1900 || year.value > new Date().getFullYear;
-    divChecker(year, condition, "Debe seleccionar una fecha válida");
-  };
   const stockValidation = () => {
     divChecker(stock, stock.value < 1, "El stock debe ser entre mayor a 0");
   };
   const stateValidation = () => {
-    let condition = !stateNew.value && !stateOld.value;
+    let condition = !stateNew.value && !stateUsed.value;
     let message = "Debe elegir un estado del producto";
     divChecker(state, condition, message);
   };
@@ -130,17 +121,6 @@ window.addEventListener("load", () => {
     let condition = !rating.value || rating.value < 0 || rating.value > 5;
     let message = "El rating debe ser entre 0 y 5";
     divChecker(rating, condition, message);
-  };
-  const gearTypeValidation = () => {
-    let condition =
-      gearType.value !== "manual" && gearType.value !== "automática";
-    let message = "La caja de cambios puede ser automática o manual";
-    divChecker(gearType, condition, message);
-  };
-  const kilometersValidation = () => {
-    let condition = kilometers.value < 0;
-    let message = "El kilometraje debe ser mayor o igual a cero";
-    divChecker(kilometers, condition, message);
   };
   const priceValidation = () => {
     let condition = price.value <= 0;
@@ -242,17 +222,91 @@ window.addEventListener("load", () => {
     }
   };
 
+  let versionValidation;
+  let yearValidation;
+  let gearTypeValidation;
+  let kilometersValidation;
+  if (window.location.pathname.includes("vehicle")) {
+    versionValidation = async () => {
+      if (version.value) {
+        let res = await fetch(`${url}/versions/id/${version.value}`);
+        let versionTest = await res.json();
+        divChecker(
+          version,
+          versionTest.error,
+          "La versión elegida es inválida"
+        );
+      } else {
+        if (
+          version.nextElementSibling &&
+          version.nextElementSibling.tagName !== "DIV"
+        ) {
+          version.classList.add("is-invalid");
+          version.insertAdjacentElement(
+            "afterend",
+            divGenerator("Debe seleccionar una versión")
+          );
+        }
+      }
+    };
+    yearValidation = () => {
+      let condition = year.value < 1900 || year.value > new Date().getFullYear;
+      divChecker(year, condition, "Debe seleccionar una fecha válida");
+    };
+    gearTypeValidation = () => {
+      let condition =
+        gearType.value !== "manual" && gearType.value !== "automática";
+      let message = "La caja de cambios puede ser automática o manual";
+      divChecker(gearType, condition, message);
+    };
+    kilometersValidation = () => {
+      let condition = kilometers.value < 0;
+      let message = "El kilometraje debe ser mayor o igual a cero";
+      divChecker(kilometers, condition, message);
+    };
+    version.addEventListener("change", async (e) => {
+      await versionValidation();
+    });
+    year.addEventListener("change", (e) => {
+      yearValidation();
+    });
+    gearType.addEventListener("change", (e) => {
+      gearTypeValidation();
+    });
+    kilometers.addEventListener("input", (e) => {
+      kilometersValidation();
+    });
+    color.addEventListener("change", (e) => {
+      let condition = !validator.isAlfa(color.value);
+      let message = "El kilometraje debe ser mayor o igual a cero";
+      divChecker(color, condition, message);
+    });
+  }
+
+  let partSerialNumberValidation;
+  let vehicleTypeValidation;
+  if (window.location.pathname.includes("part")) {
+    partSerialNumberValidation = () => {
+      let condition = !partSerialNumber.value;
+      let message = "Debe ingresar el número de serie de la parte";
+      divChecker(partSerialNumber, condition, message);
+    };
+    partSerialNumber.addEventListener("input", (e) => {
+      partSerialNumberValidation();
+    });
+    vehicleTypeValidation = () => {
+      let condition =
+        !car.value && !pickup.value && !pickup.value && !truck.value;
+      let message = "Debe seleccionar al menos un tipo de vehículo";
+      divChecker(vehicleType, condition, message);
+    };
+  }
+
   brand.addEventListener("change", async (e) => {
     await brandValidation();
   });
   model.addEventListener("change", async (e) => {
     await modelValidation();
-  });
-  version.addEventListener("change", async (e) => {
-    await versionValidation();
-  });
-  year.addEventListener("change", (e) => {
-    yearValidation();
   });
   stock.addEventListener("input", (e) => {
     stockValidation();
@@ -260,22 +314,11 @@ window.addEventListener("load", () => {
   rating.addEventListener("input", (e) => {
     ratingValidation();
   });
-  gearType.addEventListener("change", (e) => {
-    gearTypeValidation();
-  });
-  kilometers.addEventListener("input", (e) => {
-    kilometersValidation();
-  });
   price.addEventListener("input", (e) => {
     priceValidation();
   });
   discount.addEventListener("input", (e) => {
     discountValidation();
-  });
-  color.addEventListener("change", (e) => {
-    let condition = !validator.isAlfa(color.value);
-    let message = "El kilometraje debe ser mayor o igual a cero";
-    divChecker(color, condition, message);
   });
   province.addEventListener("change", async (e) => {
     await provinceValidation();
@@ -292,7 +335,6 @@ window.addEventListener("load", () => {
   description.addEventListener("input", (e) => {
     descriptionValidation();
   });
-
   images.addEventListener("change", (e) => {
     imagesValidation();
   });
@@ -317,6 +359,9 @@ window.addEventListener("load", () => {
       yearValidation();
       gearTypeValidation();
       kilometersValidation();
+    } else if (window.location.pathname.includes("part")) {
+      partSerialNumberValidation();
+      vehicleTypeValidation();
     }
 
     const errors = document.getElementsByClassName("is-invalid");
