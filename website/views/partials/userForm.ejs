@@ -75,7 +75,7 @@
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
-          <select type="form-select" class="form-control registration-field <%=locals.errors && errors.province ? 'is-invalid':null %> " 
+          <select type="form-select" class="form-select form-control registration-field <%=locals.errors && errors.province ? 'is-invalid':null %> " 
             aria-label="Select province" id="province" name="province" placeholder="provincia" <%=action==='view'? "disabled" :''%>>
             <% if (action=='view') { %>
             <option value="<%=user.provinceID%>"><%= user.provinceName%> </option> 
@@ -99,7 +99,7 @@
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
-          <select type ="form-select" class = "form-control registration-field <%=locals.errors &&  errors.location ? 'is-invalid':null%>" aria-label="Select City" id="location" name="location" placeholder="cíudad"
+          <select type ="form-select" class = "form-select form-control registration-field <%=locals.errors &&  errors.location ? 'is-invalid':null%>" aria-label="Select City" id="location" name="location" placeholder="cíudad"
           <%=action==='view'? "disabled" :''%>>
           <% if (action =='view') { %>
             <option value="<%=user.locationID%>"><%=user.locationName%></option>
@@ -154,8 +154,10 @@
               <%= errors.password.msg %>
             </div>
             <% } %>
-        </div>
-        <div class="d-none text-danger" id="passwordErr"></div>
+        <div class= "d-none" id="passwordStrength" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        <div><ul class="d-none text-danger fs-6" id="passwordErr"></ul></div>
+          </div>
+        
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -167,7 +169,6 @@
             </div>
             <% } %>
         </div>
-        <div class= "d-none progess-bar" id="passwordStrength" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"border-rounded"></div>
         <div class="d-none text-danger" id="confirmPasswordErr"></div>
       </div>
       <div class="form-floating mb-1">
@@ -203,4 +204,5 @@
   </form>
 </div>
 <script src="/js/getLocalities.js"></script>
+<script type="text/javascript" src="/js/validator.min.js"></script>
 <script src ="/js/registrationValidation.js"></script>

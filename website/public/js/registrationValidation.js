@@ -367,17 +367,60 @@ window.addEventListener("load", function () {
 	});
 
 	password.addEventListener('input', (e) => {
+		passwordErr.classList.contains("d-none")
+			? ""
+			: passwordErr.classList.add("d-none");
+		password.classList.contains("is-invalid")
+			? password.classList.remove("is-invalid")
+			: "";
+
 		if (password.value) {
 			console.log("The password is being generated");
 			let passwordToTest = password.value;
 			let validityScore = validPassword(passwordToTest);
 			passwordStrength.classList.remove('d-none');
-			passwordStrength.innerText="Pswd Strength: "+ validityScore;
+
 			console.log(validityScore);
-			switch (validityScore) {
-				
+			let strength = "";
+			switch (validityScore.passed) {
+				case 0:
+				case 1:
+				case 2:
+					strength =
+						"<small class='progress-bar bg-danger' style='width: 40%'>Débil</small>";
+					passwordErr.classList.contains("d-none")
+						? passwordErr.classList.remove("d-none")
+						: "";
+					passwordErr.innerHTML =
+						validityScore.errorMsg;
+
+					password.classList.contains("is-invalid")
+						? ""
+						: password.classList.add("is-invalid");
+
+					
+					break;
+				case 3:
+				case 4:
+					strength = "<small class='progress-bar bg-warning' style='width: 60%'>Mediano</small>";
+					passwordErr.classList.contains("d-none")
+						? passwordErr.classList.remove("d-none")
+						: "";
+					passwordErr.innerHTML = validityScore.errorMsg;
+
+					password.classList.contains("is-invalid")
+						? ""
+						: password.classList.add("is-invalid");
+
+          break;
+        case 5:
+					strength = "<small class='progress-bar bg-success' style='width: 100%'>Fuerte</small>";
+					password.classList.add("is-valid");
+          break;
 			}
+			passwordStrength.innerHTML = strength;
 		} else {
+			passwordStrength.innerHTML = "";
 			passwordErr.classList.contains("d-none")
 				? passwordErr.classList.remove("d-none")
 				: "";
@@ -385,9 +428,6 @@ window.addEventListener("load", function () {
 			password.classList.contains("is-invalid")
 				? ""
 				: password.classList.add("is-invalid");
-
-			passwordErr.innerText =
-				"Por favor ingrese una contraseña válida con más de 8 caracteres y : \n Mayusucla \n Miniscula \n Numero \ Caracter Especial";
 		}
 	});
 });
@@ -483,16 +523,54 @@ function isTelephone(telephone) {
 }
 
 function validPassword(passwordToTest) {
-	let re = [];
-	re.push("[A-Z]"); //UpperCase
+	//let re = [];
+	let re = {
+		upperCase: {
+			condition: "[A-Z]",
+			msg:
+				"<small><li>Debe contener al menos un caracter en máyuscula</li></small>",
+		},
+		lowerCase: {
+			condition: "[a-z]",
+			msg:
+				"<small><li>Debe contener al menos un caracter en míniscula</li></small>",
+		},
+		digit: {
+			condition: "[0-9]",
+			msg: "<small><li>Debe contener al menos un número de 0 a 9</li></small>",
+		},
+		specialCharacter: {
+			condition: "[$@$!%*#?&]",
+			msg:
+				"<small><li>Debe contener al menos un caracter especial</li></small>",
+		},
+		length: {
+			condition: "([A-Za-z0-9$@$!%*#?&]){8,}",
+			msg: "<small><li>Debe ser al menos 8 cáracteres</li></small>",
+		},
+	};
+	/* re.push("[A-Z]"); //UpperCase
 	re.push("[a-z]"); //LowerCase
 	re.push("[0-9]"); //Digit
 	re.push("[$@$!%*#?&]"); //Special Characters
+	re.push("([A-Za-z0-9$@$!%*#?&]){8,}"); //length */
 	let passed = 0;
-	for (let i = 0; i < re.length; i++){
+	let errorMsg = "";
+	Object.values(re).forEach(condition => {
+
+		console.log("TESTING ",condition ," - ", condition.condition,": ",new RegExp(condition.condition).test(passwordToTest));
+		if (new RegExp(condition.condition).test(passwordToTest)) {
+			passed++;
+			console.log(passed);
+		} else {
+			errorMsg += condition.msg;
+			console.log(errorMsg);
+		}
+	});
+	/* for (let i = 0; i < re.length; i++){
 		if (new RegExp(re[i]).test(String(passwordToTest))) {
 			passed++;
 		}
-	}
-	return passed;
+	} */
+	return { passed, errorMsg };
 }
