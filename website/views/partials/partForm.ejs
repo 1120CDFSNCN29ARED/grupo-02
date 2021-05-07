@@ -309,7 +309,7 @@
         </div>
     </form>
     <% if (action === "edit") { %>
-        <form action="/posts/delete/<%= post.post.adID %>?_method=DELETE" method="POST">
+        <form action="/posts/delete/<%= post.post.postID %>?_method=DELETE" method="POST">
             <div class="add-product-cta"><button class="add-product-delete btn-lg" type="submit" name="delete">Borrar</button></div>
         </form>
     <% } %>
