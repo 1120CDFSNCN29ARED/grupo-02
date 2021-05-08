@@ -3,7 +3,7 @@ const modelsService = require("../../services/modelsService");
 
 const brandsController = {
   all: async (req, res) => {
-    const brands = await brandsService.findAll();
+    const brands = await brandsService.findAll({ active: true });
     const result = {
       meta: {
         url: req.originalUrl,

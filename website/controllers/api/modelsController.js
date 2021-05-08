@@ -4,7 +4,7 @@ const versionsService = require("../../services/versionsService");
 
 const modelsController = {
   all: async (req, res) => {
-    const models = await modelsService.findAll();
+    const models = await modelsService.findAll({ active: true });
     const result = {
       meta: {
         url: req.originalUrl,
