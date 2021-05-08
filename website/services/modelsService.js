@@ -2,29 +2,30 @@ const db = require("../database/models");
 const { Op } = require("sequelize");
 
 const modelsService = {
-  findAll: async () => {
-    return await db.Model.findAll({ order: [["model_name", "ASC"]] }).catch(
-      (error) => error
-    );
-  },
-  findByProductType: async (conditions) => {
+  findAll: async (conditions) => {
     return await db.Model.findAll({
-      where: {
-        [Op.or]: conditions,
-      },
+      where: conditions,
       order: [["model_name", "ASC"]],
     }).catch((error) => error);
+  },
+  findByProductType: async (conditions) => {
+    return await modelsService
+      .findAll({
+        [Op.or]: conditions,
+        active: true,
+      })
+      .catch((error) => error);
   },
   findByPk: async (id) => {
     return await db.Model.findByPk(id).catch((error) => error);
   },
   findByName: async (name) => {
-    return await db.Model.findAll({ where: { model_name: name } }).catch(
-      (error) => error
-    );
+    return await modelsService
+      .findAll({ model_name: name, active: true })
+      .catch((error) => error);
   },
   findByBrandID: async (id) => {
-    return await db.Model.findAll({ where: { brandID: id } }).catch(
+    return await db.Model.findAll({ brandID: id, active: true }).catch(
       (error) => error
     );
   },
