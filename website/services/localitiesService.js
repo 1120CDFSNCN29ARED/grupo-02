@@ -43,38 +43,9 @@ const localitiesService = {
     await locality.save().catch((error) => error);
     return locality;
   },
-  delete: async (id, confirm) => {
-    const locality = await localitiesService
-      .findByPk(id)
-      .catch((error) => error);
-    const users = await brand.getUsers().catch((error) => error);
-    const posts = await brand.getPosts().catch((error) => error);
-    let errors = {
-      message: "This brand has associated ",
-      status: 409,
-      data: {},
-    };
-    if (users.length > 0) {
-      errors.message += "users";
-      errors.data.models.push(users);
-    }
-    if (posts.length > 0 && models.length > 0) {
-      errors.message += " and products";
-      errors.data.posts.push(posts);
-    } else if (posts.length > 0) {
-      errors.message += "posts";
-      errors.data.posts.push(posts);
-    }
-    if ((models.length > 0 || posts.length > 0) && confirm === true) {
-      await brand.update({ active: false });
-      return await brand.save().catch((error) => error);
-    } else if (models.length == 0 && products.length == 0) {
-      await brand.update({ active: false });
-      return await brand.save().catch((error) => error);
-    } else {
-      errors.message += ". Please send the confirm parameter as true";
-      return errors;
-    }
+  delete: async (id) => {
+    const locality = await localitiesService.update(id, { active: false });
+    return locality;
   },
 };
 
