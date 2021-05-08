@@ -25,9 +25,9 @@ const modelsService = {
       .catch((error) => error);
   },
   findByBrandID: async (id) => {
-    return await db.Model.findAll({ brandID: id, active: true }).catch(
-      (error) => error
-    );
+    return await modelsService
+      .findAll({ brandID: id, active: true })
+      .catch((error) => error);
   },
   create: async (data) => {
     return await db.Model.create(data).catch((error) => error);
