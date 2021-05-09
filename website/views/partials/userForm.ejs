@@ -1,5 +1,5 @@
 <div class="container-fluid container-registration-form text-center">
-  <form action="/users/<%= action %>/<%= action =='edit' ? `${user.userID}?_method=PUT`: '' %>" method="POST" class="form-registration" enctype="multipart/form-data">
+  <form id="userForm" action="/users/<%= action %>/<%= action =='edit' ? `${user.userID}?_method=PUT`: '' %>" method="POST" class="form-registration" enctype="multipart/form-data">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -11,7 +11,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="userNameErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -23,7 +22,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="emailErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -35,7 +33,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="firstNameErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -47,7 +44,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="lastNameErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -59,7 +55,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="dniErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -71,7 +66,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="telephoneErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -95,7 +89,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="provinceErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -119,7 +112,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="locationErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -131,7 +123,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="postalCodeErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -143,7 +134,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="addressErr"></div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -156,8 +146,7 @@
             <% } %>
         <div class= "d-none" id="passwordStrength" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         <div><ul class="d-none text-danger fs-6" id="passwordErr"></ul></div>
-          </div>
-        
+          </div>        
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="form-floating mb-1">
@@ -169,7 +158,6 @@
             </div>
             <% } %>
         </div>
-        <div class="d-none text-danger" id="confirmPasswordErr"></div>
       </div>
       <div class="form-floating mb-1">
         <input type="file" class="form-control <%=locals.errors && errors.image ? 'is-invalid': null %>" id="image" name="image" single value="<%= locals.old && old.image ? old.image : action == 'edit' ? `/img/users/${user.image}` : null %>" <%=action==='view'? "hidden disabled":''%>/>
@@ -178,7 +166,6 @@
             <%= errors.image.msg %>
           </div>
           <% } %>
-          <div class="d-none text-danger" id="imageErr"></div>
       </div>
     </div>
     <div class="container-fluid d-md-flex container-registration-cta mb-5">

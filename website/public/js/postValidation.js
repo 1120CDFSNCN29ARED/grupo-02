@@ -51,7 +51,6 @@ window.addEventListener("load", () => {
   let kilometers;
 
   let partSerialNumber;
-  let 
 
   if (window.location.pathname.includes("vehicle")) {
     year = document.getElementById("year");
