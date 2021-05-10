@@ -229,6 +229,9 @@ window.addEventListener("load", function () {
 		if (telephone.value) {
 			let telephoneToTest = telephone.value;
 			let valTelephone = isTelephone(telephoneToTest);
+			if (valTelephone) {
+				telephone.value = formatTelephone(telephoneToTest);
+			}
 			divChecker(telephone, !valTelephone,"Por favor ingrese un teléfono valido \n Celular: (xxx)-15-xxxx-xxxx \n Fijo: (xxx)-xxxx-xxxx")
 		} else {
 			divChecker(
@@ -471,6 +474,11 @@ function formatID(validID) {
 function isTelephone(telephone) {
 	const re = /^(?=(((\D*\d){11})|((\D*\d){13}))$)\(?\d{3,5}\)?[- .]?\d{2}[- .]?\d{2,4}[- .]?\d{4}$/g;
 	return re.test(telephone);
+}
+
+function formatTelephone(validTelephone) {
+	const re = /\s|\(|\)|\-/g;
+		return validTelephone.replace(re, "");
 }
 
 function validPassword(passwordToTest) {
