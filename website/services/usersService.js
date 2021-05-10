@@ -22,6 +22,9 @@ const usersService = {
       }
     }).catch(error => error);
   },
+  findByLocation: async (locationID) => {
+    return await db.User.findAll({where: {locationID}}).catch(error=>error);
+  },
   create: async (data) => {
     const result = await db.User.create(data).catch(error => error);
     return result;

@@ -17,6 +17,7 @@ router.get('/:userID', usersController.byID);
 router.get("/roles/:role", usersController.byRole); //No funciona bien! Separar las funciones en el controler para no cruizar servicios.
 router.get("/byUserName/:userName", usersController.byUserName);
 router.get("/byEmail/:email", usersController.byEmail);
+router.get("/byLocation/:locationID",usersController.byLocation);
 //Create user
 router.post('/create', usersController.create);
 

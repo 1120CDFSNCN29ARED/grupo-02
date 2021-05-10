@@ -174,6 +174,28 @@ const usersController = {
 
 		return res.status(result.meta.status).json(result);
 	},
+	byLocation: async (req, res) => {
+		const users = await usersService.findByLocation(req.params.locationID);
+		const result = {
+			meta: {
+				url: req.originalUrl,
+			}
+		};
+
+		if (!users.errors) {
+			result.data = { users, };
+			result.meta.status = 200;
+			result.meta.count = users.length;
+		} else {
+			result.meta.status = 409;
+			result.meta.count = 0;
+			result.error = {
+				status: "409",
+				message: "No users were found",
+			};
+		}
+		return res.status(result.meta.status).json(result);
+	},
 	create: async (req, res) => {
 		const newUser = {
 			...req.body,
