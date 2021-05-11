@@ -8,10 +8,10 @@ const usersService = {
   findByPk: async (id) => {
     return await db.User.findByPk(id).catch(error => error);
   },
-  findOne: async (email) => {
+  findOne: async (info) => {
     return await db.User.findOne({
 			where: {
-				[Op.or]: [{ userName: email }, { email: email }]
+				[Op.or]: [{ userName: info }, { email: info }]
 			},
     }).catch(error => error);
   },
@@ -21,6 +21,9 @@ const usersService = {
         userName: userName
       }
     }).catch(error => error);
+  },
+  findByLocation: async (locationID) => {
+    return await db.User.findAll({where: {locationID}}).catch(error=>error);
   },
   create: async (data) => {
     const result = await db.User.create(data).catch(error => error);
