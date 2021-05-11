@@ -8,7 +8,12 @@ const userUpdateValidationRules = () => {
 	return [
 		body("userName")
 			.notEmpty()
-			.withMessage("Por favor elige un nomber de usaurio")
+			.withMessage("Requerido")
+			.bail()
+			.isLength({ min: 4, max: 10 })
+			.withMessage(
+				"Por favor ingrese un nombre de usuario entre 4 y 10 caracteres"
+			)
 			.bail()
 			.custom(async (value, { req }) => {
 				if (value !== req.session.assertUserLogged.userName) {
@@ -21,7 +26,7 @@ const userUpdateValidationRules = () => {
 					return true;
 				} else {
 					return true;
-				}				
+				}
 			}),
 		body("firstName")
 			.notEmpty()
@@ -46,7 +51,7 @@ const userUpdateValidationRules = () => {
 			"Por favor ingrese su DNI valido de 8 números sin puntos ni espacios"
 		)
 			.notEmpty()
-			.withMessage()
+			.withMessage("Requerido")
 			.bail()
 			.isNumeric()
 			.withMessage()
@@ -105,9 +110,21 @@ const userUpdateValidationRules = () => {
 			.escape()
 			.withMessage("Por favor ingrese su dirección")
 			.bail(),
-		body("password").optional(),
+		body("password")
+			.if(body("password").notEmpty())
+			.isStrongPassword({
+				minLength: 8,
+				minLowercase: 2,
+				minUppercase: 2,
+				minNumbers: 2,
+				minSymbols: 2,
+			})
+			.withMessage(
+				"Por favor incluir al menos dos Mayusculas, dos minisculas, 2 numeros y dos simbolos"
+			),
 		body("confirmPassword", "Las contraseñas ingresadas no coinciden.")
 			.optional()
+			.if(body("password").notEmpty())
 			.custom((value, { req }) => value === req.body.password),
 		body("image").custom((value, { req }) => {
 			let file = req.file;

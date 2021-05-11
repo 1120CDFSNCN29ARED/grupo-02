@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
 
 
 	//Fields
-	const userForm = document.getElementById("userForm");
+	const form = document.getElementById("userForm");
 	let userName = document.getElementById("userName");
 	let email = document.getElementById("email");
 	let firstName = document.getElementById("firstName");
@@ -88,7 +88,7 @@ window.addEventListener("load", function () {
 		imageValidation();
 	});
 
-	userForm.addEventListener("submit", async (e) => {
+	form.addEventListener("submit", async (e) => {		
 		await userNameValidation();
 		await emailValidation();
 		firstNameValidation();
@@ -100,6 +100,7 @@ window.addEventListener("load", function () {
 		postalCodeValidation();
 		addressValidation();
 		passwordValidation();
+		console.log("password validation: ",passwordValidation());
 		confirmPasswordValidation();
 		imageValidation();
 
@@ -108,6 +109,7 @@ window.addEventListener("load", function () {
 		console.warn("errors: ", errors);
 		if (errors.length > 0) {
 			e.preventDefault();
+			console.warn("ESTO NO COMPLETO TODO");
 			console.log("errors: ", errors);
 			if (form.nextElementSibling) {
 				form.insertAdjacentElement(
@@ -369,10 +371,11 @@ window.addEventListener("load", function () {
 		}
 	};
 
-	function imageValidation (){
+	function imageValidation() {
 		allowedExtensions = ["jpg", "jpeg", "png", "gif"];
 		let imageError = 0;
-		if (image.value) {
+		if (image.files.length>0) {
+			console.log("FILES: ",image.files);
 			let extension = image.name
 				.substring(image.name.lastIndexOf(".") + 1, image.name.length)
 				.toLowerCase();
@@ -380,25 +383,25 @@ window.addEventListener("load", function () {
 			if (!allowedExtensions.includes(extension)) {
 				imageError++;
 			}
-		}
-		
-		if (imageError !== 0) {
-			image.classList.add("is-invalid");
-			if (image.nextElementSibling.tagName !== "DIV") {
-				image.insertAdjacentElement(
-					"afterend",
-					divGenerator(
-						"El imágen debe ser del tipo " + allowedExtensions.join(", ")
-					)
-				);
+			console.log(imageError);
+			if (imageError !== 0) {
+				image.classList.add("is-invalid");
+				if (image.nextElementSibling.tagName !== "DIV") {
+					image.insertAdjacentElement(
+						"afterend",
+						divGenerator(
+							"El imágen debe ser del tipo " + allowedExtensions.join(", ")
+						)
+					);
+				}
+			} else {
+				image.classList.remove("is-invalid");
+				if (image.nextElementSibling.tagName === "DIV") {
+					image.nextElementSibling.remove();
+				}
 			}
-		} else {
-			image.classList.remove("is-invalid");
-			if (image.nextElementSibling.tagName === "DIV") {
-				image.nextElementSibling.remove();
-			}
-		}
-	};
+		};
+	}
 });
 
 /* Dynamic Error checking: */
