@@ -11,7 +11,7 @@
                 <h5 class="card-title <% if (vehicle.post.onSale === true) { %>
                     stripped inline
                 <% } %>">
-                    $ <%= vehicle.post.price.toLocaleString("es-AR") %>
+                    $<%= vehicle.post.price.toLocaleString("es-AR") %>
                     
                 </h5>
                 <% if (vehicle.post.onSale === true) { %>
