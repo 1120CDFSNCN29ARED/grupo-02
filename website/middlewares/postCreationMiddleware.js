@@ -8,8 +8,18 @@ const provincesServices = require("../services/provincesService");
 
 const vehiclePostCreationValidator = () => {
   const postCreationValidator = [
-    body("title").notEmpty().withMessage("Debe ingresar un título"),
-    body("description").notEmpty().withMessage("Debe ingresar una descripción"),
+    body("title")
+      .notEmpty()
+      .withMessage("Debe ingresar un título")
+      .bail()
+      .isLength({ min: 15 })
+      .withMessage("El título debe tener al menos 15 caracteres"),
+    body("description")
+      .notEmpty()
+      .withMessage("Debe ingresar una descripción")
+      .bail()
+      .isLength({ min: 50 })
+      .withMessage("La descripción debe tener al menos 50 caracteres"),
     body("brandID")
       .notEmpty()
       .withMessage("Debe seleccionar una marca")
@@ -88,8 +98,19 @@ const vehiclePostCreationValidator = () => {
         return locality;
       })
       .bail(),
-    body("postalCode").notEmpty().withMessage("Debe ingresar el código postal"),
-    body("type").notEmpty().withMessage("Debe seleccionar un tipo de vehiculo"),
+    body("postalCode")
+      .notEmpty()
+      .withMessage("Debe ingresar el código postal")
+      .bail()
+      .isInt()
+      .isLength({ min: 4, max: 4 })
+      .withMessage("El código postal debe ser un número de cuatro dígitos"),
+    body("type")
+      .notEmpty()
+      .withMessage("Debe seleccionar un tipo de vehiculo")
+      .bail()
+      .isIn(["car", "motorcycle", "pickup", "truck"])
+      .withMessage("Debe elegir auto, moto, camioneta ó camión"),
     body("versionID")
       .notEmpty()
       .withMessage("Debe seleccionar una versión")
@@ -104,7 +125,12 @@ const vehiclePostCreationValidator = () => {
         return version;
       })
       .bail(),
-    body("year").notEmpty().withMessage("Debe seleccionar un año"),
+    body("year")
+      .notEmpty()
+      .withMessage("Debe seleccionar un año")
+      .bail()
+      .isInt({ min: 1900, max: new Date().getFullYear() })
+      .withMessage("El año elegido es inválido"),
     body("gearType")
       .notEmpty()
       .withMessage("Debe seleccionar un tipo de caja de cambios")
@@ -157,8 +183,18 @@ const vehiclePostCreationValidation = async (req, res, next) => {
 
 const partPostCreationValidator = () => {
   const postCreationValidator = [
-    body("title").notEmpty().withMessage("Debe ingresar un título"),
-    body("description").notEmpty().withMessage("Debe ingresar una descripción"),
+    body("title")
+      .notEmpty()
+      .withMessage("Debe ingresar un título")
+      .bail()
+      .isLength({ min: 15 })
+      .withMessage("El título debe tener al menos 15 caracteres"),
+    body("description")
+      .notEmpty()
+      .withMessage("Debe ingresar una descripción")
+      .bail()
+      .isLength({ min: 50 })
+      .withMessage("La descripción debe tener al menos 50 caracteres"),
     body("brandID")
       .notEmpty()
       .withMessage("Debe seleccionar una marca")
@@ -233,7 +269,13 @@ const partPostCreationValidator = () => {
         return locality;
       })
       .bail(),
-    body("postalCode").notEmpty().withMessage("Debe ingresar el código postal"),
+    body("postalCode")
+      .notEmpty()
+      .withMessage("Debe ingresar el código postal")
+      .bail()
+      .isInt()
+      .isLength({ min: 4, max: 4 })
+      .withMessage("El código postal debe ser un número de cuatro dígitos"),
     body("partSerialNumber")
       .notEmpty()
       .withMessage("Debe ingresar un número de parte"),
