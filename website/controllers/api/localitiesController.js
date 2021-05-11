@@ -193,21 +193,26 @@ const localitiesController = {
 
     let locality = await localitiesService.findByPk(req.params.localityID);
     if (locality) {
-      //need to implement user by location id
-      //const users = await usersService.find;
+      const users = await usersService.findByLocation(locality.localityID);
       const posts = await postsService.findByLocalityID(locality.localityID);
-      if (posts.length === 0 /*&& users.length === 0*/) {
+      if (posts.length === 0 && users.length === 0) {
         locality = await localitiesService.delete(locality.localityID);
         result.meta.status = 200;
         result.data = locality;
       } else {
+        if (posts.length > 0) {
+        }
         result.meta.status = 400;
         result.error = {
           status: 400,
-          message: "This locality has associated posts",
+          message: `This locality has associated ${
+            posts.length > 0 ? "posts " : ""
+          }${posts.length > 0 && users.length > 0 ? "and " : ""}${
+            users.length > 0 ? "users " : ""
+          }`,
           data: {},
         };
-        //result.error.data["users"] = users;
+        result.error.data["users"] = users;
         result.error.data["posts"] = posts;
       }
     } else {

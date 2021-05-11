@@ -14,6 +14,7 @@ const questionsService = require("../../services/questionsService");
 const imagesService = require("../../services/imagesService");
 
 const getPostData = require("../../middlewares/getPostData");
+const favouritesService = require("../../services/favouritesService");
 
 const types = ["car", "motorcycle", "pickup", "truck"];
 
@@ -595,13 +596,38 @@ const postsController = {
     const result = {
       meta: {
         url: req.originalUrl,
-        status: 400,
-      },
-      error: {
-        status: 400,
-        message: "Post deletion through API is not implemented yet",
       },
     };
+    let post = await postsService.findByPk(req.params.postID);
+    if (post) {
+      const user = await usersService.findByPk(post.sellerID);
+      const favourites = await favouritesService.findByPost(post.postID);
+      //const carts = await ca TBI - Check with Simon
+      if (favourites.length > 0) {
+        for (favourite of favourites) {
+          await favouritesService.delete(favourite.favouriteID);
+        }
+      }
+      const product = await productsService.delete(post.productID);
+      let vehicle;
+      let part;
+      if (product.productType === "vehicle") {
+        vehicle = vehiclesService.delete(product.vehicleID);
+      } else if (product.productType === "part") {
+        part = partsService.delete(product.partID);
+      }
+      post = await postsService.delete(post.postID);
+      post = await getPostData(post);
+      result.meta.status = 200;
+      result.data = post;
+    } else {
+      result.meta.status = 400;
+      result.error = {
+        status: 400,
+        message: "Invalid postID",
+      };
+    }
+
     return res.status(result.meta.status).json(result);
   },
 };
