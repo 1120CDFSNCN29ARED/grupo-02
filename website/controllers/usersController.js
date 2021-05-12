@@ -5,7 +5,7 @@ const usersService = require("../services/usersService");
 const userAccessService = require("../services/userAccessService");
 const rolesService = require("../services/rolesService");
 const favouritesService = require("../services/favouritesService");
-const questionsService = require("../services/questionsService");
+const getFullUser = require("../middlewares/getFullUser");
 
 const controller = {
 	login: (req, res) => {
@@ -27,19 +27,34 @@ const controller = {
 		
 		if (req.session.assertUserLogged) {
 			//let user = req.session.assertUserLogged.userID;
-			let user = await getFullUser(req.params.userID);
-			return res.render("userProfile", {
-				user,
-				action: "view",
-			});
+			let userID = req.session.assertUserLogged.userID;
+			let result = await usersService.findByPk(userID);
+			if (result && !result.errors) {
+				const user = await getFullUser(result);
+				return res.render("userProfile", {
+					user,
+					action: "view",
+				});
+			}
 		}
 	},
 	details: async (req, res, next) => {
 		let userID = req.params.userID;
-		const user = await getFullUser(userID);
-		let provinces = await provincesServices.findAll();
-		let localities = await localitiesService.findAll();
-		res.render("userProfile", { user, provinces, localities, action: "view" });
+		let result = await usersService.findByPk(userID);
+		if (result && !result.errors) {
+			const user = await getFullUser(result);
+			let provinces = await provincesServices.findAll();
+			let localities = await localitiesService.findAll();
+			res.render("userProfile", {
+				user,
+				provinces,
+				localities,
+				action: "view",
+			});	
+		} else {
+			res.redirect("/");
+		}
+		
 	},
 	create: async (req, res, next) => {
 		let provinces = await provincesServices.findAll();
@@ -89,17 +104,22 @@ const controller = {
 	},
 	edit: async (req, res, next) => {
 		let userID = req.params.userID;
-		let userToEdit = await getFullUser(userID);
-		let provinces = await provincesServices.findAll();
-		let localities = await localitiesService.findByProvinceID(
-			userToEdit.provinceID
-		);
-		res.render("userProfile", {
-			user: userToEdit,
-			provinces: provinces,
-			localities: localities,
-			action: "edit",
-		});
+		let result = usersService.findByPk(userID);
+		if (result && !result.errors) {
+			let userToEdit = await getFullUser(result);
+			let provinces = await provincesServices.findAll();
+			let localities = await localitiesService.findByProvinceID(
+				userToEdit.provinceID
+			);
+			res.render("userProfile", {
+				user: userToEdit,
+				provinces: provinces,
+				localities: localities,
+				action: "edit",
+			});	
+		}
+		
+		
 	},
 	update: async (req, res, next) => {
 		const userID = req.params.userID;
@@ -139,8 +159,12 @@ const controller = {
 					.catch((error) => error);
 			}
 		}
-		req.session.assertUserLogged = await getFullUser(userID);
-		res.redirect(`/users/profile/${userID}`);
+		let result = userService.findByPk(userID);
+		if (result && !result.errors) {
+			req.session.assertUserLogged = await getFullUser(result);
+			res.redirect(`/users/profile/${userID}`);	
+		}
+		res.redirect('/');
 	},
 	destroy: async (req, res, next) => {
 		//No tengo la pantalla de usuarios ni admin armado
@@ -159,21 +183,20 @@ const controller = {
 	},
     alterFavourites: async (req, res) => {
 		const favourite = await favouritesService.findByUserAndPost(req.session.assertUserLogged.userID,req.params.postID);
-        if(!favourite && req.params.action === "add"){
-			const result =  await favouritesService.add(req.session.assertUserLogged.userID,req.params.postID);
-			return res.redirect(`/posts/details/${req.params.postID}`);
+    if(!favourite && req.params.action === "add"){
+					const result =  await favouritesService.add(req.session.assertUserLogged.userID,req.params.postID);
 		}
 		else if(req.params.action === "delete"){
 			const result =  await favouritesService.delete(favourite.favouriteID);
 		}
 		const user = await usersService.findByPk(req.session.assertUserLogged.userID);
-		req.session.assertUserLogged = await getFullUser(req.session.assertUserLogged.userID);
+		req.session.assertUserLogged = await getFullUser(user);
 		return res.redirect(`/posts/details/${req.params.postID}`);
     }
 };
 
 //Helper Functions
-const getFullUser = async (userID) => {
+/* const getFullUser = async (userID) => {
 	const user = await usersService.findByPk(userID);
 	const userAccess = await userAccessService.findOne(user.email);
 	const role = await rolesService.findByPk(userAccess.roleID);
@@ -197,7 +220,7 @@ const getFullUser = async (userID) => {
 		questionCount
 	};
 	return fullUser;
-};
+}; */
 module.exports = controller;
 
 //Implement carts functionality - DO NOT CHANGE variable names!!!!
