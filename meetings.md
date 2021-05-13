@@ -254,3 +254,10 @@ División de tareas:
 
     * Se crearon todos los servicios y gran parte de los controllers. Queda teminar la parte de usuarios, carritos y favoritos (Simon).
     * La parte de posts está terminada, incluida la busqueda, creación, edición y borrado.
+
+## 13-Mayo
+
+### Revisión final de avance
+
+    Se revisó todo el contenido del proyecto y está todo funcionando. Se hacen los merges a develop y main.
+    Queda pendiente revisión y borrado de archivos innecesarios.
