@@ -7,7 +7,10 @@ const registrationValidationRules = () => {
 	return [
 		body("userName")
 			.notEmpty()
-			.withMessage("Por favor elige un nomber de usaurio")
+			.withMessage("Requerido")
+			.bail()
+			.isLength({ min: 4, max: 10 })
+			.withMessage("por favor ingrese un nombre de usuario entre 4 y 10 caracteres")
 			.bail()
 			.custom(async (value, { req }) => {
 				const user = await usersService.findOneByUserName(value).catch(error => error);
@@ -40,10 +43,9 @@ const registrationValidationRules = () => {
 			"Por favor ingrese su DNI valido de 8 números sin puntos ni espacios"
 		)
 			.notEmpty()
-			.withMessage()
+			.withMessage("Requerido")
 			.bail()
 			.isNumeric()
-			.withMessage()
 			.bail()
 			.isLength({ min: 8, max: 8 })
 			.withMessage(),
@@ -97,7 +99,8 @@ const registrationValidationRules = () => {
 			.escape()
 			.withMessage("Por favor ingrese su dirección")
 			.bail(),
-		body("password").notEmpty().withMessage("Por favor ingrese una contraseña"),
+		body("password").notEmpty().withMessage("Por favor ingrese una contraseña")
+			.isStrongPassword({minLength: 8, minLowercase: 2, minUppercase: 2, minNumbers:2, minSymbols: 2}),
 		body("confirmPassword", "Las contraseñas ingresadas no coinciden.").custom(
 			(value, { req }) => value === req.body.password
 		),

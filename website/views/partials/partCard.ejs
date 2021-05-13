@@ -3,7 +3,17 @@
         <div class="card h-100">
             <img src="/img/posts/<%= part.images.length > 0 ? part.images[0].imageURL : "no-image-found.jpeg"%>" class="card-img-top" alt="..." />
             <div class="card-body">
-                <h5 class="card-title">$ <%= part.post.price.toLocaleString("es-AR") %>
+                <h5 class="card-title <% if (part.post.onSale === true) { %>
+                                    stripped inline
+                                <% } %>">
+                    $<%= part.post.price.toLocaleString("es-AR") %>
+                
+                </h5>
+                <% if (part.post.onSale===true) { %>
+                    <h5 class="card-title inline">
+                        $<%= (part.post.price * (100 - part.post.discount) / 100).toLocaleString("es-AR") %>
+                    </h5>
+                    <% } %>
                 </h5>
                 <div class="card-details">
                     <div class="row">

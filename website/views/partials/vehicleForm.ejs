@@ -5,7 +5,7 @@
 <% } %>
 
 <section class="section-add-product" id="add-product-vehicle">
-    <form action="/posts/<%= action %>/<%= productType %><%= (action === "edit") ? `/${post.post.postID}?_method=PUT` : "" %> " method="POST" class="add-product" enctype="multipart/form-data">
+    <form action="/posts/<%= action %>/<%= productType %><%= (action === "edit") ? `/${post.post.postID}?_method=PUT` : "" %> " method="POST" id="form" class="add-product" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
@@ -96,11 +96,12 @@
                 <div class="form-floating mb-1 <%=locals.errors && errors.state ? 'is-invalid': null %>" id="state" aria-label="Select Part State">
                     <p>Estado</p>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="state" id="stateNew" value="Nuevo" <%= (locals.post && post.post && post.post.state === "Nuevo") ? "checked" : "" %>>
+                        <% console.log(post.post.state) %> 
+                        <input type="radio" name="state" id="stateNew" value="nuevo" <%= (locals.post && post.post && post.post.state === "nuevo") ? "checked" : "" %>>
                         <label for="stateNew">Nuevo</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="state" id="stateUsed" value="Usado" <%= (locals.post && post.post && post.post.state === "Usado") ? "checked" : "" %>>
+                        <input type="radio" name="state" id="stateUsed" value="usado" <%= (locals.post && post.post && post.post.state === "usado") ? "checked" : "" %>>
                         <label for="stateUsed">Usado</label>
                     </div>
                 </div>
@@ -147,7 +148,7 @@
             -->
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control <%=locals.errors && errors.stock ? 'is-invalid': null %>" placeholder="" id="stock" name="stock" value="<%= locals.post && post.post && post.post.stock %>"></input>
+                    <input type="number" class="form-control <%=locals.errors && errors.stock ? 'is-invalid': null %>" placeholder="" id="stock" name="stock" value="<%= locals.post && post.post && post.post.stock ? post.post.stock : 1 %>"></input>
                     <label for="stock">Stock</label>
                     <% if (locals.errors && errors.stock) { %>
                         <div class="invalid-feedback">
@@ -171,7 +172,7 @@
                                 <% } %>
                             <% } %>
                         <% } %>                        
-                        <% if (!locals.post.post) { %>
+                        <% if (locals.post && !locals.post.post) { %>
                             <% for( let i = 0; i < 5; i++ ) { %>
                                 <i class="far fa-star"></i>
                             <% } %>
@@ -190,6 +191,7 @@
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
                     <select class="form-select <%=locals.errors && errors.gearType ? 'is-invalid': null %>" id="gearType" aria-label="Select Year" name="gearType">
+                        <option value=""></option>
                         <option value="automática" <%= (locals.post && post.post && post.post.gearType === "automática") ? "selected" : "" %>>Automática</option>
                         <option value="manual" <%= (locals.post && post.post && post.post.gearType === "manual") ? "selected" : "" %>>Manual</option>
                     </select>
@@ -203,7 +205,7 @@
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control <%=locals.errors && errors.kilometers ? 'is-invalid': null %>" placeholder="" id="kilometers" name="kilometers" value="<%= locals.post && post.post && post.post.kilometers %>"></input>
+                    <input type="number" class="form-control <%=locals.errors && errors.kilometers ? 'is-invalid': null %>" placeholder="" id="kilometers" name="kilometers" value="<%= locals.post && post.post && post.post.kilometers ? post.post.kilometers : 0 %>"></input>
                     <label for="kilometers">Kilometros</label>
                     <% if (locals.errors && errors.kilometers) { %>
                         <div class="invalid-feedback">
@@ -286,7 +288,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-floating mb-1">
-                    <input type="text" class="form-control <%=locals.errors && errors.postalCode ? 'is-invalid': null %>" name="postalCode" id="postalCode" value="<%= (locals.post && post.post && post.location) ? post.location.postalCode : "" %>">
+                    <input type="number" class="form-control <%=locals.errors && errors.postalCode ? 'is-invalid': null %>" name="postalCode" id="postalCode" value="<%= (locals.post && post.post && post.location) ? post.location.postalCode : "" %>">
                     <label for="postalCode">Código Postal</label>
                     <% if (locals.errors && errors.postalCode) { %>
                         <div class="invalid-feedback">
@@ -357,9 +359,11 @@
         <!-- Buttons Section -->
         <div class="container-fluid d-flex container-add-product-cta">
             <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>
-            <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit" name="submit" value="publish">Guardar y Publicar</button></div>          
-            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit" name="submit" value="save">Guardar</button></div>
-            
+            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit" name="button" value="save">Guardar</button></div>
+            <div class="publish">
+                <input type="checkbox" id="publish" name="publish" <%=locals.post && post.post && post.post.published ? "checked" : "" %>>
+                <label for="publish">Publicar</label>
+            </div>
         </div>
     </form>
     <% if (action === "edit") { %>
@@ -371,3 +375,5 @@
 <script src="/js/getVehicleModels.js"></script>
 <script src="/js/getVersions.js"></script>
 <script src="/js/getLocalities.js"></script>
+<script type="text/javascript" src="/js/validator.min.js"></script>
+<script src="/js/postValidation.js"></script>
