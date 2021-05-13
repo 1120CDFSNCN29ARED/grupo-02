@@ -36,7 +36,7 @@ const userAccessService = {
 	},
 	delete: async (userName) => {
 		const data = { active: false };
-		const result = await usersAccessService.update(userName, data);
+		const result = await userAccessService.update(userName, data);
 		return result;
 	},
 };

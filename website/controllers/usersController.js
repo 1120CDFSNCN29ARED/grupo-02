@@ -179,7 +179,7 @@ const controller = {
             }
           }
         }
-        const userAccess = await userAccessService.delete(user.userID);
+        const userAccess = await userAccessService.delete(user.userName);
         const posts = await postsService.findBySellerID(user.userID);
         if (posts.length > 0) {
           for (post of posts) {
@@ -187,7 +187,9 @@ const controller = {
           }
         }
         await usersService.delete(userID);
-        return this.logout();
+        res.clearCookie("userEmail");
+        req.session.destroy();
+        return res.redirect("/");
         //delete req.cookies.
       } else {
         return res.redirect("/");
