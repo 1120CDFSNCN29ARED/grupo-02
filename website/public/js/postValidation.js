@@ -230,7 +230,7 @@ window.addEventListener("load", () => {
   let yearValidation;
   let gearTypeValidation;
   let kilometersValidation;
-  if (window.location.pathname.includes("vehicle")) {
+  if (productType === "vehicle") {
     versionValidation = async () => {
       if (version.value) {
         let res = await fetch(`${url}/versions/id/${version.value}`);
@@ -289,7 +289,7 @@ window.addEventListener("load", () => {
 
   let partSerialNumberValidation;
   let vehicleTypeValidation;
-  if (window.location.pathname.includes("part")) {
+  if (productType === "part") {
     partSerialNumberValidation = () => {
       let condition = !partSerialNumber.value;
       let message = "Debe ingresar el número de serie de la parte";
@@ -359,12 +359,12 @@ window.addEventListener("load", () => {
     descriptionValidation();
     imagesValidation();
 
-    if (window.location.pathname.includes("vehicle")) {
+    if (productType === "vehicle") {
       await versionValidation();
       yearValidation();
       gearTypeValidation();
       kilometersValidation();
-    } else if (window.location.pathname.includes("part")) {
+    } else if (productType === "part") {
       partSerialNumberValidation();
       vehicleTypeValidation();
     }
@@ -392,8 +392,9 @@ window.addEventListener("load", () => {
           "Debe completar todos los campos correctamente para continuar"
         )
       );
-    }
-    else {
+    } else {
+      form.submit();
+      /*
       const body = {
         brandID: brand.value,
         modelID: model.value,
@@ -408,9 +409,9 @@ window.addEventListener("load", () => {
         postalCode: postalCode.value,
         title: title.value,
         description: description.value,
-        images: images.files
-      }
-      if(window.location.pathname.includes("vehicle")){
+        images: images.files,
+      };
+      if (productType === "vehicle") {
         body.type = type.value;
         body.versionID = version.value;
         body.year = year.value;
@@ -418,15 +419,14 @@ window.addEventListener("load", () => {
         body.kilometers = kilometers.value;
         body.color = color.value;
       }
-      if(window.location.pathname.includes("part")){
+      if (productType === "part") {
         body.partSerialNumber = partSerialNumber.value;
         body.car = car.value;
         body.motorcycle = motorcycle.value;
         body.pickup = pickup.value;
         body.truck = truck.value;
       }
-      console.log(form);
-      form.submit()
+      
       console.log("body",body)
       const bodyJSON = JSON.stringify(body);
       await fetch("http://localhost:3000/posts/create/" + productType,{
@@ -436,6 +436,7 @@ window.addEventListener("load", () => {
         },
         body: bodyJSON,
       });
+      */
       return;
     }
   });

@@ -96,11 +96,12 @@
                 <div class="form-floating mb-1 <%=locals.errors && errors.state ? 'is-invalid': null %>" id="state" aria-label="Select Part State">
                     <p>Estado</p>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="state" id="stateNew" value="Nuevo" <%= (locals.post && post.post && post.post.state === "Nuevo") ? "checked" : "" %>>
+                        <% console.log(post.post.state) %> 
+                        <input type="radio" name="state" id="stateNew" value="nuevo" <%= (locals.post && post.post && post.post.state === "nuevo") ? "checked" : "" %>>
                         <label for="stateNew">Nuevo</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="state" id="stateUsed" value="Usado" <%= (locals.post && post.post && post.post.state === "Usado") ? "checked" : "" %>>
+                        <input type="radio" name="state" id="stateUsed" value="usado" <%= (locals.post && post.post && post.post.state === "usado") ? "checked" : "" %>>
                         <label for="stateUsed">Usado</label>
                     </div>
                 </div>
@@ -358,9 +359,11 @@
         <!-- Buttons Section -->
         <div class="container-fluid d-flex container-add-product-cta">
             <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>
-            <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit" value="publish">Guardar y Publicar</button></div>          
-            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit" value="save">Guardar</button></div>
-            
+            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit" name="button" value="save">Guardar</button></div>
+            <div class="publish">
+                <input type="checkbox" id="publish" name="publish" <%=locals.post && post.post && post.post.published ? "checked" : "" %>>
+                <label for="publish">Publicar</label>
+            </div>
         </div>
     </form>
     <% if (action === "edit") { %>

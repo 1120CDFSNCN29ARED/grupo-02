@@ -82,6 +82,12 @@ input[type="radio"]:checked + label > .fa-star:before {
   height: 65px;
 }
 
+.publish {
+  text-align: center;
+  align-items: center;
+  padding-top: 12px;
+}
+
 .current-product-images {
   display: flex;
   flex-wrap: wrap;
