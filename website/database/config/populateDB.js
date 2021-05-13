@@ -43,8 +43,8 @@ async function populateDB(db) {
     roleDescription: "standard user access",
   }).catch((error) => console.log(error));
   const user = await db.User.create({
-    firstName: "test",
-    lastName: "test",
+    firstName: "Pepito",
+    lastName: "Oreo",
     userName: "test",
     dni: 12345678,
     email: "test@test.com",
