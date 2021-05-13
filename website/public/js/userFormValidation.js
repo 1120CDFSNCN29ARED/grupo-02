@@ -1,10 +1,13 @@
 window.addEventListener("load", function () {
 	let MYPORT = 3000;
 	const baseURL = `http://localhost:${MYPORT}/api`;
-
+	let editUser = false;
+	let currentUserName = "";
+	let currentEmail = "";
+	let userID = "";
 
 	//Fields
-	const userForm = document.getElementById("userForm");
+	const form = document.getElementById("userForm");
 	let userName = document.getElementById("userName");
 	let email = document.getElementById("email");
 	let firstName = document.getElementById("firstName");
@@ -18,23 +21,19 @@ window.addEventListener("load", function () {
 	let password = document.getElementById("password");
 	let confirmPassword = document.getElementById("confirmPassword");
 	let image = document.getElementById("image");
-	//Error Fields
-	let userNameErr = document.getElementById("userNameErr");
-	let emailErr = document.getElementById("emailErr");
-	let firstNameErr = document.getElementById("firstNameErr");
-	let lastNameErr = document.getElementById("lastNameErr");
-	let dniErr = document.getElementById("dniErr");
-	let telephoneErr = document.getElementById("telephoneErr");
-	let provinceErr = document.getElementById("provinceErr");
-	let locationErr = document.getElementById("locationErr");
-	let postalCodeErr = document.getElementById("postalCodeErr");
-	let addressErr = document.getElementById("addressErr");
-	let passwordErr = document.getElementById("passwordErr");
-	let confirmPasswordErr = document.getElementById("confirmPasswordErr");
-	let imageErr = document.getElementById("imageErr");
-
+	
 	//passwordStrength Field
 	let passwordStrength = document.getElementById("passwordStrength");
+	if (window.location.pathname.includes("edit")) {
+		editUser = true;
+		currentUserName = userName.value;
+		currentEmail = email.value;
+		let pathArray = window.location.pathname.split("/");
+		console.log(pathArray);
+		userID = pathArray[3];
+		console.log(userID);
+
+	};
 
 	userName.addEventListener("input", async (e) => {
 		await userNameValidation();
@@ -76,19 +75,20 @@ window.addEventListener("load", function () {
 		addressValidation();
 	});
 
-	password.addEventListener('input',(e)=>{
-		passwordValidation();
+	password.addEventListener('input',(e)=>{				
+				passwordValidation();							
 	});
 
 	confirmPassword.addEventListener("change", (e) => {
-		confirmPasswordValidation();
+				confirmPasswordValidation();					
 	});
 
 	image.addEventListener("change", (e) => {
 		imageValidation();
 	});
 
-	userForm.addEventListener("submit", async (e) => {
+	form.addEventListener("submit", async (e) => {
+		e.preventDefault();
 		await userNameValidation();
 		await emailValidation();
 		firstNameValidation();
@@ -104,38 +104,94 @@ window.addEventListener("load", function () {
 		imageValidation();
 
 		const errors = document.getElementsByClassName("is-invalid");
-		
-		console.warn("errors: ", errors);
+		console.log("errors: ", errors.length);
 		if (errors.length > 0) {
 			e.preventDefault();
-			console.log("errors: ", errors);
-			if (form.nextElementSibling) {
-				form.insertAdjacentElement(
-					"afterend",
-					divGenerator(
-						"La descripción debe ser un texto de al menos 50 caracteres"
-					)
-				);
-				form.nextElementSibling.classList.add("alert-danger");
-			} else {
-				if (form.nextElementSibling) {
-					form.nextElementSibling.remove();
-				}
-			}
+			console.log("errors: ", errors);			
 			form.insertAdjacentElement(
 				"afterend",
 				divGenerator(
 					"Debe completar todos los campos correctamente para continuar"
 				)
 			);
+		} else {
+			if (editUser) {
+				console.log("ENTRE A Editar EL USUARIO");
+				const body = JSON.stringify({
+					userName: userName.value,
+					email: email.value,
+					firstName: firstName.value,
+					lastName: lastName.value,
+					dni: dni.value,
+					telephone: telephone.value,
+					province: province.value,
+					location: location.value,
+					postalCode: postalCode.value,
+					address: address.value,
+					password: password.value,
+					confirmPassword: confirmPassword.value,
+					image: image.file,
+				});
+				console.log("Haciendo el Fetch para editar el usuario");
+				/* await fetch(`http://localhost:${MYPORT}/users/edit/${userID}`, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					redirect: 'follow',
+					body,
+				}); */
+				console.log("Edited the user");
+				form.submit();
+				
+			} else {
+							
+				console.log("ENTRE A CREAR EL USUARIO");
+				const body = JSON.stringify({
+					userName: userName.value,
+					email: email.value,
+					firstName: firstName.value,
+					lastName: lastName.value,
+					dni: dni.value,
+					telephone: telephone.value,
+					province: province.value,
+					location: location.value,
+					postalCode: postalCode.value,
+					address: address.value,
+					password: password.value,
+					confirmPassword: confirmPassword.value,
+					image: image.file
+				});
+				console.log("Haciendo el Fetch");
+				/* await fetch(`http://localhost:${MYPORT}/users/register`, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					redirect: "follow",
+					body,
+				}); */
+				form.submit();
+				console.log("Create the user");
+			}
 		}
 	});
 	//Validation Rules
 	/* UserName */
 	async function userNameValidation() {
+		//Check if editing user so as to check if same as current user Value.
 		if (userName.value) {
+			
+			if (editUser) {
+			
+				if (userName.value == currentUserName) {
+					userName.classList.add("is-valid");
+					return;
+				}
+			}
 			let userNameToTest = userName.value.trim();
 			let valLength = validLength(userNameToTest, 4);
+			
 			if (valLength) {
 				let res = await fetch(`${baseURL}/users/byUserName/${userNameToTest}`);
 				let user = await res.json();
@@ -159,8 +215,17 @@ window.addEventListener("load", function () {
 	//EMAIL
 	async function emailValidation() {
 		if (email.value) {
+			
+			if (editUser) {
+			
+				if (email.value == currentEmail) {
+					email.classList.add("is-valid");
+					return;
+				}
+			}
 			let emailToTest = email.value.trim();
 			let validEmail = validateEmail(emailToTest);
+			
 			if (validEmail) {
 				let res = await fetch(`${baseURL}/users/byEmail/${emailToTest}`);
 				let user = await res.json();
@@ -208,6 +273,7 @@ window.addEventListener("load", function () {
 
 	/* DNI */
 	function dniValidation() {
+		
 		if (dni.value) {
 			let dniToTest = dni.value.trim();
 			let validID = isValidID(dniToTest);
@@ -229,6 +295,7 @@ window.addEventListener("load", function () {
 		if (telephone.value) {
 			let telephoneToTest = telephone.value;
 			let valTelephone = isTelephone(telephoneToTest);
+			
 			if (valTelephone) {
 				telephone.value = formatTelephone(telephoneToTest);
 			}
@@ -244,6 +311,7 @@ window.addEventListener("load", function () {
 
 	/* Province */
 	async function provinceValidation() {
+	
 		if (province.value) {
 			let res = await fetch(`${baseURL}/provinces/id/${province.value}`);
 			let provinceTest = await res.json();
@@ -253,26 +321,19 @@ window.addEventListener("load", function () {
 				"La provincia elegida es inválida"
 			);
 		} else {
-			province.classList.add("is-invalid");
-			province.insertAdjacentElement(
-				"afterend",
-				divGenerator("Debe elegir una provincia")
-			);
+			divChecker(province, !province.value, "Por favor elige una provincia");
 		}
 	};
 
 	/* Locality */
 	async function locationValidation() {
+		
 		if (location.value) {
 			let res = await fetch(`${baseURL}/localities/id/${location.value}`);
 			let locationTest = await res.json();
 			divChecker(location, locationTest.error, "La ciudad elegida es inválida");
 		} else {
-			location.classList.add("is-invalid");
-			location.insertAdjacentElement(
-				"afterend",
-				divGenerator("Debe elegir una ciudad")
-			);
+			divChecker(location, !location.value, "Elige una ciudad");
 		}
 	};
 
@@ -283,9 +344,8 @@ window.addEventListener("load", function () {
 			let pcToTest = postalCode.value;
 			let validPC = isPostalCode(pcToTest);
 				divChecker(postalCode, !validPC,"Por favor ingrese un código postal válido de 4 digitos");
-		} else {
-		
-			divChecker(postalCode, !postalCode.value,"Por favor ingrese un código postal válido de 4 digitos");	"Por favor ingrese un código postal válido de 4 digitos";
+		} else {		
+			divChecker(postalCode, !postalCode.value,"Por favor ingrese un código postal válido de 4 digitos");
 		}
 	};
 
@@ -301,7 +361,9 @@ window.addEventListener("load", function () {
 		password.classList.contains("is-invalid")
 			? password.classList.remove("is-invalid")
 			: "";
-
+		
+		if (editUser &&!password.value) { return; }
+		
 		if (password.value) {
 			let passwordToTest = password.value;
 			let validityScore = validPassword(passwordToTest);
@@ -358,9 +420,12 @@ window.addEventListener("load", function () {
 	};
 	/* ConfirmPassword */
 	function confirmPasswordValidation(){
+		if (editUser && !password.value && !confirmPassword.value) { return; };
 		
 		let pswdChecker = false;
+		
 		let condition = confirmPassword.value && validPassword(password.value).passed == 5;
+		
 		if (condition) {
 			pswdChecker = isMatching(confirmPassword.value, password.value);
 			divChecker(confirmPassword, !pswdChecker, "Las contraseñas no coinciden");
@@ -369,10 +434,11 @@ window.addEventListener("load", function () {
 		}
 	};
 
-	function imageValidation (){
+	function imageValidation() {
 		allowedExtensions = ["jpg", "jpeg", "png", "gif"];
 		let imageError = 0;
-		if (image.value) {
+		if (image.files.length>0) {
+			console.log("FILES: ",image.files);
 			let extension = image.name
 				.substring(image.name.lastIndexOf(".") + 1, image.name.length)
 				.toLowerCase();
@@ -380,25 +446,25 @@ window.addEventListener("load", function () {
 			if (!allowedExtensions.includes(extension)) {
 				imageError++;
 			}
-		}
-		
-		if (imageError !== 0) {
-			image.classList.add("is-invalid");
-			if (image.nextElementSibling.tagName !== "DIV") {
-				image.insertAdjacentElement(
-					"afterend",
-					divGenerator(
-						"El imágen debe ser del tipo " + allowedExtensions.join(", ")
-					)
-				);
+			console.log(imageError);
+			if (imageError !== 0) {
+				image.classList.add("is-invalid");
+				if (image.nextElementSibling.tagName !== "DIV") {
+					image.insertAdjacentElement(
+						"afterend",
+						divGenerator(
+							"El imágen debe ser del tipo " + allowedExtensions.join(", ")
+						)
+					);
+				}
+			} else {
+				image.classList.remove("is-invalid");
+				if (image.nextElementSibling.tagName === "DIV") {
+					image.nextElementSibling.remove();
+				}
 			}
-		} else {
-			image.classList.remove("is-invalid");
-			if (image.nextElementSibling.tagName === "DIV") {
-				image.nextElementSibling.remove();
-			}
-		}
-	};
+		};
+	}
 });
 
 /* Dynamic Error checking: */
@@ -508,11 +574,7 @@ function validPassword(passwordToTest) {
 			msg: "<small><li>Debe ser al menos 8 cáracteres</li></small>",
 		},
 	};
-	/* re.push("[A-Z]"); //UpperCase
-	re.push("[a-z]"); //LowerCase
-	re.push("[0-9]"); //Digit
-	re.push("[$@$!%*#?&]"); //Special Characters
-	re.push("([A-Za-z0-9$@$!%*#?&]){8,}"); //length */
+	
 	let passed = 0;
 	let errorMsg = "";
 	Object.values(re).forEach((condition) => {	

@@ -10,7 +10,7 @@ const registrationValidationRules = () => {
 			.withMessage("Requerido")
 			.bail()
 			.isLength({ min: 4, max: 10 })
-			.withMessage("por favo ringrese un nombre de usuario entre 4 y 10 caracteres")
+			.withMessage("por favor ingrese un nombre de usuario entre 4 y 10 caracteres")
 			.bail()
 			.custom(async (value, { req }) => {
 				const user = await usersService.findOneByUserName(value).catch(error => error);
