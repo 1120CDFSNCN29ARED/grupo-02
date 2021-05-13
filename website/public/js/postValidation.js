@@ -60,13 +60,17 @@ window.addEventListener("load", () => {
   let motorcycle;
   let truck;
 
+  let productType;
+
   if (window.location.pathname.includes("vehicle")) {
+    productType = "vehicle";
     year = document.getElementById("year");
     version = document.getElementById("version");
     gearType = document.getElementById("gearType");
     kilometers = document.getElementById("kilometers");
     color = document.getElementById("color");
   } else if (window.location.pathname.includes("part")) {
+    productType = "part";
     partSerialNumber = document.getElementById("partSerialNumber");
     vehicleType = document.getElementById("vehicleType");
     car = document.getElementById("car");
@@ -340,6 +344,7 @@ window.addEventListener("load", () => {
   });
 
   form.addEventListener("submit", async (e) => {
+    e.preventDefault();
     await brandValidation();
     await modelValidation();
     stateValidation();
@@ -387,6 +392,51 @@ window.addEventListener("load", () => {
           "Debe completar todos los campos correctamente para continuar"
         )
       );
+    }
+    else {
+      const body = {
+        brandID: brand.value,
+        modelID: model.value,
+        year: year.value,
+        state: stateNew.value || stateUsed.value,
+        stock: stock.value,
+        rating: rating.value,
+        discount: discount.value,
+        price: price.value,
+        provinceID: province.value,
+        locationID: location.value,
+        postalCode: postalCode.value,
+        title: title.value,
+        description: description.value,
+        images: images.files
+      }
+      if(window.location.pathname.includes("vehicle")){
+        body.type = type.value;
+        body.versionID = version.value;
+        body.year = year.value;
+        body.gearType = gearType.value;
+        body.kilometers = kilometers.value;
+        body.color = color.value;
+      }
+      if(window.location.pathname.includes("part")){
+        body.partSerialNumber = partSerialNumber.value;
+        body.car = car.value;
+        body.motorcycle = motorcycle.value;
+        body.pickup = pickup.value;
+        body.truck = truck.value;
+      }
+      console.log(form);
+      form.submit()
+      console.log("body",body)
+      const bodyJSON = JSON.stringify(body);
+      await fetch("http://localhost:3000/posts/create/" + productType,{
+        method: "POST",
+        headers:  {
+          "Content-Type": "application/json",
+        },
+        body: bodyJSON,
+      });
+      return;
     }
   });
 });
