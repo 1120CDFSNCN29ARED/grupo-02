@@ -104,7 +104,8 @@ const controller = {
 	},
 	edit: async (req, res, next) => {
 		let userID = req.params.userID;
-		let result = usersService.findByPk(userID);
+		let result = await usersService.findByPk(userID);
+		
 		if (result && !result.errors) {
 			let userToEdit = await getFullUser(result);
 			let provinces = await provincesServices.findAll();
@@ -118,8 +119,6 @@ const controller = {
 				action: "edit",
 			});	
 		}
-		
-		
 	},
 	update: async (req, res, next) => {
 		const userID = req.params.userID;
@@ -159,10 +158,10 @@ const controller = {
 					.catch((error) => error);
 			}
 		}
-		let result = userService.findByPk(userID);
+		let result = await usersService.findByPk(userID);
 		if (result && !result.errors) {
 			req.session.assertUserLogged = await getFullUser(result);
-			res.redirect(`/users/profile/${userID}`);	
+			return res.redirect(`/users/profile/${userID}`);	
 		}
 		res.redirect('/');
 	},
