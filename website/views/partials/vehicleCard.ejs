@@ -11,12 +11,12 @@
                 <h5 class="card-title <% if (vehicle.post.onSale === true) { %>
                     stripped inline
                 <% } %>">
-                    $ <%= vehicle.post.price.toLocaleString("es-AR") %>
+                    $<%= vehicle.post.price.toLocaleString("es-AR") %>
                     
                 </h5>
                 <% if (vehicle.post.onSale === true) { %>
                     <h5 class="card-title inline">
-                        $<%= (vehicle.post.price * (100 - vehicle.post.discount) / 100).toLocaleString("es-AR") %> 
+                        $<%= (vehicle.post.price * (100 - vehicle.post.discount) / 100).toLocaleString("es-AR") %>
                     </h5>
                 <% } %>
                 <div class="card-details">

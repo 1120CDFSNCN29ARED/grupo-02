@@ -68,6 +68,8 @@
 
 #### Reflexiones Iniciales
 
+     Todo salio bien, pusimos mucho foco en el diseño y armado del back con full api
+
 ## Sprint 7
 
 #### [Retro]() :

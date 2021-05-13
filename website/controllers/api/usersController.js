@@ -92,6 +92,58 @@ const usersController = {
 
 		return res.status(result.meta.status).json(result);
 	},
+	byUserName: async (req, res) => {
+		const user = await usersService.findOneByUserName(req.params.userName);
+		const result = {
+			meta: {
+				url: req.originalUrl,
+			},
+		};
+		if (user) {
+			result.data = {
+				user
+			};
+
+			result.meta.status = 200;
+			result.meta.count = 1;
+		} else {
+			result.meta.status = 409;
+			result.meta.count = 0;
+			result.error = {
+				status: "409",
+				message: `No user was found`,
+			};
+		}
+
+		return res.status(result.meta.status).json(result);
+
+	},
+	byEmail: async (req, res) => {
+		const user = await usersService.findOne(req.params.email);
+		const result = {
+			meta: {
+				url: req.originalUrl,
+			},
+		};
+		if (user) {
+			result.data = {
+				user,
+			};
+
+			result.meta.status = 200;
+			result.meta.count = 1;
+		} else {
+			result.meta.status = 409;
+			result.meta.count = 0;
+			result.error = {
+				status: "409",
+				message: `No user was found`,
+			};
+		}
+
+		return res.status(result.meta.status).json(result);
+
+	},
 	byRole: async (req, res) => {
 		const role = await rolesService.findOneByRoleName(req.params.role);
 		let roleID = null;
@@ -120,6 +172,28 @@ const usersController = {
 			};
 		}
 
+		return res.status(result.meta.status).json(result);
+	},
+	byLocation: async (req, res) => {
+		const users = await usersService.findByLocation(req.params.locationID);
+		const result = {
+			meta: {
+				url: req.originalUrl,
+			}
+		};
+
+		if (!users.errors) {
+			result.data = { users, };
+			result.meta.status = 200;
+			result.meta.count = users.length;
+		} else {
+			result.meta.status = 409;
+			result.meta.count = 0;
+			result.error = {
+				status: "409",
+				message: "No users were found",
+			};
+		}
 		return res.status(result.meta.status).json(result);
 	},
 	create: async (req, res) => {

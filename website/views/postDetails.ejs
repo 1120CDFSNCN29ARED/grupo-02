@@ -29,7 +29,7 @@
             </a>
         </div>
         <div id="mainDetails">
-            <h2 class="price <%= fullPost.post.onSale ? "inline stripped" : "" %>">$ <%= fullPost.post.price.toLocaleString("es-AR") %> </h2>
+            <h2 class="price <%= fullPost.post.onSale ? "inline stripped" : "" %>">$<%= fullPost.post.price.toLocaleString("es-AR") %> </h2>
             <% if (fullPost.post.onSale) { %>
                 <h5 class="price inline">
                     $<%= (fullPost.post.price * (100 - fullPost.post.discount) / 100).toLocaleString("es-AR") %> 

@@ -8,10 +8,12 @@ const questionsService = require('../services/questionsService.js');
 
 const getFullUser = async (user) => {
     const userAccess = await userAccessService.findOne(user.email);
+    console.log(user);
     const role = await rolesService.findByPk(userAccess.roleID);
     const allFavourites = await favouritesService.findAll(user.userID);
-    const locality = await localitiesService.findByPk(user.locationID);
+    const locality = await localitiesService.findByPk(user.locationID);    
     const province = await provincesServices.findByPk(locality.provinceID);
+    console.log(province);
     const questionCount = await questionsService.countQuestions(user.userID);
     
     let favourites = []

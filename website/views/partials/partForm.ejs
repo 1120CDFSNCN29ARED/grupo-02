@@ -1,6 +1,6 @@
 <!-- Add Product -->
 <section class="section-add-product" id="add-product-part">
-    <form action="/posts/<%= action %>/<%= productType %><%= (action === "edit") ? `/${post.post.postID}?_method=PUT` : "" %> " method="POST" class="add-product" enctype="multipart/form-data">
+    <form id="form" action="/posts/<%= action %>/<%= productType %><%= (action === "edit") ? `/${post.post.postID}?_method=PUT` : "" %> " method="POST" class="add-product" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-1">
@@ -92,7 +92,7 @@
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control <%=locals.errors && errors.price ? 'is-invalid': null %>" name="price" id="partPrice" value="<%= (locals.post && post.post) ? post.post.price : "" %>">
+                    <input type="number" class="form-control <%=locals.errors && errors.price ? 'is-invalid': null %>" name="price" id="price" value="<%= (locals.post && post.post) ? post.post.price : "" %>">
                     <label for="partPrice">Precio</label>
                     <% if (locals.errors && errors.price) { %>
                         <div class="invalid-feedback">
@@ -103,7 +103,7 @@
             </div>
             <div class="col-md col-lg-3">
                 <div class="form-floating mb-1">
-                    <input type="number" name="discount" id="partDiscount" class="form-control <%=locals.errors && errors.discount ? 'is-invalid': null %>" value="<%= (locals.post && post.post) ? post.post.discount : 0 %>">
+                    <input type="number" name="discount" id="discount" class="form-control <%=locals.errors && errors.discount ? 'is-invalid': null %>" value="<%= (locals.post && post.post) ? post.post.discount : 0 %>">
                     <label for="discount">Descuento %</label>
                     <% if (locals.errors && errors.discount) { %>
                         <div class="invalid-feedback">
@@ -161,14 +161,14 @@
         </div>    
         <div class="row">
             <div class="col-md col-lg-3">
-                <div class="form-floating mb-1 <%=locals.errors && errors.partState ? 'is-invalid': null %>" id="partState" aria-label="Select Part State">
+                <div class="form-floating mb-1 <%=locals.errors && errors.partState ? 'is-invalid': null %>" id="state" aria-label="Select Part State">
                     <p>Estado</p>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="state" id="partStateNew" value="Nuevo" <%= (locals.post && post.post && post.post.state === "Nuevo")?"checked":"" %>>
+                        <input type="radio" name="state" id="stateNew" value="Nuevo" <%= (locals.post && post.post && post.post.state === "Nuevo")?"checked":"" %>>
                         <label for="partStateNew">Nuevo</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="state" id="partStateUsed" value="Usado" <%= (locals.post && post.post && post.post.state === "Usado")?"checked":"" %>>
+                        <input type="radio" name="state" id="stateUsed" value="Usado" <%= (locals.post && post.post && post.post.state === "Usado")?"checked":"" %>>
                         <label for="partStateUsed">Usado</label>
                     </div>
                     <% if (locals.errors && errors.state) { %>
@@ -304,15 +304,22 @@
         <!-- Buttons Section -->
         <div class="container-fluid d-flex container-add-product-cta">
             <div class="add-product-cta"><button class="add-product-reset btn-lg" type="reset">Resetear</button></div>
-            <div class="add-product-cta"><button class="add-product-confirm btn-lg" type="submit" name="submit" value="publish">Guardar y Publicar</button></div>           
-            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit" name="submit" value="save">Guardar</button></div>
+            <div class="add-product-cta"><button class="add-product-save btn-lg" type="submit" name="button"
+                    value="save">Guardar</button></div>
+            <div class="publish">
+                <input type="checkbox" id="publish" name="publish" <%=locals.post && post.post && post.post.published
+                    ? "checked" : "" %>>
+                <label for="publish">Publicar</label>
+            </div>
         </div>
     </form>
     <% if (action === "edit") { %>
-        <form action="/posts/delete/<%= post.post.adID %>?_method=DELETE" method="POST">
+        <form action="/posts/delete/<%= post.post.postID %>?_method=DELETE" method="POST">
             <div class="add-product-cta"><button class="add-product-delete btn-lg" type="submit" name="delete">Borrar</button></div>
         </form>
     <% } %>
 </section>
 <script src="/js/getPartModels.js"></script>
 <script src="/js/getLocalities.js"></script>
+<script type="text/javascript" src="/js/validator.min.js"></script>
+<script src="/js/postValidation.js"></script>
