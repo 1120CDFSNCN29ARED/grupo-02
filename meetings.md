@@ -261,3 +261,11 @@ División de tareas:
 
     Se revisó todo el contenido del proyecto y está todo funcionando. Se hacen los merges a develop y main.
     Queda pendiente revisión y borrado de archivos innecesarios.
+
+## 17-Mayo
+
+### Sprint Planning: Sprint 8 y Dashboard
+    
+    Vamos a implementar componentes de material-ui para lograr un diseño uniforme.
+    Vamos empezar con side-menu, nav bar, cards y tables components y luego proceder a implemntar users y products components.
+    Plan es tenerlo para el viernes.
