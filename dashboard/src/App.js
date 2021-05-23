@@ -12,7 +12,7 @@ function App() {
 	});
   return (
 		<ThemeProvider theme={darkTheme}>
-			<><Main/></>
+			<Main />
 		</ThemeProvider>
 	);
 }
