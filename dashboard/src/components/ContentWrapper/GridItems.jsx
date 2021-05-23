@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -14,19 +15,22 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function NestedGrid() {
+export default function GridItems(props) {
 	const classes = useStyles();
 
 	function FormRow() {
+		const itemWidth = (12 / props.itemsPerRow);
+		console.log(props.itemsPerRow)
+		console.log(itemWidth);
 		return (
 			<React.Fragment>
-				<Grid item xs={4}>
+				<Grid item xs={itemWidth}>
 					<Paper className={classes.paper}>item</Paper>
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item xs={itemWidth}>
 					<Paper className={classes.paper}>item</Paper>
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item xs={itemWidth}>
 					<Paper className={classes.paper}>item</Paper>
 				</Grid>
 			</React.Fragment>
@@ -48,4 +52,8 @@ export default function NestedGrid() {
 			</Grid>
 		</div>
 	);
+}
+
+GridItems.propTypes = {
+	itemsPerRow:PropTypes.number
 }

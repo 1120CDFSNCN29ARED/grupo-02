@@ -151,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function MiniDrawer() {
+export default function Main() {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [open, setOpen] = React.useState(true);
@@ -379,7 +379,9 @@ export default function MiniDrawer() {
 			</Drawer>
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
-				<GridItems />
+				<GridItems itemsPerRow={1} />
+				<GridItems itemsPerRow={3} />
+				<GridItems itemsPerRow={6} />
 			</main>
 		</div>
 	);
