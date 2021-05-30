@@ -27,7 +27,10 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ContactsIcon from "@material-ui/icons/Contacts";
-import GridItems from '../ContentWrapper/GridItems'
+import TotalsRowContainer from '../ContentWrapper/TotalsRow/TotalsRowContainer'
+import LastCreatedRowContainer from '../ContentWrapper/LastCreatedRow/LastCreatedRowContainer'
+import TablesContainer from '../ContentWrapper/Tables/TablesContainer'
+
 
 const drawerWidth = 240;
 
@@ -379,10 +382,16 @@ export default function Main() {
 			</Drawer>
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
+				<TotalsRowContainer />
+				<LastCreatedRowContainer />
+				<TablesContainer/>
+			</main>
+			{/* <main className={classes.content}>
+				<div className={classes.toolbar} />
 				<GridItems itemsPerRow={1} />
 				<GridItems itemsPerRow={3} />
 				<GridItems itemsPerRow={6} />
-			</main>
+			</main> */}
 		</div>
 	);
 }
