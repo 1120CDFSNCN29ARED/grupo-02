@@ -21,8 +21,8 @@ import Switch from "@material-ui/core/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import { uuid } from 'uuidv4';
-function createData(name, calories, fat, carbs, protein) {
-	return { name, calories, fat, carbs, protein };
+function createData(_id, userName, name, email, profile) {
+	return { _id, userName, name, email, profile };
 }
 
 const rows = [
@@ -62,7 +62,7 @@ function stableSort(array, comparator) {
 
 const headCells = [
 	{
-		id: "id",
+		id: "_id",
 		numeric: false,
 		disablePadding: true,
 		label: "ID",
@@ -340,12 +340,12 @@ export default function UserTable() {
 												scope="row"
 												padding="none"
 											>
-												{row.name}
+												{row._id}
 											</TableCell>
-											<TableCell align="right">{row.calories}</TableCell>
-											<TableCell align="right">{row.fat}</TableCell>
-											<TableCell align="right">{row.carbs}</TableCell>
-											<TableCell align="right">{row.protein}</TableCell>
+											<TableCell align="left">{row.userName}</TableCell>
+											<TableCell align="left">{row.name}</TableCell>
+											<TableCell align="left">{row.email}</TableCell>
+											<TableCell align="left">{row.profile}</TableCell>
 										</TableRow>
 									);
 								})}
