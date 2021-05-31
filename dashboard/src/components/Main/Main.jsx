@@ -9,27 +9,38 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import SearchIcon from "@material-ui/icons/Search";
-import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
+import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import ContactsIcon from "@material-ui/icons/Contacts";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import ContactsIcon from "@material-ui/icons/Contacts";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import PostAddIcon from "@material-ui/icons/PostAdd";
+
+import Badge from "@material-ui/core/Badge";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+
 import TotalsRowContainer from '../ContentWrapper/TotalsRow/TotalsRowContainer'
 import LastCreatedRowContainer from '../ContentWrapper/LastCreatedRow/LastCreatedRowContainer'
 import TablesContainer from '../ContentWrapper/Tables/TablesContainer'
+import SideBarItem from "./Sidebar/SideBarItem";
+import { Link } from "@material-ui/core";
+
 
 
 const drawerWidth = 240;
@@ -346,28 +357,49 @@ export default function Main() {
 					</IconButton>
 				</div>
 				<List>
-					{["Dashboard"].map((text, index) => (
-						<ListItem button key={text}>
+					
+						<ListItem button>
 							<ListItemIcon>
 								<DashboardIcon />
 							</ListItemIcon>
-							<ListItemText primary={text} />
+							<ListItemText primary="Dashboard" />
 						</ListItem>
-					))}
+					
 				</List>
 				<Divider />
 				<List>
-					{["Users", "Posts", "Sales", "Carts", "Favourites"].map(
-						(text, index) => (
-							<ListItem button key={text}>
-								<ListItemIcon>
-									{index % 2 === 0 ? <ContactsIcon /> : <MailIcon />}
-								</ListItemIcon>
-								<ListItemText primary={text} />
-							</ListItem>
-						)
-					)}
+					{/* I did not manage ot implement this dynamically in SideBarItem due to the icons not passing as props */}
+					<ListItem button>
+						<ListItemIcon>
+							<ContactsIcon />
+						</ListItemIcon>
+						<ListItemText primary="Users" />
+					</ListItem>
+					<ListItem button>
+						<ListItemIcon>
+							<PostAddIcon />
+						</ListItemIcon>
+						<ListItemText primary="Posts" />
+					</ListItem>
 				</List>
+				<ListItem button>
+					<ListItemIcon>
+						<AttachMoneyIcon />
+					</ListItemIcon>
+					<ListItemText primary="Sales" />
+				</ListItem>
+				<ListItem button>
+					<ListItemIcon>
+						<ShoppingCartIcon />
+					</ListItemIcon>
+					<ListItemText primary="Carts" />
+				</ListItem>
+				<ListItem button>
+					<ListItemIcon>
+						<FavoriteIcon />
+					</ListItemIcon>
+					<ListItemText primary="Favourites" />
+				</ListItem>
 				<Divider />
 				<List>
 					{["Sub-Item 1", "Sub-Item 2", "Sub-Item 3"].map((text, index) => (
@@ -384,14 +416,8 @@ export default function Main() {
 				<div className={classes.toolbar} />
 				<TotalsRowContainer />
 				<LastCreatedRowContainer />
-				<TablesContainer/>
+				<TablesContainer />
 			</main>
-			{/* <main className={classes.content}>
-				<div className={classes.toolbar} />
-				<GridItems itemsPerRow={1} />
-				<GridItems itemsPerRow={3} />
-				<GridItems itemsPerRow={6} />
-			</main> */}
 		</div>
 	);
 }
