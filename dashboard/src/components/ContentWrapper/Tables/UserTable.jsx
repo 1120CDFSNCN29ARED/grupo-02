@@ -19,19 +19,59 @@ import Tooltip from "@material-ui/core/Tooltip";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from '@material-ui/icons/Edit';
+import VisibilityIcon from "@material-ui/icons/Visibility";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import { uuid } from 'uuidv4';
-function createData(_id, userName, name, email, profile) {
-	return { _id, userName, name, email, profile };
+function createData(_id, userName, name, email, lastLogin, role, status, edit, view) {
+	return { _id, userName, name, email, lastLogin, role, status, edit, view };
 }
 
 const rows = [
-	createData(uuid(), "test1", "Test 1","test1@test.com", "Boton"),
-	createData(uuid(), "test2", "Test 2","test2@test.com", "Boton"),
-	createData(uuid(), "test3", "Test 3","test3@test.com", "Boton"),
-	createData(uuid(), "test4", "Test 4","test4@test.com", "Boton"),
-	createData(uuid(), "test5", "Test 5","test5@test.com", "Boton"),
-	createData(uuid(), "test6", "Test 6","test6@test.com", "Boton"),
+	createData(
+		uuid(),
+		"test1",
+		"Test 1",
+		"test1@test.com",
+		"dd/mm/yy",
+		"Usuario",
+		"Activo",
+		<EditIcon />,
+		<VisibilityIcon />
+	),
+	createData(
+		uuid(),
+		"test2",
+		"Test 2",
+		"test2@test.com",
+		"dd/mm/yy",
+		"Admin",
+		"Activo",
+		<EditIcon />,
+		<VisibilityIcon />
+	),
+	createData(
+		uuid(),
+		"test3",
+		"Test 3",
+		"test3@test.com",
+		"dd/mm/yy",
+		"Admin",
+		"No Activo",
+		<EditIcon />,
+		<VisibilityIcon />
+	),
+	createData(
+		uuid(),
+		"test4",
+		"Test 4",
+		"test4@test.com",
+		"dd/mm/yy",
+		"Usuario",
+		"No Activo",
+		<EditIcon />,
+		<VisibilityIcon />
+	),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -70,7 +110,11 @@ const headCells = [
 	{ id: "userName", numeric: false, disablePadding: false, label: "Usuario" },
 	{ id: "name", numeric: false, disablePadding: false, label: "Nombre" },
 	{ id: "email", numeric: false, disablePadding: false, label: "Email" },
-	{ id: "profile", numeric: false, disablePadding: false, label: "Perfil" },
+	{ id: "lastLogin", numeric: false, disablePadding: false, label: "Ultima Sesión" },
+	{ id: "role", numeric: false, disablePadding: false, label: "Tipo" },
+	{ id: "status", numeric: false, disablePadding: false, label: "Status" },
+	{ id: "edit", numeric: false, disablePadding: false, label: "Editar" },
+	{ id: "view", numeric: false, disablePadding: false, label: "Perfil" }
 ];
 
 function EnhancedTableHead(props) {
@@ -95,7 +139,7 @@ function EnhancedTableHead(props) {
 						indeterminate={numSelected > 0 && numSelected < rowCount}
 						checked={rowCount > 0 && numSelected === rowCount}
 						onChange={onSelectAllClick}
-						inputProps={{ "aria-label": "select all desserts" }}
+						inputProps={{ "aria-label": "Selecciona todos los usuarios" }}
 					/>
 				</TableCell>
 				{headCells.map((headCell) => (
@@ -180,7 +224,7 @@ const EnhancedTableToolbar = (props) => {
 					id="tableTitle"
 					component="div"
 				>
-					Nutrition
+					Users
 				</Typography>
 			)}
 
@@ -232,7 +276,7 @@ const useStyles = makeStyles((theme) => ({
 export default function UserTable() {
 	const classes = useStyles();
 	const [order, setOrder] = React.useState("asc");
-	const [orderBy, setOrderBy] = React.useState("id");
+	const [orderBy, setOrderBy] = React.useState("_id");
 	const [selected, setSelected] = React.useState([]);
 	const [page, setPage] = React.useState(0);
 	const [dense, setDense] = React.useState(false);
@@ -315,7 +359,7 @@ export default function UserTable() {
 							{stableSort(rows, getComparator(order, orderBy))
 								.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 								.map((row, index) => {
-									const isItemSelected = isSelected(row.id);
+									const isItemSelected = isSelected(row.name);
 									const labelId = `enhanced-table-checkbox-${index}`;
 
 									return (
@@ -345,7 +389,11 @@ export default function UserTable() {
 											<TableCell align="left">{row.userName}</TableCell>
 											<TableCell align="left">{row.name}</TableCell>
 											<TableCell align="left">{row.email}</TableCell>
-											<TableCell align="left">{row.profile}</TableCell>
+											<TableCell align="left">{row.lastLogin}</TableCell>
+											<TableCell align="left">{row.role}</TableCell>
+											<TableCell align="left">{row.status}</TableCell>
+											<TableCell align="left">{row.edit}</TableCell>
+											<TableCell align="left">{row.view}</TableCell>
 										</TableRow>
 									);
 								})}
