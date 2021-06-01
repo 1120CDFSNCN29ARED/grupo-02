@@ -8,7 +8,7 @@ import AreaGraph from "../AreaGraph/AreaGraph";
 function SmallCard({ title, total, backgroundColor, chart }) {
   const useStyles = makeStyles({
     root: {
-      width: 275,
+      width: 250,
       padding: 0,
       backgroundColor: backgroundColor,
       color: "white",

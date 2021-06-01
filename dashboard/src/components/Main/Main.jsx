@@ -42,7 +42,6 @@ import SideBarItem from "./Sidebar/SideBarItem";
 import { Link } from "@material-ui/core";
 
 
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -164,7 +163,6 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 }));
-
 export default function Main() {
 	const classes = useStyles();
 	const theme = useTheme();
@@ -357,14 +355,12 @@ export default function Main() {
 					</IconButton>
 				</div>
 				<List>
-					
-						<ListItem button>
-							<ListItemIcon>
-								<DashboardIcon />
-							</ListItemIcon>
-							<ListItemText primary="Dashboard" />
-						</ListItem>
-					
+					<ListItem button>
+						<ListItemIcon>
+							<DashboardIcon />
+						</ListItemIcon>
+						<ListItemText primary="Dashboard" />
+					</ListItem>
 				</List>
 				<Divider />
 				<List>
@@ -416,7 +412,7 @@ export default function Main() {
 				<div className={classes.toolbar} />
 				<TotalsRowContainer />
 				<LastCreatedRowContainer />
-				<TablesContainer />
+				<TablesContainer />				
 			</main>
 		</div>
 	);
