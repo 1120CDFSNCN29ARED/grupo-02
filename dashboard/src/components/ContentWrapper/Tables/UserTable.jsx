@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { lighten, makeStyles } from "@material-ui/core/styles";
@@ -17,17 +17,32 @@ import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import { uuid} from 'uuidv4';
-function createData(_id, userName, name, email, lastLogin, role, status, edit, view) {
-	return { _id, userName, name, email, lastLogin, role, status, edit, view };
+import { uuid } from 'uuidv4';
+import axios from 'axios';
+
+const baseUrl = "http://localhost:3000/api/";
+const usersUrl = "users";
+
+function createData(
+	_id,
+	userName,
+	name,
+	lastName,
+	email,
+	status,
+	edit,
+	view
+) {
+	return { _id, userName, name, lastName, email, status, edit, view };
 }
 
-const rows = [
+
+let rows = [];
+/* const rows = [
 	createData(
 		uuid(),
 		"test1",
@@ -116,7 +131,7 @@ const rows = [
 		<EditIcon />,
 		<VisibilityIcon />
 	),
-];
+]; */
 
 function descendingComparator(a, b, orderBy) {
 	if (b[orderBy] < a[orderBy]) {
@@ -153,12 +168,11 @@ const headCells = [
 	},
 	{ id: "userName", numeric: false, disablePadding: false, label: "Usuario" },
 	{ id: "name", numeric: false, disablePadding: false, label: "Nombre" },
+	{ id: "lastName", numeric: false, disablePadding: false, label: "Apellido" },
 	{ id: "email", numeric: false, disablePadding: false, label: "Email" },
-	{ id: "lastLogin", numeric: false, disablePadding: false, label: "Ultima Sesión" },
-	{ id: "role", numeric: false, disablePadding: false, label: "Tipo" },
 	{ id: "status", numeric: false, disablePadding: false, label: "Status" },
 	{ id: "edit", numeric: false, disablePadding: false, label: "Editar" },
-	{ id: "view", numeric: false, disablePadding: false, label: "Perfil" }
+	{ id: "view", numeric: false, disablePadding: false, label: "Perfil" },
 ];
 
 function EnhancedTableHead(props) {
@@ -325,6 +339,8 @@ export default function UserTable() {
 	const [page, setPage] = React.useState(0);
 	const [dense, setDense] = React.useState(false);
 	const [rowsPerPage, setRowsPerPage] = React.useState(5);
+	const [users, setUsers] = useState([]);
+
 
 	const handleRequestSort = (event, property) => {
 		const isAsc = orderBy === property && order === "asc";
@@ -379,6 +395,40 @@ export default function UserTable() {
 	const emptyRows =
 		rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
+	async function getUsers() {
+		let response;
+
+		try {
+			response = await axios.get(`${baseUrl}${usersUrl}`);
+			const result = response.data.data.users;
+			
+			if (result.length > 0)
+				console.log("USERS: ", result);
+				setUsers(result);
+		} catch (error) {
+			console.log("Error: ", error.msg);
+		}
+	}
+	
+	useEffect(() => {
+		getUsers();
+		console.log("UsersList", users);
+		rows = users.map((user) => {
+			return createData(
+				user.userID,
+				user.userName,
+				user.firstName,
+				user.lastName,
+				user.email,
+				user.active,
+				<EditIcon />,
+				<VisibilityIcon />
+			);
+		})
+		return () => {
+			//
+		}
+	}, [])
 	return (
 		<div className={classes.root}>
 			<Paper className={classes.paper}>
@@ -432,9 +482,8 @@ export default function UserTable() {
 											</TableCell>
 											<TableCell align="left">{row.userName}</TableCell>
 											<TableCell align="left">{row.name}</TableCell>
+											<TableCell align="left">{row.lastName}</TableCell>
 											<TableCell align="left">{row.email}</TableCell>
-											<TableCell align="left">{row.lastLogin}</TableCell>
-											<TableCell align="left">{row.role}</TableCell>
 											<TableCell align="left">{row.status}</TableCell>
 											<TableCell align="left">{row.edit}</TableCell>
 											<TableCell align="left">{row.view}</TableCell>

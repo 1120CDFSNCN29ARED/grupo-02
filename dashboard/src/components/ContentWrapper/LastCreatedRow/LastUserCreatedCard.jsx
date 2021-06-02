@@ -37,7 +37,6 @@ async function getUsers() {
 		const result = response.data.data.users;
 
 		if (result.length > 0) {
-			console.log(result[result.length - 1]);;
 			setLastUser(result[result.length - 1]);
 		}
 	} catch (error) {

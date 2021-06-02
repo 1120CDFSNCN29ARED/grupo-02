@@ -37,7 +37,6 @@ export default function LastCreatedCard(props) {
 			const result = response.data.data;
 
 			if (result.length > 0) {
-				console.log(result[result.length - 1].post);
 				setLastPost(result[result.length - 1].post);
 			}
 		} catch (error) {
