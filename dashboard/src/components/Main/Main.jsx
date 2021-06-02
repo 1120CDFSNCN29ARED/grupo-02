@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -40,7 +40,6 @@ import LastCreatedRowContainer from '../ContentWrapper/LastCreatedRow/LastCreate
 import TablesContainer from '../ContentWrapper/Tables/TablesContainer'
 import SideBarItem from "./Sidebar/SideBarItem";
 import { Link } from "@material-ui/core";
-
 
 const drawerWidth = 240;
 
@@ -198,8 +197,6 @@ export default function Main() {
 	const handleMobileMenuOpen = (event) => {
 		setMobileMoreAnchorEl(event.currentTarget);
 	};
-
-
 
 	const menuId = "primary-search-account-menu";
 	const renderMenu = (
@@ -412,7 +409,7 @@ export default function Main() {
 				<div className={classes.toolbar} />
 				<TotalsRowContainer />
 				<LastCreatedRowContainer />
-				<TablesContainer />				
+				<TablesContainer />
 			</main>
 		</div>
 	);

@@ -2,9 +2,9 @@ import React from "react";
 import {
   AreaChart,
   Area,
-  XAxis,
+ /*  XAxis,
   YAxis,
-  CartesianGrid,
+  CartesianGrid, */
   Tooltip,
 } from "recharts";
 

@@ -23,96 +23,95 @@ import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import { uuid} from 'uuidv4';
-function createData(_id, userName, name, email, lastLogin, role, status, edit, view) {
-	return { _id, userName, name, email, lastLogin, role, status, edit, view };
+function createData(_id, category, brand, model, name, price, qty, edit, view) {
+	return { _id, category, brand, model, name, price, qty, edit, view };
 }
-
 const rows = [
 	createData(
 		uuid(),
-		"test1",
-		"Test 1",
-		"test1@test.com",
-		"dd/mm/yy",
-		"Usuario",
-		"Activo",
+		"post1",
+		"brand test",
+		"model",
+		"Product Nameio",
+		"$100.000",
+		"5",
 		<EditIcon />,
 		<VisibilityIcon />
 	),
 	createData(
 		uuid(),
-		"test2",
-		"Test 2",
-		"test2@test.com",
-		"dd/mm/yy",
-		"Admin",
-		"Activo",
+		"post2",
+		"brand test",
+		"model",
+		"Product Name",
+		"$100.000",
+		"5",
 		<EditIcon />,
 		<VisibilityIcon />
 	),
 	createData(
 		uuid(),
-		"test3",
-		"Test 3",
-		"test3@test.com",
-		"dd/mm/yy",
-		"Admin",
-		"No Activo",
+		"post3",
+		"brand test",
+		"model",
+		"Product Name",
+		"$100.000",
+		"5",
 		<EditIcon />,
 		<VisibilityIcon />
 	),
 	createData(
 		uuid(),
-		"test4",
-		"Test 4",
-		"test4@test.com",
-		"dd/mm/yy",
-		"Usuario",
-		"No Activo",
+		"post4",
+		"brand test",
+		"model",
+		"Product Nameio",
+		"$100.000",
+		"5",
 		<EditIcon />,
 		<VisibilityIcon />
 	),
 	createData(
 		uuid(),
-		"test5",
-		"Test 5",
-		"test5@test.com",
-		"dd/mm/yy",
-		"Usuario",
-		"Activo",
+		"post5",
+		"brand test",
+		"model",
+		"Product Nameio",
+		"$100.000",
+		"5",
 		<EditIcon />,
 		<VisibilityIcon />
 	),
 	createData(
 		uuid(),
-		"test6",
-		"Test 6",
-		"test6@test.com",
-		"dd/mm/yy",
-		"Admin",
-		"Activo",
+		"post6",
+		"brand test",
+		"model",
+		"Product Name",
+		"$100.000",
+		"5",
 		<EditIcon />,
 		<VisibilityIcon />
 	),
 	createData(
 		uuid(),
-		"test7",
-		"Test 7",
-		"test7@test.com",
-		"dd/mm/yy",
-		"Admin",
-		"No Activo",
+		"post7",
+		"brand test",
+		"model",
+		"Product Name",
+		"$100.000",
+		"5",
 		<EditIcon />,
 		<VisibilityIcon />
 	),
 	createData(
 		uuid(),
-		"test8",
-		"Test 8",
-		"test8@test.com",
-		"dd/mm/yy",
-		"Usuario",
-		"No Activo",
+		"post8",
+		"brand test",
+		"model",
+		"Product Nameio",
+		"$100.000",
+		"5",
 		<EditIcon />,
 		<VisibilityIcon />
 	),
@@ -144,6 +143,7 @@ function stableSort(array, comparator) {
 	return stabilizedThis.map((el) => el[0]);
 }
 
+//_id, category, brand, model, name, price, qty, edit, view
 const headCells = [
 	{
 		id: "_id",
@@ -151,12 +151,12 @@ const headCells = [
 		disablePadding: true,
 		label: "ID",
 	},
-	{ id: "userName", numeric: false, disablePadding: false, label: "Usuario" },
+	{ id: "category", numeric: false, disablePadding: false, label: "Tipo" },
+	{ id: "brand", numeric: false, disablePadding: false, label: "Marca" },
+	{ id: "model", numeric: false, disablePadding: false, label: "Modelo" },
 	{ id: "name", numeric: false, disablePadding: false, label: "Nombre" },
-	{ id: "email", numeric: false, disablePadding: false, label: "Email" },
-	{ id: "lastLogin", numeric: false, disablePadding: false, label: "Ultima Sesión" },
-	{ id: "role", numeric: false, disablePadding: false, label: "Tipo" },
-	{ id: "status", numeric: false, disablePadding: false, label: "Status" },
+	{ id: "price", numeric: false, disablePadding: false, label: "Precio" },
+	{ id: "qty", numeric: false, disablePadding: false, label: "Ctd" },
 	{ id: "edit", numeric: false, disablePadding: false, label: "Editar" },
 	{ id: "view", numeric: false, disablePadding: false, label: "Perfil" }
 ];
@@ -268,7 +268,7 @@ const EnhancedTableToolbar = (props) => {
 					id="tableTitle"
 					component="div"
 				>
-					Users
+					Posts
 				</Typography>
 			)}
 
@@ -430,12 +430,12 @@ export default function UserTable() {
 											>
 												{row._id}
 											</TableCell>
-											<TableCell align="left">{row.userName}</TableCell>
+											<TableCell align="left">{row.category}</TableCell>
+											<TableCell align="left">{row.brand}</TableCell>
+											<TableCell align="left">{row.model}</TableCell>
 											<TableCell align="left">{row.name}</TableCell>
-											<TableCell align="left">{row.email}</TableCell>
-											<TableCell align="left">{row.lastLogin}</TableCell>
-											<TableCell align="left">{row.role}</TableCell>
-											<TableCell align="left">{row.status}</TableCell>
+											<TableCell align="left">{row.price}</TableCell>
+											<TableCell align="left">{row.qty}</TableCell>
 											<TableCell align="left">{row.edit}</TableCell>
 											<TableCell align="left">{row.view}</TableCell>
 										</TableRow>

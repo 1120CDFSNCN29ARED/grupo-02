@@ -8,8 +8,11 @@ const session = require('express-session');
 const cookies = require('cookie-parser');
 const { v4: uuidv4 } = require("uuid");
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const cors = require('cors');
+
 const app = express();
 const MYPORT = 3000;
+app.use(cors());
 
 //Middleware
 const staticFolder = path.resolve(__dirname, "./public");
