@@ -38,7 +38,6 @@ import Menu from "@material-ui/core/Menu";
 import TotalsRowContainer from '../ContentWrapper/TotalsRow/TotalsRowContainer'
 import LastCreatedRowContainer from '../ContentWrapper/LastCreatedRow/LastCreatedRowContainer'
 import TablesContainer from '../ContentWrapper/Tables/TablesContainer'
-import SideBarItem from "./Sidebar/SideBarItem";
 import { Link } from "@material-ui/core";
 
 const drawerWidth = 240;

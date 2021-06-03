@@ -327,8 +327,8 @@ export default function UserTable() {
 						<VisibilityIcon />
 					);
 				});
-				setRows(rowData)
-					;			}
+				setRows(rowData);
+			}
 				
 		} catch (error) {
 			

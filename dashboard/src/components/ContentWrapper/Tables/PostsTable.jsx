@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { lighten, makeStyles } from "@material-ui/core/styles";
@@ -22,100 +23,14 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import { uuid} from 'uuidv4';
+
+const baseUrl = "http://localhost:3000/api/";
+const postsUrl="posts"
+
+
 function createData(_id, category, brand, model, name, price, qty, edit, view) {
 	return { _id, category, brand, model, name, price, qty, edit, view };
 }
-const rows = [
-	createData(
-		uuid(),
-		"post1",
-		"brand test",
-		"model",
-		"Product Nameio",
-		"$100.000",
-		"5",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"post2",
-		"brand test",
-		"model",
-		"Product Name",
-		"$100.000",
-		"5",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"post3",
-		"brand test",
-		"model",
-		"Product Name",
-		"$100.000",
-		"5",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"post4",
-		"brand test",
-		"model",
-		"Product Nameio",
-		"$100.000",
-		"5",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"post5",
-		"brand test",
-		"model",
-		"Product Nameio",
-		"$100.000",
-		"5",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"post6",
-		"brand test",
-		"model",
-		"Product Name",
-		"$100.000",
-		"5",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"post7",
-		"brand test",
-		"model",
-		"Product Name",
-		"$100.000",
-		"5",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"post8",
-		"brand test",
-		"model",
-		"Product Nameio",
-		"$100.000",
-		"5",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-];
 
 function descendingComparator(a, b, orderBy) {
 	if (b[orderBy] < a[orderBy]) {
@@ -155,8 +70,8 @@ const headCells = [
 	{ id: "brand", numeric: false, disablePadding: false, label: "Marca" },
 	{ id: "model", numeric: false, disablePadding: false, label: "Modelo" },
 	{ id: "name", numeric: false, disablePadding: false, label: "Nombre" },
-	{ id: "price", numeric: false, disablePadding: false, label: "Precio" },
-	{ id: "qty", numeric: false, disablePadding: false, label: "Ctd" },
+	{ id: "price", numeric: true, disablePadding: false, label: "Precio" },
+	{ id: "qty", numeric: true, disablePadding: false, label: "Stock" },
 	{ id: "edit", numeric: false, disablePadding: false, label: "Editar" },
 	{ id: "view", numeric: false, disablePadding: false, label: "Perfil" }
 ];
@@ -325,6 +240,8 @@ export default function UserTable() {
 	const [page, setPage] = React.useState(0);
 	const [dense, setDense] = React.useState(false);
 	const [rowsPerPage, setRowsPerPage] = React.useState(5);
+	const [posts, setPosts] = useState([]);
+	const [rows, setRows] = useState([])
 
 	const handleRequestSort = (event, property) => {
 		const isAsc = orderBy === property && order === "asc";
@@ -374,10 +291,48 @@ export default function UserTable() {
 		setDense(event.target.checked);
 	};
 
-	const isSelected = (name) => selected.indexOf(name) !== -1;
+	const isSelected = (_id) => selected.indexOf(_id) !== -1;
 
 	const emptyRows =
 		rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
+	async function getPosts() {
+		let response;
+		try {
+			
+			response = await axios.get(`${baseUrl}${postsUrl}`);
+			const result = response.data.data;
+
+			if (result.length > 0) {
+				console.log("POSTS Table: ", result);
+				setPosts(result);
+				const rowData = result.map((item) => {
+					console.log("post: ", item.post);
+					return createData(
+						item.post.postID,
+						item.post.productType,
+						item.post.brandName,
+						item.post.modelName,
+						item.post.title,
+						item.post.price,
+						item.post.stock,
+						<EditIcon/>,
+						<VisibilityIcon/>
+					);
+				});
+				setRows(rowData);
+				return 
+			}
+
+		} catch (error) {
+			
+			console.log("Error: ", error.msg);
+		}
+	}
+	
+	useEffect(() => {
+		getPosts();
+	}, [])
 
 	return (
 		<div className={classes.root}>
@@ -434,8 +389,8 @@ export default function UserTable() {
 											<TableCell align="left">{row.brand}</TableCell>
 											<TableCell align="left">{row.model}</TableCell>
 											<TableCell align="left">{row.name}</TableCell>
-											<TableCell align="left">{row.price}</TableCell>
-											<TableCell align="left">{row.qty}</TableCell>
+											<TableCell align="right">{row.price}</TableCell>
+											<TableCell align="right">{row.qty}</TableCell>
 											<TableCell align="left">{row.edit}</TableCell>
 											<TableCell align="left">{row.view}</TableCell>
 										</TableRow>
@@ -459,10 +414,10 @@ export default function UserTable() {
 					onChangeRowsPerPage={handleChangeRowsPerPage}
 				/>
 			</Paper>
-		{/* 	<FormControlLabel
+			<FormControlLabel
 				control={<Switch checked={dense} onChange={handleChangeDense} />}
 				label="Dense padding"
-			/> */}
+			/>
 		</div>
 	);
 }
