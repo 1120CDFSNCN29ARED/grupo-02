@@ -21,8 +21,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import { uuid } from 'uuidv4';
 import axios from 'axios';
+import { Switch } from "@material-ui/core";
 
 const baseUrl = "http://localhost:3000/api/";
 const usersUrl = "users";
@@ -39,99 +39,6 @@ function createData(
 ) {
 	return { _id, userName, name, lastName, email, status, edit, view };
 }
-
-
-let rows = [];
-/* const rows = [
-	createData(
-		uuid(),
-		"test1",
-		"Test 1",
-		"test1@test.com",
-		"dd/mm/yy",
-		"Usuario",
-		"Activo",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"test2",
-		"Test 2",
-		"test2@test.com",
-		"dd/mm/yy",
-		"Admin",
-		"Activo",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"test3",
-		"Test 3",
-		"test3@test.com",
-		"dd/mm/yy",
-		"Admin",
-		"No Activo",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"test4",
-		"Test 4",
-		"test4@test.com",
-		"dd/mm/yy",
-		"Usuario",
-		"No Activo",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"test5",
-		"Test 5",
-		"test5@test.com",
-		"dd/mm/yy",
-		"Usuario",
-		"Activo",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"test6",
-		"Test 6",
-		"test6@test.com",
-		"dd/mm/yy",
-		"Admin",
-		"Activo",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"test7",
-		"Test 7",
-		"test7@test.com",
-		"dd/mm/yy",
-		"Admin",
-		"No Activo",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-	createData(
-		uuid(),
-		"test8",
-		"Test 8",
-		"test8@test.com",
-		"dd/mm/yy",
-		"Usuario",
-		"No Activo",
-		<EditIcon />,
-		<VisibilityIcon />
-	),
-]; */
 
 function descendingComparator(a, b, orderBy) {
 	if (b[orderBy] < a[orderBy]) {
@@ -185,6 +92,7 @@ function EnhancedTableHead(props) {
 		rowCount,
 		onRequestSort,
 	} = props;
+
 	const createSortHandler = (property) => (event) => {
 		onRequestSort(event, property);
 	};
@@ -340,7 +248,7 @@ export default function UserTable() {
 	const [dense, setDense] = React.useState(false);
 	const [rowsPerPage, setRowsPerPage] = React.useState(5);
 	const [users, setUsers] = useState([]);
-
+	const [rows, setRows] = useState([]);
 
 	const handleRequestSort = (event, property) => {
 		const isAsc = orderBy === property && order === "asc";
@@ -350,19 +258,19 @@ export default function UserTable() {
 
 	const handleSelectAllClick = (event) => {
 		if (event.target.checked) {
-			const newSelecteds = rows.map((n) => n.name);
+			const newSelecteds = rows.map((n) => n._id);
 			setSelected(newSelecteds);
 			return;
 		}
 		setSelected([]);
 	};
 
-	const handleClick = (event, name) => {
-		const selectedIndex = selected.indexOf(name);
+	const handleClick = (event, _id) => {
+		const selectedIndex = selected.indexOf(_id);
 		let newSelected = [];
 
 		if (selectedIndex === -1) {
-			newSelected = newSelected.concat(selected, name);
+			newSelected = newSelected.concat(selected, _id);
 		} else if (selectedIndex === 0) {
 			newSelected = newSelected.concat(selected.slice(1));
 		} else if (selectedIndex === selected.length - 1) {
@@ -390,7 +298,7 @@ export default function UserTable() {
 		setDense(event.target.checked);
 	};
 
-	const isSelected = (name) => selected.indexOf(name) !== -1;
+	const isSelected = (_id) => selected.indexOf(_id) !== -1;
 
 	const emptyRows =
 		rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -399,35 +307,37 @@ export default function UserTable() {
 		let response;
 
 		try {
+			
 			response = await axios.get(`${baseUrl}${usersUrl}`);
 			const result = response.data.data.users;
 			
-			if (result.length > 0)
-				console.log("USERS: ", result);
+			if (result.length > 0) {
+				console.log("USERS Table: ", result);
 				setUsers(result);
+				const rowData = result.map((user) => {
+					console.log("USER: ",user);
+					return createData(
+						user.userID,
+						user.userName,
+						user.firstName,
+						user.lastName,
+						user.email,
+						user.active ? "Active": "Inactive",
+						<EditIcon />,
+						<VisibilityIcon />
+					);
+				});
+				setRows(rowData)
+					;			}
+				
 		} catch (error) {
+			
 			console.log("Error: ", error.msg);
 		}
 	}
 	
 	useEffect(() => {
-		getUsers();
-		console.log("UsersList", users);
-		rows = users.map((user) => {
-			return createData(
-				user.userID,
-				user.userName,
-				user.firstName,
-				user.lastName,
-				user.email,
-				user.active,
-				<EditIcon />,
-				<VisibilityIcon />
-			);
-		})
-		return () => {
-			//
-		}
+		getUsers();		
 	}, [])
 	return (
 		<div className={classes.root}>
@@ -453,17 +363,17 @@ export default function UserTable() {
 							{stableSort(rows, getComparator(order, orderBy))
 								.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 								.map((row, index) => {
-									const isItemSelected = isSelected(row.name);
+									const isItemSelected = isSelected(row._id);
 									const labelId = `enhanced-table-checkbox-${index}`;
 
 									return (
 										<TableRow
 											hover
-											onClick={(event) => handleClick(event, row.name)}
+											onClick={(event) => handleClick(event, row._id)}
 											role="checkbox"
 											aria-checked={isItemSelected}
 											tabIndex={-1}
-											key={row.name}
+											key={row._id}
 											selected={isItemSelected}
 										>
 											<TableCell padding="checkbox">
@@ -508,10 +418,10 @@ export default function UserTable() {
 					onChangeRowsPerPage={handleChangeRowsPerPage}
 				/>
 			</Paper>
-		{/* 	<FormControlLabel
+			<FormControlLabel
 				control={<Switch checked={dense} onChange={handleChangeDense} />}
 				label="Dense padding"
-			/> */}
+			/>
 		</div>
 	);
 }

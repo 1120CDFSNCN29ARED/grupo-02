@@ -26,18 +26,18 @@ export default function TotalsRowContainer() {
 
 	const [users, setUsers] = useState([]);
 	const [posts, setPosts] = useState([]);
-	const [valuePublished, setValuePublished] = useState([]);
+	const [valuePublished, setValuePublished] = useState(0);
 	async function getUsers() {
 		let response;
 		
 		try {
 		
 			response = await axios.get(`${baseUrl}${usersUrl}`);
-			const result = response.data.data.users;
+			const result = await response.data.data.users;
 
 			if (result.length > 0) {
 			
-				setUsers(result);
+				await setUsers(result);
 			}
 		} catch (error) {
 			
@@ -51,10 +51,11 @@ export default function TotalsRowContainer() {
 		try {
 		
 			response = await axios.get(`${baseUrl}${postsUrl}`);
-			const result = response.data.data;
+			const result = await response.data.data;
 		
 			if (result.length > 0) {
 				setPosts(result);
+				setPublishedValue(result);
 			}
 		} catch (error){
 			
@@ -62,23 +63,27 @@ export default function TotalsRowContainer() {
 		}
 	}
 
-	async function setPublishedValue() {
+	async function setPublishedValue(posts) {
 		let publishedValue;
 		if (posts.length > 0) {
 			publishedValue = posts.reduce((acc, cur) => {
 				return (acc + (cur.post.stock * cur.post.price));
 			},0)			
+			setValuePublished(publishedValue);			
 		}
-		setValuePublished(publishedValue);
+		
 	}
 
 	useEffect(() => {
-		getUsers();
-		getPosts();
-		setPublishedValue()
-		return () => {
-			//
+		async function loadUsers() {
+			await getUsers();
 		}
+		async function loadPosts() {
+			await getPosts();
+			
+		}
+		loadUsers();
+		loadPosts();
 	}, [])
 	
 
@@ -86,7 +91,7 @@ export default function TotalsRowContainer() {
 
 		<div className={classes.root}>
 			<Grid container spacing={1}>
-				<Grid item xs={12} md={4} lg={3}>
+				<Grid item xs={12} md={6} lg={3}>
 					<SmallCard
 						backgroundColor="default"
 						title="Usuarios"
@@ -95,7 +100,7 @@ export default function TotalsRowContainer() {
 					/>
 					<LineGraph />
 				</Grid>
-				<Grid item xs={12} md={4} lg={3}>
+				<Grid item xs={12} md={6} lg={3}>
 					<SmallCard
 						backgroundColor="default"
 						title="Posts"
@@ -104,16 +109,16 @@ export default function TotalsRowContainer() {
 					/>
 					<LineGraph />
 				</Grid>
-				<Grid item xs={12} md={4} lg={3}>
+				<Grid item xs={12} md={6} lg={3}>
 					<SmallCard
 						backgroundColor="default"
 						title="Valor Publicado"
-						total={valuePublished}
+						total={"$ " +  valuePublished }
 						chart={chart}
 					/>
 					<LineGraph />
 				</Grid>
-				<Grid item xs={12} md={4} lg={3}>
+				<Grid item xs={12} md={6} lg={3}>
 					<SmallCard
 						backgroundColor="default"
 						title="4th Card"
