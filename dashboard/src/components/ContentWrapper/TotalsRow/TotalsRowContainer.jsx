@@ -121,7 +121,7 @@ export default function TotalsRowContainer() {
 				<Grid item xs={12} md={6} lg={3}>
 					<SmallCard
 						backgroundColor="default"
-						title="4th Card"
+						title="Consultas"
 						total="123"
 						chart={chart}
 					/>
