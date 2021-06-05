@@ -239,8 +239,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function UserTable() {
+export default function UserTable(props) {
 	const classes = useStyles();
+	const category = props.category;
 	const [order, setOrder] = React.useState("asc");
 	const [orderBy, setOrderBy] = React.useState("_id");
 	const [selected, setSelected] = React.useState([]);
@@ -290,7 +291,7 @@ export default function UserTable() {
 	};
 
 	const handleChangeRowsPerPage = (event) => {
-		setRowsPerPage(parseInt(event.target.value, 10));
+		setRowsPerPage(parseInt(event.target.value, 10));			
 		setPage(0);
 	};
 
@@ -307,7 +308,7 @@ export default function UserTable() {
 		let response;
 
 		try {
-			
+		
 			response = await axios.get(`${baseUrl}${usersUrl}`);
 			const result = response.data.data.users;
 			
@@ -337,8 +338,9 @@ export default function UserTable() {
 	}
 	
 	useEffect(() => {
-		getUsers();		
+		getUsers();
 	}, [])
+
 	return (
 		<div className={classes.root}>
 			<Paper className={classes.paper}>
@@ -409,7 +411,7 @@ export default function UserTable() {
 					</Table>
 				</TableContainer>
 				<TablePagination
-					rowsPerPageOptions={[5, 10, 25]}
+					rowsPerPageOptions={[rows.length,5, 10, 25]}
 					component="div"
 					count={rows.length}
 					rowsPerPage={rowsPerPage}

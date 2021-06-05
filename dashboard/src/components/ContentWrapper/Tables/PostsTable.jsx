@@ -405,7 +405,7 @@ export default function UserTable() {
 					</Table>
 				</TableContainer>
 				<TablePagination
-					rowsPerPageOptions={[5, 10, 25]}
+					rowsPerPageOptions={[rows.length,5, 10, 25]}
 					component="div"
 					count={rows.length}
 					rowsPerPage={rowsPerPage}

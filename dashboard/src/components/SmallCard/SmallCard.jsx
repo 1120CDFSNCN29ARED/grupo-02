@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import AreaGraph from "../AreaGraph/AreaGraph";
 
 function SmallCard({ title, total, backgroundColor, chart }) {
   const useStyles = makeStyles({
@@ -32,7 +31,6 @@ function SmallCard({ title, total, backgroundColor, chart }) {
           {total}
         </Typography>
         <Typography className={classes.pos}>{title}</Typography>
-        <AreaGraph width={chart.width} height={chart.height} />
       </CardContent>
     </Card>
   );

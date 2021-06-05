@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const chart = {
-	width: 250,
-	height: 100,
+	width: "100%",
+	height: "50%",
 };
 
 const baseUrl = "http://localhost:3000/api/";
@@ -88,7 +88,6 @@ export default function TotalsRowContainer() {
 	
 
 	return (
-
 		<div className={classes.root}>
 			<Grid container spacing={1}>
 				<Grid item xs={12} md={6} lg={3}>
@@ -113,7 +112,7 @@ export default function TotalsRowContainer() {
 					<SmallCard
 						backgroundColor="default"
 						title="Valor Publicado"
-						total={"$ " +  valuePublished }
+						total={"$ " + valuePublished}
 						chart={chart}
 					/>
 					<LineGraph />

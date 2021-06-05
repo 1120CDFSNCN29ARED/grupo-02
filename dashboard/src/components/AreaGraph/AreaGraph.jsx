@@ -5,7 +5,7 @@ import {
  /*  XAxis,
   YAxis,
   CartesianGrid, */
-  Tooltip,
+  Tooltip, ResponsiveContainer
 } from "recharts";
 
 const data = [
@@ -54,16 +54,18 @@ const data = [
 ];
 function LineGraph({ width, height, graphData }) {
   return (
-    <AreaChart
-      width={width}
-      height={height}
-      data={data}
-      margin={{ top: 0, right: 0, bottom: 0, left: -10 }}
-    >
-      <Tooltip />
-      <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
-    </AreaChart>
-  );
+		<ResponsiveContainer width="100%" height="40%">
+			<AreaChart
+				width={width}
+				height={height}
+				data={data}
+				margin={{ top: 0, right: 0, bottom: 0, left: -10 }}
+			>
+				<Tooltip />
+				<Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+			</AreaChart>
+		</ResponsiveContainer>
+	);
 }
 
 export default LineGraph;

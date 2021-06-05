@@ -408,7 +408,9 @@ export default function Main() {
 				<div className={classes.toolbar} />
 				<TotalsRowContainer />
 				<LastAndCategoryInformationContainer/>
-				<TablesContainer />
+				<TablesContainer category="users" />
+				<TablesContainer category="posts" />
+				
 			</main>
 		</div>
 	);

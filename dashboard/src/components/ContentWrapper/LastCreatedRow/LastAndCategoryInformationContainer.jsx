@@ -67,9 +67,9 @@ export default function LastAndCategoryInformationContainer() {
 	}, []);
 	return (
 		<div className={classes.root}>
-			<Grid container xs={12} md={12} spacing={2}>
-				<Grid item xs={12} md={8} spacing={3}>
-					<Grid item className={classes.cardItem} xs={12} spacing={3}>
+			<Grid container spacing={2}>
+				<Grid item xs={12} md={8}>
+					<Grid item className={classes.cardItem} xs={12}>
             <LastCreatedCard
               category="users"
               title="Último usuario creado"
@@ -78,7 +78,7 @@ export default function LastAndCategoryInformationContainer() {
 							_id={lastUser.userID}
 						/>
 					</Grid>
-					<Grid item xs={12} spacing={3}>
+					<Grid item xs={12}>
 						<LastCreatedCard
 							category="posts"
               title="Último posteo generado"
@@ -88,8 +88,8 @@ export default function LastAndCategoryInformationContainer() {
 						/>
 					</Grid>
 				</Grid>
-				<Grid item xs={12} md={4} spacing={3}>
-					<Grid item className={classes.cardItem} xs={12} spacing={3}>
+				<Grid item xs={12} md={4} >
+					<Grid item className={classes.cardItem} xs={12}>
 						<InformationCard
 							category="Véhiculos"
 							count={10}
@@ -97,7 +97,7 @@ export default function LastAndCategoryInformationContainer() {
 							value="$100.000"
 						/>
 					</Grid>
-					<Grid item xs={12} spacing={3}>
+					<Grid item xs={12}>
 						<InformationCard
 							image="part"
 							category="Repuestos"
