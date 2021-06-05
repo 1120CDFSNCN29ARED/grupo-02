@@ -304,10 +304,8 @@ export default function UserTable() {
 			const result = response.data.data;
 
 			if (result.length > 0) {
-				console.log("POSTS Table: ", result);
 				setPosts(result);
 				const rowData = result.map((item) => {
-					console.log("post: ", item.post);
 					return createData(
 						item.post.postID,
 						item.post.productType,

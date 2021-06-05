@@ -9,6 +9,7 @@ import axios from "axios";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
+		marginBottom: 10
 	},
 	paper: {
 		padding: theme.spacing(2),
@@ -32,7 +33,6 @@ export default function TablesContainer(props) {
 			const result = response.data.data.users;
 			
 			if (result.length > 0) {
-				console.log("Table Container USERS Table: ", result);
 				setUsers(result);
 			}
 				
@@ -49,7 +49,6 @@ export default function TablesContainer(props) {
 			const result = response.data.data;
 
 			if (result.length > 0) {
-				console.log("Tables Container POSTS Table: ", result);
 				setPosts(result);
 				return;
 			}

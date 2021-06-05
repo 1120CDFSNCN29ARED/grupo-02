@@ -38,6 +38,7 @@ import Menu from "@material-ui/core/Menu";
 import TotalsRowContainer from '../ContentWrapper/TotalsRow/TotalsRowContainer'
 import TablesContainer from '../ContentWrapper/Tables/TablesContainer'
 import LastAndCategoryInformationContainer from '../ContentWrapper/LastCreatedRow/LastAndCategoryInformationContainer';
+import UsersContainer from '../Users/UsersContainer';
 import { Link } from "@material-ui/core";
 
 const drawerWidth = 240;
@@ -410,7 +411,7 @@ export default function Main() {
 				<LastAndCategoryInformationContainer/>
 				<TablesContainer category="users" />
 				<TablesContainer category="posts" />
-				
+				<UsersContainer/>
 			</main>
 		</div>
 	);

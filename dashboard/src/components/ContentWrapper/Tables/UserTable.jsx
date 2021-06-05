@@ -313,10 +313,8 @@ export default function UserTable(props) {
 			const result = response.data.data.users;
 			
 			if (result.length > 0) {
-				console.log("USERS Table: ", result);
 				setUsers(result);
 				const rowData = result.map((user) => {
-					console.log("USER: ",user);
 					return createData(
 						user.userID,
 						user.userName,

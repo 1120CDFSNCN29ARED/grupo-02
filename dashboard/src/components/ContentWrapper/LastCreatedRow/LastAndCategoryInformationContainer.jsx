@@ -67,9 +67,9 @@ export default function LastAndCategoryInformationContainer() {
 		let response;
 
 		try {
-			response = await axios.get(`${baseUrl}${vehiclesUrl}`);				
+			
+			response = await axios.get(`${baseUrl}${vehiclesUrl}`);
 			const result = response.data.data.vehicles;
-			console.log("Vehicles: ", result);
 
 			if (result.length > 0) {
 				setVehicles(result);
@@ -84,9 +84,9 @@ export default function LastAndCategoryInformationContainer() {
 		let response;
 
 		try {
+			
 			response = await axios.get(`${baseUrl}${partsUrl}`);
 			const result = response.data.data.parts;
-			console.log("Parts: ", result);
 
 			if (result.length > 0) {
 				setParts(result);
@@ -99,24 +99,24 @@ export default function LastAndCategoryInformationContainer() {
 
 	async function setVehiclesStatus(vehicles) {
 		let active = 0;
+		
 		if (vehicles.length > 0) {
 			active = vehicles.reduce((acc, cur) => {
 				return acc + (cur.active ? 1 : 0);
 			}, 0);
 			setActiveVehicles(active);
-			console.log("Active Vehicles: ", active);
 			setInactiveVehicles(vehicles.length - active);
 		}
 	}
 
 	async function setPartsStatus(parts) {
 		let active = 0;
+		
 		if (parts.length > 0) {
 			active = parts.reduce((acc, cur) => {
 				return (acc + (cur.active ? 1 : 0));
 			}, 0);
 			setActiveParts(active);
-			console.log("Active Parts: ",active)
 			setInactiveParts(parts.length - active);
 		}
 	}
@@ -126,9 +126,6 @@ export default function LastAndCategoryInformationContainer() {
     getPosts();
 		getVehicles();
 		getParts();
-		return () => {
-			//
-		};
 	}, []);
 	return (
 		<div className={classes.root}>

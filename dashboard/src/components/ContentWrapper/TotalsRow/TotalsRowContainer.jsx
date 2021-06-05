@@ -40,7 +40,7 @@ export default function TotalsRowContainer() {
 
 			if (result.length > 0) {
 			
-				await setUsers(result);
+				setUsers(result);
 			}
 		} catch (error) {
 			
