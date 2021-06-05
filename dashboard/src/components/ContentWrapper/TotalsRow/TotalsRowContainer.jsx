@@ -13,13 +13,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const chart = {
-	width: "100%",
-	height: "50%",
+	width: 100,
+	height: 100,
 };
 
 const baseUrl = "http://localhost:3000/api/";
 const usersUrl = "users";
 const postsUrl = "posts";
+const questionsUrl = "questions";
 
 export default function TotalsRowContainer() {
 	const classes = useStyles();
@@ -27,6 +28,8 @@ export default function TotalsRowContainer() {
 	const [users, setUsers] = useState([]);
 	const [posts, setPosts] = useState([]);
 	const [valuePublished, setValuePublished] = useState(0);
+	const [questions, setQuestions] = useState([]);
+
 	async function getUsers() {
 		let response;
 		
@@ -74,16 +77,34 @@ export default function TotalsRowContainer() {
 		
 	}
 
+	async function getQuestions() {
+		let response;
+
+		try {
+			response = await axios.get(`${baseUrl}${questionsUrl}`);
+			const result = response.data.data.questions;
+
+			if (result.length > 0) {
+				setQuestions(result);
+			}
+		} catch (error) {
+			console.log(error.msg);
+		}
+	}
+
 	useEffect(() => {
 		async function loadUsers() {
 			await getUsers();
 		}
 		async function loadPosts() {
-			await getPosts();
-			
+			await getPosts();			
+		}
+		async function loadQuestions() {
+			await getQuestions();
 		}
 		loadUsers();
 		loadPosts();
+		loadQuestions();
 	}, [])
 	
 
@@ -121,7 +142,7 @@ export default function TotalsRowContainer() {
 					<SmallCard
 						backgroundColor="default"
 						title="Consultas"
-						total="123"
+						total={questions.length}
 						chart={chart}
 					/>
 					<LineGraph />
