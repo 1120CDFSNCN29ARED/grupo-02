@@ -56,11 +56,14 @@ useEffect(() => {
 		<Card className={classes.root}>
 			<CardActionArea>
 				<CardContent>
-					<Avatar
-						className={classes.avatar}
-						variant="rounded"
-					>
-						{props.image==="car"?<DriveEtaIcon/> : props.image==="part" ? <BuildIcon/>:"" }
+					<Avatar className={classes.avatar} variant="rounded">
+						{props.image === "car" ? (
+							<DriveEtaIcon />
+						) : props.image === "part" ? (
+							<BuildIcon />
+						) : (
+							""
+						)}
 					</Avatar>
 					<Divider />
 					<Typography
@@ -72,13 +75,17 @@ useEffect(() => {
 						{props.category}
 					</Typography>
 					<Typography variant="body2" color="secondary" component="p">
-						{props.value}
-					</Typography>
-					<Typography variant="body2" color="textSecondary" component="p">
 						Cantidad: {props.count}
 					</Typography>
 					<Typography variant="body2" color="textSecondary" component="p">
-						Valor: {props.value}
+						Publicados: {props.active}
+					</Typography>
+					<Typography
+						variant="body2"
+						color="textSecondary"
+						component="p"
+					>
+						Inactivas: {props.inactive}
 					</Typography>
 				</CardContent>
 			</CardActionArea>

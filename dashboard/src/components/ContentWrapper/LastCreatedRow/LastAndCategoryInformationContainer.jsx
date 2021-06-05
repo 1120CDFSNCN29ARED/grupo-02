@@ -8,6 +8,8 @@ import axios from "axios";
 const baseUrl = "http://localhost:3000/api/";
 const postsUrl = "posts";
 const usersUrl = "users";
+const vehiclesUrl = "vehicles";
+const partsUrl = "parts";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -23,10 +25,13 @@ const useStyles = makeStyles((theme) => ({
 export default function LastAndCategoryInformationContainer() {
 	const classes = useStyles();
 	const [lastPost, setLastPost] = useState([]);
-  const [vehicles, setVehicles] = useState([]);
-  const [parts, setParts] = useState([]);
+	const [vehicles, setVehicles] = useState([]);
+	const [activeVehicles, setActiveVehicles] = useState(0);
+	const [inactiveVehicles, setInactiveVehicles] = useState(0);
+	const [parts, setParts] = useState([]);
+	const [activeParts, setActiveParts] = useState(0);
+	const [inactiveParts, setInactiveParts] = useState(0);
   const [lastUser, setLastUser] = useState ([]);
-
 	
   async function getPosts() {
 		let response;
@@ -56,11 +61,71 @@ export default function LastAndCategoryInformationContainer() {
 		} catch (error) {
 			console.log(error.msg);
 		}
-  }
-  
+	}
+	
+	async function getVehicles() {
+		let response;
+
+		try {
+			response = await axios.get(`${baseUrl}${vehiclesUrl}`);				
+			const result = response.data.data.vehicles;
+			console.log("Vehicles: ", result);
+
+			if (result.length > 0) {
+				setVehicles(result);
+				setVehiclesStatus(result);
+			}
+		} catch (error) {
+			console.log(error.msg);
+		}
+	}
+	
+	async function getParts() {
+		let response;
+
+		try {
+			response = await axios.get(`${baseUrl}${partsUrl}`);
+			const result = response.data.data.parts;
+			console.log("Parts: ", result);
+
+			if (result.length > 0) {
+				setParts(result);
+				setPartsStatus(result);
+			}
+		} catch (error) {
+			console.log(error.msg);
+		}
+	}
+
+	async function setVehiclesStatus(vehicles) {
+		let active = 0;
+		if (vehicles.length > 0) {
+			active = vehicles.reduce((acc, cur) => {
+				return acc + (cur.active ? 1 : 0);
+			}, 0);
+			setActiveVehicles(active);
+			console.log("Active Vehicles: ", active);
+			setInactiveVehicles(vehicles.length - active);
+		}
+	}
+
+	async function setPartsStatus(parts) {
+		let active = 0;
+		if (parts.length > 0) {
+			active = parts.reduce((acc, cur) => {
+				return (acc + (cur.active ? 1 : 0));
+			}, 0);
+			setActiveParts(active);
+			console.log("Active Parts: ",active)
+			setInactiveParts(parts.length - active);
+		}
+	}
+
 	useEffect(() => {
     getUsers();
     getPosts();
+		getVehicles();
+		getParts();
 		return () => {
 			//
 		};
@@ -70,39 +135,48 @@ export default function LastAndCategoryInformationContainer() {
 			<Grid container spacing={2}>
 				<Grid item xs={12} md={8}>
 					<Grid item className={classes.cardItem} xs={12}>
-            <LastCreatedCard
-              category="users"
-              title="Último usuario creado"
-              subtitle={lastUser.firstName + " " + lastUser.lastName + " (" + lastUser.userName + ")"}
-              createdAt={lastUser.createdAt}
+						<LastCreatedCard
+							category="users"
+							title="Último usuario creado"
+							subtitle={
+								lastUser.firstName +
+								" " +
+								lastUser.lastName +
+								" (" +
+								lastUser.userName +
+								")"
+							}
+							createdAt={lastUser.createdAt}
 							_id={lastUser.userID}
 						/>
 					</Grid>
 					<Grid item xs={12}>
 						<LastCreatedCard
 							category="posts"
-              title="Último posteo generado"
-              subtitle={lastPost.title}
+							title="Último posteo generado"
+							subtitle={lastPost.title}
 							createdAt={lastPost.publishedDate}
 							_id={lastPost.postID}
 						/>
 					</Grid>
 				</Grid>
-				<Grid item xs={12} md={4} >
+				<Grid item xs={12} md={4}>
 					<Grid item className={classes.cardItem} xs={12}>
 						<InformationCard
 							category="Véhiculos"
-							count={10}
+							count={vehicles.length}
 							image="car"
-							value="$100.000"
+							active={activeVehicles}
+							inactive={inactiveVehicles}
 						/>
 					</Grid>
 					<Grid item xs={12}>
 						<InformationCard
 							image="part"
 							category="Repuestos"
-							count={5}
-							value="$150.000"
+							count={parts.length}
+							active={activeParts}
+							inactive={inactiveParts}
 						/>
 					</Grid>
 				</Grid>
