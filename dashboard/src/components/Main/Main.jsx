@@ -36,7 +36,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
 import TotalsRowContainer from '../ContentWrapper/TotalsRow/TotalsRowContainer'
-import LastCreatedRowContainer from '../ContentWrapper/LastCreatedRow/LastCreatedRowContainer'
 import TablesContainer from '../ContentWrapper/Tables/TablesContainer'
 import LastAndCategoryInformationContainer from '../ContentWrapper/LastCreatedRow/LastAndCategoryInformationContainer';
 import { Link } from "@material-ui/core";
@@ -408,7 +407,6 @@ export default function Main() {
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
 				<TotalsRowContainer />
-				{/* <LastCreatedRowContainer /> */}
 				<LastAndCategoryInformationContainer/>
 				<TablesContainer />
 			</main>
