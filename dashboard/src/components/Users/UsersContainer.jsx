@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-
+import { Switch, Link, Route } from 'react-router-dom';
 import TableContainer from '../ContentWrapper/Tables/TablesContainer';
 import axios from 'axios';
 import UserDataCard from './UserDataCard';
@@ -59,8 +59,8 @@ function UsersContainer() {
 					<Grid item xs={12}>
 						<TableContainer category="users" />
 					</Grid>
-					<Grid item xs={12}>
-						<UserInformationCard user={users[0]} />
+          <Grid item xs={12}>            						
+            <UserInformationCard user={users[0]} />
 					</Grid>
 					<Grid item xs={12} md={8}>
 						<UserDataCard user={users[0]} />

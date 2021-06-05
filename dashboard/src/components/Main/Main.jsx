@@ -39,7 +39,7 @@ import TotalsRowContainer from '../ContentWrapper/TotalsRow/TotalsRowContainer'
 import TablesContainer from '../ContentWrapper/Tables/TablesContainer'
 import LastAndCategoryInformationContainer from '../ContentWrapper/LastCreatedRow/LastAndCategoryInformationContainer';
 import UsersContainer from '../Users/UsersContainer';
-import { Link } from "@material-ui/core";
+import { Route } from "react-router";
 
 const drawerWidth = 240;
 

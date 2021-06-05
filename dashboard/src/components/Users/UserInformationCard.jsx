@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardActions from "@material-ui/core/CardActions";
@@ -24,11 +23,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserInformationCard(props) {
 	const classes = useStyles();
-	const [user, setUser] = useState(props.user);
+	const [user, setUser] = useState({});
 	
 	useEffect(() => {
 		setUser(props.user);
-		console.log("UserInformationcard User: ", props);
+		console.log("UserInformationcard User: ", user);
 	}, [])
 
 	return (
