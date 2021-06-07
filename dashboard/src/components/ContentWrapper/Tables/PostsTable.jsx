@@ -103,7 +103,7 @@ function EnhancedTableHead(props) {
 					<TableCell
 						key={headCell.id}
 						align={headCell.numeric ? "right" : "left"}
-						padding={headCell.disablePadding ? "none" : "default"}
+						padding={headCell.disablePadding ? "1" : "default"}
 						sortDirection={orderBy === headCell.id ? order : false}
 					>
 						<TableSortLabel
@@ -360,7 +360,7 @@ export default function UserTable() {
 												component="th"
 												id={labelId}
 												scope="row"
-												padding="none"
+												padding="1"
 											>
 												{row._id}
 											</TableCell>

@@ -34,10 +34,8 @@ function createData(
 	lastName,
 	email,
 	status,
-	edit,
-	view
 ) {
-	return { _id, userName, name, lastName, email, status, edit, view };
+	return { _id, userName, name, lastName, email, status};
 }
 
 function descendingComparator(a, b, orderBy) {
@@ -77,9 +75,7 @@ const headCells = [
 	{ id: "name", numeric: false, disablePadding: false, label: "Nombre" },
 	{ id: "lastName", numeric: false, disablePadding: false, label: "Apellido" },
 	{ id: "email", numeric: false, disablePadding: false, label: "Email" },
-	{ id: "status", numeric: false, disablePadding: false, label: "Status" },
-	{ id: "edit", numeric: false, disablePadding: false, label: "Editar" },
-	{ id: "view", numeric: false, disablePadding: false, label: "Perfil" },
+	{ id: "status", numeric: false, disablePadding: false, label: "Status" }
 ];
 
 function EnhancedTableHead(props) {
@@ -100,19 +96,19 @@ function EnhancedTableHead(props) {
 	return (
 		<TableHead>
 			<TableRow>
-				<TableCell padding="checkbox">
+				{/* <TableCell padding="checkbox">
 					<Checkbox
 						indeterminate={numSelected > 0 && numSelected < rowCount}
 						checked={rowCount > 0 && numSelected === rowCount}
 						onChange={onSelectAllClick}
 						inputProps={{ "aria-label": "Selecciona todos los usuarios" }}
 					/>
-				</TableCell>
+				</TableCell> */}
 				{headCells.map((headCell) => (
 					<TableCell
 						key={headCell.id}
 						align={headCell.numeric ? "right" : "left"}
-						padding={headCell.disablePadding ? "none" : "default"}
+						padding={headCell.disablePadding ? "1" : "default"}
 						sortDirection={orderBy === headCell.id ? order : false}
 					>
 						<TableSortLabel
@@ -181,7 +177,7 @@ const EnhancedTableToolbar = (props) => {
 					variant="subtitle1"
 					component="div"
 				>
-					{numSelected} selected
+					{numSelected} Usuarios seleccionado
 				</Typography>
 			) : (
 				<Typography
@@ -192,20 +188,6 @@ const EnhancedTableToolbar = (props) => {
 				>
 					Users
 				</Typography>
-			)}
-
-			{numSelected > 0 ? (
-				<Tooltip title="Delete">
-					<IconButton aria-label="delete">
-						<DeleteIcon />
-					</IconButton>
-				</Tooltip>
-			) : (
-				<Tooltip title="Filter list">
-					<IconButton aria-label="filter list">
-						<FilterListIcon />
-					</IconButton>
-				</Tooltip>
 			)}
 		</Toolbar>
 	);
@@ -271,7 +253,7 @@ export default function UserTable(props) {
 		let newSelected = [];
 
 		if (selectedIndex === -1) {
-			newSelected = newSelected.concat(selected, _id);
+			newSelected = newSelected.concat(_id);
 		} else if (selectedIndex === 0) {
 			newSelected = newSelected.concat(selected.slice(1));
 		} else if (selectedIndex === selected.length - 1) {
@@ -355,7 +337,6 @@ export default function UserTable(props) {
 							numSelected={selected.length}
 							order={order}
 							orderBy={orderBy}
-							onSelectAllClick={handleSelectAllClick}
 							onRequestSort={handleRequestSort}
 							rowCount={rows.length}
 						/>
@@ -376,17 +357,17 @@ export default function UserTable(props) {
 											key={row._id}
 											selected={isItemSelected}
 										>
-											<TableCell padding="checkbox">
+											{/* <TableCell padding="checkbox">
 												<Checkbox
 													checked={isItemSelected}
 													inputProps={{ "aria-labelledby": labelId }}
 												/>
-											</TableCell>
+											</TableCell> */}
 											<TableCell
 												component="th"
 												id={labelId}
 												scope="row"
-												padding="none"
+												padding="1"
 											>
 												{row._id}
 											</TableCell>
