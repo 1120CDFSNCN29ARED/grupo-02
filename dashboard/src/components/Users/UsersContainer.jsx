@@ -7,6 +7,7 @@ import axios from 'axios';
 import UserDataCard from './UserDataCard';
 import UserHistoryCard from './UserHistoryCard';
 import UserInformationCard from './UserInformationCard';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -53,14 +54,14 @@ function UsersContainer() {
 
   return (
 		<div className={classes.root}>
-			{users.length===0 && <p>Loading...</p>}
+			{users.length === 0 && <p>Loading...</p>}
 			{
 				<Grid container spacing={3}>
 					<Grid item xs={12}>
 						<TableContainer category="users" />
-					</Grid>
-          <Grid item xs={12}>            						
-            <UserInformationCard user={users[0]} />
+					</Grid>					
+					<Grid item xs={12}>
+						<UserInformationCard user={users[0]} />
 					</Grid>
 					<Grid item xs={12} md={8}>
 						<UserDataCard user={users[0]} />
