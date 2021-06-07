@@ -7,7 +7,8 @@ import {
   createMuiTheme,
 } from "@material-ui/core/styles";
 import Bars from "./components/Bars/Bars";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import UsersContainer from "./components/Users/UsersContainer";
 
 function App() {
   const darkTheme = createMuiTheme({
@@ -24,10 +25,16 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <div className={classes.root}>
-        <Bars />
         <Router>
+          <Bars />
           <Switch>
-            <Route path="/">
+            <Route path="/users">
+              <UsersContainer />
+            </Route>
+            <Route path="/posts">
+              <Main />
+            </Route>
+            <Route path="/" exact="true">
               <Main />
             </Route>
           </Switch>

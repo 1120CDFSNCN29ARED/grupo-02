@@ -33,12 +33,17 @@ import PostAddIcon from "@material-ui/icons/PostAdd";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+  },
+  link: {
+    textDecoration: "none",
+    color: "white",
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -333,28 +338,34 @@ function Bars() {
           </IconButton>
         </div>
         <List>
-          <ListItem button>
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-          </ListItem>
+          <Link to="/" className={classes.link}>
+            <ListItem button>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+          </Link>
         </List>
         <Divider />
         <List>
           {/* I did not manage ot implement this dynamically in SideBarItem due to the icons not passing as props */}
-          <ListItem button>
-            <ListItemIcon>
-              <ContactsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Users" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <PostAddIcon />
-            </ListItemIcon>
-            <ListItemText primary="Posts" />
-          </ListItem>
+          <Link to="/users" className={classes.link}>
+            <ListItem button>
+              <ListItemIcon>
+                <ContactsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Users" />
+            </ListItem>
+          </Link>
+          <Link to="/posts" className={classes.link}>
+            <ListItem button>
+              <ListItemIcon>
+                <PostAddIcon />
+              </ListItemIcon>
+              <ListItemText primary="Posts" />
+            </ListItem>
+          </Link>
         </List>
         <ListItem button>
           <ListItemIcon>
@@ -374,17 +385,6 @@ function Bars() {
           </ListItemIcon>
           <ListItemText primary="Favourites" />
         </ListItem>
-        <Divider />
-        <List>
-          {["Sub-Item 1", "Sub-Item 2", "Sub-Item 3"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
     </>
   );

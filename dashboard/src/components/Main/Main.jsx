@@ -5,7 +5,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TotalsRowContainer from "../ContentWrapper/TotalsRow/TotalsRowContainer";
 import TablesContainer from "../ContentWrapper/Tables/TablesContainer";
 import LastAndCategoryInformationContainer from "../ContentWrapper/LastCreatedRow/LastAndCategoryInformationContainer";
-import UsersContainer from "../Users/UsersContainer";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -34,7 +33,6 @@ export default function Main() {
         <LastAndCategoryInformationContainer />
         <TablesContainer category="users" />
         <TablesContainer category="posts" />
-        <UsersContainer />
       </main>
     </>
   );
