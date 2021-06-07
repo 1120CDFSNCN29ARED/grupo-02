@@ -28,8 +28,8 @@ const baseUrl = "http://localhost:3000/api/";
 const postsUrl="posts"
 
 
-function createData(_id, category, brand, model, name, price, qty, edit, view) {
-	return { _id, category, brand, model, name, price, qty, edit, view };
+function createData(_id, category, brand, model, name, price, qty) {
+	return { _id, category, brand, model, name, price, qty };
 }
 
 function descendingComparator(a, b, orderBy) {
@@ -72,8 +72,6 @@ const headCells = [
 	{ id: "name", numeric: false, disablePadding: false, label: "Nombre" },
 	{ id: "price", numeric: true, disablePadding: false, label: "Precio" },
 	{ id: "qty", numeric: true, disablePadding: false, label: "Stock" },
-	{ id: "edit", numeric: false, disablePadding: false, label: "Editar" },
-	{ id: "view", numeric: false, disablePadding: false, label: "Perfil" }
 ];
 
 function EnhancedTableHead(props) {
@@ -93,14 +91,14 @@ function EnhancedTableHead(props) {
 	return (
 		<TableHead>
 			<TableRow>
-				<TableCell padding="checkbox">
+				{/* <TableCell padding="checkbox">
 					<Checkbox
 						indeterminate={numSelected > 0 && numSelected < rowCount}
 						checked={rowCount > 0 && numSelected === rowCount}
 						onChange={onSelectAllClick}
 						inputProps={{ "aria-label": "Selecciona todos los usuarios" }}
 					/>
-				</TableCell>
+				</TableCell> */}
 				{headCells.map((headCell) => (
 					<TableCell
 						key={headCell.id}
@@ -174,7 +172,7 @@ const EnhancedTableToolbar = (props) => {
 					variant="subtitle1"
 					component="div"
 				>
-					{numSelected} selected
+					{numSelected} Posts selected
 				</Typography>
 			) : (
 				<Typography
@@ -185,20 +183,6 @@ const EnhancedTableToolbar = (props) => {
 				>
 					Posts
 				</Typography>
-			)}
-
-			{numSelected > 0 ? (
-				<Tooltip title="Delete">
-					<IconButton aria-label="delete">
-						<DeleteIcon />
-					</IconButton>
-				</Tooltip>
-			) : (
-				<Tooltip title="Filter list">
-					<IconButton aria-label="filter list">
-						<FilterListIcon />
-					</IconButton>
-				</Tooltip>
 			)}
 		</Toolbar>
 	);
@@ -263,12 +247,12 @@ export default function UserTable() {
 		let newSelected = [];
 
 		if (selectedIndex === -1) {
-			newSelected = newSelected.concat(selected, _id);
+			newSelected = newSelected.concat(_id);
 		} else if (selectedIndex === 0) {
 			newSelected = newSelected.concat(selected.slice(1));
 		} else if (selectedIndex === selected.length - 1) {
 			newSelected = newSelected.concat(selected.slice(0, -1));
-		} else if (selectedIndex > 0) {
+		}  else if (selectedIndex > 0) {
 			newSelected = newSelected.concat(
 				selected.slice(0, selectedIndex),
 				selected.slice(selectedIndex + 1)
@@ -314,8 +298,6 @@ export default function UserTable() {
 						item.post.title,
 						item.post.price,
 						item.post.stock,
-						<EditIcon/>,
-						<VisibilityIcon/>
 					);
 				});
 				setRows(rowData);
@@ -348,7 +330,6 @@ export default function UserTable() {
 							numSelected={selected.length}
 							order={order}
 							orderBy={orderBy}
-							onSelectAllClick={handleSelectAllClick}
 							onRequestSort={handleRequestSort}
 							rowCount={rows.length}
 						/>
@@ -369,12 +350,12 @@ export default function UserTable() {
 											key={row._id}
 											selected={isItemSelected}
 										>
-											<TableCell padding="checkbox">
+											{/* <TableCell padding="checkbox">
 												<Checkbox
 													checked={isItemSelected}
 													inputProps={{ "aria-labelledby": labelId }}
 												/>
-											</TableCell>
+											</TableCell> */}
 											<TableCell
 												component="th"
 												id={labelId}
@@ -388,9 +369,7 @@ export default function UserTable() {
 											<TableCell align="left">{row.model}</TableCell>
 											<TableCell align="left">{row.name}</TableCell>
 											<TableCell align="right">{row.price}</TableCell>
-											<TableCell align="right">{row.qty}</TableCell>
-											<TableCell align="left">{row.edit}</TableCell>
-											<TableCell align="left">{row.view}</TableCell>
+											<TableCell align="right">{row.qty}</TableCell>											
 										</TableRow>
 									);
 								})}
