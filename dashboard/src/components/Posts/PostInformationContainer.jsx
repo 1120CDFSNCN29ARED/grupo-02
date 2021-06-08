@@ -19,14 +19,10 @@ function PostInformationContainer(props) {
   console.log("PARAMS: ", props.match.params.postID);
   const classes = useStyles();
   const [posts, setPosts] = useState(props.posts);
-  const postToDisplay = props.posts.find((e) => e.postID === postID);
+  console.log("props del postinformationcontainer", props);
+  const postToDisplay = props.posts.find((e) => e.post.postID === postID);
   const [post, setPost] = useState(postToDisplay);
   console.log("PostToDisplay: ", postToDisplay);
-
-  useEffect(() => {
-    setPost(postToDisplay);
-    console.log("Post Mounted: ", post, "color: yellow");
-  }, []);
 
   useEffect(() => {
     setPost(postToDisplay);
@@ -38,7 +34,7 @@ function PostInformationContainer(props) {
       {
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
-            <PostDataCard user={postToDisplay} />
+            <PostDataCard post={postToDisplay} />
           </Grid>
         </Grid>
       }

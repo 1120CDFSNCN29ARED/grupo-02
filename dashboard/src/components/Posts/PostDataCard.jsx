@@ -29,7 +29,7 @@ export default function PostDataCard(props) {
   useEffect(() => {
     setPost(props.post);
   }, [post, props.post]);
-
+  console.log("props del postdatacard", props);
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -41,7 +41,7 @@ export default function PostDataCard(props) {
               }}
               id="title"
               label="Título"
-              value={props.post.post.title}
+              value={props.post.title}
               variant="outlined"
             />
             <TextField

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function UsersContainer() {
+function PostsContainer() {
   const baseUrl = "http://localhost:3000/api/";
   const postsUrl = "posts";
 
@@ -55,7 +55,7 @@ function UsersContainer() {
             <TableContainer category="posts" />
           </Grid>
           <Route
-            path="/posts/:userID"
+            path="/posts/:postID"
             render={(props) => (
               <PostInformationContainer {...props} posts={posts} />
             )}
@@ -66,4 +66,4 @@ function UsersContainer() {
   );
 }
 
-export default UsersContainer;
+export default PostsContainer;

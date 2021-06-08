@@ -96,7 +96,6 @@
                 <div class="form-floating mb-1 <%=locals.errors && errors.state ? 'is-invalid': null %>" id="state" aria-label="Select Part State">
                     <p>Estado</p>
                     <div class="form-check form-check-inline">
-                        <% console.log(post.post.state) %> 
                         <input type="radio" name="state" id="stateNew" value="nuevo" <%= (locals.post && post.post && post.post.state === "nuevo") ? "checked" : "" %>>
                         <label for="stateNew">Nuevo</label>
                     </div>

@@ -31,7 +31,6 @@ export default function Main() {
         <div className={classes.toolbar} />
         <TotalsRowContainer />
         <LastAndCategoryInformationContainer />
-        <TablesContainer category="posts" />
       </main>
     </>
   );

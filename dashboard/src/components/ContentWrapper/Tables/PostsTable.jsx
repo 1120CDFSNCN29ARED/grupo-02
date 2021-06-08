@@ -16,7 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
-import { Link } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const baseUrl = "http://localhost:3000/api/";
 const postsUrl = "posts";
@@ -106,7 +106,6 @@ EnhancedTableHead.propTypes = {
   classes: PropTypes.object.isRequired,
   numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
-  onSelectAllClick: PropTypes.func.isRequired,
   order: PropTypes.oneOf(["asc", "desc"]).isRequired,
   orderBy: PropTypes.string.isRequired,
   rowCount: PropTypes.number.isRequired,
@@ -324,16 +323,14 @@ export default function PostTable() {
                       key={row._id}
                       selected={isItemSelected}
                     >
-                      <Link to={"/posts/" + row._id}>
-                        <TableCell
-                          component="th"
-                          id={labelId}
-                          scope="row"
-                          padding="1"
-                        >
-                          {row._id}
-                        </TableCell>
-                      </Link>
+                      <TableCell
+                        component="th"
+                        id={labelId}
+                        scope="row"
+                        padding="1"
+                      >
+                        {row._id}
+                      </TableCell>
                       <TableCell align="left">{row.category}</TableCell>
                       <TableCell align="left">{row.brand}</TableCell>
                       <TableCell align="left">{row.model}</TableCell>
