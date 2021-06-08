@@ -9,6 +9,7 @@ import {
 import Bars from "./components/Bars/Bars";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
+import PostsContainer from "./components/Posts/PostsContainer";
 
 function App() {
   const darkTheme = createMuiTheme({
@@ -32,9 +33,9 @@ function App() {
               <UsersContainer />
             </Route>
             <Route path="/posts">
-              <Main />
+              <PostsContainer />
             </Route>
-            <Route path="/" exact="true">
+            <Route path="/" exact>
               <Main />
             </Route>
           </Switch>
