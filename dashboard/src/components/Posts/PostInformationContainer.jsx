@@ -18,6 +18,7 @@ function PostInformationContainer(props) {
   const postID = props.match.params.postID;
   console.log("PARAMS: ", props.match.params.postID);
   const classes = useStyles();
+  // eslint-disable-next-line no-unused-vars
   const [posts, setPosts] = useState(props.posts);
   console.log("props del postinformationcontainer", props);
   const postToDisplay = props.posts.find((e) => e.post.postID === postID);
@@ -27,6 +28,7 @@ function PostInformationContainer(props) {
   useEffect(() => {
     setPost(postToDisplay);
     console.log("Post Updated: ", post, "color: green");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [post]);
 
   return (

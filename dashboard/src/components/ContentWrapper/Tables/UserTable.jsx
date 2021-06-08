@@ -13,14 +13,9 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
-import Checkbox from "@material-ui/core/Checkbox";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from "@material-ui/icons/Visibility";
-import FilterListIcon from "@material-ui/icons/FilterList";
+
 import axios from 'axios';
 import { Switch } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -224,6 +219,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserTable(props) {
 	const classes = useStyles();
+	// eslint-disable-next-line no-unused-vars
 	const category = props.category;
 	const [order, setOrder] = React.useState("asc");
 	const [orderBy, setOrderBy] = React.useState("_id");
@@ -231,6 +227,7 @@ export default function UserTable(props) {
 	const [page, setPage] = React.useState(0);
 	const [dense, setDense] = React.useState(false);
 	const [rowsPerPage, setRowsPerPage] = React.useState(2);
+	// eslint-disable-next-line no-unused-vars
 	const [users, setUsers] = useState([]);
 	const [rows, setRows] = useState([]);
 

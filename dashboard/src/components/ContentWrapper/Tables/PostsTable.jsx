@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+// eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
 
 const baseUrl = "http://localhost:3000/api/";
@@ -80,7 +81,7 @@ function EnhancedTableHead(props) {
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? "right" : "left"}
-            padding={headCell.disablePadding ? "1" : "default"}
+            padding={"default"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
@@ -200,6 +201,7 @@ export default function PostTable() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  // eslint-disable-next-line no-unused-vars
   const [posts, setPosts] = useState([]);
   const [rows, setRows] = useState([]);
 
@@ -207,15 +209,6 @@ export default function PostTable() {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
-  };
-
-  const handleSelectAllClick = (event) => {
-    if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n._id);
-      setSelected(newSelecteds);
-      return;
-    }
-    setSelected([]);
   };
 
   const handleClick = (event, _id) => {
@@ -327,7 +320,7 @@ export default function PostTable() {
                         component="th"
                         id={labelId}
                         scope="row"
-                        padding="1"
+                        padding="default"
                       >
                         {row._id}
                       </TableCell>
