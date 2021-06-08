@@ -60,9 +60,9 @@ export default function InformationCard(props) {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				<Button size="small" color="default">
+				{/* <Button size="small" color="default">
 					Ver
-				</Button>
+				</Button> */}
 			</CardActions>
 		</Card>
 	);

@@ -54,12 +54,12 @@ export default function LastCreatedCard(props) {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				<Button size="small" color="default">
+				{/* <Button size="small" color="default">
 					Ver
 				</Button>
 				<Button size="small" color="default">
 					Editar
-				</Button>
+				</Button> */}
 			</CardActions>
 		</Card>
 	);
