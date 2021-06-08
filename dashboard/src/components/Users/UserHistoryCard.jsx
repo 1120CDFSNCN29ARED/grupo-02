@@ -40,7 +40,8 @@ export default function UserDataCard(props) {
 			let result = await response.data.data.favourites;
 		
 			if (result.length > 0) {
-			
+				
+				setFavourites(result);
 				setNumFaves(result.length);
 			}
 
@@ -58,6 +59,8 @@ export default function UserDataCard(props) {
 			let result = await response.data.data.questions;
 
 			if (result.length > 0) {
+				
+				setQuestions(result);
 				setNumQuestions(result.length);
 				console.log("Num Questions: ",result.length)
 			}
@@ -66,17 +69,33 @@ export default function UserDataCard(props) {
 		}
 	};
 
-	useEffect(() => {
+/* 	useEffect(() => {
+		async function loadFavourites() {
+			await getFavourites();
+		}
+
+		async function loadQuestions() {
+			await getQuestions();
+		}
+		
 		setUser(props.user);
-		getFavourites();
-		getQuestions();
-	}, [])
+		loadFavourites();
+		loadQuestions();
+		
+	}, []) */
 
 	useEffect(() => {
-		setUser(props.user)
-		console.log("The user to show: ", props.user)
-		getFavourites();
-		getQuestions();
+		async function loadFavourites() {
+			await getFavourites();
+		}
+
+		async function loadQuestions() {
+			await getQuestions();
+		}
+
+		setUser(props.user);
+		loadFavourites();
+		loadQuestions();
 	}, [user]);
 	
 

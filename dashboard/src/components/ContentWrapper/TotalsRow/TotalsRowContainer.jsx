@@ -86,6 +86,7 @@ export default function TotalsRowContainer() {
     let response;
 
     try {
+
       response = await axios.get(`${baseUrl}${usersUrl}`);
       const result = await response.data.data.users;
 
@@ -101,6 +102,7 @@ export default function TotalsRowContainer() {
     let response;
 
     try {
+
       response = await axios.get(`${baseUrl}${postsUrl}`);
       const result = await response.data.data;
 
@@ -115,6 +117,7 @@ export default function TotalsRowContainer() {
 
   async function setPublishedValue(posts) {
     let publishedValue;
+    
     if (posts.length > 0) {
       publishedValue = posts.reduce((acc, cur) => {
         return acc + cur.post.stock * cur.post.price;

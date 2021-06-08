@@ -27,6 +27,7 @@ export default function UserInformationCard(props) {
 	
 	useEffect(() => {
 		setUser(props.user);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [user])
 
 	return (
