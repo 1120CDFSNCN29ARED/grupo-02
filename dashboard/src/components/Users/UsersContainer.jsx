@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import { Switch, Link, Route } from 'react-router-dom';
 import TableContainer from '../ContentWrapper/Tables/TablesContainer';
 import axios from 'axios';
+import UserInformationContainer from './UserInformationContainer';
 import UserDataCard from './UserDataCard';
 import UserHistoryCard from './UserHistoryCard';
 import UserInformationCard from './UserInformationCard';
@@ -12,7 +13,6 @@ import { Button } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginBottom: 25,
     //marginTop: 90,
     padding: theme.spacing(11, 3),
   },
@@ -59,7 +59,9 @@ function UsersContainer() {
           <Grid item md={12}>
             <TableContainer category="users" />
           </Grid>
-          <Grid item xs={12}>
+          <Route path="/users/:userID" render={(props) => <UserInformationContainer {...props} users={users}/>}/>
+          {/* <UserInformationContainer/> */}
+          {/* <Grid item xs={12}>
             <UserInformationCard user={users[0]} />
           </Grid>
           <Grid item xs={12} md={8}>
@@ -67,7 +69,7 @@ function UsersContainer() {
           </Grid>
           <Grid item xs={12} md={4}>
             <UserHistoryCard />
-          </Grid>
+          </Grid> */}
         </Grid>
       }
     </div>

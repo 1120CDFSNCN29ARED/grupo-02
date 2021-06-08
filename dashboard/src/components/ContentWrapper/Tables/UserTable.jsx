@@ -23,6 +23,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import axios from 'axios';
 import { Switch } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const baseUrl = "http://localhost:3000/api/";
 const usersUrl = "users";
@@ -34,8 +35,9 @@ function createData(
 	lastName,
 	email,
 	status,
+	view
 ) {
-	return { _id, userName, name, lastName, email, status};
+	return { _id, userName, name, lastName, email, status,view};
 }
 
 function descendingComparator(a, b, orderBy) {
@@ -75,17 +77,15 @@ const headCells = [
 	{ id: "name", numeric: false, disablePadding: false, label: "Nombre" },
 	{ id: "lastName", numeric: false, disablePadding: false, label: "Apellido" },
 	{ id: "email", numeric: false, disablePadding: false, label: "Email" },
-	{ id: "status", numeric: false, disablePadding: false, label: "Status" }
+	{ id: "status", numeric: false, disablePadding: false, label: "Status" },
+	{ id: "view", numeric: false, disablePadding: false, label: "Perfil" },
 ];
 
 function EnhancedTableHead(props) {
 	const {
 		classes,
-		onSelectAllClick,
 		order,
 		orderBy,
-		numSelected,
-		rowCount,
 		onRequestSort,
 	} = props;
 
@@ -95,8 +95,8 @@ function EnhancedTableHead(props) {
 
 	return (
 		<TableHead>
-			<TableRow>
-				{/* <TableCell padding="checkbox">
+				<TableRow>
+					{/* <TableCell padding="checkbox">
 					<Checkbox
 						indeterminate={numSelected > 0 && numSelected < rowCount}
 						checked={rowCount > 0 && numSelected === rowCount}
@@ -104,28 +104,30 @@ function EnhancedTableHead(props) {
 						inputProps={{ "aria-label": "Selecciona todos los usuarios" }}
 					/>
 				</TableCell> */}
-				{headCells.map((headCell) => (
-					<TableCell
-						key={headCell.id}
-						align={headCell.numeric ? "right" : "left"}
-						padding={headCell.disablePadding ? "1" : "default"}
-						sortDirection={orderBy === headCell.id ? order : false}
-					>
-						<TableSortLabel
-							active={orderBy === headCell.id}
-							direction={orderBy === headCell.id ? order : "asc"}
-							onClick={createSortHandler(headCell.id)}
+					{headCells.map((headCell) => (
+						<TableCell
+							key={headCell.id}
+							align={headCell.numeric ? "right" : "left"}
+							padding={headCell.disablePadding ? "default" : "default"}
+							sortDirection={orderBy === headCell.id ? order : false}
 						>
-							{headCell.label}
-							{orderBy === headCell.id ? (
-								<span className={classes.visuallyHidden}>
-									{order === "desc" ? "sorted descending" : "sorted ascending"}
-								</span>
-							) : null}
-						</TableSortLabel>
-					</TableCell>
-				))}
-			</TableRow>
+							<TableSortLabel
+								active={orderBy === headCell.id}
+								direction={orderBy === headCell.id ? order : "asc"}
+								onClick={createSortHandler(headCell.id)}
+							>
+								{headCell.label}
+								{orderBy === headCell.id ? (
+									<span className={classes.visuallyHidden}>
+										{order === "desc"
+											? "sorted descending"
+											: "sorted ascending"}
+									</span>
+								) : null}
+							</TableSortLabel>
+						</TableCell>
+					))}
+				</TableRow>
 		</TableHead>
 	);
 }
@@ -134,7 +136,6 @@ EnhancedTableHead.propTypes = {
 	classes: PropTypes.object.isRequired,
 	numSelected: PropTypes.number.isRequired,
 	onRequestSort: PropTypes.func.isRequired,
-	onSelectAllClick: PropTypes.func.isRequired,
 	order: PropTypes.oneOf(["asc", "desc"]).isRequired,
 	orderBy: PropTypes.string.isRequired,
 	rowCount: PropTypes.number.isRequired,
@@ -206,7 +207,7 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: theme.spacing(2),
 	},
 	table: {
-		minWidth: 750,
+		minWidth: 500,
 	},
 	visuallyHidden: {
 		border: 0,
@@ -229,7 +230,7 @@ export default function UserTable(props) {
 	const [selected, setSelected] = React.useState([]);
 	const [page, setPage] = React.useState(0);
 	const [dense, setDense] = React.useState(false);
-	const [rowsPerPage, setRowsPerPage] = React.useState(5);
+	const [rowsPerPage, setRowsPerPage] = React.useState(2);
 	const [users, setUsers] = useState([]);
 	const [rows, setRows] = useState([]);
 
@@ -238,7 +239,7 @@ export default function UserTable(props) {
 		setOrder(isAsc ? "desc" : "asc");
 		setOrderBy(property);
 	};
-
+/* 
 	const handleSelectAllClick = (event) => {
 		if (event.target.checked) {
 			const newSelecteds = rows.map((n) => n._id);
@@ -246,7 +247,7 @@ export default function UserTable(props) {
 			return;
 		}
 		setSelected([]);
-	};
+	}; */
 
 	const handleClick = (event, _id) => {
 		const selectedIndex = selected.indexOf(_id);
@@ -303,9 +304,8 @@ export default function UserTable(props) {
 						user.firstName,
 						user.lastName,
 						user.email,
-						user.active ? "Active": "Inactive",
-						<EditIcon />,
-						<VisibilityIcon />
+						user.active ? "Active" : "Inactive",
+						<VisibilityIcon/>
 					);
 				});
 				setRows(rowData);
@@ -363,21 +363,22 @@ export default function UserTable(props) {
 													inputProps={{ "aria-labelledby": labelId }}
 												/>
 											</TableCell> */}
-											<TableCell
-												component="th"
-												id={labelId}
-												scope="row"
-												padding="1"
-											>
-												{row._id}
-											</TableCell>
+											<Link to={"/users/"+row._id}>
+												<TableCell
+													component="th"
+													id={labelId}
+													scope="row"
+													padding="default"
+												>
+													{row._id}
+												</TableCell>
+											</Link>
 											<TableCell align="left">{row.userName}</TableCell>
 											<TableCell align="left">{row.name}</TableCell>
 											<TableCell align="left">{row.lastName}</TableCell>
 											<TableCell align="left">{row.email}</TableCell>
 											<TableCell align="left">{row.status}</TableCell>
-											<TableCell align="left">{row.edit}</TableCell>
-											<TableCell align="left">{row.view}</TableCell>
+											<Link to={"/users/"+row._id}><TableCell align="left">{row.view}</TableCell></Link>
 										</TableRow>
 									);
 								})}

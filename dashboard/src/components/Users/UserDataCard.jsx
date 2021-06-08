@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
-
-import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,106 +24,117 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserDataCard(props) {
 	const classes = useStyles();
-  const [user,setUser]=useState()
+	const [user, setUser] = useState(props.user)
+
+		useEffect(() => {
+			setUser(props.user);
+		}, [user, props.user]);
+	
 	return (
 		<Card className={classes.root}>
 			<CardContent>
 				<form className={classes.inputFields} noValidate autoComplete="off">
 					<div>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }}
+							InputProps={{
+								readOnly: true,
+							}}
 							id="userName"
 							label="Usuario"
-							defaultValue="props.user.userName"
+							value={props.user.userName}
 							variant="outlined"
 						/>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }}
+							InputProps={{
+								readOnly: true,
+							}}
 							id="email"
 							label="Email"
-							type="email"
-							defaultValue="props.user.userEmail"
+							value={props.user.email}
 							variant="outlined"
 						/>
 					</div>
 					<div>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }}
+							InputProps={{
+								readOnly: true,
+							}}
 							id="firstName"
 							label="Nombre"
-							defaultValue="props.user.firstName"
+							value={props.user.firstName}
 							variant="outlined"
 						/>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }}
+							InputProps={{
+								readOnly: true,
+							}}
 							id="lastName"
 							label="Apellido"
-							defaultValue="props.user.lastName"
+							value={props.user.lastName}
 							variant="outlined"
 						/>
 					</div>
 					<div>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }} id="dni" label="DNI" type="number" defaultValue="props.user.dni" variant="outlined" />
+							InputProps={{
+								readOnly: true,
+							}}
+							id="dni"
+							label="DNI"
+							type="number"
+							value={props.user.dni}
+							variant="outlined"
+						/>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }}
+							InputProps={{
+								readOnly: true,
+							}}
 							id="telephone"
 							label="Teléfono"
-							defaultValue="props.user.telephone"
+							value={props.user.telephone}
 							variant="outlined"
 						/>
 					</div>
-					<div>
+					{/* <div>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }}
+							InputProps={{
+								readOnly: true,
+							}}
 							id="province"
 							label="Provincia"
 							select
-							defaultValue="props.user.province"
+							value={props.user.province}
 							variant="outlined"
 						/>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }}
+							InputProps={{
+								readOnly: true,
+							}}
 							id="city"
 							label="Cíudad"
 							select
-							defaultValue="props.user.city"
+							value={props.user.city}
 							variant="outlined"
 						/>
-					</div>
+					</div> */}
 					<div>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }}
+							InputProps={{
+								readOnly: true,
+							}}
 							id="postalCode"
 							label="Código Postal"
 							type="number"
+							value={props.user.postalCode}
 							variant="outlined"
 						/>
 						<TextField
-            InputProps={{
-            readOnly: true,
-          }}
+							InputProps={{
+								readOnly: true,
+							}}
 							id="address"
 							label="Dirección"
-							defaultValue="props.user.address"
+							value={props.user.address}
 							variant="outlined"
 						/>
 					</div>

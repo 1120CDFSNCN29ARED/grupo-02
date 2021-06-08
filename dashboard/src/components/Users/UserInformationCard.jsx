@@ -23,12 +23,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserInformationCard(props) {
 	const classes = useStyles();
-	const [user, setUser] = useState({});
+	const [user, setUser] = useState(props.user);
 	
 	useEffect(() => {
 		setUser(props.user);
-		console.log("UserInformationcard User: ", user);
-	}, [])
+	}, [user])
 
 	return (
 		<Card className={classes.root}>
@@ -43,8 +42,8 @@ export default function UserInformationCard(props) {
 						<EditIcon />
 					</IconButton>
 				}
-				title='{user.firstName+" "+ user.lastName+" @ "+user.userName}'
-				subheader='{user.userID}'
+				title={props.user.firstName+" "+ props.user.lastName+" @ "+ props.user.userName}
+				subheader={props.user.userID}
 			/>
 			<CardActions disableSpacing>
 				<IconButton aria-label="View favorites">
