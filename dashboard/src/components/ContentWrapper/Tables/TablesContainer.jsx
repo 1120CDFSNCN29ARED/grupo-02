@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import UserTable from "./UserTable";
 import PostsTable from "./PostsTable";
-import { Divider } from "@material-ui/core";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -56,6 +55,7 @@ export default function TablesContainer(props) {
 
   useEffect(() => {
     category === "users" ? getUsers() : getPosts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

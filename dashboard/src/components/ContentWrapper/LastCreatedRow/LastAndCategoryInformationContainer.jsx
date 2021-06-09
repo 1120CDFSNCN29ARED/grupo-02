@@ -126,6 +126,7 @@ export default function LastAndCategoryInformationContainer() {
     getPosts();
 		getVehicles();
 		getParts();
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className={classes.root}>

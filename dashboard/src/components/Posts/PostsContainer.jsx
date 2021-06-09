@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -20,21 +21,26 @@ function PostsContainer() {
 
   const classes = useStyles();
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   async function getPosts() {
     let response;
 
     try {
+      
       response = await axios.get(`${baseUrl}${postsUrl}`);
+<<<<<<< HEAD
       const result = response.data.data;
+=======
+      console.log(response);
+      const result = await response.data.data;
+>>>>>>> simon
 
       if (result.length > 0) {
         console.log("Posts: ", result);
         setPosts(result);
       }
     } catch (error) {
-      console.log("Error: ", error.msg);
+      console.log("Error inloading posts: ", error);
     }
   }
 

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import TotalsRowContainer from "../ContentWrapper/TotalsRow/TotalsRowContainer";
-import TablesContainer from "../ContentWrapper/Tables/TablesContainer";
 import LastAndCategoryInformationContainer from "../ContentWrapper/LastCreatedRow/LastAndCategoryInformationContainer";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Main() {
   const classes = useStyles();
+  // eslint-disable-next-line no-unused-vars
   const theme = useTheme();
 
   return (

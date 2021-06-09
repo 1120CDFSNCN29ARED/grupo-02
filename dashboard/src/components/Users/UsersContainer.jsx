@@ -1,14 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { Switch, Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import TableContainer from '../ContentWrapper/Tables/TablesContainer';
 import axios from 'axios';
 import UserInformationContainer from './UserInformationContainer';
-import UserDataCard from './UserDataCard';
-import UserHistoryCard from './UserHistoryCard';
-import UserInformationCard from './UserInformationCard';
-import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +21,6 @@ function UsersContainer() {
 
   const classes = useStyles();
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   async function getUsers() {
     let response;
@@ -60,16 +56,6 @@ function UsersContainer() {
             <TableContainer category="users" />
           </Grid>
           <Route path="/users/:userID" render={(props) => <UserInformationContainer {...props} users={users}/>}/>
-          {/* <UserInformationContainer/> */}
-          {/* <Grid item xs={12}>
-            <UserInformationCard user={users[0]} />
-          </Grid>
-          <Grid item xs={12} md={8}>
-            <UserDataCard user={users[0]} />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <UserHistoryCard />
-          </Grid> */}
         </Grid>
       }
     </div>
