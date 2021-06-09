@@ -26,14 +26,8 @@ function PostsContainer() {
     let response;
 
     try {
-      
       response = await axios.get(`${baseUrl}${postsUrl}`);
-<<<<<<< HEAD
       const result = response.data.data;
-=======
-      console.log(response);
-      const result = await response.data.data;
->>>>>>> simon
 
       if (result.length > 0) {
         console.log("Posts: ", result);

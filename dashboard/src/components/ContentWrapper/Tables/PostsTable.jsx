@@ -316,7 +316,6 @@ export default function PostTable() {
                       key={row._id}
                       selected={isItemSelected}
                     >
-<<<<<<< HEAD
                       <Link to={"/posts/" + row._id}>
                         <TableCell
                           component="th"
@@ -327,16 +326,6 @@ export default function PostTable() {
                           {row._id}
                         </TableCell>
                       </Link>
-=======
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="default"
-                      >
-                        {row._id}
-                      </TableCell>
->>>>>>> simon
                       <TableCell align="left">{row.category}</TableCell>
                       <TableCell align="left">{row.brand}</TableCell>
                       <TableCell align="left">{row.model}</TableCell>
