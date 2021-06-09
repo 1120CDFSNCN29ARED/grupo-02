@@ -27,7 +27,7 @@ function PostsContainer() {
 
     try {
       response = await axios.get(`${baseUrl}${postsUrl}`);
-      const result = response.data.posts;
+      const result = response.data.data;
 
       if (result.length > 0) {
         console.log("Posts: ", result);

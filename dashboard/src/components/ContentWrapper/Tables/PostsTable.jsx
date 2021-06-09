@@ -62,7 +62,7 @@ const headCells = [
   { id: "category", numeric: false, disablePadding: false, label: "Tipo" },
   { id: "brand", numeric: false, disablePadding: false, label: "Marca" },
   { id: "model", numeric: false, disablePadding: false, label: "Modelo" },
-  { id: "name", numeric: false, disablePadding: false, label: "Nombre" },
+  { id: "title", numeric: false, disablePadding: false, label: "Título" },
   { id: "price", numeric: true, disablePadding: false, label: "Precio" },
   { id: "qty", numeric: true, disablePadding: false, label: "Stock" },
 ];
@@ -323,14 +323,16 @@ export default function PostTable() {
                       key={row._id}
                       selected={isItemSelected}
                     >
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="1"
-                      >
-                        {row._id}
-                      </TableCell>
+                      <Link to={"/posts/" + row._id}>
+                        <TableCell
+                          component="th"
+                          id={labelId}
+                          scope="row"
+                          padding="1"
+                        >
+                          {row._id}
+                        </TableCell>
+                      </Link>
                       <TableCell align="left">{row.category}</TableCell>
                       <TableCell align="left">{row.brand}</TableCell>
                       <TableCell align="left">{row.model}</TableCell>

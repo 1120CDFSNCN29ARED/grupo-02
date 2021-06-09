@@ -34,88 +34,150 @@ export default function PostDataCard(props) {
     <Card className={classes.root}>
       <CardContent>
         <form className={classes.inputFields} noValidate autoComplete="off">
-          <div>
-            <TextField
-              InputProps={{
-                readOnly: true,
-              }}
-              id="title"
-              label="Título"
-              value={props.post.title}
-              variant="outlined"
-            />
-            <TextField
-              InputProps={{
-                readOnly: true,
-              }}
-              id="seller"
-              label="Vendedor"
-              value={props.post.seller.userName}
-              variant="outlined"
-            />
-          </div>
-          <div>
-            <TextField
-              InputProps={{
-                readOnly: true,
-              }}
-              id="type"
-              label="Tipo"
-              value={props.post.post.productType}
-              variant="outlined"
-            />
-            <TextField
-              InputProps={{
-                readOnly: true,
-              }}
-              id="price"
-              label="Precio"
-              type="number"
-              value={props.post.post.price}
-              variant="outlined"
-            />
-          </div>
-          <div>
-            <TextField
-              InputProps={{
-                readOnly: true,
-              }}
-              id="brand"
-              label="Marca"
-              value={props.post.post.brandName}
-              variant="outlined"
-            />
-            <TextField
-              InputProps={{
-                readOnly: true,
-              }}
-              id="model"
-              label="Modelo"
-              value={props.post.post.modelName}
-              variant="outlined"
-            />
-          </div>
-
-          <div>
-            <TextField
-              InputProps={{
-                readOnly: true,
-              }}
-              id="province"
-              label="Provincia"
-              value={props.post.location.provinceName}
-              variant="outlined"
-            />
-            <TextField
-              InputProps={{
-                readOnly: true,
-              }}
-              id="city"
-              label="Ciudad"
-              value={props.post.location.locationID}
-              variant="outlined"
-            />
-          </div>
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="title"
+            label="Título"
+            value={props.post.post.title}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="seller"
+            label="Vendedor"
+            value={props.post.seller.userName}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="type"
+            label="Tipo"
+            value={props.post.post.productType}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="published"
+            label="Publicado"
+            value={props.post.post.published ? "Sí" : "No"}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="publishedDate"
+            label="Fecha de publicación"
+            value={
+              props.post.post.published && props.post.post.publishedDate
+                ? props.post.post.publishedDate
+                : "N/A"
+            }
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="price"
+            label="Precio"
+            type="number"
+            value={props.post.post.price}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="onSale"
+            label="En oferta"
+            value={props.post.post.onSale ? "Sí" : "No"}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="discount"
+            type="number"
+            label="Descuento"
+            value={props.post.post.discount}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="rating"
+            type="number"
+            label="Rating"
+            value={props.post.post.rating}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="brand"
+            label="Marca"
+            value={props.post.post.brandName}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="model"
+            label="Modelo"
+            value={props.post.post.modelName}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="version"
+            label="Versión"
+            value={
+              props.post.post.versionName ? props.post.post.versionName : "N/A"
+            }
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="province"
+            label="Provincia"
+            value={props.post.location.provinceName}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="city"
+            label="Ciudad"
+            value={props.post.location.localityName}
+            variant="outlined"
+          />
+          <TextField
+            InputProps={{
+              readOnly: true,
+            }}
+            id="postalCode"
+            label="Código Postal"
+            value={props.post.location.postalCode}
+            variant="outlined"
+          />
         </form>
       </CardContent>
     </Card>
