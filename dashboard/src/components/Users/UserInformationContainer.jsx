@@ -23,11 +23,6 @@ function UserInformationContainer(props) {
 	const userToDisplay = props.users.find((e) => e.userID === userID);
 	const [user, setUser] = useState(userToDisplay);
 	console.log("UserToDisplay: ", userToDisplay);
-	
-	useEffect(() => {
-		setUser(userToDisplay);
-		console.log("User Mounted: ", user, "color: yellow");
-	}, []);
 
 	useEffect(() => {
 		setUser(userToDisplay);

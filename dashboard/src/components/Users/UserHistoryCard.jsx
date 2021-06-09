@@ -39,7 +39,7 @@ export default function UserDataCard(props) {
 			response = await axios.get(`${baseUrl}/users/${props.user.userID}/favourites`);
 			let result = await response.data.data.favourites;
 		
-			if (result.length > 0) {
+			if (result.length >= 0) {
 				
 				setFavourites(result);
 				setNumFaves(result.length);
@@ -54,15 +54,15 @@ export default function UserDataCard(props) {
 		let response;
 
 		try {
-
+			console.log("UserID: ", props.user.userID);
 			response = await axios.get(`${baseUrl}/questions/user/${props.user.userID}`);
 			let result = await response.data.data.questions;
 
-			if (result.length > 0) {
+			if (result.length >= 0) {
 				
 				setQuestions(result);
 				setNumQuestions(result.length);
-				console.log("Num Questions: ",result.length)
+				console.log("Questions: ",result)
 			}
 		}catch(error){
 			console.log("error getting questions: ", error.msg);
@@ -96,7 +96,7 @@ export default function UserDataCard(props) {
 		setUser(props.user);
 		loadFavourites();
 		loadQuestions();
-	}, [user]);
+	}, [props.user]);
 	
 
 	return (

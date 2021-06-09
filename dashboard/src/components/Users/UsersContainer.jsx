@@ -56,16 +56,6 @@ function UsersContainer() {
             <TableContainer category="users" />
           </Grid>
           <Route path="/users/:userID" render={(props) => <UserInformationContainer {...props} users={users}/>}/>
-          {/* <UserInformationContainer/> */}
-          {/* <Grid item xs={12}>
-            <UserInformationCard user={users[0]} />
-          </Grid>
-          <Grid item xs={12} md={8}>
-            <UserDataCard user={users[0]} />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <UserHistoryCard />
-          </Grid> */}
         </Grid>
       }
     </div>
