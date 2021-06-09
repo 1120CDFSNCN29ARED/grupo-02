@@ -181,7 +181,11 @@
                 </button></a>
               <% } %>
       </div>
-      <div class="registration-cta d-block d-md-inline-block"><a href=<%= action!='register' ? `/users/profile/${user.userID}` : "/"%>><button class="btn-secondary btn-lg" type="button">Cancelar</button></a></div>
+      <% if (locals.action && action === "edit") { %>
+      <div class="registration-cta d-block d-md-inline-block"><a href=<%=action!='register' ? `/users/profile/${user.userID}`
+          : "/" %>><button class="btn-secondary btn-lg" type="button">Cancelar</button></a></div>
+      <% } %>
+      
       <% if (action!='view') { %>
         <div class="registration-cta ms-auto d-block d-md-inline-block"><button class="btn-registration-confirm btn-lg" type="submit">Confirmar</button></div>
       <% } else { %>      
